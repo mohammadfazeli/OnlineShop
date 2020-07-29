@@ -1,0 +1,33 @@
+﻿@model OnlineShop.ViewModels.Area.Base.PartDto
+<partial name="_CustomValidationSummary" />
+
+
+<form asp-action="Edit" method="post">
+
+    <div class="uk-card">
+        <div class="uk-card-header">
+            <h3 class="uk-card-title">
+                @ViewBag.Title
+                @ViewBag.Icon
+            </h3>
+        </div>
+        <div class="uk-card-body">
+            <div class="form-group row">
+                <label asp-for="Title" class="col-md-3 col-form-label text-md-left"></label>
+                <div class="col-md-9">
+                    @Html.HiddenFor(m=>m.Id)
+                    <input dir="ltr" asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="uk-card-footer">
+            <button class="btn btn-primary" type="submit">ثبت</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">انصراف</button>
+        </div>
+    </div>
+
+
+
+
+</form>

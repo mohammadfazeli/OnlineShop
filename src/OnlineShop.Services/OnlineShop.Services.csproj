@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWarn>RCS1090</NoWarn>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineShop.DataLayer.InMemoryDatabase\OnlineShop.DataLayer.InMemoryDatabase.csproj" />
+    <ProjectReference Include="..\OnlineShop.DataLayer.MSSQL\OnlineShop.DataLayer.MSSQL.csproj" />
+    <ProjectReference Include="..\OnlineShop.DataLayer.SQLite\OnlineShop.DataLayer.SQLite.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DNTCommon.Web.Core" Version="1.8.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\Area\Base\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+﻿@model Guid
+
+<div class=" uk-button-group">
+    <button onclick="ShowAddModal('@Model')" class=" uk-button  uk-button-primary  uk-button-small" uk-tooltip="@Resource.Edit"> Edit</button>
+    <a class="uk-button  uk-button-primary  uk-button-small" asp-action="Edit" asp-controller="Part" asp-route-id="@Model">
+        @Resource.Edit
+    </a>
+    <button onclick="Remove('@Model')" class=" uk-button  uk-button-danger uk-button-small" uk-tooltip="@Resource.Remove">remove</button>
+</div>

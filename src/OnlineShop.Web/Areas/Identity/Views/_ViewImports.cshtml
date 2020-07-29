@@ -1,0 +1,25 @@
+﻿@using OnlineShop.Areas.Identity
+@using OnlineShop.Common.IdentityToolkit
+@using OnlineShop.Common.PersianToolkit
+@using OnlineShop.Entities.Identity
+@using OnlineShop.Services.Contracts.Identity
+@using OnlineShop.Services.Identity
+@using OnlineShop.ViewModels.Identity
+@using OnlineShop.ViewModels.Identity.Emails
+@using OnlineShop.ViewModels.Identity.Settings
+@using Microsoft.AspNetCore.Routing
+@using Microsoft.Extensions.Options
+@using System.Globalization
+@using System.Threading.Tasks
+@using System.Net
+@using DNTPersianUtils.Core
+@using OnlineShop.DataLayer.Context
+@using OnlineShop.Entities.AuditableEntity
+@using OnlineShop.Resource
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using Microsoft.AspNetCore.Http;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, DNTCaptcha.Core
+@addTagHelper *, DNTBreadCrumb.Core
+@addTagHelper *, cloudscribe.Web.Pagination
+@addTagHelper *, OnlineShop

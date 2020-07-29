@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Menu>
+
+<style>
+</style>
+<script>
+    function SearchAdminMenu() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('SearchMenu');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("AdminMenu");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+@*<nav id="offcanvas-nav-primary" class="uk-light" data-uk-offcanvas="overlay: true; mode: reveal; flip: true">
+    <!-- offcanvas setting  -->
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+        <!-- navbar content her -->
+        <!-- A - logo -->
+        <p class="text-capitalize text-center uk-logo">فروشگاه آنلاین</p>
+        <div class="">
+            <div class="uk-inline uk-display-block p-2">
+                <a class="uk-form-icon" href="#" uk-icon="icon: search"></a>
+                <input class="uk-input" id="SearchMenu" type="text" placeholder="جستجو" onkeyup="SearchAdminMenu()">
+            </div>
+        </div>
+        <!-- B - nav -->
+        <ul class="uk-nav-default uk-nav-parent-icon" id="AdminMenu" uk-nav>
+            @foreach (var menuItem in Model)
+            {
+                <li class="uk-parent">
+                    <a class=" text-white p-2 m-1 bg-info" href="#">  <span href="#" class="" uk-icon="icon: @menuItem.ControllerIcon"></span> @menuItem.ControllerName</a>
+                    <ul class="uk-nav-sub">
+                        @foreach (var item in menuItem.menuItems)
+                        {
+                            @*<li><a href="#">Child two - offcanvas</a></li>*@
+@*<li class="text-center  ">
+        <a class="bg-white text-dark m-2 bg-secondary p-2" asp-area="@item.Area" asp-controller="@item.Controller" asp-action="@item.Action">
+            <span href="#" uk-icon="icon: @item.ActionIcon"></span>
+            @item.ActionName
+        </a>
+    </li>*@
+@*}
+                </ul>
+            </li>
+        }
+    </ul>*@
+<!--C- contact us -->
+@*<footer class="uk-margin-large-top">
+                <hr>
+                <span uk-icon="icon: phone"></span>
+                <a class="uk-link-text" tel href="#">+972 3434 3435</a>
+            </footer>
+        </div>
+    </nav>*@
+
+
+
+<aside class="main-sidebar  ">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        @*<div class="user-panel">
+                <div class="pull-left image">
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Alexander Pierce</p>
+                    <!-- Status -->
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>*@
+
+        <!-- search form (Optional) -->
+        @*<form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>*@
+
+        <!-- /.search form -->
+        <!-- Sidebar Menu -->
+
+        <ul class="sidebar-menu" id="AdminMenu">
+            @*<li>
+                    <div class="uk-inline uk-display-block p-2" id="divSearchMenu">
+                        <input class="uk-input" id="SearchMenu" type="text" placeholder="جستجو" onkeyup="SearchAdminMenu()">
+                    </div>
+                </li>*@
+            <!-- Optionally, you can add icons to the links -->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="treeview">
+                    <a href="#"> <span>مدیریت</span> <i class=" uk-text-left   fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="" asp-controller="UserCard" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                                <span class="mr-1 fas fa-user"></span>
+                                برگه‌ی کاربری من
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" asp-controller="UserProfile" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                                <span class="mr-1 fas fa-cog"></span>
+                                تنظیمات کاربری من
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" asp-controller="ChangePassword" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                                <span class="mr-1 fas fa-asterisk"></span>
+                                تغییر کلمه‌ی عبور
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" asp-controller="Login" asp-action="LogOff" asp-area="@AreaConstants.IdentityArea">
+                                <span class="mr-1 fas fa-sign-out-alt" aria-hidden="true"></span>
+                                خروج
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+            @foreach (var menuItem in Model)
+            {
+                <li class="treeview">
+                    @*<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>*@
+                    <a href="#"><i uk-icon="icon: @menuItem.ControllerIcon"></i> <span>@menuItem.ControllerName</span> <i class=" uk-text-left   fa fa-angle-left pull-right"></i></a>
+                    @*<a href="#"><span href="#" class="" uk-icon="icon: @menuItem.ControllerIcon"></span> @menuItem.ControllerName <i class="fa fa-angle-left pull-right"></i></a>*@
+                    <ul class="treeview-menu">
+                        @foreach (var item in menuItem.menuItems)
+                        {
+                            @*<li><a href="#">Link in level 2</a></li>*@
+                            <li>
+                                <a class="mr-3" asp-area="@item.Area" asp-controller="@item.Controller" asp-action="@item.Action">
+                                    <span href="#" uk-icon="icon: @item.ActionIcon"></span>
+                                    @item.ActionName
+                                </a>
+                            </li>
+
+                        }
+                    </ul>
+                </li>
+            }
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+

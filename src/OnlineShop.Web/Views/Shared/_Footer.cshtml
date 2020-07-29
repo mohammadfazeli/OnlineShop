@@ -1,0 +1,59 @@
+﻿@using OnlineShop.Web.Areas.Identity
+<div class="navbar bg-dark navbar-dark navbar-expand-sm fixed-top">
+    <div class="container">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">DNT Identity</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#myToggle" aria-controls="myToggle" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myToggle">
+            <div class="navbar-nav ml-2">
+                <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="fas fa-home" aria-hidden="true"></span>
+                    خانه
+                </a>
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <partial name="_UserMenu" />
+                <partial name="_ReportsMenu" />
+                if (User.IsInRole(ConstantRoles.Admin))
+                {
+                    <partial name="_AdminMenu" />
+                }
+            }
+            else
+            {
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" asp-area="@AreaConstants.IdentityArea" asp-controller="Login" asp-action="Index">
+                <span class="fas fa-sign-in-alt" aria-hidden="true"></span>
+                ورود
+            </a>
+            <a class="nav-item nav-link" asp-area="@AreaConstants.IdentityArea" asp-controller="Register" asp-action="Index">
+                <span class="fas fa-plug" aria-hidden="true"></span>
+                ثبت نام
+            </a>
+
+            <a class="nav-item nav-link" asp-area="@AreaConstants.IdentityArea" asp-controller="Part" asp-action="Index">
+                <span class="fas fa-plug" aria-hidden="true"></span>
+                part
+            </a>
+            <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
+                <div class="uk-offcanvas-bar">
+
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+
+                    <h3>Title</h3>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                </div>
+            </div>
+        </div>
+            }
+        </div>
+    </div>
+</div>

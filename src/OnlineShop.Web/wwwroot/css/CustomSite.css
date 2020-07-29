@@ -1,0 +1,25 @@
+﻿.uk-offcanvas-bar {
+    position: inherit;
+    padding: inherit;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.uk-offcanvas-bar {
+    position: inherit;
+    padding: inherit;
+    padding: 5px;
+}
+
+.dataTables_paginate {
+    text-align: center !important;
+}
+
+.dataTables_wrapper {
+    margin: 10px;
+}
+.current {
+    background-color: red;
+}
