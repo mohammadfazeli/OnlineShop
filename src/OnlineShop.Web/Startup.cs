@@ -48,8 +48,7 @@ namespace OnlineShop
                 });
             services.AddDNTCommonWeb();
             services.AddDNTCaptcha();
-            services.AddCloudscribePagination();
-
+            services.AddCloudscribePagination();            
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }

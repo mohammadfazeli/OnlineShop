@@ -198,7 +198,7 @@ namespace OnlineShop.DataLayer.Context
         {
             // it should be placed here, otherwise it will rewrite the following settings!
             base.OnModelCreating(builder);
-            
+
             // we can't use constructor injection anymore, because we are using the `AddDbContextPool<>`
             // Adds all of the ASP.NET Core Identity related mappings at once.
             builder.AddCustomIdentityMappings(this.GetService<IOptionsSnapshot<SiteSettings>>()?.Value);
@@ -207,8 +207,16 @@ namespace OnlineShop.DataLayer.Context
             builder.SetDecimalPrecision();
             builder.AddDateTimeUtcKindConverter();
 
+
+           
+
+
             // This should be placed here, at the end.
             builder.AddAuditableShadowProperties();
+
+
+
+          
         }
 
     }

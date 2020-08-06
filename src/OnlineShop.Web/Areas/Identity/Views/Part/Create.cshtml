@@ -1,18 +1,16 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.PartDto
 
 
+<partial name="_CustomValidationSummary" />
 
-<form asp-action="Edit" method="post">
-
+<form asp-action="Create" method="post">
     <div class="uk-card uk-card-default  uk-card-hover ">
-        <partial name="_CustomValidationSummary" />
 
         <div class="uk-card-header">
             <partial name="_CardHeader" />
         </div>
         <div class="uk-card-body">
             <div class="row">
-                @Html.HiddenFor(m => m.Id)
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
                     <div class="form-group">
 
@@ -41,12 +39,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <partial name="_CardFooter">
     </div>
-
-
 
 
 </form>

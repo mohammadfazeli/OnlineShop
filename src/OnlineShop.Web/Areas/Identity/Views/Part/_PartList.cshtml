@@ -1,0 +1,66 @@
+﻿@model OnlineShop.ViewModels.Area.Base.PartDto
+
+
+
+<div class="uk-overflow-auto">
+    <table id="example" class="display CustomDataTable uk-table uk-table-hover uk-table-middle uk-table-divider  table-bordered">
+        <thead class="bg-blue">
+            <tr class="text-center ">
+                <td class="text-center">@Html.DisplayNameFor(r => r.Id)</td>
+                <td class="text-center">@Html.DisplayNameFor(r => r.Name)</td>
+                <td class="text-center">@Html.DisplayNameFor(r => r.Title)</td>
+                <td class="text-center">@Html.DisplayNameFor(r => r.InActive)</td>
+                <td class="text-center">@Html.DisplayNameFor(r => r.FullInfo)</td>
+                <td class="text-center " style="width:80px">@Resource.Operation</td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+
+
+<script>
+
+    var table = $('.CustomDataTable').DataTable({
+        "language": {
+            "url": "../js/Persian.json",
+        },
+        "ajax": {
+            url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+            type: "GEt",
+            dataType: "json",
+        },
+
+        "columns": [
+            { "data": "id", className: "text-center", visible: false },
+            { "data": "name" ,className: "text-center"},
+            { "data": "title", className: "text-center"},
+            {
+                "data": "inActive", className: "text-center ", type: "checkbox", dataType: Boolean,
+                render: function (data) {
+                    if (data == true) {
+                        return '<input  type="checkbox " checked="checked"/>'
+                    } else {
+                        return '<input  type="checkbox" />'
+                    }
+
+                }
+            },
+            { "data": "fullInfo", className: "text-center" },
+
+            {
+                "data": null,
+                "render": function (data, type, row, meta) {
+                    return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                        ,[
+                            '<a  class="dropdown-item"   href="#" ><span uk-icon="icon: file-edit"></span>sdsd</a>',
+                            '<a  class="dropdown-item"   href="#" ><span uk-icon="icon: file-edit"></span>asd</a>'
+                        ]
+                    );
+                }
+            },
+        ]
+    });
+</script>
+

@@ -36,29 +36,6 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         {
 
             MenuBuilder(AreaConstants.Area.IdentityArea);
-            var parts = _PartService.Get(3);
-            if (parts != null)
-            {
-                var partDto = new PartDto()
-                {
-                    Code = parts.Code,
-                    Id = parts.Id,
-                    Name = "فرهاد",
-                    Title = "ثبasdasdasdasdasdasdasdت ثبت"
-                };
-                _PartService.Update(partDto);
-
-            }
-            else
-            {
-                var dsDto = new PartDto()
-                {
-                    Name = "محمد ",
-                    Title = "ادد میشه"
-                };
-                _PartService.Add(dsDto);
-            }
-
             var s = _mapper.Map(_PartService.GetAll().ToList(), new List<PartDto>());
             return View(s);
 
@@ -69,29 +46,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         {
 
             MenuBuilder(AreaConstants.Area.IdentityArea);
-            var parts = _PartService.Get(3);            
-            if (parts != null)
-            {
-                var partDto = new PartDto()
-                {
-                    Code = parts.Code,
-                    Id = parts.Id,
-                    Name = "فرهاد",
-                    Title = "ثبasdasdasdasdasdasdasdت ثبت"
-                };
-                _PartService.Update(partDto);
-
-            }
-            else
-            {
-                var dsDto = new PartDto()
-                {
-                    Name = "محمد ",
-                    Title = "ادد میشه"
-                };
-                _PartService.Add(dsDto);
-            }
-
+           
             var s = _mapper.Map(_PartService.GetAll().ToList(), new List<PartDto>());
             return View(s);
 

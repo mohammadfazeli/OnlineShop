@@ -123,6 +123,9 @@
   <data name="asdsadasd" xml:space="preserve">
     <value>sfda</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
   <data name="DisplayParts" xml:space="preserve">
     <value>مشاهده قطعات</value>
   </data>
@@ -138,11 +141,20 @@
   <data name="IsRequired" xml:space="preserve">
     <value>اجباری است</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
   <data name="Parts" xml:space="preserve">
     <value>قطعات</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>حذف</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>ثبت</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>عنوان</value>

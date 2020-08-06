@@ -36,7 +36,9 @@
     {
         UiKit,
         BootStrap,
-        FontAwesome
+        FontAwesome5,
+        FontAwesome4
+
     }
 
 

@@ -315,7 +315,8 @@ function _init() {
         e.preventDefault();
 
         //Enable sidebar push menu
-        if ($(window).width() > (screenSizes.sm - 1)) {
+                //m.fazeli start---------- commnet if
+        //if ($(window).width() > (screenSizes.sm - 1)) {
           if ($("body").hasClass('sidebar-collapse')) {
             $("body").removeClass('sidebar-collapse').trigger('expanded.pushMenu');
             $(".content,.content-header>h1,.main-header>.navbar").removeClass('margin-50');
@@ -325,23 +326,28 @@ function _init() {
             $(".content,.content-header>h1,.main-header>.navbar").addClass('margin-50');
             $(".sidebar-menu>li .label,.fa-angle-left").hide();
           }
-        }
+        //}
+                //m.fazeli end if ----------
+
         //Handle sidebar push menu for small screens
-        else {
+
+        //m.fazeli start---------- commnet else
+        //else {
           if ($("body").hasClass('sidebar-open')) {
             $("body").removeClass('sidebar-open').removeClass('sidebar-collapse').trigger('collapsed.pushMenu');
           } else {
-             $("body").addClass('sidebar-open').trigger('expanded.pushMenu');  //m.fazeli
+             $("body").addClass('sidebar-open').trigger('expanded.pushMenu');  
           }
-        }
+        //}
+         //m.fazeli end----------
       });
-
-      $(".content-wrapper").click(function () {
-        //Enable hide menu when clicking on the content-wrapper on small screens
-        if ($(window).width() <= (screenSizes.sm - 1) && $("body").hasClass("sidebar-open")) {
-          $("body").removeClass('sidebar-open');
-        }
-      });
+          //m.fazeli
+      //$(".content-wrapper").click(function () {
+      //  //Enable hide menu when clicking on the content-wrapper on small screens
+      //  if ($(window).width() <= (screenSizes.sm - 1) && $("body").hasClass("sidebar-open")) {
+      //    $("body").removeClass('sidebar-open');
+      //  }
+      //});
 
       //Enable expand on hover for sidebar mini
       if ($.AdminLTE.options.sidebarExpandOnHover

@@ -1,64 +1,22 @@
 ﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.PartDto>
-@{
-    ViewData["Title"] = "محصولات ";
-}
 
 
-<h1>@ViewBag.Title asdsadasda</h1>
-<h1>@ViewBag.Icon</h1>
+<div class="uk-card uk-card-default  uk-card-hover  _borderTop" >
 
-<div class="card mt-5 rounded-0">
-    <div class="card-header bg-info ">
-        <h5 class="card-title text-white"><span uk-icon="lock"></span>@ViewData["Title"]</h5>
+    <div class="uk-card-header">
+        <div class="float-right">
+            <partial name="_CardHeader" />
+        </div>
 
-        <div class="text-left" style="float:left">
-            <a class="m-2  p-2 bg-white btn-link" uk-tooltip="title: افزودن; pos: top-left"
+        <div class="float-left">
+            <a class="  btn-link" uk-tooltip="@Resource.Add"
                asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Create">
                 <span href="#" uk-icon="icon: file-edit"></span>
             </a>
-            <a class="m-2  p-2 bg-white btn-link" uk-tooltip="title: حذف; pos: top-left"
-               asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Create">
-                <span href="#" uk-icon="icon: trash"></span>
-            </a>
         </div>
     </div>
-    <div class="uk-overflow-auto mt-2">
-        <table id="example" class="display CustomDataTable table">
-            <thead class="text-white bg-dark ">
-                <tr class="text-center">
-                    <td>
-                        select
-                    </td>
-                    <td>Name</td>
-                    <td>Title</td>
-                    <td>IsDeleted</td>
-                    <td>InActive</td>
-                    <td>Operation</td>
-                </tr>
 
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr class="text-center">
-                        <td><input class="uk-checkbox" type="checkbox"></td>
-                        <td>@item.Name</td>
-                        <td>@item.Title</td>
-                        <td>@item.IsDeleted</td>
-                        <td>@item.InActive</td>
-                        <td>
-                            @*<div class=" uk-button-group">
-                                    <button onclick="ShowAddModal()" class=" uk-button  uk-button-primary  uk-button-small" uk-tooltip="@Resource.Edit"> <span uk-icon="icon: file-edit"></span></button>
-                                    <button onclick="Remove()" class=" uk-button  uk-button-danger uk-button-small" uk-tooltip="@Resource.Remove"><span uk-icon="icon: trash"></span></button>
-                                </div>*@
-                            <partial name="_TableOperation" model="@item.Id" />
-                        </td>
-
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+    <partial name="_PartList" />
 
 </div>
 

@@ -13,7 +13,6 @@ namespace OnlineShop.ViewModels
 
 
         public Guid Id { get; set; }
-        public int Code { get; set; }
         public bool InActive { get; set; }
         public bool IsDeleted { get; set; }
         //public DateTime CreateOn { get; set; }

@@ -20,7 +20,8 @@ namespace OnlineShop.Common.GuardToolkit
             }
         }
 
-        public static bool IsValidImageFile(this IFormFile photoFile, int maxWidth = 150, int maxHeight = 150)
+        //public static bool IsValidImageFile(this IFormFile photoFile, int maxWidth = 150, int maxHeight = 150)
+        public static bool IsValidImageFile(this IFormFile photoFile, int maxWidth = 2000, int maxHeight = 2000)
         {
             if (photoFile == null || photoFile.Length == 0) return false;
             using (var img = Image.FromStream(photoFile.OpenReadStream()))

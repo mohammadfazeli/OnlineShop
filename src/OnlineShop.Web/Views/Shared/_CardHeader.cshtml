@@ -1,0 +1,33 @@
+﻿
+
+
+
+        @{
+            switch ((OnlineShop.Common.Enum.IconType)ViewData["icontype"])
+            {
+                case OnlineShop.Common.Enum.IconType.UiKit:
+                <span class="uk-modal-title"><span uk-icon="icon:  @ViewBag.Icon"></span></span> @ViewBag.Title 
+                    break;
+
+                case OnlineShop.Common.Enum.IconType.BootStrap:
+
+                    <span class="uk-modal-title">  <span class="glyphicon glyphicon-asterisk"></span>@ViewData["title"]</span>
+                    break;
+
+                case OnlineShop.Common.Enum.IconType.FontAwesome4:
+
+                    <span class="uk-modal-title"><spna class="fa fa-bars"></spna>@ViewData["title"]</span>
+
+                    break;
+
+                case OnlineShop.Common.Enum.IconType.FontAwesome5:
+
+                    <span class="uk-modal-title"><spna class="fas fa-clock"></spna>@ViewData["title"]</span>
+
+                    break;
+            }
+
+
+        }
+
+

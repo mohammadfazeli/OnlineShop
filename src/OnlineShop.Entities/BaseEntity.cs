@@ -15,8 +15,6 @@ namespace OnlineShop.Entities
 
         [Key]
         public Guid Id { get; set; }
-        [DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.Identity)]
-        public int Code { get; set; }
         public bool InActive { get; set; }
         public bool IsDeleted { get; set; }
         //public DateTime CreateOn { get; set; }

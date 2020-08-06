@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities;
@@ -16,8 +17,8 @@ namespace OnlineShop.Services.Contracts
         TEntity Get(Guid id);
         Task<TEntity> GetAsync(Guid id);
 
-        TEntity Get(int code);
-        Task<TEntity> GetAsync(int code);
+        //TEntity Get(int code);
+        //Task<TEntity> GetAsync(int code);
 
         bool Add(TDto dto);
         Task<bool> AddAsync(TDto dto);
@@ -25,8 +26,8 @@ namespace OnlineShop.Services.Contracts
         bool Update(TDto dto);
         Task<bool> UpdateAsync(TDto dto);
 
-        bool Delete(TDto dto);
-        Task<bool> DeleteAsync(TDto dto);
+        bool Delete(Guid id);
+        Task<bool> DeleteAsync(Guid id);
     }
 
     public class EntityService<TEntity, TDto> : IEntityService<TEntity, TDto>
@@ -47,7 +48,7 @@ namespace OnlineShop.Services.Contracts
 
         public virtual IQueryable<TEntity> GetAll()
         {
-            return _repository.GetAll().OrderByDescending(row => row.Code);
+            return _repository.GetAll();
         }
 
         public virtual TEntity Get(Guid id)
@@ -61,16 +62,16 @@ namespace OnlineShop.Services.Contracts
 
         }
 
-        public virtual TEntity Get(int code)
-        {
-            return _repository.Get(code);
-        }
+        //public virtual TEntity Get(int code)
+        //{
+        //    return _repository.Get(code);
+        //}
 
-        public virtual Task<TEntity> GetAsync(int code)
-        {
-            return _repository.GetAsync(code);
+        //public virtual Task<TEntity> GetAsync(int code)
+        //{
+        //    return _repository.GetAsync(code);
 
-        }
+        //}
 
         public virtual bool Add(TDto dto)
         {
@@ -88,12 +89,17 @@ namespace OnlineShop.Services.Contracts
 
         public virtual bool Update(TDto dto)
         {
-            var objectEntity = Get(dto.Id);
+            var objectEntity = _repository.GetNoTracking(dto.Id);/*  Get(dto.Id);*/
             if (objectEntity is null) return false;
-            objectEntity = _mapper.Map<TDto, TEntity>(dto);
-            //_mapper.Map(dto, objectEntity);
+            //objectEntity = _mapper.Map<TDto, TEntity>(dto);
 
+            _unitOfWork.Entry(objectEntity).State = EntityState.Modified;
+            //_mapper.Map(dto, objectEntity);
+             objectEntity = _mapper.Map<TDto, TEntity>(dto, objectEntity);
+            //_repository.SaveChanges();            
+            //objectEntity.Code = dto.Code;
             _unitOfWork.SaveChanges();
+            //_repository.Update(objectEntity);
             return true;
         }
 
@@ -106,17 +112,17 @@ namespace OnlineShop.Services.Contracts
             return true;
         }
 
-        public virtual bool Delete(TDto dto)
+        public virtual bool Delete(Guid id)
         {
-            var entity = _repository.Get(dto.Id);
+            var entity = _repository.Get(id);
             if (entity == null) return false;
             _repository.Delete(entity);
             return true;
         }
 
-        public virtual async Task<bool> DeleteAsync(TDto dto)
+        public virtual async Task<bool> DeleteAsync(Guid id)
         {
-            var entity = _repository.Get(dto.Id);
+            var entity = _repository.Get(id);
             if (entity == null) return false;
             await _repository.DeleteAsync(entity);
             return true;

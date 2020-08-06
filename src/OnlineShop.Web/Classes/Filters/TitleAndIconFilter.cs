@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
+using OnlineShop.Resource;
 using OnlineShop.Web.Classes;
 using System.Linq;
 
@@ -17,7 +18,7 @@ namespace KhabarTech.UI.Classes
 
             var ActionInfoAtttribute =
                 ControllerActionDescriptor.MethodInfo.GetCustomAttributes(
-                    typeof(ICustomAttribute), false).FirstOrDefault() as ActionInfoAttribute;
+                    typeof(ICustomAttribute), false).FirstOrDefault() as ICustomAttribute;
 
 
             var controller = filterContext.Controller as Controller;
@@ -25,26 +26,11 @@ namespace KhabarTech.UI.Classes
 
             if (ActionInfoAtttribute != null)
             {
-                controller.ViewBag.Title = ActionInfoAtttribute.Name;
-                controller.ViewBag.Icon = ActionInfoAtttribute.Icon;
-                controller.ViewBag.IconType = ActionInfoAtttribute.IconType;
+                controller.ViewData["title"] = Resource.ResourceManager.GetString(ActionInfoAtttribute.Name);
+                controller.ViewData["Icon"] = ActionInfoAtttribute.Icon;
+                controller.ViewData["IconType"] = ActionInfoAtttribute.IconType;
             }
 
-        }
-
-        public override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-            //Log("OnActionExecuted", filterContext.RouteData);
-        }
-
-        public override void OnResultExecuting(ResultExecutingContext filterContext)
-        {
-            //Log("OnResultExecuting", filterContext.RouteData);
-        }
-
-        public override void OnResultExecuted(ResultExecutedContext filterContext)
-        {
-            // Log("OnResultExecuted", filterContext.RouteData);
         }
     }
 }
