@@ -12,15 +12,5 @@ namespace OnlineShop.Services.Services
         public PartService(IUnitOfWork unitOfWork, IMapper mapper, IRepository<Part> repository) : base(unitOfWork, mapper, repository)
         {
         }
-
-
-        //public override bool Update(PartDto dto)
-        //{
-        //    var part = _repository.Get(dto.Id);
-        //    part.Name = dto.Name;
-        //    part.Title = dto.Title;
-        //    _unitOfWork.SaveChanges(true);
-        //    return true;
-        //}
     }
 }

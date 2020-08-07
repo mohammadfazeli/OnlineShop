@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20200712185941_990422_1.Designer.cs" />
     <Compile Remove="Migrations\20200712191202_990422_2.cs" />
     <Compile Remove="Migrations\20200712191202_990422_2.Designer.cs" />
+    <Compile Remove="Migrations\20200806192450_V2020_08_06_2354.cs" />
+    <Compile Remove="Migrations\20200806192450_V2020_08_06_2354.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />

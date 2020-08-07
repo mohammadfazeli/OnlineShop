@@ -41,6 +41,11 @@
 
     }
 
+    public enum AttachmentType
+    {
+        Image,
+        File,
+    }
 
 }
 

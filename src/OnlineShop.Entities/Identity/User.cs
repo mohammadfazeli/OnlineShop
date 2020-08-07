@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
+using OnlineShop.Entities.Entities.Area.WareHouse;
 
 namespace OnlineShop.Entities.Identity
 {
@@ -18,6 +19,10 @@ namespace OnlineShop.Entities.Identity
         {
             UserUsedPasswords = new HashSet<UserUsedPassword>();
             UserTokens = new HashSet<UserToken>();
+            Exits = new HashSet<Exit>();
+            Buys = new HashSet<Buy>();
+            RegisterProductRequests = new HashSet<ProductRequest>();
+            ApprovedProductRequests = new HashSet<ProductRequest>();
         }
 
         [StringLength(450)]
@@ -60,5 +65,14 @@ namespace OnlineShop.Entities.Identity
         public virtual ICollection<UserLogin> Logins { get; set; }
 
         public virtual ICollection<UserClaim> Claims { get; set; }
+        public virtual ICollection<Exit> Exits { get; set; }
+        public virtual ICollection<Buy> Buys { get; set; }
+
+        [InverseProperty(nameof(ProductRequest.RegisterUser))]
+        public virtual ICollection<ProductRequest> RegisterProductRequests { get; set; }
+
+        [InverseProperty(nameof(ProductRequest.ApproveUser))]
+        public virtual ICollection<ProductRequest> ApprovedProductRequests { get; set; }
+
     }
 }

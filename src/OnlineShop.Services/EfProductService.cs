@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using OnlineShop.DataLayer.Context;
-using OnlineShop.Entities;
+using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 
 namespace OnlineShop.Services
 {
@@ -26,7 +25,7 @@ namespace OnlineShop.Services
 
         public IList<Product> GetAllProducts()
         {
-            return _products.Include(x => x.Category).ToList();
+            return null;
         }
     }
 }

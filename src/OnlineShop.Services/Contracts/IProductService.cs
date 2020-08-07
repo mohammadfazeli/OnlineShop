@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using OnlineShop.Entities;
+﻿using OnlineShop.Entities.Entities.Area.Base;
+using System.Collections.Generic;
 
 namespace OnlineShop.Services.Contracts
 {

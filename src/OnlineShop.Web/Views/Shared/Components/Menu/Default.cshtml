@@ -142,21 +142,25 @@
                 <li class="treeview">
                     @*<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>*@
                     <a href="#"><i uk-icon="icon: @menuItem.ControllerIcon"></i> <span>@menuItem.ControllerName</span> <i class=" uk-text-left   fa fa-angle-left pull-right"></i></a>
-                    @*<a href="#"><span href="#" class="" uk-icon="icon: @menuItem.ControllerIcon"></span> @menuItem.ControllerName <i class="fa fa-angle-left pull-right"></i></a>*@
-                    <ul class="treeview-menu">
-                        @foreach (var item in menuItem.menuItems)
-                        {
-                            @*<li><a href="#">Link in level 2</a></li>*@
-                            <li>
-                                <a class="mr-3" asp-area="@item.Area" asp-controller="@item.Controller" asp-action="@item.Action">
-                                    <span href="#" uk-icon="icon: @item.ActionIcon"></span>
-                                    @item.ActionName
-                                </a>
-                            </li>
 
-                        }
-                    </ul>
-                </li>
+                    @*<a href="#">
+                        <partial name="_Icone" model="new IconViewModel() { Type= menuItem.ControllerIconType , Name=@menuItem.ControllerName , Icon=menuItem.ControllerIcon}" />
+                    </a>*@
+                        @*<a href="#"><span href="#" class="" uk-icon="icon: @menuItem.ControllerIcon"></span> @menuItem.ControllerName <i class="fa fa-angle-left pull-right"></i></a>*@
+                        <ul class="treeview-menu">
+                            @foreach (var item in menuItem.menuItems)
+                            {
+                                @*<li><a href="#">Link in level 2</a></li>*@
+                                <li>
+                                    <a class="mr-3" asp-area="@item.Area" asp-controller="@item.Controller" asp-action="@item.Action">
+                                        <span href="#" uk-icon="icon: @item.ActionIcon"></span>
+                                        @item.ActionName
+                                    </a>
+                                </li>
+
+                            }
+                        </ul>
+</li>
             }
 
         </ul>

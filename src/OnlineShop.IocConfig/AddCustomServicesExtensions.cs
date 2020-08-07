@@ -13,6 +13,7 @@ using OnlineShop.Services.Services;
 using System.Security.Claims;
 using System.Security.Principal;
 using AutoMapper;
+using OnlineShop.Services.Contracts.Area.Base;
 
 namespace OnlineShop.IocConfig
 {
@@ -28,6 +29,7 @@ namespace OnlineShop.IocConfig
 
             #region Service
             services.AddScoped<IPartService, PartService>();            
+            services.AddScoped<IColorService, ColorService>();            
 
             #endregion
 

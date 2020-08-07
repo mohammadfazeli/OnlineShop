@@ -5573,7 +5573,8 @@
         return svg && svg.hasChildNodes() && svg;
     }
 
-    var symbolRe = /<symbol([^]*?id=(['"])(.+?)\2[^]*?<\/)symbol>/g;
+    var symbolRe = "";
+    //var symbolRe = /<symbol([^]*?id=(['"])(.+?)\2[^]*?<\/)symbol>/g;
     var symbols = {};
 
     function parseSymbols(svg, icon) {

@@ -3,12 +3,16 @@
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
-      "Content/uikit-rtl.css",
       "node_modules/bootstrap/dist/css/bootstrap.min.css",
       "node_modules/@ghalamborm/bootstrap4-rtl/bootstrap-rtl.css",
       "node_modules/components-font-awesome/css/solid.min.css",
       "node_modules/components-font-awesome/css/fontawesome.min.css",
-      "Content/custom.css"
+      "Content/uikit.css",
+      "Content/datatables.min.css",
+      "Content/CustomSite.css",
+      "Content/AdminLTE.css",
+      "Content/custom.css",
+      "Content/skins/_all-skins.css"
     ],
     "minify": {
       "enabled": true,
@@ -21,6 +25,7 @@
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
       "scripts/uikit.js",
+      "scripts/UikitIcons.js",
       "node_modules/jquery/dist/jquery.min.js",
       "node_modules/popper.js/dist/umd/popper.min.js",
       "node_modules/jquery-validation/dist/jquery.validate.min.js",
@@ -30,7 +35,11 @@
       "scripts/jquery.bootstrap-modal-confirm.js",
       "scripts/jquery.bootstrap-modal-alert.js",
       "scripts/jquery.bootstrap-modal-ajax-form.js",
-      "scripts/custom.js"
+      "scripts/custom.js",
+      "scripts/OnlineShop.js",
+      "scripts/datatables.min.js",
+      "scripts/app.js"
+
     ],
     "minify": {
       "enabled": true,

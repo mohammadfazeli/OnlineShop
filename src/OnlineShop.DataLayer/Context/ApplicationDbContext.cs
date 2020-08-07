@@ -1,28 +1,25 @@
-using OnlineShop.Common.GuardToolkit;
-using OnlineShop.Common.PersianToolkit;
-using OnlineShop.Entities.AuditableEntity;
-using OnlineShop.Entities.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using OnlineShop.Common.EFCoreToolkit;
+using OnlineShop.Common.GuardToolkit;
+using OnlineShop.Common.Utilities;
+using OnlineShop.DataLayer.Mappings;
+using OnlineShop.Entities;
+using OnlineShop.Entities.AuditableEntity;
+using OnlineShop.Entities.Entities.Area.Base;
+using OnlineShop.Entities.Identity;
+using OnlineShop.ViewModels.Identity.Settings;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Threading.Tasks;
 using System.Threading;
-using System;
-using MailKit;
-using OnlineShop.Entities;
-using OnlineShop.DataLayer.Mappings;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage;
-using OnlineShop.Common.EFCoreToolkit;
-using OnlineShop.Entities.Entities.Area.Base;
-using OnlineShop.DataLayer.Repository;
+using System.Threading.Tasks;
 
 namespace OnlineShop.DataLayer.Context
 {
@@ -190,10 +187,6 @@ namespace OnlineShop.DataLayer.Context
 
         #endregion
 
-        public virtual DbSet<Category> Categories { set; get; }
-        public virtual DbSet<Product> Products { set; get; }
-        public virtual DbSet<Part> Parts { set; get; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // it should be placed here, otherwise it will rewrite the following settings!
@@ -206,17 +199,14 @@ namespace OnlineShop.DataLayer.Context
             // Custom application mappings
             builder.SetDecimalPrecision();
             builder.AddDateTimeUtcKindConverter();
-
-
-           
-
+            builder.RegisterAllEntities<BaseEntity>(typeof(BaseEntity).Assembly);
 
             // This should be placed here, at the end.
             builder.AddAuditableShadowProperties();
 
 
 
-          
+
         }
 
     }

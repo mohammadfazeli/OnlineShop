@@ -1,12 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities;
 using OnlineShop.ViewModels;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Services.Contracts
 {
@@ -16,9 +16,6 @@ namespace OnlineShop.Services.Contracts
 
         TEntity Get(Guid id);
         Task<TEntity> GetAsync(Guid id);
-
-        //TEntity Get(int code);
-        //Task<TEntity> GetAsync(int code);
 
         bool Add(TDto dto);
         Task<bool> AddAsync(TDto dto);
@@ -62,16 +59,6 @@ namespace OnlineShop.Services.Contracts
 
         }
 
-        //public virtual TEntity Get(int code)
-        //{
-        //    return _repository.Get(code);
-        //}
-
-        //public virtual Task<TEntity> GetAsync(int code)
-        //{
-        //    return _repository.GetAsync(code);
-
-        //}
 
         public virtual bool Add(TDto dto)
         {
@@ -91,15 +78,10 @@ namespace OnlineShop.Services.Contracts
         {
             var objectEntity = _repository.GetNoTracking(dto.Id);/*  Get(dto.Id);*/
             if (objectEntity is null) return false;
-            //objectEntity = _mapper.Map<TDto, TEntity>(dto);
 
             _unitOfWork.Entry(objectEntity).State = EntityState.Modified;
-            //_mapper.Map(dto, objectEntity);
-             objectEntity = _mapper.Map<TDto, TEntity>(dto, objectEntity);
-            //_repository.SaveChanges();            
-            //objectEntity.Code = dto.Code;
+            objectEntity = _mapper.Map<TDto, TEntity>(dto, objectEntity);
             _unitOfWork.SaveChanges();
-            //_repository.Update(objectEntity);
             return true;
         }
 

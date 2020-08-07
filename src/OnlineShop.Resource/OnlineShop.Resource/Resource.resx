@@ -126,6 +126,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>لغو</value>
   </data>
+  <data name="Color" xml:space="preserve">
+    <value>رنگ</value>
+  </data>
   <data name="DisplayParts" xml:space="preserve">
     <value>مشاهده قطعات</value>
   </data>
@@ -141,6 +144,9 @@
   <data name="IsRequired" xml:space="preserve">
     <value>اجباری است</value>
   </data>
+  <data name="Model" xml:space="preserve">
+    <value>مدل</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>نام</value>
   </data>
@@ -149,6 +155,12 @@
   </data>
   <data name="Parts" xml:space="preserve">
     <value>قطعات</value>
+  </data>
+  <data name="ProductGroup" xml:space="preserve">
+    <value>گروه محصول</value>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>تامین کننده</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>حذف</value>

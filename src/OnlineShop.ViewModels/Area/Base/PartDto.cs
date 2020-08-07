@@ -6,7 +6,7 @@ namespace OnlineShop.ViewModels.Area.Base
     {
 
         [Required(ErrorMessage = "(*)")]
-        [Display(Name=nameof(Resource.Resource.Name), ResourceType = typeof(Resource.Resource))]
+        [Display(Name = nameof(Resource.Resource.Name), ResourceType = typeof(Resource.Resource))]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "(*)")]

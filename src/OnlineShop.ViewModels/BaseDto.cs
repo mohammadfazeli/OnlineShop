@@ -15,6 +15,19 @@ namespace OnlineShop.ViewModels
         public Guid Id { get; set; }
         public bool InActive { get; set; }
         public bool IsDeleted { get; set; }
+        public string CreatedByBrowserName { get; set; }
+        public string ModifiedByBrowserName { get; set; }
+        public string CreatedByIp { get; set; }
+        public string ModifiedByIp { get; set; }
+        public int? CreatedByUserId { get; set; }
+        public int? ModifiedByUserId { get; set; }
+        public string Description { get; set; }
+        public DateTime CreateOn { get; set; }
+        public DateTime? CreatedDateTime { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
+
+
+
         //public DateTime CreateOn { get; set; }
 
 
