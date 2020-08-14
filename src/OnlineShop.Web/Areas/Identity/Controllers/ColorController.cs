@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Areas.Identity;
 using OnlineShop.Common.Enum;
 using OnlineShop.Entities.Entities.Area.Base;
-using OnlineShop.Entities.Entities.Area.Base.Colors;
 using OnlineShop.Services.Contracts.Area.Base;
+using OnlineShop.ViewModels.Area.Base.Colors;
 using OnlineShop.Web.Classes;
 using System;
 using System.Collections.Generic;
@@ -16,13 +16,12 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
 {
     [Area(AreaConstants.IdentityArea)]
     [AllowAnonymous]
-    [BreadCrumb(Title = "زنگ", UseDefaultRouteUrl = true, Order = 0)]
-    [Menu(IconType = IconType.UiKit, Icon = "trash", Name = nameof(Resource.Resource.Color), order = 3)]
+    [BreadCrumb(Title = "رنگ", UseDefaultRouteUrl = true, Order = 0)]
+    [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-paint-brush", Name = nameof(Resource.Resource.Color), order = 3)]
     public class ColorController : BaseController
     {
         private readonly IColorService _ColorService;
         private readonly IMapper _mapper;
-
 
         public ColorController(IColorService ColorService, IMapper mapper)
         {
@@ -30,8 +29,8 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             _mapper = mapper;
         }
 
-        [BreadCrumb(Title = "مشاهده رنگ ها", TitleResourceType = typeof(Resource.Resource), Order = 1)]
-        [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-ad", Name = nameof(Resource.Resource.Color), order = 1)]
+        [BreadCrumb(Title = "لیست رنگ ها", TitleResourceType = typeof(Resource.Resource), Order = 1)]
+        [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-list", Name = nameof(Resource.Resource.ColorList), order = 1)]
         public IActionResult Index()
         {
             return View();
@@ -42,12 +41,10 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             var list = _mapper.Map(_ColorService.GetAll().ToList(), new List<ColorDto>());
 
             return Json(new { Data = list });
-
         }
 
-
         [HttpGet]
-        [ActionInfo(IconType = IconType.UiKit, Icon = "happy", Name = nameof(Resource.Resource.Edit))]
+        [ActionInfo(IconType = IconType.FontAwesome4, Icon = "fas fa-edit", Name = nameof(Resource.Resource.ColorEdit))]
         public IActionResult Edit(Guid id)
         {
             var x = _ColorService.Get(id);
@@ -69,7 +66,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         }
 
         [HttpGet]
-        [Menu(IconType = IconType.UiKit, Icon = "happy", Name = nameof(Resource.Resource.Add), order = 2)]
+        [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.ColorAdd), order = 2)]
         public IActionResult Create()
         {
             return View();
@@ -86,13 +83,11 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
 
             _ColorService.Add(dto);
             return RedirectToAction(nameof(Index));
-
         }
 
         [HttpGet]
         public IActionResult Remove(Guid id)
         {
-
             _ColorService.Delete(id);
             return RedirectToAction(nameof(Index));
         }

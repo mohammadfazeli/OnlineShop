@@ -1,0 +1,66 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto
+
+<div class="card">
+    <div class="card-header">
+        <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Index" />
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover table-striped  table-sm    ">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>@Html.DisplayNameFor(r => r.Id)</th>
+                        <th>@Html.DisplayNameFor(r => r.Name)</th>
+                        <th>@Html.DisplayNameFor(r => r.ForeignName)</th>
+                        <th>@Html.DisplayNameFor(r => r.UserCode)</th>
+                        <th>@Html.DisplayNameFor(r => r.ProductGroupName)</th>
+                        <th>@Resource.Operation</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<script>
+
+       $(function () {
+
+            $('.CustomDataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": false,
+               
+                "language": {
+                    "url": "../js/Persian.json",
+                },
+                 "ajax": {
+                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        dataType: "json",
+                    },
+
+                    "columns": [
+                        { "data": "id", className: "text-center ", visible: false },
+                        { "data": "name", className: "text-center "},
+                        { "data": "foreignName", className: "text-center "},
+                        { "data": "userCode", className: "text-center "},
+                        { "data": "productGroupName", className: "text-center "},
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                                );
+                            }
+                        }
+                    ]
+            });
+        });
+</script>

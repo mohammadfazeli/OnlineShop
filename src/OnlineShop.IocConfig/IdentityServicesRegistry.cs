@@ -1,7 +1,7 @@
-﻿using System;
-using OnlineShop.ViewModels.Identity.Settings;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using OnlineShop.ViewModels.Identity.Settings;
+using System;
 
 namespace OnlineShop.IocConfig
 {

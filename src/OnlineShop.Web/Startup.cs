@@ -24,7 +24,6 @@ namespace OnlineShop
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
         }
 
         public IConfiguration Configuration { get; }
@@ -48,18 +47,18 @@ namespace OnlineShop
                 });
             services.AddDNTCommonWeb();
             services.AddDNTCaptcha();
-            services.AddCloudscribePagination();            
+            services.AddCloudscribePagination();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (!env.IsDevelopment())
-            {
-                app.UseExceptionHandler("/error/index/500");
-                app.UseStatusCodePagesWithReExecute("/error/index/{0}");
-            }
+            //if (!env.IsDevelopment())
+            //{
+            //    app.UseExceptionHandler("/error/index/500");
+            //    app.UseStatusCodePagesWithReExecute("/error/index/{0}");
+            //}
             if (!env.IsDevelopment())
             {
                 app.UseHsts();
@@ -83,7 +82,6 @@ namespace OnlineShop
                 }
             };
             app.UseRequestLocalization(options);
-
 
             app.UseContentSecurityPolicy();
 

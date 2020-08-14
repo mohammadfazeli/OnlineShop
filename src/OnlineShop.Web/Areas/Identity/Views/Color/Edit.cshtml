@@ -1,6 +1,4 @@
-﻿@model OnlineShop.Entities.Entities.Area.Base.Colors.ColorDto
-
-
+﻿@model OnlineShop.ViewModels.Area.Base.Colors.ColorDto
 
 <form asp-action="Edit" method="post">
 
@@ -10,26 +8,42 @@
         <div class="uk-card-header">
             <partial name="_CardHeader" />
         </div>
+        @Html.HiddenFor(m => m.Id)
         <div class="uk-card-body">
             <div class="row">
-                @Html.HiddenFor(m => m.Id)
-
 
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
                     <div class="form-group">
                         <label asp-for="Name" class=" col-form-label text-md-left"></label>
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
 
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="UserCode" class=" col-form-label text-md-left"></label>
+                        <input asp-for="UserCode" class="form-control" />
+                        <span asp-validation-for="UserCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="Description" class=" col-form-label text-md-left"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="ForeignName" class=" col-form-label text-md-left"></label>
+                        <input asp-for="ForeignName" class="form-control" />
+                        <span asp-validation-for="ForeignName" class="text-danger"></span>
                     </div>
                 </div>
             </div>
-
         </div>
         <partial name="_CardFooter">
     </div>
-
-
-
-
 </form>

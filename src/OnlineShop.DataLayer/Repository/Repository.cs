@@ -12,6 +12,7 @@ namespace OnlineShop.DataLayer.Repository
     {
         protected readonly IUnitOfWork _uow;
         protected readonly DbSet<TEntity> _entity;
+
         public Repository(IUnitOfWork uow)
         {
             _uow = uow;
@@ -20,7 +21,7 @@ namespace OnlineShop.DataLayer.Repository
 
         public IQueryable<TEntity> GetAll()
         {
-            return _entity.AsNoTracking().Where(row => !row.IsDeleted );
+            return _entity.Where(row => !row.IsDeleted).OrderByDescending(x => x.CreateOn);
         }
 
         public virtual async Task<CreateStatus> CreateAsync(TEntity entity, bool saveNow = true)
@@ -30,6 +31,7 @@ namespace OnlineShop.DataLayer.Repository
                 await _uow.SaveChangesAsync(true);
             return CreateStatus.Successfully;
         }
+
         public virtual async Task<UpdateStatus> UpdateAsync(TEntity entity, bool saveNow = true)
         {
             _entity.Update(entity);
@@ -37,6 +39,7 @@ namespace OnlineShop.DataLayer.Repository
                 await _uow.SaveChangesAsync(true);
             return UpdateStatus.Successfully;
         }
+
         public virtual async Task<DeleteStatus> DeleteAsync(TEntity entity, bool saveNow = true)
         {
             _entity.Remove(entity: entity);
@@ -44,18 +47,21 @@ namespace OnlineShop.DataLayer.Repository
                 await _uow.SaveChangesAsync(true);
             return DeleteStatus.Successfully;
         }
+
         //public virtual async Task<TEntity> GetAsync(int code)
         //{
         //    return await _entity.FirstOrDefaultAsync(s => s.Code == code && !s.IsDeleted && !s.InActive);
         //}
         public virtual async Task<TEntity> GetAsync(Guid id)
         {
-            return await _entity.FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted );
+            return await _entity.FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted);
         }
+
         public virtual async Task<TEntity> GetNoTrackingAsync(Guid id)
         {
             return await _entity.AsNoTracking().FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted);
         }
+
         //public virtual async Task<TEntity> GetNoTrackingAsync(int code)
         //{
         //    return await _entity.AsNoTracking().FirstOrDefaultAsync(s => s.Code == code && !s.InActive && !s.IsDeleted);
@@ -68,16 +74,14 @@ namespace OnlineShop.DataLayer.Repository
                 _uow.SaveChanges(true);
             return CreateStatus.Successfully;
         }
+
         public virtual UpdateStatus Update(TEntity entity, bool saveNow = true)
         {
-            
             _entity.Update(entity);
             if (saveNow)
                 _uow.SaveChanges(true);
             return UpdateStatus.Successfully;
         }
-
-
 
         public virtual DeleteStatus Delete(TEntity entity, bool saveNow = true)
         {
@@ -88,10 +92,12 @@ namespace OnlineShop.DataLayer.Repository
                 _uow.SaveChanges(true);
             return DeleteStatus.Successfully;
         }
+
         public virtual TEntity Get(Guid id)
         {
-            return _entity.FirstOrDefault(s => s.Id == id && !s.IsDeleted );
+            return _entity.FirstOrDefault(s => s.Id == id && !s.IsDeleted);
         }
+
         //public virtual TEntity Get(int code)
         //{
         //    return _entity.FirstOrDefault(s => s.Code == code && !s.IsDeleted && !s.InActive);
@@ -100,6 +106,7 @@ namespace OnlineShop.DataLayer.Repository
         {
             return _entity.AsNoTracking().FirstOrDefault(s => s.Id == id && !s.IsDeleted);
         }
+
         //public virtual TEntity GetNoTracking(int code)
         //{
         //    return _entity.AsNoTracking().FirstOrDefault(s => s.Code == code && !s.InActive && !s.InActive);

@@ -185,7 +185,7 @@ namespace OnlineShop.DataLayer.Context
             }
         }
 
-        #endregion
+        #endregion BaseClass
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -203,11 +203,6 @@ namespace OnlineShop.DataLayer.Context
 
             // This should be placed here, at the end.
             builder.AddAuditableShadowProperties();
-
-
-
-
         }
-
     }
 }

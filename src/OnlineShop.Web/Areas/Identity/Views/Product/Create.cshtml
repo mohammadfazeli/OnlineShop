@@ -1,0 +1,55 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutDto
+
+<partial name="_CustomValidationSummary" />
+
+<form asp-action="Create" method="post">
+    <div class="card">
+
+        <div class="card-header">
+            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="Name" class=" col-form-label text-md-left"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="UserCode" class=" col-form-label text-md-left"></label>
+                        <input asp-for="UserCode" class="form-control" />
+                        <span asp-validation-for="UserCode" class="text-danger"></span>
+                    </div>
+                </div> <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="ForeignName" class=" col-form-label text-md-left"></label>
+                        <input asp-for="ForeignName" class="form-control" />
+                        <span asp-validation-for="ForeignName" class="text-danger"></span>
+                    </div>
+                </div> <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="Description" class=" col-form-label text-md-left"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+
+                    <div class="form-group">
+                        <label asp-for="ProductGroupId" class=" col-form-label text-md-left"></label>
+
+                        <select asp-for="ProductGroupId" asp-items="@ViewBag.ProductGroupItems" class="form-control select2bs4">
+                            <option disabled selected>@Resource.SelectedOneItem</option>
+                        </select>
+                        <span asp-validation-for="ProductGroupId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>

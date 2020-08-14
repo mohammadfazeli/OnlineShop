@@ -120,6 +120,9 @@
   <data name="Add" xml:space="preserve">
     <value>افزودن</value>
   </data>
+  <data name="AddPart" xml:space="preserve">
+    <value>افزودن قطعه</value>
+  </data>
   <data name="asdsadasd" xml:space="preserve">
     <value>sfda</value>
   </data>
@@ -129,11 +132,23 @@
   <data name="Color" xml:space="preserve">
     <value>رنگ</value>
   </data>
+  <data name="ColorAdd" xml:space="preserve">
+    <value>افزودن رنگ جدید</value>
+  </data>
+  <data name="ColorEdit" xml:space="preserve">
+    <value>ویرایش رنگ</value>
+  </data>
+  <data name="ColorList" xml:space="preserve">
+    <value>لیست رنگ ها</value>
+  </data>
   <data name="DisplayParts" xml:space="preserve">
     <value>مشاهده قطعات</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>ویرایش</value>
+  </data>
+  <data name="ForeignName" xml:space="preserve">
+    <value>نام خارجی</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
     <value>کلمه‌ی عبور خود را فراموش کرده‌اید؟</value>
@@ -156,8 +171,29 @@
   <data name="Parts" xml:space="preserve">
     <value>قطعات</value>
   </data>
+  <data name="Product" xml:space="preserve">
+    <value>محصول</value>
+  </data>
+  <data name="ProductAdd" xml:space="preserve">
+    <value>افزودن محصول جدید</value>
+  </data>
+  <data name="ProductEdit" xml:space="preserve">
+    <value>ویرایش محصول</value>
+  </data>
   <data name="ProductGroup" xml:space="preserve">
     <value>گروه محصول</value>
+  </data>
+  <data name="ProductGroupAdd" xml:space="preserve">
+    <value>افزودن گروه محصول جدید</value>
+  </data>
+  <data name="ProductGroupEdit" xml:space="preserve">
+    <value>ویرایش گروه محصولات</value>
+  </data>
+  <data name="ProductGroupList" xml:space="preserve">
+    <value>لیست گروه محصولات</value>
+  </data>
+  <data name="ProductList" xml:space="preserve">
+    <value>لیست محصولات</value>
   </data>
   <data name="Provider" xml:space="preserve">
     <value>تامین کننده</value>
@@ -165,10 +201,16 @@
   <data name="Remove" xml:space="preserve">
     <value>حذف</value>
   </data>
+  <data name="SelectedOneItem" xml:space="preserve">
+    <value>یک گزینه انتخاب کنید</value>
+  </data>
   <data name="submit" xml:space="preserve">
     <value>ثبت</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>عنوان</value>
+  </data>
+  <data name="UserCode" xml:space="preserve">
+    <value>کد کاربری</value>
   </data>
 </root>

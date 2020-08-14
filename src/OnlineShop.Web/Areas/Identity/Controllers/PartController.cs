@@ -18,12 +18,11 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
     [Area(AreaConstants.IdentityArea)]
     [AllowAnonymous]
     [BreadCrumb(Title = "محصولات", UseDefaultRouteUrl = true, Order = 0)]
-    [Menu(IconType = IconType.UiKit, Icon = "trash", Name = nameof(Resource.Resource.Parts), order = 2)]
+    [Menu(IconType = IconType.FontAwesome4, Icon = "fas fa-address-card fa-2x", Name = nameof(Resource.Resource.Parts), order = 2)]
     public class PartController : BaseController
     {
         private readonly IPartService _PartService;
         private readonly IMapper _mapper;
-
 
         public PartController(IPartService partService, IMapper mapper)
         {
@@ -32,7 +31,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         }
 
         [BreadCrumb(Title = "مشاهده قطعات", TitleResourceType = typeof(Resource.Resource), Order = 1)]
-        [Menu(IconType = IconType.UiKit, Icon = "trash", Name = nameof(Resource.Resource.DisplayParts), order = 1)]
+        [Menu(IconType = IconType.UiKit, Icon = "list", Name = nameof(Resource.Resource.Model), order = 1)]
         public IActionResult Index()
         {
             return View();
@@ -43,12 +42,10 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             var list = _mapper.Map(_PartService.GetAll().ToList(), new List<PartDto>());
 
             return Json(new { Data = list });
-
         }
 
-
         [HttpGet]
-        [ActionInfo(IconType = IconType.UiKit, Icon = "happy", Name = nameof(Resource.Resource.Edit))]
+        [ActionInfo(IconType = IconType.UiKit, Icon = "file-edit", Name = nameof(Resource.Resource.Edit))]
         public IActionResult Edit(Guid id)
         {
             var x = _PartService.Get(id);
@@ -70,7 +67,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         }
 
         [HttpGet]
-        [Menu(IconType = IconType.UiKit, Icon = "happy", Name = nameof(Resource.Resource.Add), order = 2)]
+        [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.AddPart), order = 2)]
         public IActionResult Create()
         {
             return View();
@@ -87,13 +84,11 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
 
             _PartService.Add(dto);
             return RedirectToAction(nameof(Index));
-
         }
 
         [HttpGet]
         public IActionResult Remove(Guid id)
         {
-
             _PartService.Delete(id);
             return RedirectToAction(nameof(Index));
         }

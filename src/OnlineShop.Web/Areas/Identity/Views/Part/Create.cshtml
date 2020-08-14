@@ -1,15 +1,15 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.PartDto
 
-
 <partial name="_CustomValidationSummary" />
 
 <form asp-action="Create" method="post">
-    <div class="uk-card uk-card-default  uk-card-hover ">
 
-        <div class="uk-card-header">
+    <div class="card">
+        <div class="card-header">
             <partial name="_CardHeader" />
         </div>
-        <div class="uk-card-body">
+        <!-- /.card-header -->
+        <div class="card-body ">
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
                     <div class="form-group">
@@ -18,15 +18,12 @@
                         <input asp-for="Title" class="form-control" />
                         <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
-
-
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
                     <div class="form-group">
                         <label asp-for="Name" class=" col-form-label text-md-left"></label>
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
-
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
@@ -40,8 +37,10 @@
                 </div>
             </div>
         </div>
-        <partial name="_CardFooter">
+        <!-- /.card-body -->
+        <div class="card-footer clearfix">
+            <partial name="_CardFooter">
+        </div>
+        <!-- /.card-footer -->
     </div>
-
-
 </form>

@@ -1,13 +1,12 @@
 ﻿namespace OnlineShop.Common.Enum
 {
-
     public enum CreateStatus
     {
         Successfully,
         Fail,
         Exists,
-
     }
+
     public enum UpdateStatus
     {
         Successfully,
@@ -38,7 +37,6 @@
         BootStrap,
         FontAwesome5,
         FontAwesome4
-
     }
 
     public enum AttachmentType
@@ -47,5 +45,10 @@
         File,
     }
 
+    public enum CardHeaderTye
+    {
+        Index,
+        Create,
+        Edit
+    }
 }
-

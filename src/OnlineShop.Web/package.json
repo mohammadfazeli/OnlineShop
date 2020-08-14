@@ -19,5 +19,8 @@
     "jquery-validation": "^1.19.0",
     "jquery-validation-unobtrusive": "^3.2.11",
     "samim-font": "^1.0.2"
+  },
+  "devDependencies": {
+    "admin-lte": "^3.0.5"
   }
 }

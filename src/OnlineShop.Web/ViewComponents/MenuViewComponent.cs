@@ -29,7 +29,6 @@ namespace OnlineShop.Web.ViewComponents
                 })
                 .OrderBy(x => x.Controller).ThenBy(x => x.Action).ToList();
 
-
             var menu = asm.GetTypes()
                 .Where(type => typeof(BaseController).IsAssignableFrom(type))
                 .SelectMany(type =>
@@ -45,13 +44,13 @@ namespace OnlineShop.Web.ViewComponents
                         .FirstOrDefault(),
                     ControllerOrder = x.DeclaringType.GetCustomAttributes<MenuAttribute>().Select(s => s.order)
                         .FirstOrDefault(),
+                    Area = area,
+                    Controller = x.DeclaringType.Name.Replace("Controller", ""),
 
                     menuItems = new List<MenuItem>()
                     {
                         new MenuItem()
                         {
-                            Area = area,
-                            Controller = x.DeclaringType.Name.Replace("Controller", ""),
                             Action = x.Name,
 
                             ActionName =  Resource.Resource.ResourceManager.GetString(x.GetCustomAttributes<MenuAttribute>().Select(s => s.Name).FirstOrDefault()),
@@ -62,24 +61,26 @@ namespace OnlineShop.Web.ViewComponents
                             ActionIcon = x.GetCustomAttributes<MenuAttribute>().Select(s => s.Icon).FirstOrDefault(),
 
                             ActionOrder = x.GetCustomAttributes<MenuAttribute>().Select(s => s.order).FirstOrDefault(),
-
                         }
                     }
                 });
-
 
             var finalMenus = menu.GroupBy(g => new
             {
                 g.ControllerName,
                 g.ControllerIconType,
                 g.ControllerOrder,
-                g.ControllerIcon
+                g.ControllerIcon,
+                g.Area,
+                g.Controller
             }).Select(s => new Menu()
             {
                 ControllerName = s.Key.ControllerName,
                 ControllerIconType = s.Key.ControllerIconType,
                 ControllerOrder = s.Key.ControllerOrder,
                 ControllerIcon = s.Key.ControllerIcon,
+                Area = s.Key.Area,
+                Controller = s.Key.Controller,
                 menuItems = s.SelectMany(f => f.menuItems).ToList()
             });
 

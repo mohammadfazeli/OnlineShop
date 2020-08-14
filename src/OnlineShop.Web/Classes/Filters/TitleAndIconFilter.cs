@@ -9,17 +9,14 @@ namespace KhabarTech.UI.Classes
 {
     public class TitleAndIconFilter : ActionFilterAttribute
     {
-
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var ControllerActionDescriptor =
                 filterContext.ActionDescriptor as ControllerActionDescriptor;
 
-
             var ActionInfoAtttribute =
                 ControllerActionDescriptor.MethodInfo.GetCustomAttributes(
                     typeof(ICustomAttribute), false).FirstOrDefault() as ICustomAttribute;
-
 
             var controller = filterContext.Controller as Controller;
             if (controller == null) return;
@@ -30,7 +27,6 @@ namespace KhabarTech.UI.Classes
                 controller.ViewData["Icon"] = ActionInfoAtttribute.Icon;
                 controller.ViewData["IconType"] = ActionInfoAtttribute.IconType;
             }
-
         }
     }
 }

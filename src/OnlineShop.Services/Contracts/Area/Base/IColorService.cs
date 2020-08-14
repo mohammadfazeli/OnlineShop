@@ -1,10 +1,9 @@
 ﻿using OnlineShop.Entities.Entities.Area.Base;
-using OnlineShop.Entities.Entities.Area.Base.Colors;
+using OnlineShop.ViewModels.Area.Base.Colors;
 
 namespace OnlineShop.Services.Contracts.Area.Base
 {
     public interface IColorService : IEntityService<Color, ColorDto>
-    {        
+    {
     }
-
 }

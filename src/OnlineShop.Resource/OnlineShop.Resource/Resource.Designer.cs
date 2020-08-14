@@ -70,6 +70,15 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to افزودن قطعه.
+        /// </summary>
+        public static string AddPart {
+            get {
+                return ResourceManager.GetString("AddPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to sfda.
         /// </summary>
         public static string asdsadasd {
@@ -97,6 +106,33 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to افزودن رنگ جدید.
+        /// </summary>
+        public static string ColorAdd {
+            get {
+                return ResourceManager.GetString("ColorAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش رنگ.
+        /// </summary>
+        public static string ColorEdit {
+            get {
+                return ResourceManager.GetString("ColorEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست رنگ ها.
+        /// </summary>
+        public static string ColorList {
+            get {
+                return ResourceManager.GetString("ColorList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مشاهده قطعات.
         /// </summary>
         public static string DisplayParts {
@@ -111,6 +147,15 @@ namespace OnlineShop.Resource {
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام خارجی.
+        /// </summary>
+        public static string ForeignName {
+            get {
+                return ResourceManager.GetString("ForeignName", resourceCulture);
             }
         }
         
@@ -178,11 +223,74 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to محصول.
+        /// </summary>
+        public static string Product {
+            get {
+                return ResourceManager.GetString("Product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن محصول جدید.
+        /// </summary>
+        public static string ProductAdd {
+            get {
+                return ResourceManager.GetString("ProductAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش محصول.
+        /// </summary>
+        public static string ProductEdit {
+            get {
+                return ResourceManager.GetString("ProductEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to گروه محصول.
         /// </summary>
         public static string ProductGroup {
             get {
                 return ResourceManager.GetString("ProductGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن گروه محصول جدید.
+        /// </summary>
+        public static string ProductGroupAdd {
+            get {
+                return ResourceManager.GetString("ProductGroupAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش گروه محصولات.
+        /// </summary>
+        public static string ProductGroupEdit {
+            get {
+                return ResourceManager.GetString("ProductGroupEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست گروه محصولات.
+        /// </summary>
+        public static string ProductGroupList {
+            get {
+                return ResourceManager.GetString("ProductGroupList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست محصولات.
+        /// </summary>
+        public static string ProductList {
+            get {
+                return ResourceManager.GetString("ProductList", resourceCulture);
             }
         }
         
@@ -205,6 +313,15 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to یک گزینه انتخاب کنید.
+        /// </summary>
+        public static string SelectedOneItem {
+            get {
+                return ResourceManager.GetString("SelectedOneItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ثبت.
         /// </summary>
         public static string submit {
@@ -219,6 +336,15 @@ namespace OnlineShop.Resource {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to کد کاربری.
+        /// </summary>
+        public static string UserCode {
+            get {
+                return ResourceManager.GetString("UserCode", resourceCulture);
             }
         }
     }

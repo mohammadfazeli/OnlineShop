@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using OnlineShop.Entities.Entities.Area.Base;
-using OnlineShop.Entities.Entities.Area.Base.Colors;
 using OnlineShop.IocConfig.CustomMapping;
+using OnlineShop.ViewModels.Area.Base.Colors;
 
 namespace OnlineShop.Web.Mapping.Area.Base
 {

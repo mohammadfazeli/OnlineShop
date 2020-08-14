@@ -1,0 +1,17 @@
+﻿<div class="uk-card uk-card-default  uk-card-hover  _borderTop">
+
+    <div class="uk-card-header">
+        <div class="float-right">
+            <partial name="_CardHeader" />
+        </div>
+
+        <div class="float-left">
+            <a class="  btn-link" uk-tooltip="@Resource.Add"
+               asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Create">
+                <span href="#" uk-icon="icon: file-edit"></span>
+            </a>
+        </div>
+    </div>
+
+    <partial name="_ModelList" />
+</div>

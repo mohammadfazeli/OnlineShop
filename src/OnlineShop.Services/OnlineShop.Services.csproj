@@ -5,6 +5,10 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Contracts\IProductService.cs" />
+    <Compile Remove="EfProductService.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\OnlineShop.DataLayer.InMemoryDatabase\OnlineShop.DataLayer.InMemoryDatabase.csproj" />
     <ProjectReference Include="..\OnlineShop.DataLayer.MSSQL\OnlineShop.DataLayer.MSSQL.csproj" />
     <ProjectReference Include="..\OnlineShop.DataLayer.SQLite\OnlineShop.DataLayer.SQLite.csproj" />

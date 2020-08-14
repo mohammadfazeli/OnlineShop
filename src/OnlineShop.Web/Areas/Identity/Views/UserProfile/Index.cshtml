@@ -2,11 +2,9 @@
 @inject IUsersPhotoService PhotoService
 @inject IOptionsSnapshot<SiteSettings> SiteOptions
 
-@{
-    ViewData["Title"] = "تنظیمات کاربری";
-    var changePasswordUrl = Url.Action("Index", "ChangePassword");
-    var imageOptions = SiteOptions.Value.UserAvatarImageOptions;
-}
+@{ ViewData["Title"] = "تنظیمات کاربری";
+                var changePasswordUrl = Url.Action("Index", "ChangePassword");
+                var imageOptions = SiteOptions.Value.UserAvatarImageOptions; }
 
 <div class="card mt-5">
     <div class="card-header">
@@ -15,11 +13,10 @@
     <div class="card-body">
         @if (Model.IsPasswordTooOld)
         {
-            <div class="alert alert-warning" role="alert">
-                <a href="#" class="close" data-dismiss="alert">×</a>
-                کلمه‌ی عبور شما بسیار قدیمی است. لطفا جهت تعویض آن <a href="@changePasswordUrl">اینجا</a> کلیک کنید.
-            </div>
-        }
+<div class="alert alert-warning" role="alert">
+    <a href="#" class="close" data-dismiss="alert">×</a>
+    کلمه‌ی عبور شما بسیار قدیمی است. لطفا جهت تعویض آن <a href="@changePasswordUrl">اینجا</a> کلیک کنید.
+</div>}
         <form asp-controller="UserProfile"
               asp-action="Index"
               method="post"
@@ -28,21 +25,21 @@
             <div class="form-group row">
                 <label asp-for="FirstName" class="col-md-2 col-form-label text-md-left"></label>
                 <div class="col-md-10">
-                    <input dir="rtl" asp-for="FirstName" class="form-control"/>
+                    <input dir="rtl" asp-for="FirstName" class="form-control" />
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
                 <label asp-for="LastName" class="col-md-2 col-form-label text-md-left"></label>
                 <div class="col-md-10">
-                    <input dir="rtl" asp-for="LastName" class="form-control"/>
+                    <input dir="rtl" asp-for="LastName" class="form-control" />
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
                 <label asp-for="UserName" class="col-md-2 col-form-label text-md-left"></label>
                 <div class="col-md-10">
-                    <input dir="ltr" asp-for="UserName" onblur="triggerRemoteValidation()" class="form-control"/>
+                    <input dir="ltr" asp-for="UserName" onblur="triggerRemoteValidation()" class="form-control" />
                     <span asp-validation-for="UserName" class="text-danger"></span>
                     <span class="optional-label">(جهت لاگین)</span>
                 </div>
@@ -50,7 +47,7 @@
             <div class="form-group row">
                 <label asp-for="Email" class="col-md-2 col-form-label text-md-left"></label>
                 <div class="col-md-10">
-                    <input dir="ltr" asp-for="Email" onblur="triggerRemoteValidation()" class="form-control"/>
+                    <input dir="ltr" asp-for="Email" onblur="triggerRemoteValidation()" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
             </div>
@@ -58,8 +55,8 @@
                 <label class="col col-md-2 col-form-label text-md-left"></label>
                 <div class=" col col-md-10">
                     <div class="form-check">
-                      <input asp-for="IsEmailPublic"/>
-                      <label asp-for="IsEmailPublic"></label>
+                        <input asp-for="IsEmailPublic" />
+                        <label asp-for="IsEmailPublic"></label>
                     </div>
                 </div>
             </div>
@@ -67,8 +64,8 @@
                 <label class="col col-md-2 col-form-label text-md-left"></label>
                 <div class=" col col-md-10">
                     <div class="form-check">
-                      <input asp-for="TwoFactorEnabled" />
-                      <label asp-for="TwoFactorEnabled"></label>
+                        <input asp-for="TwoFactorEnabled" />
+                        <label asp-for="TwoFactorEnabled"></label>
                     </div>
                 </div>
             </div>
@@ -92,7 +89,7 @@
             <div class="form-group row">
                 <label asp-for="Location" class="col-md-2 col-form-label text-md-left"></label>
                 <div class="col-md-10">
-                    <input dir="rtl" asp-for="Location" class="form-control"/>
+                    <input dir="rtl" asp-for="Location" class="form-control" />
                     <span asp-validation-for="Location" class="text-danger"></span>
                 </div>
             </div>
@@ -100,15 +97,15 @@
                 <label asp-for="PhotoFileName" class="col-md-2 col-form-label text-md-left"></label>
                 <div class=" col col-md-9">
                     <img src="@PhotoService.GetUserPhotoUrl(Model.PhotoFileName)"
-                         asp-append-version="true" alt="photo"/>
+                         asp-append-version="true" alt="photo" />
 
-                    <input type="file" asp-for="Photo" class="form-control"/>
+                    <input type="file" asp-for="Photo" class="form-control" />
                     <span asp-validation-for="Photo" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="offset-md-2 col-md-10">
-                    <input asp-for="Pid"/> <input asp-for="IsAdminEdit"/>
+                    <input asp-for="Pid" /> <input asp-for="IsAdminEdit" />
                     <button type="submit" class="btn btn-info col-md-2">ارسال</button>
                 </div>
             </div>
@@ -128,7 +125,7 @@
     </ul>
 </div>
 
-@section Scripts
+@section Scripts
 {
     <script type="text/javascript">
         function triggerRemoteValidation() {

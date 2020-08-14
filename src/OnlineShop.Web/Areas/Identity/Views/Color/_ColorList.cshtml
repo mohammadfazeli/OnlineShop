@@ -1,46 +1,65 @@
-﻿@model OnlineShop.Entities.Entities.Area.Base.Colors.ColorDto
+﻿@model OnlineShop.ViewModels.Area.Base.Colors.ColorDto
 
+<div class="card">
+    <div class="card-header">
+        <partial name="_CardHeader" />
+    </div>
 
-
-<div class="uk-overflow-auto">
-    <table id="example" class="display CustomDataTable uk-table uk-table-hover uk-table-middle uk-table-divider  table-bordered">
-        <thead class="bg-blue">
-            <tr class="text-center ">
-                <td class="text-center">@Html.DisplayNameFor(r => r.Id)</td>
-                <td class="text-center">@Html.DisplayNameFor(r => r.Name)</td>
-                <td class="text-center " style="width:80px">@Resource.Operation</td>
-            </tr>
-        </thead>
-    </table>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example2" class=" float-right CustomDataTable  table table-bordered table-striped    ">
+                <thead>
+                    <tr class="small">
+                        <th>@Html.DisplayNameFor(r => r.Id)</th>
+                        <th>@Html.DisplayNameFor(r => r.Name)</th>
+                        <th>@Html.DisplayNameFor(r => r.ForeignName)</th>
+                        <th>@Html.DisplayNameFor(r => r.UserCode)</th>
+                        <th>@Html.DisplayNameFor(r => r.Description)</th>
+                        <th style="width:50px;">@Resource.Operation</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- /.card-body -->
 </div>
-
-
-
 
 <script>
 
-    var table = $('.CustomDataTable').DataTable({
-        "language": {
-            "url": "../js/Persian.json",
-        },
-        "ajax": {
-            url: '@ViewContext.RouteData.Values["controller"]/ReadData',
-            type: "GEt",
-            dataType: "json",
-        },
+    $(function () {
+        debugger;
+            $('.CustomDataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "language": {
+                    "url": "../js/Persian.json",
+                },
+                 "ajax": {
+                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        dataType: "json",
+                    },
 
-        "columns": [
-            { "data": "id", className: "text-center", visible: false },
-            { "data": "name" ,className: "text-center"},            
-            {
-                "data": null,
-                "render": function (data, type, row, meta) {
-                    return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
-                       
-                    );
-                }
-            },
-        ]
-    });
+                    "columns": [
+                        { "data": "id", className: "text-center", visible: false },
+                        { "data": "name", className: "text-center"},
+                        { "data": "foreignName", className: "text-center"},
+                        { "data": "userCode", className: "text-center"},
+                        { "data": "description", className: "text-center"},
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+
+                                );
+                            }
+                        }
+                    ]
+            });
+        });
 </script>
-

@@ -6,14 +6,13 @@ using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Identity;
 using OnlineShop.Services.Contracts;
+using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.Services.Contracts.Identity;
 using OnlineShop.Services.Identity;
 using OnlineShop.Services.Identity.Logger;
 using OnlineShop.Services.Services;
 using System.Security.Claims;
 using System.Security.Principal;
-using AutoMapper;
-using OnlineShop.Services.Contracts.Area.Base;
 
 namespace OnlineShop.IocConfig
 {
@@ -28,14 +27,16 @@ namespace OnlineShop.IocConfig
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             #region Service
-            services.AddScoped<IPartService, PartService>();            
-            services.AddScoped<IColorService, ColorService>();            
 
-            #endregion
+            services.AddScoped<IPartService, PartService>();
+            services.AddScoped<IProductGroupService, ProductGroupService>();
+            services.AddScoped<IColorService, ColorService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IModelService, ModelService>();
+
+            #endregion Service
 
             #region Identity
-
-
 
             services.AddScoped<ILookupNormalizer, CustomNormalizer>();
 
@@ -77,7 +78,8 @@ namespace OnlineShop.IocConfig
             services.AddScoped<IUsersPhotoService, UsersPhotoService>();
             services.AddScoped<ISecurityTrimmingService, SecurityTrimmingService>();
             services.AddScoped<IAppLogItemsService, AppLogItemsService>();
-            #endregion
+
+            #endregion Identity
 
             return services;
         }
