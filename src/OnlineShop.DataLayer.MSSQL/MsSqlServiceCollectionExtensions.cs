@@ -14,10 +14,12 @@ namespace OnlineShop.DataLayer.MSSQL
         public static IServiceCollection AddConfiguredMsSqlDbContext(this IServiceCollection services, SiteSettings siteSettings)
         {
             services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<ApplicationDbContext>());
+
             services.AddEntityFrameworkSqlServer(); // It's added to access services from the dbcontext, remove it if you are using the normal `AddDbContext` and normal constructor dependency injection.
-            services.AddDbContextPool<ApplicationDbContext, MsSqlDbContext>(
-                (serviceProvider, optionsBuilder) => optionsBuilder.UseConfiguredMsSql(siteSettings, serviceProvider));
             services.AddEntityFrameworkProxies();
+            services.AddDbContextPool<ApplicationDbContext, MsSqlDbContext>(
+                (serviceProvider, optionsBuilder) => { optionsBuilder.UseConfiguredMsSql(siteSettings, serviceProvider); services.AddEntityFrameworkProxies().BuildServiceProvider(); });
+
             return services;
         }
 
@@ -25,7 +27,6 @@ namespace OnlineShop.DataLayer.MSSQL
             this DbContextOptionsBuilder optionsBuilder, SiteSettings siteSettings, IServiceProvider serviceProvider)
         {
             var connectionString = siteSettings.GetMsSqlDbConnectionString();
-
             optionsBuilder.UseSqlServer(
                         connectionString,
                         sqlServerOptionsBuilder =>
@@ -34,7 +35,7 @@ namespace OnlineShop.DataLayer.MSSQL
                             sqlServerOptionsBuilder.EnableRetryOnFailure();
                             sqlServerOptionsBuilder.MigrationsAssembly(typeof(MsSqlServiceCollectionExtensions).Assembly.FullName);
                         });
-            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
+            optionsBuilder.UseLazyLoadingProxies(true).UseSqlServer(connectionString);
             optionsBuilder.UseInternalServiceProvider(serviceProvider); // It's added to access services from the dbcontext, remove it if you are using the normal `AddDbContext` and normal constructor dependency injection.
             optionsBuilder.AddInterceptors(new PersianYeKeCommandInterceptor());
             optionsBuilder.ConfigureWarnings(warnings =>

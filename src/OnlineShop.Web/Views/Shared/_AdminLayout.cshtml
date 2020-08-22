@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="/plugins/lightgallery/css/lightgallery.min.css">
 
     <!-- DataTables -->
     <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -26,14 +27,12 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
     <!-- js -->
     <script src="/plugins/jquery/jquery.min.js"></script>
     <script src="/dist/js/jquery.validate.js"></script>
     <script src="/dist/js/jquery.validate.unobtrusive.js"></script>
     <script src="/dist/js/jquery.unobtrusive-ajax.js"></script>
     <script src="/dist/js/custom.js"></script>
-    <script src="/dist/js/uikit.js"></script>
     <script src="/js/OnlineShop.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -97,10 +96,25 @@
                                             </div>
                                             <div class="modal-footer " id="ModalRemoveFooter">
                                                 <div class="float-left">
-                                                    <button type="button" class="   btn  btn-outline-danger btn-flat ">
-                                                        <span class="fas fa-times"></span>
+                                                    <button type="button" class="   btn  btn-outline-danger btn-flat " data-dismiss="modal"><span class="fas fa-times"></span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="ModalInfo" aria-modal="true">
+                                    <div class="modal-dialog modal-xl" style="border-radius:0px !important; ">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">مشاهده جزئیات</h4>
+                                                <div class="left">
+                                                    <button type="button" class="close    btn  btn-outline-danger btn-flat " data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+                                            </div>
+                                            <div class="modal-body" id="ModalInfoBody">
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -158,16 +172,23 @@
     <script src="/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
     <script src="/plugins/chart.js/Chart.min.js"></script>
+
     <!-- AdminLTE for demo purposes -->
     <script src="/dist/js/demo.js"></script>
     <script>
         $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-            $('.select2').select2()
+            $('[data-toggle="tooltip"]').tooltip();
+            $('.lightgallery').lightGallery();
+            $('.select2').select2();
             $('.select2bs4').select2({
                 theme: 'bootstrap4'
-            })
+            });
         });
     </script>
+    <!--lightgallery-->
+    <!--http://sachinchoolur.github.io/lightGallery/-->
+    <script src="/plugins/lightgallery/js/picturefill.min.js"></script>
+    <script src="/plugins/lightgallery/js/lightgallery-all.min.js"></script>
+    <script src="/plugins/lightgallery/js/jquery.mousewheel.min.js"></script>
 </body>
 </html>

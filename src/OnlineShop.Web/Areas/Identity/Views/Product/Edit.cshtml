@@ -2,9 +2,9 @@
 
 <partial name="_CustomValidationSummary" />
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
     <div class="card">
-
+        @Html.HiddenFor(r => r.Id)
         <div class="card-header">
             <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
         </div>
@@ -49,7 +49,14 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <partial name="_Lightgallery" model="@Model.Id" />
+                    <label asp-for="PhotoFileName" class="col-md-2 col-form-label text-md-left"></label>
+                    <input type="file" asp-for="Photo" class="form-control" multiple />
+                </div>
+            </div>
         </div>
-        <partial name="_CardFooter">
+            <partial name="_CardFooter">
     </div>
 </form>

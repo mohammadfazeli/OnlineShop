@@ -6,11 +6,9 @@ namespace OnlineShop.ViewModels
     {
         public BaseDto()
         {
-
             Id = Guid.NewGuid();
-            //CreateOn = DateTime.Now;
+            CreateOn = DateTime.Now;
         }
-
 
         public Guid Id { get; set; }
         public bool InActive { get; set; }
@@ -26,10 +24,7 @@ namespace OnlineShop.ViewModels
         public DateTime? CreatedDateTime { get; set; }
         public DateTime? ModifiedDateTime { get; set; }
 
-
-
         //public DateTime CreateOn { get; set; }
-
 
         //public TEntity ToEntity()
         //{
@@ -58,7 +53,7 @@ namespace OnlineShop.ViewModels
 
         //    var dtoType = typeof(TDto);
         //    var entityType = typeof(TEntity);
-        //    //Ignore any property of source (like Post.Author) that dose not contains in destination 
+        //    //Ignore any property of source (like Post.Author) that dose not contains in destination
         //    foreach (var property in entityType.GetProperties())
         //    {
         //        if (dtoType.GetProperty(property.Name) == null)
@@ -71,6 +66,5 @@ namespace OnlineShop.ViewModels
         //public virtual void CustomMappings(IMappingExpression<TEntity, TDto> mapping)
         //{
         //}
-
     }
 }

@@ -9,7 +9,7 @@ namespace OnlineShop.Web.Mapping.Area.Base
     {
         public void CreateMappings(Profile profile)
         {
-            profile.CreateMap<Color, ColorDto>()
+            profile.CreateMap<Color, ColorstDto>()
                 .ReverseMap();
         }
     }

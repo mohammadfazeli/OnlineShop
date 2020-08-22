@@ -38,7 +38,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
 
         public JsonResult ReadData()
         {
-            var list = _mapper.Map(_ColorService.GetAll().ToList(), new List<ColorDto>());
+            var list = _mapper.Map(_ColorService.GetAll().ToList(), new List<ColorstDto>());
 
             return Json(new { Data = list });
         }
@@ -48,13 +48,13 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         public IActionResult Edit(Guid id)
         {
             var x = _ColorService.Get(id);
-            var ColorDTo = _mapper.Map<Color, ColorDto>(x);
+            var ColorDTo = _mapper.Map<Color, ColorstDto>(x);
             return View(ColorDTo);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ColorDto dto)
+        public IActionResult Edit(ColorstDto dto)
         {
             if (!ModelState.IsValid)
             {
@@ -74,7 +74,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ColorDto dto)
+        public IActionResult Create(ColorstDto dto)
         {
             if (!ModelState.IsValid)
             {

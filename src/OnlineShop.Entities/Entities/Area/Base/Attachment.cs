@@ -7,6 +7,7 @@ namespace OnlineShop.Entities.Entities.Area.Base
 
     {
         public string Name { get; set; }
+        public string ExtentionFile { get; set; }
         public Guid RelateId { get; set; }
         public AttachmentType Type { get; set; }
     }

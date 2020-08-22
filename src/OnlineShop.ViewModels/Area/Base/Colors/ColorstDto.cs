@@ -2,7 +2,7 @@
 
 namespace OnlineShop.ViewModels.Area.Base.Colors
 {
-    public class ColorDto : BaseDto
+    public class ColorstDto : BaseDto
     {
         [Required(ErrorMessage = "(*)")]
         [Display(Name = nameof(Resource.Resource.Name), ResourceType = typeof(Resource.Resource))]

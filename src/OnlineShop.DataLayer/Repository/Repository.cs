@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using OnlineShop.Common.Enum;
+using OnlineShop.Common.ViewModel;
 
 namespace OnlineShop.DataLayer.Repository
 {
@@ -21,31 +22,36 @@ namespace OnlineShop.DataLayer.Repository
 
         public IQueryable<TEntity> GetAll()
         {
-            return _entity.Where(row => !row.IsDeleted).OrderByDescending(x => x.CreateOn);
+            return _entity.Where(row => !row.IsDeleted);
         }
 
-        public virtual async Task<CreateStatus> CreateAsync(TEntity entity, bool saveNow = true)
+        public IQueryable<TEntity> GetAllNoTracking()
+        {
+            return _entity.AsNoTracking().Where(row => !row.IsDeleted);
+        }
+
+        public virtual async Task<CreateStatusvm> CreateAsync(TEntity entity, bool saveNow = true)
         {
             await _entity.AddAsync(entity);
             if (saveNow)
                 await _uow.SaveChangesAsync(true);
-            return CreateStatus.Successfully;
+            return new CreateStatusvm() { CreateStatus = CreateStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual async Task<UpdateStatus> UpdateAsync(TEntity entity, bool saveNow = true)
+        public virtual async Task<UpdateStatusvm> UpdateAsync(TEntity entity, bool saveNow = true)
         {
             _entity.Update(entity);
             if (saveNow)
                 await _uow.SaveChangesAsync(true);
-            return UpdateStatus.Successfully;
+            return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual async Task<DeleteStatus> DeleteAsync(TEntity entity, bool saveNow = true)
+        public virtual async Task<DeleteStatusvm> DeleteAsync(TEntity entity, bool saveNow = true)
         {
             _entity.Remove(entity: entity);
             if (saveNow)
                 await _uow.SaveChangesAsync(true);
-            return DeleteStatus.Successfully;
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
         //public virtual async Task<TEntity> GetAsync(int code)
@@ -67,30 +73,30 @@ namespace OnlineShop.DataLayer.Repository
         //    return await _entity.AsNoTracking().FirstOrDefaultAsync(s => s.Code == code && !s.InActive && !s.IsDeleted);
         //}
 
-        public virtual CreateStatus Create(TEntity entity, bool saveNow = true)
+        public virtual CreateStatusvm Create(TEntity entity, bool saveNow = true)
         {
             _entity.Add(entity);
             if (saveNow)
                 _uow.SaveChanges(true);
-            return CreateStatus.Successfully;
+            return new CreateStatusvm() { CreateStatus = CreateStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual UpdateStatus Update(TEntity entity, bool saveNow = true)
+        public virtual UpdateStatusvm Update(TEntity entity, bool saveNow = true)
         {
             _entity.Update(entity);
             if (saveNow)
                 _uow.SaveChanges(true);
-            return UpdateStatus.Successfully;
+            return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual DeleteStatus Delete(TEntity entity, bool saveNow = true)
+        public virtual DeleteStatusvm Delete(TEntity entity, bool saveNow = true)
         {
-            var objectEntity = Get(entity.Id);
-            if (objectEntity is null) return DeleteStatus.NotExists;
-            _entity.Remove(entity: objectEntity);
+            //var objectEntity = Get(entity.Id);
+            //if (objectEntity is null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
+            _entity.Remove(entity: entity);
             if (saveNow)
                 _uow.SaveChanges(true);
-            return DeleteStatus.Successfully;
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
         public virtual TEntity Get(Guid id)
@@ -115,6 +121,11 @@ namespace OnlineShop.DataLayer.Repository
         public int SaveChanges()
         {
             return _uow.SaveChanges();
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _uow.SaveChangesAsync(true);
         }
     }
 }

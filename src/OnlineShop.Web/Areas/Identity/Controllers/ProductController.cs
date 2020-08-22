@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OnlineShop.Areas.Identity;
@@ -12,7 +13,7 @@ using OnlineShop.Web.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Areas.Identity.Controllers
 {
@@ -24,15 +25,17 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
     public class ProductController : BaseController
     {
         private readonly IProductService _ProductService;
+        private readonly IAttachmentService _attachmentService;
         private readonly IProductGroupService _productGroupService;
         private readonly IMapper _mapper;
 
-        public ProductController(IProductService ProductService,
+        public ProductController(IProductService ProductService, IAttachmentService attachmentService,
             IProductGroupService productGroupService
             , IMapper mapper)
         {
             _ProductService = ProductService;
             _productGroupService = productGroupService;
+            _attachmentService = attachmentService;
             _mapper = mapper;
         }
 
@@ -43,12 +46,9 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             return View();
         }
 
-        public JsonResult ReadData()
-        {
-            var list = _mapper.Map(_ProductService.GetAll().ToList(), new List<ProdcutListDto>());
+        public JsonResult ReadData() => Json(new { Data = _ProductService.GetList() });
 
-            return Json(new { Data = list });
-        }
+        public PartialViewResult GetInfo(Guid id) => PartialView("_Detail", _ProductService.GetInfo(id));
 
         [HttpGet]
         [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.ProductGroupAdd), order = 2)]
@@ -60,14 +60,18 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ProdcutDto dto)
+        public async Task<ActionResult> Create(ProdcutDto dto, List<IFormFile> Photo)
         {
             if (!ModelState.IsValid)
             {
                 return View(dto);
             }
 
-            _ProductService.Add(dto);
+            var result = (await _ProductService.AddAsync(dto.Initialize()));
+            if (result.CreateStatus == CreateStatus.Successfully)
+            {
+                await _attachmentService.AddList(result.RetrunId, Photo);
+            }
             return RedirectToAction(nameof(Index));
         }
 
@@ -77,13 +81,13 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         {
             var x = _ProductService.Get(id);
             var ProductGroupDTo = _mapper.Map<Product, ProdcutDto>(x);
-            ViewBag.ProductGroupItems = new SelectList(_productGroupService.GetAll(), "Id", "Name", new { ProductGroupDTo.ProductGroupId });
+            ViewBag.ProductGroupItems = new SelectList(_productGroupService.GetAll(), "Id", "Name", new { ProductGroupId = ProductGroupDTo?.ProductGroupId ?? (Guid?)null });
             return View(ProductGroupDTo);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ProdcutDto dto)
+        public IActionResult Edit(ProdcutDto dto, IFormFile Photo)
         {
             if (!ModelState.IsValid)
             {

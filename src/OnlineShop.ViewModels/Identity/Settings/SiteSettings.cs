@@ -17,6 +17,7 @@ namespace OnlineShop.ViewModels.Identity.Settings
         public PasswordOptions PasswordOptions { get; set; }
         public ActiveDatabase ActiveDatabase { get; set; }
         public string UsersAvatarsFolder { get; set; }
+        public string ProductImagesFolder { get; set; }
         public string UserDefaultPhoto { get; set; }
         public string ContentSecurityPolicyErrorLogUri { get; set; }
         public CookieOptions CookieOptions { get; set; }

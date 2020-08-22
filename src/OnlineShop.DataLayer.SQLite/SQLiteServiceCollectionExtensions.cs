@@ -16,6 +16,7 @@ namespace OnlineShop.DataLayer.SQLite
             services.AddScoped<IUnitOfWork>(serviceProvider =>
                 serviceProvider.GetRequiredService<ApplicationDbContext>());
             services.AddEntityFrameworkSqlite(); // It's added to access services from the dbcontext, remove it if you are using the normal `AddDbContext` and normal constructor dependency injection.
+            services.AddEntityFrameworkProxies();
             services.AddDbContextPool<ApplicationDbContext, SQLiteDbContext>(
                 (serviceProvider, optionsBuilder) => optionsBuilder.UseConfiguredSQLite(siteSettings, serviceProvider));
             return services;
@@ -25,6 +26,7 @@ namespace OnlineShop.DataLayer.SQLite
             this DbContextOptionsBuilder optionsBuilder, SiteSettings siteSettings, IServiceProvider serviceProvider)
         {
             var connectionString = siteSettings.GetSQLiteDbConnectionString();
+            optionsBuilder.UseLazyLoadingProxies(true).UseSqlite(connectionString);
             optionsBuilder.UseSqlite(
                 connectionString,
                 sqlServerOptionsBuilder =>

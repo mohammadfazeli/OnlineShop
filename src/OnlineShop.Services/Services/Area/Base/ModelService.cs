@@ -4,6 +4,7 @@ using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts;
 using OnlineShop.Services.Contracts.Area.Base;
+using OnlineShop.ViewModels.Area.Base.Colors;
 using OnlineShop.ViewModels.Area.Base.Models;
 
 namespace OnlineShop.Services.Services

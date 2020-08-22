@@ -105,6 +105,9 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ExtentionFile")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("InActive")
                         .HasColumnType("bit");
 

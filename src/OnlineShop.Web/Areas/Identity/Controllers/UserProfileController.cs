@@ -17,7 +17,6 @@ using OnlineShop.ViewModels.Identity.Emails;
 using OnlineShop.ViewModels.Identity.Settings;
 using System;
 using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Areas.Identity.Controllers

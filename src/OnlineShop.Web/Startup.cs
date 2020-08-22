@@ -33,13 +33,15 @@ namespace OnlineShop
             services.Configure<SiteSettings>(options => Configuration.Bind(options));
 
             // Adds all of the ASP.NET Core Identity related services and configurations at once.
+            services.AddEntityFrameworkProxies();
             services.AddCustomIdentityServices();
-
             services.AddAutoMapper(config => { config.AddCustomMappingProfile(); });
 
             services.AddMvc(options => { options.UseYeKeModelBinder(); options.Filters.Add(typeof(TitleAndIconFilter)); })
+
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
                     options => { options.ResourcesPath = "Resources"; })
+
                 .AddDataAnnotationsLocalization(options =>
                 {
                     options.DataAnnotationLocalizerProvider = (type, factory) =>

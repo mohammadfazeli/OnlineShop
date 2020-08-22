@@ -33,6 +33,7 @@ namespace OnlineShop.IocConfig
             services.AddScoped<IColorService, ColorService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IModelService, ModelService>();
+            services.AddScoped<IAttachmentService, AttachmentService>();
 
             #endregion Service
 

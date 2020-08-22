@@ -65,7 +65,7 @@ namespace OnlineShop.Services.Identity
         public string GetUserPhotoUrl(string photoFileName)
         {
             photoFileName = GetUserDefaultPhoto(photoFileName);
-            return $"~/{_siteSettings.Value.UsersAvatarsFolder}/{photoFileName}";
+            return $"/{_siteSettings.Value.UsersAvatarsFolder}/{photoFileName}";
         }
 
         public string GetCurrentUserPhotoUrl()

@@ -2134,6 +2134,7 @@
     <None Include="wwwroot\plugins\jsgrid\jsgrid.min.js" />
     <None Include="wwwroot\plugins\jszip\jszip.js" />
     <None Include="wwwroot\plugins\jszip\jszip.min.js" />
+    <None Include="wwwroot\plugins\lightgallery\fonts\lg.svg" />
     <None Include="wwwroot\plugins\moment\locales.js" />
     <None Include="wwwroot\plugins\moment\locales.min.js" />
     <None Include="wwwroot\plugins\moment\locales.min.js.map" />
@@ -2730,6 +2731,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\Images\Products\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(MSBuildProjectDirectory)\node_modules') ">

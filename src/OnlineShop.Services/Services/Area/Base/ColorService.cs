@@ -8,7 +8,7 @@ using OnlineShop.ViewModels.Area.Base.Colors;
 
 namespace OnlineShop.Services.Services
 {
-    public class ColorService : EntityService<Color, ColorDto>, IColorService
+    public class ColorService : EntityService<Color, ColorstDto>, IColorService
     {
         public ColorService(IUnitOfWork unitOfWork, IMapper mapper, IRepository<Color> repository) : base(unitOfWork, mapper, repository)
         {
