@@ -1,0 +1,19 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ProductDetails.ProductDetailListDto
+
+<div id="ProductGeneralInformation" class="GeneralInformation ">
+</div>
+<partial name="_ProductDetailList" model="@Model" />
+
+<script>
+    $(function () {
+        debugger;
+        $.ajax({
+            type: "GET",
+            url: "/" + "Identity" + "/" + "Product" + "/GetInfo/" + '@Model.ProductId',
+            success: function (viewHTML) {
+                $("#ProductGeneralInformation").html(viewHTML);
+            },
+            error: function (errorData) { onError(errorData); }
+        });
+    });
+</script>

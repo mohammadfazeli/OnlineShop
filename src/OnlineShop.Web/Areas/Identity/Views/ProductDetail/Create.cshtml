@@ -1,0 +1,77 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ProductDetails.ProductDetailDto
+
+<partial name="_CustomValidationSummary" />
+@{
+    TempData["ParentId"] = Model.ProductId;
+}
+
+<form asp-action="Create" method="post">
+    <div class="card card-outline  card-lightblue">
+
+        <div class="card-header">
+            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group  @( Model.ProductId!=new Guid() ?"disabled ":"")  ">
+                        <label asp-for="ProductId" class=" col-form-label text-md-left"></label>
+
+                        <select asp-for="ProductId" asp-items="@ViewBag.ProductItems" class="  form-control  select2bs4">
+                            <option disabled selected>@Resource.SelectedOneItem</option>
+                        </select>
+                        <span asp-validation-for="ProductId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="ProviderId" class=" col-form-label text-md-left"></label>
+
+                        <select asp-for="ProviderId" asp-items="@ViewBag.providerItems" class="form-control select2bs4">
+                            <option disabled selected>@Resource.SelectedOneItem</option>
+                        </select>
+                        <span asp-validation-for="ProviderId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="ColorId" class=" col-form-label text-md-left"></label>
+
+                        <select asp-for="ColorId" asp-items="@ViewBag.colorItems" class="form-control select2bs4">
+                            <option disabled selected>@Resource.SelectedOneItem</option>
+                        </select>
+                        <span asp-validation-for="ColorId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="ModelId" class=" col-form-label text-md-left"></label>
+                        <select asp-for="ModelId" asp-items="@ViewBag.modelItems" class="form-control select2bs4">
+                            <option disabled selected>@Resource.SelectedOneItem</option>
+                        </select>
+                        <span asp-validation-for="ModelId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group ">
+                        <div class="CheckBox">
+                            <label asp-for="InActive" class=" col-form-label text-md-left"></label>
+                            <input asp-for="InActive" />
+                            <span asp-validation-for="InActive" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="Description" class=" col-form-label text-md-left"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>

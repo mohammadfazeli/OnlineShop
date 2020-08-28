@@ -8,15 +8,16 @@
     <!-- /.card-header -->
     <div class="card-body">
         <div class="table-responsive">
-            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover table-striped  table-sm    ">
-                <thead class="thead-dark">
+            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+                <thead>
                     <tr>
-                        <th>@Html.DisplayNameFor(r => r.Id)</th>
-                        <th>@Html.DisplayNameFor(r => r.Name)</th>
-                        <th>@Html.DisplayNameFor(r => r.ForeignName)</th>
-                        <th>@Html.DisplayNameFor(r => r.UserCode)</th>
-                        <th>@Html.DisplayNameFor(r => r.ProductGroupName)</th>
-                        <th>@Resource.Operation</th>
+                        <td style="width:15px;">#</td>
+                        <td>@Html.DisplayNameFor(r => r.Id)</td>
+                        <td>@Html.DisplayNameFor(r => r.Name)</td>
+                        <td>@Html.DisplayNameFor(r => r.ForeignName)</td>
+                        <td>@Html.DisplayNameFor(r => r.UserCode)</td>
+                        <td>@Html.DisplayNameFor(r => r.ProductGroupName)</td>
+                        <td style="width:50px;">@Resource.Operation</td>
                     </tr>
                 </thead>
             </table>
@@ -31,13 +32,12 @@
 
             $('.CustomDataTable').DataTable({
                 "paging": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
                 "responsive": false,
-               
                 "language": {
                     "url": "../js/Persian.json",
                 },
@@ -47,7 +47,8 @@
                         dataType: "json",
                     },
 
-                    "columns": [
+                "columns": [
+                        { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
                         { "data": "id", className: "text-center ", visible: false },
                         { "data": "name", className: "text-center "},
                         { "data": "foreignName", className: "text-center "},
@@ -57,6 +58,10 @@
                             "data": null,
                             "render": function (data, type, row, meta) {
                                 return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                                    , [
+                                        '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductDetailController).Replace("Controller","")" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductDetailController.Index)" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductDetail</a>  '
+
+                                    ]
                                 );
                             }
                         }

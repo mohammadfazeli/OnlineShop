@@ -1,20 +1,14 @@
 ﻿using AutoMapper;
-using OnlineShop.Common.Enum;
-using OnlineShop.Common.ViewModel;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Entities.Area.Base;
-using OnlineShop.Services.Contracts;
 using OnlineShop.Services.Contracts.Area.Base;
-using OnlineShop.ViewModels.Area.Base.Attachments;
 using OnlineShop.ViewModels.Area.Base.Products;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services.Services.Area.Base
 {
     public class ProductService : EntityService<Product, ProdcutDto>, IProductService
     {

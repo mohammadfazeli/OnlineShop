@@ -11,6 +11,7 @@ using OnlineShop.Services.Contracts.Identity;
 using OnlineShop.Services.Identity;
 using OnlineShop.Services.Identity.Logger;
 using OnlineShop.Services.Services;
+using OnlineShop.Services.Services.Area.Base;
 using System.Security.Claims;
 using System.Security.Principal;
 
@@ -34,6 +35,8 @@ namespace OnlineShop.IocConfig
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IModelService, ModelService>();
             services.AddScoped<IAttachmentService, AttachmentService>();
+            services.AddScoped<IProviderService, ProviderService>();
+            services.AddScoped<IProductDetailService, ProductDetailService>();
 
             #endregion Service
 

@@ -1,56 +1,77 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Models.ModelDto
 
-<div class="uk-overflow-auto">
-    <table id="example" class="display CustomDataTable uk-table uk-table-hover uk-table-middle uk-table-divider  table-bordered">
-        <thead class="bg-blue">
-            <tr class="text-center ">
-                <td class="text-center">@Html.DisplayNameFor(r => r.Id)</td>
-                <td class="text-center">@Html.DisplayNameFor(r => r.Name)</td>
-                <td class="text-center">@Html.DisplayNameFor(r => r.ForeignName)</td>
-                <td class="text-center">@Html.DisplayNameFor(r => r.UserCode)</td>
-                <td class="text-center">@Html.DisplayNameFor(r => r.InActive)</td>
-                <td class="text-center " style="width:80px">@Resource.Operation</td>
-            </tr>
-        </thead>
-    </table>
+<div class="card">
+    <div class="card-header">
+        <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Index" />
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+                <thead>
+                    <tr>
+                        <td style="width:15px;">#</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.Id)</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.Name)</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.ForeignName)</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.UserCode)</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.InActive)</td>
+                        <td class="text-center " style="width:80px">@Resource.Operation</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>
 
 <script>
 
-    var table = $('.CustomDataTable').DataTable({
-        "language": {
-            "url": "../js/Persian.json",
-        },
-        "ajax": {
-            url: '@ViewContext.RouteData.Values["controller"]/ReadData',
-            type: "GEt",
-            dataType: "json",
-        },
+       $(function () {
 
-        "columns": [
-            { "data": "id", className: "text-center", visible: false },
-            { "data": "name" ,className: "text-center"},
-            { "data": "foreignName" ,className: "text-center"},
-            { "data": "userCode" ,className: "text-center"},
-            {
-                "data": "inActive", className: "text-center", type: "checkbox", dataType: Boolean,
-                render: function (data) {
-                    if (data == true) {
-                        return '<input  type="checkbox" checked="checked" />'
-                    } else {
-                        return '<input  type="checkbox" />'
-                    }
+            $('.CustomDataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": false,
+                "responsive": false,
 
-                }
-            },
-            {
-                "data": null,
-                "render": function (data, type, row, meta) {
-                    return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                "language": {
+                    "url": "../js/Persian.json",
+                },
+                 "ajax": {
+                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        dataType: "json",
+                    },
 
-                    );
-                }
-            }
-        ]
-    });
+                "columns": [
+                        { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
+                        { "data": "id", className: "text-center", visible: false },
+                        { "data": "name", className: "text-center"},
+                        { "data": "foreignName", className: "text-center"},
+                        { "data": "userCode", className: "text-center"},
+                        {
+                            "data": "inActive", className: "text-center", type: "checkbox", dataType: Boolean,
+                            render: function (data) {
+                                if (data == true) {
+                                    return '<input  type="checkbox" checked="checked" />'
+                                } else {
+                                    return '<input  type="checkbox" />'
+                                }
+
+                            }
+                        },
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                                );
+                            }
+                        }
+                    ]
+            });
+        });
 </script>

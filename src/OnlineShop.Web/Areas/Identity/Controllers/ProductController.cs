@@ -11,7 +11,6 @@ using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.Products;
 using OnlineShop.Web.Classes;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
@@ -54,13 +53,13 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.ProductGroupAdd), order = 2)]
         public IActionResult Create(Guid id = new Guid())
         {
-            ViewBag.ProductGroupItems = new SelectList(_productGroupService.GetAll(), "Id", "Name", selectedValue: id == new Guid() ? "" : id.ToString());
+            ViewBag.ProductGroupItems = _productGroupService.GetSelectList(id);
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ProdcutDto dto, List<IFormFile> Photo)
+        public async Task<ActionResult> Create(ProdcutDto dto, IFormFileCollection Photo)
         {
             if (!ModelState.IsValid)
             {
@@ -101,7 +100,11 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         [HttpGet]
         public IActionResult Remove(Guid id)
         {
-            _ProductService.Delete(id);
+            var result = _ProductService.Delete(id);
+            if (result.DeleteStatus == DeleteStatus.Successfully)
+            {
+                _attachmentService.RemoveAll(id);
+            }
             return RedirectToAction(nameof(Index));
         }
     }

@@ -5,6 +5,10 @@
     /*background: url(/images/pattern.jpg);*/
 }
 
+* {
+    border-radius: 0px !important;
+}
+
 @font-face {
     font-family: Samim;
     src: url('/fonts/Samim.eot?v=1.0.2');
@@ -37,6 +41,10 @@ html {
     background-color: var(--thumbBG);
     border-radius: 6px;
     border: 3px solid var(--scrollbarBG);
+}
+
+._shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
 #footer {
@@ -204,9 +212,14 @@ ul.nav.navbar-nav {
         text-decoration: none;
     }
 
-.card * {
-    border-radius: 0px !important;
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    border-top: 3px solid #3c8dbc;
 }
+
+    .card * {
+        border-radius: 0px !important;
+    }
 
 .card-header {
     border-radius: 0px !important;
@@ -220,20 +233,18 @@ ul.nav.navbar-nav {
     border-radius: 0px !important;
 }
 
-/*ligh Gallery*/
-
-.demo-gallery > ul {
+._gallery > ul {
     margin-bottom: 0;
 }
 
-    .demo-gallery > ul > li {
+    ._gallery > ul > li {
         float: left;
         margin-bottom: 15px;
         margin-right: 20px;
         width: 200px;
     }
 
-        .demo-gallery > ul > li a {
+        ._gallery > ul > li a {
             border: 3px solid #FFF;
             border-radius: 3px;
             display: block;
@@ -242,7 +253,7 @@ ul.nav.navbar-nav {
             float: left;
         }
 
-            .demo-gallery > ul > li a > img {
+            ._gallery > ul > li a > img {
                 -webkit-transition: -webkit-transform 0.15s ease 0s;
                 -moz-transition: -moz-transform 0.15s ease 0s;
                 -o-transition: -o-transform 0.15s ease 0s;
@@ -253,16 +264,16 @@ ul.nav.navbar-nav {
                 width: 100%;
             }
 
-            .demo-gallery > ul > li a:hover > img {
+            ._gallery > ul > li a:hover > img {
                 -webkit-transform: scale3d(1.1, 1.1, 1.1);
                 transform: scale3d(1.1, 1.1, 1.1);
             }
 
-            .demo-gallery > ul > li a:hover .demo-gallery-poster > img {
+            ._gallery > ul > li a:hover ._gallery-poster > img {
                 opacity: 1;
             }
 
-            .demo-gallery > ul > li a .demo-gallery-poster {
+            ._gallery > ul > li a ._gallery-poster {
                 background-color: rgba(0, 0, 0, 0.1);
                 bottom: 0;
                 left: 0;
@@ -274,7 +285,7 @@ ul.nav.navbar-nav {
                 transition: background-color 0.15s ease 0s;
             }
 
-                .demo-gallery > ul > li a .demo-gallery-poster > img {
+                ._gallery > ul > li a ._gallery-poster > img {
                     left: 50%;
                     margin-left: -10px;
                     margin-top: -10px;
@@ -286,11 +297,11 @@ ul.nav.navbar-nav {
                     transition: opacity 0.3s ease 0s;
                 }
 
-            .demo-gallery > ul > li a:hover .demo-gallery-poster {
+            ._gallery > ul > li a:hover ._gallery-poster {
                 background-color: rgba(0, 0, 0, 0.5);
             }
 
-.demo-gallery .justified-gallery > a > img {
+._gallery .justified-gallery > a > img {
     -webkit-transition: -webkit-transform 0.15s ease 0s;
     -moz-transition: -moz-transform 0.15s ease 0s;
     -o-transition: -o-transform 0.15s ease 0s;
@@ -301,16 +312,16 @@ ul.nav.navbar-nav {
     width: 100%;
 }
 
-.demo-gallery .justified-gallery > a:hover > img {
+._gallery .justified-gallery > a:hover > img {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
     transform: scale3d(1.1, 1.1, 1.1);
 }
 
-.demo-gallery .justified-gallery > a:hover .demo-gallery-poster > img {
+._gallery .justified-gallery > a:hover ._gallery-poster > img {
     opacity: 1;
 }
 
-.demo-gallery .justified-gallery > a .demo-gallery-poster {
+._gallery .justified-gallery > a ._gallery-poster {
     background-color: rgba(0, 0, 0, 0.1);
     bottom: 0;
     left: 0;
@@ -322,7 +333,7 @@ ul.nav.navbar-nav {
     transition: background-color 0.15s ease 0s;
 }
 
-    .demo-gallery .justified-gallery > a .demo-gallery-poster > img {
+    ._gallery .justified-gallery > a ._gallery-poster > img {
         left: 50%;
         margin-left: -10px;
         margin-top: -10px;
@@ -334,11 +345,11 @@ ul.nav.navbar-nav {
         transition: opacity 0.3s ease 0s;
     }
 
-.demo-gallery .justified-gallery > a:hover .demo-gallery-poster {
+._gallery .justified-gallery > a:hover ._gallery-poster {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.demo-gallery .video .demo-gallery-poster img {
+._gallery .video ._gallery-poster img {
     height: 48px;
     margin-left: -24px;
     margin-top: -24px;
@@ -346,17 +357,59 @@ ul.nav.navbar-nav {
     width: 48px;
 }
 
-.demo-gallery.dark > ul > li a {
+._gallery.dark > ul > li a {
     border: 3px solid #04070a;
 }
 
-.breadcrumb{
+.breadcrumb {
     background-color: white !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
+
 .breadcrumb-item {
     margin-right: 5px !important;
 }
-*{
-    border-radius:0px !important;
+
+.dropdown-item:hover {
+    background-color: #17a2b8 !important;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-/*ligh Gallery*/
+
+table.CustomDataTable thead {
+    background-color: #17a2b8 !important;
+    color: white;
+    text-align: center;
+}
+
+table.CustomDataTable tbody tr td {
+    height: auto;
+}
+
+.nav-item {
+    text-align: left !important;
+}
+
+.lg-inner {
+    text-align: right !important;
+}
+
+.CheckBox {
+    border: 1px solid #ced4da;
+    margin-top: 34px;
+}
+
+.menu-open {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.disabled {
+    pointer-events: none !important;
+    opacity: 0.5;
+}
+
+.GeneralInformation {
+    background-color: #e6e6e6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    padding: 5px;
+}

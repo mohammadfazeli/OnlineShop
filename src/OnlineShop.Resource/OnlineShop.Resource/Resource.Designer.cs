@@ -79,6 +79,15 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to آدرس.
+        /// </summary>
+        public static string Addrss {
+            get {
+                return ResourceManager.GetString("Addrss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to sfda.
         /// </summary>
         public static string asdsadasd {
@@ -133,6 +142,24 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to تاریخ ایجاد.
+        /// </summary>
+        public static string CreateOn {
+            get {
+                return ResourceManager.GetString("CreateOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to توضیحات.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مشاهده قطعات.
         /// </summary>
         public static string DisplayParts {
@@ -147,6 +174,15 @@ namespace OnlineShop.Resource {
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to فکس.
+        /// </summary>
+        public static string Fax {
+            get {
+                return ResourceManager.GetString("Fax", resourceCulture);
             }
         }
         
@@ -178,11 +214,47 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to غیر فعال.
+        /// </summary>
+        public static string InActive {
+            get {
+                return ResourceManager.GetString("InActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to شماره موبایل وارد شده معتبر نمی باشد.
+        /// </summary>
+        public static string InValidMobileNumber {
+            get {
+                return ResourceManager.GetString("InValidMobileNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to اجباری است.
         /// </summary>
         public static string IsRequired {
             get {
                 return ResourceManager.GetString("IsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام مدیر.
+        /// </summary>
+        public static string ManagerName {
+            get {
+                return ResourceManager.GetString("ManagerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to موبایل.
+        /// </summary>
+        public static string Mobile {
+            get {
+                return ResourceManager.GetString("Mobile", resourceCulture);
             }
         }
         
@@ -237,6 +309,42 @@ namespace OnlineShop.Resource {
         public static string ProductAdd {
             get {
                 return ResourceManager.GetString("ProductAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to جزئیات محصول.
+        /// </summary>
+        public static string ProductDetail {
+            get {
+                return ResourceManager.GetString("ProductDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن جزئیات محصول.
+        /// </summary>
+        public static string ProductDetailAdd {
+            get {
+                return ResourceManager.GetString("ProductDetailAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش جزئیات محصول.
+        /// </summary>
+        public static string ProductDetailEdit {
+            get {
+                return ResourceManager.GetString("ProductDetailEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مشاهده جزئیات محصول.
+        /// </summary>
+        public static string ProductDetailList {
+            get {
+                return ResourceManager.GetString("ProductDetailList", resourceCulture);
             }
         }
         
@@ -304,6 +412,42 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to افزودن تامین کننده.
+        /// </summary>
+        public static string ProviderCreate {
+            get {
+                return ResourceManager.GetString("ProviderCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش تامین کننده.
+        /// </summary>
+        public static string ProviderEdit {
+            get {
+                return ResourceManager.GetString("ProviderEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست تامین کنندگان.
+        /// </summary>
+        public static string ProviderList {
+            get {
+                return ResourceManager.GetString("ProviderList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام تامین کننده.
+        /// </summary>
+        public static string ProviderName {
+            get {
+                return ResourceManager.GetString("ProviderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to حذف.
         /// </summary>
         public static string Remove {
@@ -327,6 +471,15 @@ namespace OnlineShop.Resource {
         public static string submit {
             get {
                 return ResourceManager.GetString("submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تلفن.
+        /// </summary>
+        public static string Tel {
+            get {
+                return ResourceManager.GetString("Tel", resourceCulture);
             }
         }
         

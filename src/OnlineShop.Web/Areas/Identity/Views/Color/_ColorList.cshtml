@@ -1,31 +1,32 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Colors.ColorstDto
-
-<div class="card">
-    <div class="card-header">
-        <partial name="_CardHeader" />
-    </div>
-
-    <!-- /.card-header -->
-    <div class="card-body">
-        <div class="table-responsive">
-            <table id="example2" class=" float-right CustomDataTable  table table-bordered table-striped    ">
-                <thead>
-                    <tr class="small">
-                        <th>@Html.DisplayNameFor(r => r.Id)</th>
-                        <th>@Html.DisplayNameFor(r => r.Name)</th>
-                        <th>@Html.DisplayNameFor(r => r.ForeignName)</th>
-                        <th>@Html.DisplayNameFor(r => r.UserCode)</th>
-                        <th>@Html.DisplayNameFor(r => r.Description)</th>
-                        <th style="width:50px;">@Resource.Operation</th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="card">
+        <div class="card-header">
+            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Index" />
         </div>
-    </div>
-    <!-- /.card-body -->
-</div>
 
-<script>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example2" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+                    <thead>
+                        <tr>
+                            <td style="width:15px;">#</td>
+                            <th>@Html.DisplayNameFor(r => r.Id)</th>
+                            <th>@Html.DisplayNameFor(r => r.Name)</th>
+                            <th>@Html.DisplayNameFor(r => r.ForeignName)</th>
+                            <th>@Html.DisplayNameFor(r => r.UserCode)</th>
+                            <th>@Html.DisplayNameFor(r => r.Description)</th>
+                            <th>@Html.DisplayNameFor(r => r.InActive)</th>
+                            <th style="width:50px;">@Resource.Operation</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+    <script>
 
     $(function () {
         debugger;
@@ -45,12 +46,24 @@
                         dataType: "json",
                     },
 
-                    "columns": [
+                "columns": [
+                        { "data": null, className: "text-center ", "render": function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
                         { "data": "id", className: "text-center", visible: false },
                         { "data": "name", className: "text-center"},
                         { "data": "foreignName", className: "text-center"},
                         { "data": "userCode", className: "text-center"},
                         { "data": "description", className: "text-center"},
+                        {
+                            "data": "inActive", className: "text-center", type: "checkbox", dataType: Boolean,
+                            render: function (data) {
+                                if (data == true) {
+                                    return '<input  type="checkbox" checked="checked" />'
+                                } else {
+                                    return '<input  type="checkbox" />'
+                                }
+
+                            }
+                        },
                         {
                             "data": null,
                             "render": function (data, type, row, meta) {
@@ -62,4 +75,4 @@
                     ]
             });
         });
-</script>
+    </script>

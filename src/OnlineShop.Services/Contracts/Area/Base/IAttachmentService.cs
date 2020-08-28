@@ -14,6 +14,8 @@ namespace OnlineShop.Services.Contracts.Area.Base
 
         List<string> GetPhotoUrl(Guid relatedId);
 
-        Task<CreateStatusvm> AddList(Guid relatedId, List<IFormFile> files);
+        Task<CreateStatusvm> AddList(Guid relatedId, IFormFileCollection files);
+
+        Task<DeleteStatusvm> RemoveAll(Guid relatedId);
     }
 }

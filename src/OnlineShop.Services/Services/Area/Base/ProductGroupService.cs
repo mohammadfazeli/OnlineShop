@@ -6,7 +6,7 @@ using OnlineShop.Services.Contracts;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.ProductGroups;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services.Services.Area.Base
 {
     public class ProductGroupService : EntityService<ProductGroup, ProductGroupDto>, IProductGroupService
     {

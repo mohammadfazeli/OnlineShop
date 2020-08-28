@@ -1,10 +1,9 @@
 ﻿@model OnlineShop.Common.Enum.CardHeaderTye
 
 <div class="float-right">
-
     <div class="right">
-
         <h3 class="card-title"><span><spna class="@ViewBag.Icon"></spna></span> @ViewData["title"]</h3>
+        
     </div>
 </div>
 
@@ -14,24 +13,24 @@
         switch (Model)
         {
             case OnlineShop.Common.Enum.CardHeaderTye.Index:
-                <a class="btn btn-tool " asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"]" asp-action="Create">
+                <a class="btn btn-tool " data-toggle="tooltip" title="@Resource.Add" asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"]" asp-action="Create"  asp-route-id="@TempData["ParentId"]"  >
                     <i class="fas fa-plus"></i>
                 </a>
                 break;
 
             case OnlineShop.Common.Enum.CardHeaderTye.Edit:
             case OnlineShop.Common.Enum.CardHeaderTye.Create:
-                <a class="btn btn-tool" asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"]" asp-action="Index">
-                    <i class="fas fa-long-arrow-alt-left"></i>
+                <a class="btn btn-tool" data-toggle="tooltip" title="مشاهده لیست" asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"]" asp-action="Index" asp-route-id="@TempData["ParentId"]">
+                    <i class="fas fa-list"></i>
                 </a>
                 break;
         }
     }
 
-    <button type="button" class="btn btn-tool" data-card-widget="remove">
-        <i class="fas fa-times"></i>
-    </button>
+    @*<button type="button" class="btn btn-tool" data-card-widget="remove">
+            <i class="fas fa-times"></i>
+        </button>*@
     <button type="button" class="btn btn-tool" data-card-widget="collapse">
-        <i class="fas fa-minus"></i>
+        <i class="fas   fa-eye"></i>
     </button>
 </div>

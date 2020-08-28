@@ -15,16 +15,16 @@
     }
 </style>
 
-
 @if (User.Identity.IsAuthenticated)
 {
-    <li class="nav-item">
+    <li class="nav-item" style="direction:ltr">
         <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p data-toggle="tooltip" data-placement="right" title="مدیریت!">
+            <i class="left fas fa-angle-left"></i>
+
+            <p data-toggle="tooltip" class="right" data-placement="left" title="مدیریت!">
                 مدیریت
-                <i class="right fas fa-angle-left"></i>
             </p>
+            <i class=" nav-icon fas fa-user"></i>
         </a>
         <ul class="nav nav-treeview">
             <li class="nav-item">
@@ -61,43 +61,36 @@
 @foreach (var menuItem in Model)
 {
 
-    <li class="nav-item  border-bottom  mb-4 @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"menu-open ":"")">
+    <li class="nav-item  @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"menu-open ":"")">
 
-        <a href="#" class="nav-link   @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"bg-blue ":"")     ">
+        <a href="#" class="nav-link text-right  @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"bg-blue ":"")     ">
+            <i class="nav-icon  @menuItem.ControllerIcon"></i>
 
-            <i class="nav-icon @menuItem.ControllerIcon"></i>
-            <p>
+            <p data-toggle="tooltip">
                 @menuItem.ControllerName
-
                 <i class="right fas fa-angle-left"></i>
             </p>
         </a>
 
-        <ul class="nav nav-treeview   mb-2   ">
+        @*<a href="#" class="nav-link   @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"bg-blue ":"")     ">
+                <p data-toggle="tooltip" data-placement="right">
+                    @menuItem.ControllerName
+                    <i class=" fas fa-angle-left"></i>
+                </p>
+                <i class=" nav-icon @menuItem.ControllerIcon"></i>
+            </a>*@
+
+        <ul class="nav nav-treeview">
             @foreach (var item in menuItem.menuItems)
             {
-                <li class="nav-item   @(  ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller  && ViewContext.RouteData.Values["action"].ToString()==item.Action? "bg-secondary":"")">
-                    <a class="nav-link" asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action">
 
-                        @{
-                            switch (item.ActionIconType)
-                            {
+                <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller  && ViewContext.RouteData.Values["action"].ToString()==item.Action? "bg-secondary":"")">
+                    <a class="nav-link text-right" asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action">
 
-                                case OnlineShop.Common.Enum.IconType.UiKit:
-                                    <i uk-icon="icon: @item.ActionIcon"></i>
-                                    break;
-
-                                case OnlineShop.Common.Enum.IconType.FontAwesome5:
-                                    <i class="@item.ActionIcon nav-icon"></i>
-
-                                    break;
-                            }
-
-                        }
                         <p> @item.ActionName</p>
+                        <i class="@item.ActionIcon nav-icon"></i>
                     </a>
                 </li>
-
             }
         </ul>
     </li>

@@ -123,6 +123,9 @@
   <data name="AddPart" xml:space="preserve">
     <value>افزودن قطعه</value>
   </data>
+  <data name="Addrss" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
   <data name="asdsadasd" xml:space="preserve">
     <value>sfda</value>
   </data>
@@ -141,11 +144,20 @@
   <data name="ColorList" xml:space="preserve">
     <value>لیست رنگ ها</value>
   </data>
+  <data name="CreateOn" xml:space="preserve">
+    <value>تاریخ ایجاد</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
   <data name="DisplayParts" xml:space="preserve">
     <value>مشاهده قطعات</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>ویرایش</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>فکس</value>
   </data>
   <data name="ForeignName" xml:space="preserve">
     <value>نام خارجی</value>
@@ -156,8 +168,20 @@
   <data name="FullInfo" xml:space="preserve">
     <value>اطلاعات کلی</value>
   </data>
+  <data name="InActive" xml:space="preserve">
+    <value>غیر فعال</value>
+  </data>
+  <data name="InValidMobileNumber" xml:space="preserve">
+    <value>شماره موبایل وارد شده معتبر نمی باشد</value>
+  </data>
   <data name="IsRequired" xml:space="preserve">
     <value>اجباری است</value>
+  </data>
+  <data name="ManagerName" xml:space="preserve">
+    <value>نام مدیر</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>موبایل</value>
   </data>
   <data name="Model" xml:space="preserve">
     <value>مدل</value>
@@ -176,6 +200,18 @@
   </data>
   <data name="ProductAdd" xml:space="preserve">
     <value>افزودن محصول جدید</value>
+  </data>
+  <data name="ProductDetail" xml:space="preserve">
+    <value>جزئیات محصول</value>
+  </data>
+  <data name="ProductDetailAdd" xml:space="preserve">
+    <value>افزودن جزئیات محصول</value>
+  </data>
+  <data name="ProductDetailEdit" xml:space="preserve">
+    <value>ویرایش جزئیات محصول</value>
+  </data>
+  <data name="ProductDetailList" xml:space="preserve">
+    <value>مشاهده جزئیات محصول</value>
   </data>
   <data name="ProductEdit" xml:space="preserve">
     <value>ویرایش محصول</value>
@@ -198,6 +234,18 @@
   <data name="Provider" xml:space="preserve">
     <value>تامین کننده</value>
   </data>
+  <data name="ProviderCreate" xml:space="preserve">
+    <value>افزودن تامین کننده</value>
+  </data>
+  <data name="ProviderEdit" xml:space="preserve">
+    <value>ویرایش تامین کننده</value>
+  </data>
+  <data name="ProviderList" xml:space="preserve">
+    <value>لیست تامین کنندگان</value>
+  </data>
+  <data name="ProviderName" xml:space="preserve">
+    <value>نام تامین کننده</value>
+  </data>
   <data name="Remove" xml:space="preserve">
     <value>حذف</value>
   </data>
@@ -206,6 +254,9 @@
   </data>
   <data name="submit" xml:space="preserve">
     <value>ثبت</value>
+  </data>
+  <data name="Tel" xml:space="preserve">
+    <value>تلفن</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>عنوان</value>

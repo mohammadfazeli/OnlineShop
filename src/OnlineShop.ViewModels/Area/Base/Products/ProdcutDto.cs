@@ -30,6 +30,6 @@ namespace OnlineShop.ViewModels.Area.Base.Products
         [UploadFileExtensions(AllowedImages,
             ErrorMessage = "لطفا تنها یک تصویر " + AllowedImages + " را ارسال نمائید.")]
         [DataType(DataType.Upload)]
-        public IFormFile Photo { get; set; }
+        public IFormFileCollection Photo { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+
 namespace OnlineShop.Common.Utilities
 {
     public static class Assert
@@ -9,7 +10,7 @@ namespace OnlineShop.Common.Utilities
             where T : class
         {
             if (obj is null)
-                throw new ArgumentNullException($"{name} : {typeof(T)}" , message);
+                throw new ArgumentNullException($"{name} : {typeof(T)}", message);
         }
 
         public static void NotNull<T>(T? obj, string name, string message = null)
@@ -17,7 +18,16 @@ namespace OnlineShop.Common.Utilities
         {
             if (!obj.HasValue)
                 throw new ArgumentNullException($"{name} : {typeof(T)}", message);
+        }
 
+        public static bool GuidIsValid(this Guid id)
+        {
+            return id != new Guid();
+        }
+
+        public static bool GuidIsValid(this Guid? id)
+        {
+            return id != null && id != new Guid();
         }
 
         public static void NotEmpty<T>(T obj, string name, string message = null, T defaultValue = null)

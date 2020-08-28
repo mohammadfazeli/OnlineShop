@@ -1,15 +1,13 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Colors.ColorstDto
+<partial name="_CustomValidationSummary" />
 
 <form asp-action="Edit" method="post">
-
-    <div class="uk-card uk-card-default  uk-card-hover ">
-        <partial name="_CustomValidationSummary" />
-
-        <div class="uk-card-header">
-            <partial name="_CardHeader" />
+    <div class="card ">
+        @Html.HiddenFor(r => r.Id)
+        <div class="card-header">
+            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Edit" />
         </div>
-        @Html.HiddenFor(m => m.Id)
-        <div class="uk-card-body">
+        <div class="card-body">
             <div class="row">
 
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
@@ -21,10 +19,18 @@
                 </div>
 
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+
                     <div class="form-group">
-                        <label asp-for="UserCode" class=" col-form-label text-md-left"></label>
-                        <input asp-for="UserCode" class="form-control" />
-                        <span asp-validation-for="UserCode" class="text-danger"></span>
+                        <div id="colorpicker">
+                            <label asp-for="UserCode" class=" col-form-label text-md-left"></label>
+                            <div class="input-group my-colorpicker2 colorpicker-element">
+                                <input asp-for="UserCode" type="text" class="form-control input-lg" />
+                                <span class="input-group-append">
+                                    <span class="input-group-text colorpicker-input-addon"><i></i></span>
+                                </span>
+                                <span asp-validation-for="UserCode" class="text-danger"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
@@ -42,6 +48,16 @@
                         <span asp-validation-for="ForeignName" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group ">
+                        <div class="CheckBox">
+                            <label asp-for="InActive" class=" col-form-label text-md-left"></label>
+                            <input asp-for="InActive" />
+                            <span asp-validation-for="InActive" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <br>
             </div>
         </div>
         <partial name="_CardFooter">

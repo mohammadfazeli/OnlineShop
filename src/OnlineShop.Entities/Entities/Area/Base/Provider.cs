@@ -8,7 +8,7 @@ namespace OnlineShop.Entities.Entities.Area.Base
         {
             ProductDetails = new HashSet<ProductDetail>();
         }
-        
+
         public string Name { get; set; }
         public string Addrss { get; set; }
         public string Tel { get; set; }
@@ -17,6 +17,5 @@ namespace OnlineShop.Entities.Entities.Area.Base
         public string ManagerName { get; set; }
 
         public virtual ICollection<ProductDetail> ProductDetails { get; set; }
-
     }
 }

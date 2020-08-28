@@ -7,7 +7,7 @@ using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.Colors;
 using OnlineShop.ViewModels.Area.Base.Models;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services.Services.Area.Base
 {
     public class ModelService : EntityService<Model, ModelDto>, IModelService
     {

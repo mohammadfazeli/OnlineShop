@@ -1,0 +1,74 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Provider.ProviderDto
+<form asp-action="Edit" method="post">
+    <div class="card ">
+        @Html.HiddenFor(r => r.Id)
+        <div class="card-header">
+            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Edit" />
+        </div>
+        <div class="card-body">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group">
+                            <label asp-for="Name" class=" col-form-label text-md-left"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group">
+                            <label asp-for="ManagerName" class=" col-form-label text-md-left"></label>
+                            <input asp-for="ManagerName" class="form-control" />
+                            <span asp-validation-for="ManagerName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group">
+                            <label asp-for="Tel" class=" col-form-label text-md-left"></label>
+                            <input asp-for="Tel" class="form-control" />
+                            <span asp-validation-for="Tel" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group">
+                            <label asp-for="Mobile" class=" col-form-label text-md-left"></label>
+                            <input asp-for="Mobile" class="form-control" />
+                            <span asp-validation-for="Mobile" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group">
+                            <label asp-for="Addrss" class=" col-form-label text-md-left"></label>
+                            <input asp-for="Addrss" class="form-control" />
+                            <span asp-validation-for="Addrss" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group">
+                            <label asp-for="Fax" class=" col-form-label text-md-left"></label>
+                            <input asp-for="Fax" class="form-control" />
+                            <span asp-validation-for="Fax" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group">
+                            <label asp-for="Description" class=" col-form-label text-md-left"></label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                        <div class="form-group CheckBox">
+                            <label asp-for="InActive" class=" col-form-label text-md-left"></label>
+                            <input asp-for="InActive" class="" />
+                            <span asp-validation-for="InActive" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>

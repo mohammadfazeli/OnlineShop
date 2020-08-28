@@ -16,7 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services.Services.Area.Base
 {
     public class AttachmentService : EntityService<Attachment, AttachmentDto>, IAttachmentService
     {
@@ -35,7 +35,7 @@ namespace OnlineShop.Services.Services
             _siteSettings = siteSettings ?? throw new ArgumentNullException(nameof(_siteSettings));
         }
 
-        public async Task<CreateStatusvm> AddList(Guid relatedId, List<IFormFile> files)
+        public async Task<CreateStatusvm> AddList(Guid relatedId, IFormFileCollection files)
         {
             foreach (var file in files)
             {
@@ -118,6 +118,27 @@ namespace OnlineShop.Services.Services
                 }
             }
             return items;
+        }
+
+        public async Task<DeleteStatusvm> RemoveAll(Guid relatedId)
+        {
+            var files = GetByRelatedId(relatedId);
+            if (files == null) return new DeleteStatusvm() { Valid = true, DeleteStatus = DeleteStatus.NotExists };
+
+            var ProductImagesFolder = _siteSettings.Value.ProductImagesFolder;
+            var uploadsRootFolder = Path.Combine(_hostingEnvironment.WebRootPath, ProductImagesFolder);
+
+            foreach (var file in files)
+            {
+                var fileName = $"{file.Id}▲{file.RelateId}{file.ExtentionFile}";
+                var filePath = Path.Combine(uploadsRootFolder, fileName);
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    await this.DeleteAsync(file.Id);
+                }
+            }
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true };
         }
     }
 }

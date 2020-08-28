@@ -40,6 +40,8 @@
     <Compile Remove="Classes\Filters\PermissionControlActionFilter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Remove="wwwroot\dist\css\adminlte.css.map" />
+    <Content Remove="wwwroot\dist\css\adminlte.min.css.map" />
     <Content Remove="wwwroot\dist\css\custom.css" />
     <Content Remove="wwwroot\dist\js\custom.js" />
     <Content Remove="wwwroot\dist\js\jquery.unobtrusive-ajax.js" />
@@ -756,9 +758,7 @@
     <None Include="node_modules\samim-font\source\Samim-Bold.sfd" />
     <None Include="node_modules\samim-font\source\Samim.sfd" />
     <None Include="wwwroot\dist\css\adminlte.css" />
-    <None Include="wwwroot\dist\css\adminlte.css.map" />
     <None Include="wwwroot\dist\css\adminlte.min.css" />
-    <None Include="wwwroot\dist\css\adminlte.min.css.map" />
     <None Include="wwwroot\dist\css\alt\adminlte.components.css" />
     <None Include="wwwroot\dist\css\alt\adminlte.components.css.map" />
     <None Include="wwwroot\dist\css\alt\adminlte.components.min.css" />
@@ -2743,4 +2743,6 @@
     <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="npm install" />
   </Target>
+
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4dist_4css_4alt_4adminlte_1components_1min_1css_1map__JsonSchema="https://json.schemastore.org/traefik-v2" /></VisualStudio></ProjectExtensions>
 </Project>

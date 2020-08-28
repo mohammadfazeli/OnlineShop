@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Common.Enum;
+using OnlineShop.Common.Utilities;
 using OnlineShop.Common.ViewModel;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
@@ -47,6 +49,11 @@ namespace OnlineShop.Services.Services
         public virtual Task<TEntity> GetAsync(Guid id)
         {
             return _repository.GetAsync(id);
+        }
+
+        public virtual SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name")
+        {
+            return new SelectList(GetAllNoTracking().Where(x => !x.InActive), dataValueField, dataTextField, selectedValue: id.GuidIsValid() ? id.ToString() : null);
         }
 
         public virtual CreateStatusvm Add(TDto dto)

@@ -1,4 +1,5 @@
-﻿using OnlineShop.Common.ViewModel;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using OnlineShop.Common.ViewModel;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace OnlineShop.Services.Contracts
         TEntity Get(Guid id);
 
         Task<TEntity> GetAsync(Guid id);
+
+        SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name");
 
         CreateStatusvm Add(TDto dto);
 

@@ -1,5 +1,4 @@
-﻿
-<script>
+﻿<script>
     function SearchAdminMenu() {
         // Declare variables
         var input, filter, ul, li, a, i, txtValue;
@@ -37,16 +36,15 @@
         <input class="form-control form-control-sidebar text-right" onkeydown="SearchAdminMenu()" type="search" id="SearchMenu" placeholder=" جستجو کنید" aria-label="Search">
         <div class="input-group-append">
             @*<button class="btn btn-sidebar btn-vk">
-            <i class="fas fa-search fa-fw"></i>
-        </button>*@
-
+                    <i class="fas fa-search fa-fw"></i>
+                </button>*@
         </div>
     </div>
 </div>
 
 <!-- Sidebar Menu -->
 <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column nav-compact nav-flat" id="AdminMenu" data-widget="treeview" role="menu" data-accordion="false">
+    <ul class="nav nav-pills nav-sidebar flex-column  " id="AdminMenu" data-widget="treeview" role="menu" data-accordion="true">
         <!-- Add icons to the links using the .nav-icon class
         with font-awesome or any other icon font library -->
         @await Component.InvokeAsync("Menu", new { area = AreaConstants.IdentityArea })

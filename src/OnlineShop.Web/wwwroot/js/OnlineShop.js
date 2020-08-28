@@ -9,7 +9,7 @@ function TableOperation(id, area, controller, OtherLinks = ['']) {
         '<div class="dropdown-menu">' +
         '<a  class="dropdown-item text-right "  href="#" onclick=' + `ShowModalConfirmRemove('${area}','${controller}','${id}')` + ' ><li class="fas fa-trash"></li>حذف</a>' +
         '<a  class="dropdown-item text-right"   href="/' + area + '/' + controller + '/Edit/' + id + '"><li class="fas fa-edit left"></li> ویرایش</a>  ' +
-        '<a  class="dropdown-item text-right " href="#"  onclick=' + `ShowModalGetDetail('${area}','${controller}','${id}')` + ' ><li class="fas fa-info"></li>جزئیات</a>' +
+        '<a  class="dropdown-item text-right "  href="#"  onclick=' + `ShowModalGetDetail('${area}','${controller}','${id}')` + ' ><li class="fas fa-info"></li>جزئیات</a>' +
 
         Links.replace(",", "");
     //'<a  class="dropdown-item"  onclick=' + `ShowModalConfirmedit('${area}','${controller}','${id}')` + ' ><span uk-icon="icon: file-edit"></span>ویرایش</a>' +
