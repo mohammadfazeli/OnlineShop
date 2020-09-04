@@ -9,7 +9,9 @@ using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities;
 using OnlineShop.Services.Contracts;
 using OnlineShop.ViewModels;
+using OnlineShop.ViewModels.Base;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -54,6 +56,17 @@ namespace OnlineShop.Services.Services
         public virtual SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name")
         {
             return new SelectList(GetAllNoTracking().Where(x => !x.InActive), dataValueField, dataTextField, selectedValue: id.GuidIsValid() ? id.ToString() : null);
+        }
+
+        public virtual DropDownViewModel GetDropDown(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name")
+        {
+            var dd = new DropDownViewModel()
+            {
+                id = id,
+                SelectList = GetSelectList(id, dataValueField, dataTextField),
+                CurrentValues = id == null ? null : new List<string>() { id.ToString() },
+            };
+            return dd;
         }
 
         public virtual CreateStatusvm Add(TDto dto)

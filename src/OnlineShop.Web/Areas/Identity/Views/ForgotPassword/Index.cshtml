@@ -1,7 +1,5 @@
 ﻿@model ForgotPasswordViewModel
-@{
-    ViewData["Title"] = "بازیابی کلمه‌ی عبور فراموش شده";
-}
+@{ ViewData["Title"] = "بازیابی کلمه‌ی عبور فراموش شده"; }
 
 <div class="card mt-5">
     <div class="card-header">
@@ -33,8 +31,7 @@
                                  asp-back-color="#ccc"
                                  asp-text-box-class="text-box form-control"
                                  asp-text-box-template="<div class='input-group'><span class='input-group-prepend'><span class='input-group-text'><i class='fas fa-lock'></i></span></span>{0}</div>"
-                                 asp-validation-message-class="text-danger"
-                                 />
+                                 asp-validation-message-class="text-danger" />
                 </div>
             </div>
             <div class="form-group row">

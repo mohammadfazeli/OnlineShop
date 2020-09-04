@@ -396,7 +396,7 @@ table.CustomDataTable tbody tr td {
 
 .CheckBox {
     border: 1px solid #ced4da;
-    margin-top: 34px;
+    margin-top: 30px;
 }
 
 .menu-open {
@@ -409,7 +409,7 @@ table.CustomDataTable tbody tr td {
 }
 
 .GeneralInformation {
-    background-color: #e6e6e6;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    /*background-color: #e6e6e6;*/
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;*/
     padding: 5px;
 }

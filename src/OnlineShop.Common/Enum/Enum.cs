@@ -36,7 +36,8 @@
         UiKit,
         BootStrap,
         FontAwesome5,
-        FontAwesome4
+        FontAwesome4,
+        SVG
     }
 
     public enum AttachmentType

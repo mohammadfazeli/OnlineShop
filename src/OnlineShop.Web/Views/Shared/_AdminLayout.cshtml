@@ -21,7 +21,9 @@
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dist/css/custom-style.css">
     <!-- Persian Data Picker -->
-    <link rel="stylesheet" href="/dist/css/persian-datepicker.min.css">
+    @*<link rel="stylesheet" href="/dist/css/persian-datepicker.min.css">*@
+    <link rel="stylesheet" href="/dist/css/persianDatepicker-default.css">
+
     <!-- Font Awesome Icons -->
 
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
@@ -134,7 +136,6 @@
                                     <!-- /.modal-dialog -->
                                 </div>
                                 <partial name="_Breadcrumb" />
-
                                 @RenderBody()
                             </div>
                         </div>
@@ -173,7 +174,6 @@
     <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.js"></script>
 
@@ -190,8 +190,9 @@
     <script src="/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 
     <!-- Persian Data Picker -->
-    <script src="/dist/js/persian-date.min.js"></script>
-    <script src="/dist/js/persian-datepicker.min.js"></script>
+    @*<script src="/dist/js/persian-date.min.js"></script>
+        <script src="/dist/js/persian-datepicker.min.js"></script>*@
+    <script src="/dist/js/persianDatepicker.min.js"></script>
 
     <!-- dropzonejs -->
     <script src="/plugins/dropzone/min/dropzone.min.js"></script>
@@ -212,14 +213,52 @@
 
         $(function () {
 
+            $('.persianDatepicker').persianDatepicker({ format: "yyyy/MM/dd" });
+
+            $(".price").on("keydown", function (e) {
+                var keycode = (event.which) ? event.which : event.keyCode;
+                if (e.shiftKey == true || e.ctrlKey == true) return false;
+                if ([8, 110, 39, 37, 46].indexOf(keycode) >= 0 || // allow tab, dot, left and right arrows, delete keys
+                    (keycode == 190 && this.value.indexOf('.') === -1) || // allow dot if not exists in the value
+                    (keycode == 110 && this.value.indexOf('.') === -1) || // allow dot if not exists in the value
+                    (keycode >= 48 && keycode <= 57) || // allow numbers
+                    (keycode >= 96 && keycode <= 105)) { // allow numpad numbers
+                    // check for the decimals after dot and prevent any digits
+                    var parts = this.value.split('.');
+                    if (parts.length > 1 && // has decimals
+                        parts[1].length >= 2 && // should limit this
+                        (
+                            (keycode >= 48 && keycode <= 57) || (keycode >= 96 && keycode <= 105)
+                        ) // requested key is a digit
+                    ) {
+                        return false;
+                    } else {
+                        if (keycode == 110) {
+                            this.value += ".";
+                            return false;
+                        }
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+            });
+            //    .on("keyup", function () {
+            //    var parts = this.value.split('.');
+            //    parts[0] = parts[0].replace(/,/g, '').replace(/^0+/g, '');
+            //    if (parts[0] == "") parts[0] = "0";
+            //    var calculated = parts[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+            //    if (parts.length >= 2) calculated += "." + parts[1].substring(0, 2);
+            //    this.value = calculated;
+            //    if (this.value == "NaN" || this.value == "") this.value = 0;
+            //});
+
             //color picker with addon
             $('#colorpicker').colorpicker()
 
             $('.my-colorpicker2').on('colorpickerChange', function (event) {
                 $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
             });
-
-            $('.normal-example').persianDatepicker({ format: 'YYYY/MM/DD' });
         })
     </script>
 

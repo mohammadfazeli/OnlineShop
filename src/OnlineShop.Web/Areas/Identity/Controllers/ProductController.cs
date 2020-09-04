@@ -53,8 +53,8 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.ProductGroupAdd), order = 2)]
         public IActionResult Create(Guid id = new Guid())
         {
-            ViewBag.ProductGroupItems = _productGroupService.GetSelectList(id);
-            return View();
+            var prodcutDto = new ProdcutDto() { ProductGroupDropDown = _productGroupService.GetDropDown(id) };
+            return View(prodcutDto);
         }
 
         [HttpPost]
@@ -80,7 +80,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         {
             var x = _ProductService.Get(id);
             var ProductGroupDTo = _mapper.Map<Product, ProdcutDto>(x);
-            ViewBag.ProductGroupItems = new SelectList(_productGroupService.GetAll(), "Id", "Name", new { ProductGroupId = ProductGroupDTo?.ProductGroupId ?? (Guid?)null });
+            ProductGroupDTo.ProductGroupDropDown = _productGroupService.GetDropDown(ProductGroupDTo.ProductGroupId);
             return View(ProductGroupDTo);
         }
 

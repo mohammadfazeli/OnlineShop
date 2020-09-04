@@ -63,32 +63,21 @@
 
     <li class="nav-item  @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"menu-open ":"")">
 
-        <a href="#" class="nav-link text-right  @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"bg-blue ":"")     ">
-            <i class="nav-icon  @menuItem.ControllerIcon"></i>
-
-            <p data-toggle="tooltip">
-                @menuItem.ControllerName
-                <i class="right fas fa-angle-left"></i>
-            </p>
+        <a href="#" class="nav-link @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"bg-blue ":"")">
+            <i class="right fas fa-angle-left"></i>
+            <i class=" nav-icon  @menuItem.ControllerIcon"></i>
+            <p>@menuItem.ControllerName </p>
         </a>
-
-        @*<a href="#" class="nav-link   @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"bg-blue ":"")     ">
-                <p data-toggle="tooltip" data-placement="right">
-                    @menuItem.ControllerName
-                    <i class=" fas fa-angle-left"></i>
-                </p>
-                <i class=" nav-icon @menuItem.ControllerIcon"></i>
-            </a>*@
 
         <ul class="nav nav-treeview">
             @foreach (var item in menuItem.menuItems)
             {
 
                 <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller  && ViewContext.RouteData.Values["action"].ToString()==item.Action? "bg-secondary":"")">
-                    <a class="nav-link text-right" asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action">
+                    <a class="nav-link" asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action">
 
-                        <p> @item.ActionName</p>
-                        <i class="@item.ActionIcon nav-icon"></i>
+                        <i class=" @item.ActionIcon nav-icon"></i>
+                        <p class=" ">@item.ActionName</p>
                     </a>
                 </li>
             }

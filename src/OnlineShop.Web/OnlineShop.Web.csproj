@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <NoWarn>RCS1090</NoWarn>
     <LangVersion>8.0</LangVersion>
+    <UserSecretsId>3886d47d-0cf2-4218-971c-24a9cfb8efce</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <None Update="wwwroot\**\*;Views\**\*;Areas\**\*.cshtml">

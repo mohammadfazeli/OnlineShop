@@ -1,5 +1,8 @@
-﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto
+﻿@model OnlineShop.ViewModels.Area.Base.ProductPriceModificatin.ProductPriceModificatinListDto
 
+@{
+    TempData["ParentId"] = Model.ProductDetailId;
+}
 <div class="card">
     <div class="card-header">
         <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Index" />
@@ -13,10 +16,10 @@
                     <tr>
                         <td style="width:15px;">#</td>
                         <td>@Html.DisplayNameFor(r => r.Id)</td>
-                        <td>@Html.DisplayNameFor(r => r.Name)</td>
-                        <td>@Html.DisplayNameFor(r => r.ForeignName)</td>
-                        <td>@Html.DisplayNameFor(r => r.UserCode)</td>
-                        <td>@Html.DisplayNameFor(r => r.ProductGroupName)</td>
+                        <td>@Html.DisplayNameFor(r => r.OldPrice)</td>
+                        <td>@Html.DisplayNameFor(r => r.NewPrice)</td>
+                        <td>@Html.DisplayNameFor(r => r.strFromDate)</td>
+                        <td>@Html.DisplayNameFor(r => r.InActive)</td>
                         <td style="width:50px;">@Resource.Operation</td>
                     </tr>
                 </thead>
@@ -40,29 +43,36 @@
                 "autoWidth": false,
                 "responsive": false,
                 "language": {
-                    "url": "../js/Persian.json",
+                    "url": "/js/Persian.json",
                 },
                  "ajax": {
-                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        url: '/Identity/@ViewContext.RouteData.Values["controller"]/ReadData',
                         type: "GEt",
+                        data: { productDetailId:'@Model.ProductDetailId' },
                         dataType: "json",
                     },
 
                 "columns": [
                         { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
                         { "data": "id", className: "text-center ", visible: false },
-                        { "data": "name", className: "text-center "},
-                        { "data": "foreignName", className: "text-center "},
-                        { "data": "userCode", className: "text-center "},
-                        { "data": "productGroupName", className: "text-center "},
+                        { "data": "oldPrice", className: "text-center "},
+                        { "data": "newPrice", className: "text-center "},
+                        { "data": "strFromDate", className: "text-center " },
+                        {
+                            "data": "inActive", className: "text-center", type: "checkbox", dataType: Boolean,
+                            render: function (data) {
+                                if (data == true) {
+                                    return '<input  type="checkbox" checked="checked" />'
+                                } else {
+                                    return '<input  type="checkbox" />'
+                                }
+
+                            }
+                        },
                         {
                             "data": null,
                             "render": function (data, type, row, meta) {
                                 return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
-                                    , [
-                                        '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductDetailController).Replace("Controller","")" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductDetailController.Index)" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductDetail</a>  '
-
-                                    ]
                                 );
                             }
                         }

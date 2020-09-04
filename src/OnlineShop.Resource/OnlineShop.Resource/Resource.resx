@@ -165,11 +165,17 @@
   <data name="ForgetPassword" xml:space="preserve">
     <value>کلمه‌ی عبور خود را فراموش کرده‌اید؟</value>
   </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>از تاریخ </value>
+  </data>
   <data name="FullInfo" xml:space="preserve">
     <value>اطلاعات کلی</value>
   </data>
   <data name="InActive" xml:space="preserve">
     <value>غیر فعال</value>
+  </data>
+  <data name="InputMustBeNumber" xml:space="preserve">
+    <value>مبلغ {0} صحیح نمی باشد</value>
   </data>
   <data name="InValidMobileNumber" xml:space="preserve">
     <value>شماره موبایل وارد شده معتبر نمی باشد</value>
@@ -188,6 +194,12 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>نام</value>
+  </data>
+  <data name="NewPrice" xml:space="preserve">
+    <value>قیمت فعلی</value>
+  </data>
+  <data name="OldPrice" xml:space="preserve">
+    <value>قیمت قبلی</value>
   </data>
   <data name="Operation" xml:space="preserve">
     <value>عملیات</value>
@@ -230,6 +242,15 @@
   </data>
   <data name="ProductList" xml:space="preserve">
     <value>لیست محصولات</value>
+  </data>
+  <data name="ProductPriceModificatinAdd" xml:space="preserve">
+    <value>افزودن قیمت گذاری</value>
+  </data>
+  <data name="ProductPriceModificatinEdit" xml:space="preserve">
+    <value>ویرایش قیمت گذاری</value>
+  </data>
+  <data name="ProductPriceModificatinList" xml:space="preserve">
+    <value>لیست قیمت گذاری</value>
   </data>
   <data name="Provider" xml:space="preserve">
     <value>تامین کننده</value>

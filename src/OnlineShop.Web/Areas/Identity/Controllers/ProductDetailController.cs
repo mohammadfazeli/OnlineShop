@@ -61,11 +61,15 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         [ActionInfo(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.ProductDetailAdd))]
         public IActionResult Create(Guid id)
         {
-            ViewBag.colorItems = colorService.GetSelectList();
-            ViewBag.modelItems = modelService.GetSelectList();
-            ViewBag.providerItems = providerService.GetSelectList();
-            ViewBag.ProductItems = productService.GetSelectList(id);
-            return View(new ProductDetailDto() { ProductId = id });
+            var vm = new ProductDetailDto()
+            {
+                ProductId = id,
+                ColorDropDown = colorService.GetDropDown(),
+                ModelDropDown = modelService.GetDropDown(),
+                ProviderDropDown = providerService.GetDropDown(),
+                ProductDropDown = productService.GetDropDown(id)
+            };
+            return View(vm);
         }
 
         [HttpPost]
@@ -89,10 +93,10 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             var item = _ProductDetailService.Get(id);
             var ProductDetailDTo = _mapper.Map<ProductDetail, ProductDetailDto>(item);
 
-            ViewBag.colorItems = colorService.GetSelectList(ProductDetailDTo.ColorId);
-            ViewBag.modelItems = modelService.GetSelectList(ProductDetailDTo.ModelId);
-            ViewBag.providerItems = providerService.GetSelectList(ProductDetailDTo.ProviderId);
-            ViewBag.ProductItems = productService.GetSelectList(ProductDetailDTo.ProductId);
+            ProductDetailDTo.ColorDropDown = colorService.GetDropDown(ProductDetailDTo.ColorId);
+            ProductDetailDTo.ModelDropDown = modelService.GetDropDown(ProductDetailDTo.ModelId);
+            ProductDetailDTo.ProviderDropDown = providerService.GetDropDown(ProductDetailDTo.ProviderId);
+            ProductDetailDTo.ProductDropDown = productService.GetDropDown(ProductDetailDTo.ProductId);
             return View(ProductDetailDTo);
         }
 

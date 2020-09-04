@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using OnlineShop.Common.Enum;
+
+namespace OnlineShop.ViewModels.Base
+{
+    public class DropDownViewModel
+    {
+        public Guid? id { get; set; }
+        public SelectList SelectList { get; set; }
+        public ICollection<string> CurrentValues { get; set; }
+    }
+}

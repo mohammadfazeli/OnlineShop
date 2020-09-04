@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.IocConfig.CustomMapping;
+using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.ProductDetails;
 
 namespace OnlineShop.Web.Mapping.Area.Base

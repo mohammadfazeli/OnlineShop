@@ -6,42 +6,28 @@
 <form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="card">
 
-        <div class="card-header">
+        <div class="card-header  bg-light">
             <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <div class="form-group">
-                        <label asp-for="Name" class=" col-form-label text-md-left"></label>
-                        <input asp-for="Name" class="form-control" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
+                    <CustomInput asp-for="Name"></CustomInput>
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <div class="form-group">
-                        <label asp-for="UserCode" class=" col-form-label text-md-left"></label>
-                        <input asp-for="UserCode" class="form-control" />
-                        <span asp-validation-for="UserCode" class="text-danger"></span>
-                    </div>
-                </div> <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <div class="form-group">
-                        <label asp-for="ForeignName" class=" col-form-label text-md-left"></label>
-                        <input asp-for="ForeignName" class="form-control" />
-                        <span asp-validation-for="ForeignName" class="text-danger"></span>
-                    </div>
+                    <CustomInput asp-for="UserCode"></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="ForeignName"></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInputTextArea asp-for="Description"></CustomInputTextArea>
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <div class="form-group">
-                        <label asp-for="ProductGroupId" class=" col-form-label text-md-left"></label>
-
-                        <select asp-for="ProductGroupId" asp-items="@ViewBag.ProductGroupItems" class="form-control select2bs4">
-                            <option disabled selected>@Resource.SelectedOneItem</option>
-                        </select>
-                        <span asp-validation-for="ProductGroupId" class="text-danger"></span>
-                    </div>
+                    <CustomSelect asp-for="ProductGroupId" asp-expression="ProductGroupId" asp-optionLabel="@Resource.SelectedOneItem" asp-currentValues="@Model.ProductGroupDropDown.CurrentValues" asp-selectList="@Model.ProductGroupDropDown.SelectList" asp-Class=" select2bs4 "></CustomSelect>
                 </div>
-
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
                     <div class="form-group row">
                         <label asp-for="PhotoFileName" class="col-md-2 col-form-label text-md-left"></label>
@@ -54,19 +40,6 @@
                         </div>
                     </div>
                 </div>
-                @*<div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                        <div class="form-group">
-                            <label asp-for="Description"></label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-calendar-alt"></i>
-                                    </span>
-                                </div>
-                                <input class="normal-example form-control" asp-for="Description" />
-                            </div>
-                        </div>
-                    </div>*@
             </div>
 
             <!--<div class="row  ">

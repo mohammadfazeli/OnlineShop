@@ -1,5 +1,6 @@
 ﻿using DNTCommon.Web.Core;
 using Microsoft.AspNetCore.Http;
+using OnlineShop.ViewModels.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,14 +11,16 @@ namespace OnlineShop.ViewModels.Area.Base.Products
         public const string AllowedImages = ".png,.jpg,.jpeg,.gif";
 
         [Required(ErrorMessage = "(*)")]
-        [Display(Name = nameof(Resource.Resource.Name), ResourceType = typeof(Resource.Resource))]
+        [Display(Name = nameof(Resource.Resource.Name), Prompt = nameof(Resource.Resource.ProductGroup), ResourceType = typeof(Resource.Resource))]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "(*)")]
-        [Display(Name = nameof(Resource.Resource.ProductGroup), ResourceType = typeof(Resource.Resource))]
+        [Display(Name = nameof(Resource.Resource.ProductGroup), Prompt = nameof(Resource.Resource.ProductGroup), ResourceType = typeof(Resource.Resource))]
         public Guid? ProductGroupId { get; set; }
 
-        [Display(Name = nameof(Resource.Resource.ForeignName), ResourceType = typeof(Resource.Resource))]
+        public DropDownViewModel ProductGroupDropDown { get; set; }
+
+        [Display(Name = nameof(Resource.Resource.ForeignName), Prompt = nameof(Resource.Resource.ForeignName), ResourceType = typeof(Resource.Resource))]
         public string ForeignName { get; set; }
 
         [Display(Name = nameof(Resource.Resource.UserCode), ResourceType = typeof(Resource.Resource))]

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using OnlineShop.Common.ViewModel;
+using OnlineShop.ViewModels.Base;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace OnlineShop.Services.Contracts
         Task<TEntity> GetAsync(Guid id);
 
         SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name");
+
+        DropDownViewModel GetDropDown(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name");
 
         CreateStatusvm Add(TDto dto);
 

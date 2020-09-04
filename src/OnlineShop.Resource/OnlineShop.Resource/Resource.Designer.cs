@@ -205,6 +205,15 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to از تاریخ .
+        /// </summary>
+        public static string FromDate {
+            get {
+                return ResourceManager.GetString("FromDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to اطلاعات کلی.
         /// </summary>
         public static string FullInfo {
@@ -219,6 +228,15 @@ namespace OnlineShop.Resource {
         public static string InActive {
             get {
                 return ResourceManager.GetString("InActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مبلغ {0} صحیح نمی باشد.
+        /// </summary>
+        public static string InputMustBeNumber {
+            get {
+                return ResourceManager.GetString("InputMustBeNumber", resourceCulture);
             }
         }
         
@@ -273,6 +291,24 @@ namespace OnlineShop.Resource {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to قیمت فعلی.
+        /// </summary>
+        public static string NewPrice {
+            get {
+                return ResourceManager.GetString("NewPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to قیمت قبلی.
+        /// </summary>
+        public static string OldPrice {
+            get {
+                return ResourceManager.GetString("OldPrice", resourceCulture);
             }
         }
         
@@ -399,6 +435,33 @@ namespace OnlineShop.Resource {
         public static string ProductList {
             get {
                 return ResourceManager.GetString("ProductList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن قیمت گذاری.
+        /// </summary>
+        public static string ProductPriceModificatinAdd {
+            get {
+                return ResourceManager.GetString("ProductPriceModificatinAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش قیمت گذاری.
+        /// </summary>
+        public static string ProductPriceModificatinEdit {
+            get {
+                return ResourceManager.GetString("ProductPriceModificatinEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست قیمت گذاری.
+        /// </summary>
+        public static string ProductPriceModificatinList {
+            get {
+                return ResourceManager.GetString("ProductPriceModificatinList", resourceCulture);
             }
         }
         

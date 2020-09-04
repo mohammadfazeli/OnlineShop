@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DNTPersianUtils.Core;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.ViewModels.Area.Base.Products
 {
