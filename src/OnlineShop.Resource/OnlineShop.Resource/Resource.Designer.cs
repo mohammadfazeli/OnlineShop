@@ -439,6 +439,15 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to قیمت گذازی.
+        /// </summary>
+        public static string ProductPriceModificatin {
+            get {
+                return ResourceManager.GetString("ProductPriceModificatin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to افزودن قیمت گذاری.
         /// </summary>
         public static string ProductPriceModificatinAdd {
@@ -462,6 +471,42 @@ namespace OnlineShop.Resource {
         public static string ProductPriceModificatinList {
             get {
                 return ResourceManager.GetString("ProductPriceModificatinList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to وِیژگی محصول.
+        /// </summary>
+        public static string ProductSpecification {
+            get {
+                return ResourceManager.GetString("ProductSpecification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن ویژگی محصول.
+        /// </summary>
+        public static string ProductSpecificationAdd {
+            get {
+                return ResourceManager.GetString("ProductSpecificationAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش ویژگی محصول.
+        /// </summary>
+        public static string ProductSpecificationEdit {
+            get {
+                return ResourceManager.GetString("ProductSpecificationEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست ویژگی های محصول.
+        /// </summary>
+        public static string ProductSpecificationList {
+            get {
+                return ResourceManager.GetString("ProductSpecificationList", resourceCulture);
             }
         }
         
@@ -525,6 +570,33 @@ namespace OnlineShop.Resource {
         public static string SelectedOneItem {
             get {
                 return ResourceManager.GetString("SelectedOneItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام ویژگی.
+        /// </summary>
+        public static string SpecificationName {
+            get {
+                return ResourceManager.GetString("SpecificationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نوع ویژگی.
+        /// </summary>
+        public static string SpecificationType {
+            get {
+                return ResourceManager.GetString("SpecificationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مقدار وِیژگی.
+        /// </summary>
+        public static string SpecificationValue {
+            get {
+                return ResourceManager.GetString("SpecificationValue", resourceCulture);
             }
         }
         

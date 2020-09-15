@@ -48,8 +48,8 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ValidateDNTCaptcha(CaptchaGeneratorLanguage = Language.Persian,
-                            CaptchaGeneratorDisplayMode = DisplayMode.SumOfTwoNumbers)]
+        //[ValidateDNTCaptcha(CaptchaGeneratorLanguage = Language.Persian,
+        //                    CaptchaGeneratorDisplayMode = DisplayMode.SumOfTwoNumbers)]
         public async Task<IActionResult> Index(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;

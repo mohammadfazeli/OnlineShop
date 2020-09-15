@@ -212,14 +212,18 @@ ul.nav.navbar-nav {
         text-decoration: none;
     }
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+._borderTop {
     border-top: 3px solid #3c8dbc;
 }
 
-    .card * {
-        border-radius: 0px !important;
-    }
+/*.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    border-top: 3px solid #3c8dbc;
+}*/
+
+.card * {
+    border-radius: 0px !important;
+}
 
 .card-header {
     border-radius: 0px !important;

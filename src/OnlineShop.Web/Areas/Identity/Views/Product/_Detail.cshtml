@@ -2,18 +2,21 @@
 
 <div class="row">
     <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-        @Html.LabelFor(x => x.Name) : @Html.DisplayFor(x => x.Name)
-    </div>
-    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-        @Html.LabelFor(x => x.UserCode) : @Html.DisplayFor(x => x.UserCode)
-    </div>
-    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-        @Html.LabelFor(x => x.ForeignName) : @Html.DisplayFor(x => x.ForeignName)
-    </div>
-    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-        @Html.LabelFor(x => x.Description) : @Html.DisplayFor(x => x.Description)
-    </div>
-    <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-        @Html.LabelFor(x => x.ProductGroupName) : @Html.DisplayFor(x => x.ProductGroupName)
+        <div class="card">
+            <div class=" card-header">
+                <partial name="_Lightgallery" model="@Model.Id" />
+            </div>
+            <div class="card-body ">
+                @Html.LabelFor(x => x.Name) : @Html.DisplayFor(x => x.Name)
+                @Html.LabelFor(x => x.UserCode) : @Html.DisplayFor(x => x.UserCode)
+                @Html.LabelFor(x => x.ForeignName) : @Html.DisplayFor(x => x.ForeignName)
+                @Html.LabelFor(x => x.Description) : @Html.DisplayFor(x => x.Description)
+            </div>
+            <div class="card-footer card-img-bottom">
+                @Html.LabelFor(x => x.ProductGroupName) : @Html.DisplayFor(x => x.ProductGroupName)
+
+            </div>
+        </div>
+
     </div>
 </div>

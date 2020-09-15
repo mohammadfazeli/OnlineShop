@@ -52,4 +52,11 @@
         Create,
         Edit
     }
+
+    public enum SpecificationType
+    {
+        TextBox,
+        CheckBox,
+        TextArea,
+    }
 }

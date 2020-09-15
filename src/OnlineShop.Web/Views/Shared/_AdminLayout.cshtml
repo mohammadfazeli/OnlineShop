@@ -7,12 +7,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard 2</title>
+    <title>فروشگاه اینترنتی  بازار  من</title>
 
     <!-- Google Font: Source Sans Pro -->
     @*<link rel="stylesheet" href="https:/fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
-
+    <link rel="icon" href="/grow-shop.png" />
     <!-- Theme style -->
+
     <link rel="stylesheet" href="/dist/css/adminlte.css">
     <link rel="stylesheet" href="/dist/css/custom.css">
 
@@ -23,10 +24,11 @@
     <!-- Persian Data Picker -->
     @*<link rel="stylesheet" href="/dist/css/persian-datepicker.min.css">*@
     <link rel="stylesheet" href="/dist/css/persianDatepicker-default.css">
-
     <!-- Font Awesome Icons -->
-
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="/plugins/lightgallery/css/lightgallery.min.css">
@@ -136,6 +138,7 @@
                                     <!-- /.modal-dialog -->
                                 </div>
                                 <partial name="_Breadcrumb" />
+
                                 @RenderBody()
                             </div>
                         </div>
@@ -176,6 +179,7 @@
     <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.js"></script>
+    <script src="/dist/js/mdb.min.js"></script>
 
     <!-- PAGE PLUGINS -->
     <!-- jQuery Mapael -->
@@ -198,6 +202,10 @@
     <script src="/plugins/dropzone/min/dropzone.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/dist/js/demo.js"></script>
+    <script src="/dist/js/signalr.min.js"></script>
+    <script src="/dist/js/Notification.js"></script>
+    <!-- Toastr -->
+    <script src="/plugins/toastr/toastr.min.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -214,6 +222,9 @@
         $(function () {
 
             $('.persianDatepicker').persianDatepicker({ format: "yyyy/MM/dd" });
+            $(".persianDatepicker").on("keydown", function (e) {
+                return false;
+            });
 
             $(".price").on("keydown", function (e) {
                 var keycode = (event.which) ? event.which : event.keyCode;

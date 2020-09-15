@@ -33,25 +33,19 @@ namespace OnlineShop.Services.Services
             _repository = repository;
         }
 
-        public virtual IQueryable<TEntity> GetAll()
-        {
-            return _repository.GetAll();
-        }
+        #region Get
 
-        public virtual IQueryable<TEntity> GetAllNoTracking()
-        {
-            return _repository.GetAllNoTracking();
-        }
+        public virtual TEntity Get(Guid id) => _repository.Get(id);
 
-        public virtual TEntity Get(Guid id)
-        {
-            return _repository.Get(id);
-        }
+        public virtual async Task<TEntity> GetAsync(Guid id) => await _repository.GetAsync(id);
 
-        public virtual Task<TEntity> GetAsync(Guid id)
-        {
-            return _repository.GetAsync(id);
-        }
+        public virtual TEntity GetNoTracking(Guid id) => _repository.GetNoTracking(id);
+
+        public virtual async Task<TEntity> GetNoTrackingAsync(Guid id) => await _repository.GetNoTrackingAsync(id);
+
+        public virtual IQueryable<TEntity> GetAll() => _repository.GetAll();
+
+        public virtual IQueryable<TEntity> GetAllNoTracking() => _repository.GetAllNoTracking();
 
         public virtual SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name")
         {
@@ -68,6 +62,10 @@ namespace OnlineShop.Services.Services
             };
             return dd;
         }
+
+        #endregion Get
+
+        #region CUD
 
         public virtual CreateStatusvm Add(TDto dto)
         {
@@ -114,5 +112,7 @@ namespace OnlineShop.Services.Services
             if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
             return await _repository.DeleteAsync(entity);
         }
+
+        #endregion CUD
     }
 }

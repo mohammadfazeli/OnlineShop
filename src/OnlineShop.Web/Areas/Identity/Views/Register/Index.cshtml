@@ -1,6 +1,8 @@
 ﻿@model RegisterViewModel
 @{
     ViewData["Title"] = "ثبت نام";
+
+    Layout = "_Layout";
 }
 
 <div class="card mt-5">
@@ -56,14 +58,14 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <!--<div class="form-group row">
                 <label class="col col-md-2 col-form-label text-md-left">
                     کد امنیتی
                 </label>
                 <div class="col col-md-10">
-                    @*<dnt-captcha asp-captcha-generator-max="30"
+                    <dnt-captcha asp-captcha-generator-max="30"
                         asp-captcha-generator-min="1"
-                        asp-captcha-generator-language="Persian"
+                        asp-captcha-generator-language="English"
                         asp-captcha-generator-display-mode="SumOfTwoNumbers"
                         asp-font-name="Tahoma"
                         asp-font-size="20"
@@ -73,10 +75,10 @@
                         asp-text-box-class="text-box form-control"
                         asp-text-box-template="<div class='input-group'><span class='input-group-prepend'><span class='input-group-text'><i class='fas fa-lock'></i></span></span>{0}</div>"
                         asp-validation-message-class="text-danger"
-                        />*@
-                    <partial name="_captcha" />
-                </div>
-            </div>
+                        />-->
+            @*<partial name="_captcha" />*@
+            <!--</div>
+            </div>-->
             <div class="form-group row">
                 <div class="offset-md-2 col-md-10">
                     <button type="submit" class="btn btn-info col-md-2">ثبت نام</button>

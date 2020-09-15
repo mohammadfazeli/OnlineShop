@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DNTCaptcha.Core;
 using DNTCommon.Web.Core;
+using DNTPersianUtils.Core;
 using KhabarTech.UI.Classes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,8 +14,11 @@ using OnlineShop.Common.WebToolkit;
 using OnlineShop.IocConfig;
 using OnlineShop.IocConfig.CustomMapping;
 using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.Web.Classes;
+using OnlineShop.Web.Hubs;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace OnlineShop
@@ -52,6 +56,7 @@ namespace OnlineShop
             services.AddCloudscribePagination();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
+            services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -67,9 +72,22 @@ namespace OnlineShop
             }
             app.UseHttpsRedirection();
 
+            //var persianCulture = new CustomPersianCulture
+            //{
+            //    DateTimeFormat =
+            //        {
+            //            ShortDatePattern = "yyyy/MM/dd",
+            //            LongDatePattern = "dddd d MMMM yyyy",
+            //            AMDesignator = "صبح",
+            //            PMDesignator = "عصر"
+            //        }
+            //};
+            //Thread.CurrentThread.CurrentCulture = persianCulture;
+            //Thread.CurrentThread.CurrentUICulture = persianCulture;
+
             var supportedCultures = new List<CultureInfo>()
             {
-                new CultureInfo("fa-IR"),
+                new CustomPersianCulture(),
                 new CultureInfo("en-US")
             };
             var options = new RequestLocalizationOptions()
@@ -107,6 +125,7 @@ namespace OnlineShop
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapRazorPages();
+                endpoints.MapHub<Notification>("/Notification");
             });
         }
     }

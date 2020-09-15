@@ -14,6 +14,7 @@ namespace OnlineShop.Areas.Identity
         {
             [Display(Name = "ادمین")]
             IdentityArea = 1,
+
             [Display(Name = "اطلاعات پایه")]
             Base = 2
         }

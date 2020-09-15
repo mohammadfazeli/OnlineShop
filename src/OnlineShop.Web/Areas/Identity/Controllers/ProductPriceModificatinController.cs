@@ -49,7 +49,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         [ActionInfo(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.ProductPriceModificatinAdd))]
         public IActionResult Create(Guid id)
         {
-            return View(new ProductPriceModificatinDto() { ProductDetailId = id , FromDate=DateTime.Now });
+            return View(new ProductPriceModificatinDto() { ProductDetailId = id, FromDate = DateTime.Now });
         }
 
         [HttpPost]

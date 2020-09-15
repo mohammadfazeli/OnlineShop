@@ -6,9 +6,9 @@
     var currentValues = new List<string>() { Model.ProductGroupId.ToString() };
 }
 <form asp-action="Edit" method="post" enctype="multipart/form-data">
-    <div class="card ">
+    <div class="card _borderTop  _shadow">
         @Html.HiddenFor(r => r.Id)
-        <div class="card-header">
+        <div class="card-header bg-light">
             <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Edit" />
         </div>
         <div class="card-body">
@@ -25,7 +25,7 @@
                     <CustomSelect asp-for="ProductGroupId" asp-expression="ProductGroupId" asp-optionLabel="@Resource.SelectedOneItem" asp-currentValues="@Model.ProductGroupDropDown.CurrentValues" asp-selectList="@Model.ProductGroupDropDown.SelectList" asp-Class=" select2bs4 "></CustomSelect>
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <CustomInputTextArea asp-for="Description" asp-rows="3" asp-columns="4"></CustomInputTextArea>
+                    <CustomInputTextArea asp-for="Description"></CustomInputTextArea>
                 </div>
             </div>
             <div class="row">

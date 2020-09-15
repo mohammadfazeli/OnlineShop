@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@pageTitle</title>
+    <link rel="icon" href="/grow-shop.png" />
+    <link rel="stylesheet" href="/dist/css/mdb.min.css">
 
     <!-- Google Font: Source Sans Pro -->
     @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
@@ -22,239 +24,196 @@
     <link rel="stylesheet" href="/dist/css/bootstrap-rtl.css">
     <link rel="stylesheet" href="/dist/css/CsutomRTL.css">
     <link rel="stylesheet" href="/dist/css/custom.css">
+    <link rel="stylesheet" href="/dist/css/uikit.css">
+
+    <link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">
     <script src="/plugins/jquery/jquery.min.js" asp-append-version="true"></script>
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
 </head>
 <body>
 
     <partial name="_NavBar" />
     <partial name="_Breadcrumb" />
 
-    <div class="container mb-5">
-        <div class="row">
+    <div class="container mt-5 ">
 
-            <div class="uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match" uk-grid>
-                <div class="uk-animation-toggle " tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-fade uk-animation-reverse">
-                        <p class="uk-text-center">Fade</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-animation-reverse">
-                        <p class="uk-text-center">Scale Up</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-scale-down uk-animation-reverse">
-                        <p class="uk-text-center">Scale Down</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-shake uk-animation-reverse">
-                        <p class="uk-text-center">Shake</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-left uk-animation-reverse">
-                        <p class="uk-text-center">Left</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-top uk-animation-reverse">
-                        <p class="uk-text-center">Top</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-bottom uk-animation-reverse">
-                        <p class="uk-text-center">Bottom</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-right uk-animation-reverse">
-                        <p class="uk-text-center">Right</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-left-small uk-animation-reverse">
-                        <p class="uk-text-center">Left Small</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-top-small uk-animation-reverse">
-                        <p class="uk-text-center">Top Small</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-bottom-small uk-animation-reverse">
-                        <p class="uk-text-center">Bottom Small</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-right-small uk-animation-reverse">
-                        <p class="uk-text-center">Right Small</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-left-medium uk-animation-reverse">
-                        <p class="uk-text-center">Left Medium</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-top-medium uk-animation-reverse">
-                        <p class="uk-text-center">Top Medium</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-bottom-medium uk-animation-reverse">
-                        <p class="uk-text-center">Bottom Medium</p>
-                    </div>
-                </div>
-                <div class="uk-animation-toggle" tabindex="0">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-right-medium uk-animation-reverse">
-                        <p class="uk-text-center">Right Medium</p>
-                    </div>
-                </div>
-            </div>
+        <div class="">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="container-fluid " style="background-color: #6bb927;">
+        <div class="container">
+            <div class=" flex-container">
 
-            <div class="uk-child-width-1-3@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="row p-3  ">
+                    <div class="col-md-9  push-md-3   ">
+                        @await Component.InvokeAsync("LastProduct", new { take = 10 })
                     </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-            </div>
+                    <div class="col-md-3 pull-md-9  ">
+                        <div class="  ">
+                            <div class="">
+                                <div class="bg-white p-1 mb-1 mt-3">
 
-            <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Default</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-primary uk-card-body">
-                        <h3 class="uk-card-title">Primary</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-secondary uk-card-body">
-                        <h3 class="uk-card-title">Secondary</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 order-md-9">
-                @RenderBody()
-                <ul uk-accordion>
-                    <li class="uk-open">
-                        <a class="uk-accordion-title" href="#">Item 1</a>
-                        <div class="uk-accordion-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="uk-accordion-title" href="#">Item 2</a>
-                        <div class="uk-accordion-content">
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="uk-accordion-title" href="#">Item 3</a>
-                        <div class="uk-accordion-content">
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="boundary-align uk-panel uk-placeholder">
+                                    <p><img src="~/SVG/suggestion.svg" style="width:30px;" /> پیشنهادات </p>
+                                </div>
 
-                    <button class="uk-button uk-button-default uk-float-left" type="button">Justify</button>
-                    <div uk-dropdown="pos: bottom-justify; boundary: .boundary-align; boundary-align: true">
-                        <ul class="uk-nav uk-dropdown-nav">
-                            <li class="uk-active"><a href="#">Active</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li class="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#">Item</a></li>
-                        </ul>
-                    </div>
-
-                    <button class="uk-button uk-button-default uk-float-right" type="button">Center</button>
-                    <div uk-dropdown="pos: bottom-center; boundary: .boundary-align; boundary-align: true">
-                        <ul class="uk-nav uk-dropdown-nav">
-                            <li class="uk-active"><a href="#">Active</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li class="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#">Item</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-overlay">Open</button>
-
-                <div class="uk-child-width-1-2@s" uk-grid>
-                    <div>
-                        <div class="uk-light uk-background-secondary uk-padding">
-                            <h3>Light</h3>
-                            <p>farasdasssssssssssssssssssssss ipsum asdsssssssssssssssssss sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <button class="uk-button uk-button-default">Button</button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-dark uk-background-muted uk-padding">
-                            <h3>Dark</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <button class="uk-button uk-button-default">Button</button>
+                                <div class="card-deck ">
+                                    <div class="card shadow">
+                                        <img class="card-img-top img-fluid " src="~/Images/Products/d5e67015-2a93-427c-b07b-008a508f0762▲88cdb4bc-1eb4-4d1d-a950-2b4d7f0368ed.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-default">buy</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 order-md-3">
-                @*<partial name="_SidebarMenu" />*@
             </div>
         </div>
     </div>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">Footer Content</h5>
+                    <p>Here you can use rows and columns to organize your footer content.</p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate
+                        esse
+                        quasi, veritatis totam voluptas nostrum.
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#!">PROJECTS</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">ABOUT US</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">BLOG</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">AWARDS</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Contact details -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-envelope mr-3"></i> info@example.com
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-print mr-3"></i> + 01 234 567 89
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <!-- Social buttons -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+                    <!-- Facebook -->
+                    <a type="button" class="btn-floating btn-fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <!-- Twitter -->
+                    <a type="button" class="btn-floating btn-tw">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <!-- Google +-->
+                    <a type="button" class="btn-floating btn-gplus">
+                        <i class="fab fa-google-plus-g"></i>
+                    </a>
+                    <!-- Dribbble -->
+                    <a type="button" class="btn-floating btn-dribbble">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <!-- Footer -->
     <!-- Bootstrap -->
     <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="/plugins/lightslider-master/js/lightslider.js"></script>
+
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.js"></script>
+    <script src="/dist/js/uikit.js"></script>
+    <script src="/dist/js/mdb.min.js"></script>
 
     <!-- PAGE PLUGINS -->
     <!-- jQuery Mapael -->
@@ -262,6 +221,7 @@
     <script src="/plugins/raphael/raphael.min.js"></script>
     <script src="/plugins/jquery-mapael/jquery.mapael.min.js"></script>
     <script src="/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+
     <!-- ChartJS -->
     <script src="plugins/chart.js/Chart.min.js"></script>
 
@@ -269,6 +229,40 @@
     <script src="/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/dist/js/pages/dashboard2.js"></script>
+    <script src="/plugins/lightslider-master/js/lightslider.js"></script>
+
+    <script>
+        $(function () {
+            $(document).ready(function () {
+                $(".lightSlider").lightSlider({
+                    item: 3,
+                    loop: true,
+                    slideMove: 1,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    speed: 600,
+                    rtl: true,
+                    pager: false,
+                    responsive: [
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                item: 3,
+                                slideMove: 1,
+                                slideMargin: 6,
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                item: 2,
+                                slideMove: 1
+                            }
+                        }
+                    ]
+                });
+            });
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

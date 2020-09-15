@@ -1,0 +1,59 @@
+﻿@model PaginatedList<OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto>
+@*https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-3.1#add-paging-to-students-index*@
+<div class="row ">
+    @{
+        foreach (var item in Model)
+        {
+
+            <div class="col-md-3 col-lg-3 col-sm-12  col-xl-3">
+                <div class="card">
+                    <div class=" card-header">
+                        <partial name="_Lightgallery" model="@item.Id" />
+                    </div>
+                    <div class="card-body ">
+                        @Html.LabelFor(x => item.Name) : @Html.DisplayFor(x => item.Name)
+                        @Html.LabelFor(x => item.UserCode) : @Html.DisplayFor(x => item.UserCode)
+                        @Html.LabelFor(x => item.ForeignName) : @Html.DisplayFor(x => item.ForeignName)
+                        @Html.LabelFor(x => item.Description) : @Html.DisplayFor(x => item.Description)
+                    </div>
+                    <div class="card-footer card-img-bottom">
+                        @Html.LabelFor(x => item.ProductGroupName) : @Html.DisplayFor(x => item.ProductGroupName)
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>
+<div class="row   ">
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+    <a asp-action="PreView"
+       asp-route-page="@(Model.PageIndex + 1)"
+       class=" page-item btn btn-default @nextDisabled">
+        <span class="	fas fa-angle-double-right"></span>
+    </a>
+    <a asp-action="PreView"
+       asp-route-page="@(Model.PageIndex + 1)"
+       class=" page-item btn btn-default @nextDisabled">
+        <span class="">@(Model.PageIndex + 1)</span>
+    </a>
+
+    <a asp-action="PreView"
+       asp-route-page="@(Model.PageIndex)"
+       class="bg-blue page-item btn btn-default @nextDisabled">
+        <span class=" page-item ">@(Model.PageIndex)</span>
+    </a>
+
+    <a asp-action="PreView"
+       asp-route-page="@(Model.PageIndex - 1)"
+       class="page-item btn btn-default @prevDisabled">
+        <span class="	">@(Model.PageIndex - 1)</span>
+    </a> <a asp-action="PreView"
+            asp-route-page="@(Model.PageIndex - 1)"
+            class="page-item btn btn-default @prevDisabled">
+        <span class="	fas fa-angle-double-left"></span>
+    </a>
+</div>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using DNTPersianUtils.Core;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
@@ -34,6 +35,75 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
             _generator = generator;
         }
 
+        public string GetFormat()
+        {
+            if (For.Model == null)
+                return Format;
+
+            switch (Type.GetTypeCode(For.Model.GetType()))
+            {
+                case TypeCode.Empty:
+                    break;
+
+                case TypeCode.Object:
+                    break;
+
+                case TypeCode.DBNull:
+                    break;
+
+                case TypeCode.Boolean:
+                    break;
+
+                case TypeCode.Char:
+                    break;
+
+                case TypeCode.SByte:
+                    break;
+
+                case TypeCode.Byte:
+                    break;
+
+                case TypeCode.Int16:
+                    break;
+
+                case TypeCode.UInt16:
+                    break;
+
+                case TypeCode.Int32:
+                    break;
+
+                case TypeCode.UInt32:
+                    break;
+
+                case TypeCode.Int64:
+                    break;
+
+                case TypeCode.UInt64:
+                    break;
+
+                case TypeCode.Single:
+                    break;
+
+                case TypeCode.Double:
+                    break;
+
+                case TypeCode.Decimal:
+                    Format = ((decimal)For.Model).ToString("0.##");
+                    break;
+
+                case TypeCode.DateTime:
+                    Format = ((DateTime)For.Model).ToShortPersianDateString();
+                    break;
+
+                case TypeCode.String:
+                    break;
+
+                default:
+                    break;
+            }
+            return Format;
+        }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             using (var writer = new StringWriter())
@@ -43,19 +113,20 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
                 var label = _generator.GenerateLabel(
                                 ViewContext,
                                 For.ModelExplorer,
-                                For.Name, null,
+                                For.Name,
+                                null,
                                 new { @class = "control-label" });
 
                 label.WriteTo(writer, NullHtmlEncoder.Default);
                 var isOptinal = !For.ModelExplorer.Metadata.IsRequired ? " bg-light" : "";
 
                 var textArea = _generator.GenerateTextBox(
-                                    ViewContext,
-                                    For.ModelExplorer,
-                                    For.Name,
-                                    For.Model,//For.Model,
-                                    Format,
-                                    new { @class = $"{Class} form-control {isOptinal} " });
+                                    viewContext: ViewContext,
+                                    modelExplorer: For.ModelExplorer,
+                                    expression: For.Name,
+                                    value: For.Model,
+                                    format: string.IsNullOrEmpty(Format) ? GetFormat() : Format,
+                                    htmlAttributes: new { @class = $"{Class} form-control {isOptinal} " });
 
                 textArea.WriteTo(writer, NullHtmlEncoder.Default);
 

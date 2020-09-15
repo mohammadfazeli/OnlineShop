@@ -1,5 +1,6 @@
 ﻿using OnlineShop.Entities.AuditableEntity;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop.Entities.Entities.Area.Base
@@ -11,8 +12,10 @@ namespace OnlineShop.Entities.Entities.Area.Base
         public string UserCode { get; set; }
 
         public Guid? ProductGroupId { get; set; }
-        [ForeignKey(nameof(ProductGroupId))]
-        public virtual ProductGroup  ProductGroup { get; set; }
 
+        [ForeignKey(nameof(ProductGroupId))]
+        public virtual ProductGroup ProductGroup { get; set; }
+
+        public virtual ICollection<ProductSpecification> ProductSpecifications { get; set; }
     }
 }

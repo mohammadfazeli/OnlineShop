@@ -1,0 +1,46 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ProductSpecification.ProductSpecificationDto
+@using OnlineShop.Common.Enum
+@{
+    TempData["ParentId"] = Model.ProductId;
+}
+
+<partial name="_CustomValidationSummary" />
+
+<form asp-action="Create" method="post">
+    <div class="card">
+
+        <div class="card-header">
+            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="ProductId"
+                                  asp-expression="ProductId"
+                                  asp-optionLabel="@Resource.SelectedOneItem"
+                                  asp-currentValues="@Model.ProductDropDown.CurrentValues"
+                                  asp-selectList="@Model.ProductDropDown.SelectList"
+                                  asp-FormClass="@( Model.ProductId!=new Guid() ?"disabled ":"")"
+                                  asp-Class=" select2bs4 ">
+                    </CustomSelect>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="SpecificationName"></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="SpecificationValue"></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <label asp-for="SpecificationType"></label>
+                        <select asp-for="SpecificationType" class="select2bs4 form-control" asp-items="Html.GetEnumSelectList<SpecificationType>()">
+                            <option selected="selected" disabled>@Resource.SelectedOneItem</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>

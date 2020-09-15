@@ -9,13 +9,17 @@ namespace OnlineShop.Services.Contracts
 {
     public interface IEntityService<TEntity, TDto>
     {
-        IQueryable<TEntity> GetAll();
-
-        IQueryable<TEntity> GetAllNoTracking();
-
         TEntity Get(Guid id);
 
         Task<TEntity> GetAsync(Guid id);
+
+        TEntity GetNoTracking(Guid id);
+
+        Task<TEntity> GetNoTrackingAsync(Guid id);
+
+        IQueryable<TEntity> GetAll();
+
+        IQueryable<TEntity> GetAllNoTracking();
 
         SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name");
 
