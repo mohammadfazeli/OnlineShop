@@ -1,0 +1,17 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.ProductSpecification.ProductSpecificationListDto>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered text-right table-hover  table-sm">
+            <tbody>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="height-auto"> @item.SpecificationName </td>
+                            <td style="overflow-wrap: anywhere;">@item.SpecificationValue</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>

@@ -22,7 +22,7 @@ namespace OnlineShop.Services.Services.Area.Base
         {
             return GetAllNoTracking()
                 .Where(x => x.ProductId == productId)
-                .OrderByDescending(x => x.CreateOn)
+                .OrderBy(x => x.SortOrder)
                 .ProjectTo<ProductSpecificationListDto>(_mapper.ConfigurationProvider);
         }
 

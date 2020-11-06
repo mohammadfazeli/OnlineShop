@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿using AspNetCore.Unobtrusive.Ajax;
+using AutoMapper;
 using DNTCaptcha.Core;
 using DNTCommon.Web.Core;
-using DNTPersianUtils.Core;
 using KhabarTech.UI.Classes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NToastNotify;
 using OnlineShop.Common.WebToolkit;
 using OnlineShop.IocConfig;
 using OnlineShop.IocConfig.CustomMapping;
@@ -18,7 +19,6 @@ using OnlineShop.Web.Classes;
 using OnlineShop.Web.Hubs;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Threading;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace OnlineShop
@@ -41,16 +41,24 @@ namespace OnlineShop
             services.AddCustomIdentityServices();
             services.AddAutoMapper(config => { config.AddCustomMappingProfile(); });
 
-            services.AddMvc(options => { options.UseYeKeModelBinder(); options.Filters.Add(typeof(TitleAndIconFilter)); })
-
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
+            services.AddMvc(options =>
+            {
+                options.UseYeKeModelBinder(); options.Filters.Add(typeof(TitleAndIconFilter));
+            }).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
                     options => { options.ResourcesPath = "Resources"; })
 
                 .AddDataAnnotationsLocalization(options =>
                 {
                     options.DataAnnotationLocalizerProvider = (type, factory) =>
                         factory.Create(typeof(Resource.Resource));
+                }).AddNToastNotifyToastr(new ToastrOptions()
+                {
+                    Rtl = true,
+                    CloseButton = true,
+                    ShowDuration = 5,
                 });
+            services.AddUnobtrusiveAjax();
+            //services.AddUnobtrusiveAjax(useCdn: true, injectScriptIfNeeded: false);
             services.AddDNTCommonWeb();
             services.AddDNTCaptcha();
             services.AddCloudscribePagination();
@@ -101,11 +109,16 @@ namespace OnlineShop
                     new CookieRequestCultureProvider()
                 }
             };
+            app.UseNToastNotify();
+
             app.UseRequestLocalization(options);
 
             app.UseContentSecurityPolicy();
 
             app.UseStaticFiles();
+
+            //It is required for serving 'jquery-unobtrusive-ajax.min.js' embedded script file.
+            app.UseUnobtrusiveAjax(); //It is suggested to place it after UseStaticFiles()
 
             app.UseRouting();
 
@@ -121,7 +134,7 @@ namespace OnlineShop
                     pattern: "{area:exists}/{controller=Account}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
-                    name: "default",
+                    name: "normal",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapRazorPages();

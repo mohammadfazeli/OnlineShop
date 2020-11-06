@@ -1,4 +1,4 @@
-﻿using OnlineShop.Common.Enum;
+﻿using OnlineShop.Common.Enums;
 using System;
 
 namespace OnlineShop.Web.Classes

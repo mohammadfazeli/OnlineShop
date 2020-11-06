@@ -10,15 +10,15 @@ namespace OnlineShop.ViewModels.Area.Base.ProductPriceModificatin
         public Guid? ProductDetailId { get; set; }
 
         [Display(Name = nameof(Resource.Resource.OldPrice), ResourceType = typeof(Resource.Resource))]
-        public decimal OldPrice { get; set; }
+        public string OldPrice { get; set; }
 
         [Display(Name = nameof(Resource.Resource.NewPrice), ResourceType = typeof(Resource.Resource))]
-        public decimal NewPrice { get; set; }
+        public string NewPrice { get; set; }
 
         [Display(Name = nameof(Resource.Resource.FromDate), ResourceType = typeof(Resource.Resource))]
         public DateTime FromDate { get; set; }
 
         [Display(Name = nameof(Resource.Resource.FromDate), ResourceType = typeof(Resource.Resource))]
-        public string strFromDate => FromDate.ToShortPersianDateString();
+        public string strFromDate { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using OnlineShop.Common.Enum;
+using OnlineShop.Common.Enums;
 
 namespace OnlineShop.ViewModels.Base
 {

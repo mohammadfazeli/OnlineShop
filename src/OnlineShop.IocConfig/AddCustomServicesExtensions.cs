@@ -39,6 +39,7 @@ namespace OnlineShop.IocConfig
             services.AddScoped<IProductDetailService, ProductDetailService>();
             services.AddScoped<IProductPriceModificatinService, ProductPriceModificatinService>();
             services.AddScoped<IProductSpecificationService, ProductSpecificationService>();
+            services.AddScoped<IItemSectionService, ItemSectionService>();
 
             #endregion Service
 

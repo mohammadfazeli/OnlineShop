@@ -5,14 +5,13 @@
 @{
     var photos = AttachmentService.GetPhotoUrl(Model);
 }
-
-<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel" style="text-align:inherit !important;">
+<div id=" @($"carouselExampleIndicators{Model.ToString()}" ) " class="carousel slide " data-ride="carousel" style="text-align:inherit !important;">
 
     <ol class="carousel-indicators">
         @{
             for (int index = 0; index < photos.Count; index++)
             {
-                <li data-target="#carouselExampleIndicators" data-slide-to="@index" class=" @(index==0?"active":"" )"></li>
+                <li data-target="@($"#carouselExampleIndicators{Model.ToString()}" )" data-slide-to="@index" class=" @(index==0?"active":"" )"></li>
             }
         }
     </ol>
@@ -22,7 +21,7 @@
             for (int index = 0; index < photos.Count; index++)
             {
                 <div data-src="@photos[index]" class="carousel-item @(index==0?"active":"" )">
-                    <img class=" " src="@photos[index]" asp-append-version="true" alt="slide">
+                    <img class="img-fluid " src="@photos[index]" asp-append-version="true" alt="slide">
                 </div>
             }
         }
@@ -30,13 +29,13 @@
     @{
         if (photos.Count > 1)
         {
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="@($"#carouselExampleIndicators{Model.ToString()}" )" role="button" data-slide="prev">
                 <span class="carousel-control-custom-icon" aria-hidden="true">
                     <i class="fas fa-chevron-left text-yellow"></i>
                 </span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" href="@($"#carouselExampleIndicators{Model.ToString()}" )" role="button" data-slide="next">
                 <span class="carousel-control-custom-icon" aria-hidden="true">
                     <i class="fas fa-chevron-right text-yellow"></i>
                 </span>

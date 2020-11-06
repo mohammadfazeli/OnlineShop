@@ -1,4 +1,6 @@
-﻿namespace OnlineShop.Common.Enum
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace OnlineShop.Common.Enums
 {
     public enum CreateStatus
     {
@@ -50,7 +52,9 @@
     {
         Index,
         Create,
-        Edit
+        Edit,
+        Search,
+        All
     }
 
     public enum SpecificationType
@@ -58,5 +62,14 @@
         TextBox,
         CheckBox,
         TextArea,
+    }
+
+    public enum ItemSectionType
+    {
+        [Display(Name = "تصادفی")]
+        Random,
+
+        [Display(Name = "پیشنهادی")]
+        Suggested,
     }
 }

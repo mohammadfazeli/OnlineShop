@@ -4,14 +4,14 @@
     TempData["ParentId"] = Model.ProductId;
 }
 
-<div class="card">
-    <div class="card-header">
-        <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Index" />
+<div class="card _borderTop  _shadow ">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.Index" />
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         <div class="table-responsive">
-            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+            <table id="dataTable" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
                 <thead>
                     <tr>
                         <td style="width:15px;">#</td>
@@ -32,6 +32,10 @@
 
 <script>
 
+    function ReloadTable() {
+        debugger;
+        $('#dataTable').DataTable().ajax.reload();
+    }
        $(function () {
 
             $('.CustomDataTable').DataTable({
@@ -39,9 +43,9 @@
                 "lengthChange": true,
                 "searching": true,
                 "ordering": true,
-                "info": false,
+                "info": true,
                 "autoWidth": false,
-                "responsive": false,
+                "responsive": true,
                 "language": {
                     "url": "/js/Persian.json",
                 },

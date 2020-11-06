@@ -120,6 +120,9 @@
   <data name="Add" xml:space="preserve">
     <value>افزودن</value>
   </data>
+  <data name="AddAttachment" xml:space="preserve">
+    <value>افزودن ضمیمه</value>
+  </data>
   <data name="AddPart" xml:space="preserve">
     <value>افزودن قطعه</value>
   </data>
@@ -128,6 +131,12 @@
   </data>
   <data name="asdsadasd" xml:space="preserve">
     <value>sfda</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>ضمیمه</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>ضمیمه ها</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>لغو</value>
@@ -155,6 +164,9 @@
   </data>
   <data name="Edit" xml:space="preserve">
     <value>ویرایش</value>
+  </data>
+  <data name="EditAttachment" xml:space="preserve">
+    <value>ویرایش ضمیمه</value>
   </data>
   <data name="Fax" xml:space="preserve">
     <value>فکس</value>
@@ -242,6 +254,9 @@
   </data>
   <data name="ProductList" xml:space="preserve">
     <value>لیست محصولات</value>
+  </data>
+  <data name="ProductPreView" xml:space="preserve">
+    <value>پیش نمایش محصولات</value>
   </data>
   <data name="ProductPriceModificatin" xml:space="preserve">
     <value>قیمت گذازی</value>

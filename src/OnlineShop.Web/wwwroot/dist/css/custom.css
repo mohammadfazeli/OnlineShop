@@ -29,6 +29,14 @@ html {
     background-color: #ecf0f5;
 }
 
+.rtl {
+    direction: rtl;
+}
+
+.ltr {
+    direction: ltr
+}
+
 ::-webkit-scrollbar {
     width: 11px;
 }
@@ -416,4 +424,18 @@ table.CustomDataTable tbody tr td {
     /*background-color: #e6e6e6;*/
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;*/
     padding: 5px;
+}
+
+.title-section {
+    text-align: right !important;
+    float: right !important;
+}
+
+.lSPager {
+    margin: auto !important;
+    margin-bottom: 20px !important;
+}
+
+.lSSlideWrapper {
+    border-bottom-color: red !important;
 }

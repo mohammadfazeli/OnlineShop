@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OnlineShop.Common.Enum;
+using OnlineShop.Common.Enums;
 using OnlineShop.Common.ViewModel;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities;
@@ -74,7 +74,7 @@ namespace OnlineShop.DataLayer.Repository
             return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual async Task<DeleteStatusvm> DeleteAsync(TEntity entity, bool saveNow = true)
+        public virtual async Task<DeleteStatusvm> RemoveAsync(TEntity entity, bool saveNow = true)
         {
             _entity.Remove(entity: entity);
             if (saveNow)
@@ -98,7 +98,7 @@ namespace OnlineShop.DataLayer.Repository
             return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual DeleteStatusvm Delete(TEntity entity, bool saveNow = true)
+        public virtual DeleteStatusvm Remove(TEntity entity, bool saveNow = true)
         {
             //var objectEntity = Get(entity.Id);
             //if (objectEntity is null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };

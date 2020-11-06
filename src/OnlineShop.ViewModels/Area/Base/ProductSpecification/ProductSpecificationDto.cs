@@ -1,4 +1,4 @@
-﻿using OnlineShop.Common.Enum;
+﻿using OnlineShop.Common.Enums;
 using OnlineShop.ViewModels.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -24,5 +24,11 @@ namespace OnlineShop.ViewModels.Area.Base.ProductSpecification
         [Required(ErrorMessage = "(*)")]
         [Display(Name = nameof(Resource.Resource.SpecificationValue), Prompt = nameof(Resource.Resource.SpecificationValue), ResourceType = typeof(Resource.Resource))]
         public string SpecificationValue { get; set; }
+
+        [Required(ErrorMessage = "(*)")]
+        [Display(Name = nameof(Resource.Resource.SortOrder), Prompt = nameof(Resource.Resource.SortOrder), ResourceType = typeof(Resource.Resource))]
+        [RegularExpression(@"[0-9]*", ErrorMessageResourceName = nameof(Resource.Resource.InputMustBeNumber)
+            , ErrorMessageResourceType = typeof(Resource.Resource))]
+        public int SortOrder { get; set; }
     }
 }

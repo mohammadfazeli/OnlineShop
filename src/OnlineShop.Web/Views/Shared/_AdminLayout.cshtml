@@ -36,6 +36,8 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="/plugins/datatables-select/css/select.bootstrap4.css">
+    <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Select2 -->
     <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -112,7 +114,7 @@
                                             </div>
                                             <div class="modal-footer " id="ModalRemoveFooter">
                                                 <div class="float-left">
-                                                    <button type="button" class="   btn  btn-outline-danger btn-flat " data-dismiss="modal"><span class="fas fa-times"></span></button>
+                                                    <buttn type="button" class="   btn  btn-outline-danger btn-flat " data-dismiss="modal"><span class="fas fa-times"></span></buttn>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +140,6 @@
                                     <!-- /.modal-dialog -->
                                 </div>
                                 <partial name="_Breadcrumb" />
-
                                 @RenderBody()
                             </div>
                         </div>
@@ -155,13 +156,13 @@
         </aside>
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2020 <a href="https:/adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.1.0-pre
-            </div>
-        </footer>
+        @*<footer class="main-footer">
+                <strong>Copyright &copy; 2014-2020 <a href="https:/adminlte.io">AdminLTE.io</a>.</strong>
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block">
+                    <b>Version</b> 3.1.0-pre
+                </div>
+            </footer>*@
     </div>
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
@@ -177,6 +178,10 @@
     <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/plugins/datatables-select/js/select.bootstrap4.min.js"></script>
+    <script src="/plugins/datatables-select/js/dataTables.select.min.js"></script>
+    <script src="/plugins/datatables-buttons/js/buttons.bootstrap4.js"></script>
+
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.js"></script>
     <script src="/dist/js/mdb.min.js"></script>
@@ -270,6 +275,60 @@
             $('.my-colorpicker2').on('colorpickerChange', function (event) {
                 $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
             });
+
+            //          // DropzoneJS Demo Code Start
+            //          Dropzone.autoDiscover = false;
+
+            //          // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+            //var previewNode = document.querySelector("#template");
+            //previewNode.id = "";
+            //var previewTemplate = previewNode.parentNode.innerHTML;
+            //previewNode.parentNode.removeChild(previewNode);
+
+            //var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+            //    url: "/target-url", // Set the url
+            //    thumbnailWidth: 80,
+            //    thumbnailHeight: 80,
+            //    parallelUploads: 20,
+            //    previewTemplate: previewTemplate,
+            //    autoQueue: false, // Make sure the files aren't queued until manually added
+            //    previewsContainer: "#previews", // Define the container to display the previews
+            //    clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+            //});
+
+            //myDropzone.on("addedfile", function (file) {
+            //    // Hookup the start button
+            //    file.previewElement.querySelector(".start").onclick = function () { myDropzone.enqueueFile(file); };
+            //});
+
+            //          // Update the total progress bar
+            //          myDropzone.on("totaluploadprogress", function (progress) {
+            //              document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
+            //          });
+
+            //          myDropzone.on("sending", function (file) {
+            //              // Show the total progress bar when upload starts
+            //              document.querySelector("#total-progress").style.opacity = "1";
+            //              // And disable the start button
+            //              file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
+            //          });
+
+            //          // Hide the total progress bar when nothing's uploading anymore
+            //          myDropzone.on("queuecomplete", function (progress) {
+            //              document.querySelector("#total-progress").style.opacity = "0";
+            //          });
+
+            //          // Setup the buttons for all transfers
+            //          // The "add files" button doesn't need to be setup because the config
+            //          // `clickable` has already been specified.
+            //          document.querySelector("#actions .start").onclick = function () {
+            //              myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+            //          };
+            //          document.querySelector("#actions .cancel").onclick = function () {
+            //              myDropzone.removeAllFiles(true);
+            //          };
+            //// DropzoneJS Demo Code End
+
         })
     </script>
 
@@ -278,7 +337,8 @@
     <script src="/plugins/lightgallery/js/picturefill.min.js"></script>
     <script src="/plugins/lightgallery/js/lightgallery-all.min.js"></script>
     <script src="/plugins/lightgallery/js/jquery.mousewheel.min.js"></script>
-
+    @Html.RenderUnobtrusiveAjaxScript()
     @RenderSection("Scripts", false)
+    @await Component.InvokeAsync("NToastNotify")
 </body>
 </html>

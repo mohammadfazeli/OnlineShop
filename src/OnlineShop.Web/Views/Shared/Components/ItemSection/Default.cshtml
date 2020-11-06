@@ -1,0 +1,17 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto>
+
+<div class="row">
+    <div class="title-section mb-5 col-12">
+        <h2 class="text-uppercase p-2">محصولات محبوب</h2>
+    </div>
+</div>
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-sm-3 col-md-4 col-xl-3 col-lg-4  mb-4 d-flex ">
+                <partial name="_DisplayItems" model="item" />
+            </div>
+        }
+    }
+</div>

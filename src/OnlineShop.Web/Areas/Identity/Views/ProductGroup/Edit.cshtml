@@ -2,13 +2,12 @@
 
 <form asp-action="Edit" method="post">
 
-    <div class="uk-card uk-card-default  uk-card-hover ">
-        <partial name="_CustomValidationSummary" />
-
-        <div class="uk-card-header">
-            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
+    <partial name="_CustomValidationSummary" />
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
         </div>
-        <div class="uk-card-body">
+        <div class="card-body">
             <div class="row">
                 @Html.HiddenFor(m => m.Id)
 

@@ -3,10 +3,9 @@
 <partial name="_CustomValidationSummary" />
 
 <form asp-action="Create" method="post">
-    <div class="card">
-
-        <div class="card-header">
-            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
         </div>
         <div class="card-body">
             <div class="row">
@@ -23,7 +22,7 @@
 
                     <div class="form-group">
                         <label>Minimal</label>
-                        <select class="form-control select2 ">
+                        <select class="form-control select2bs4 ">
                             <option selected="selected">انتخاب کنید</option>
                             <option style="text-align:right !important" class="text-right">محمد</option>
                             <option style="text-align:right !important">محمد61</option>

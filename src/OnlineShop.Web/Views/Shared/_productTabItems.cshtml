@@ -1,0 +1,23 @@
+﻿@model Guid
+
+<ul class="nav nav-tabs rtl" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#productSpecial" role="tab" aria-controls="home" aria-selected="true">
+            ویژگی ها  محصول
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+    </li>
+</ul>
+
+<div class="tab-content rtl" id="myTabContent">
+    <div class="tab-pane fade show active rtl" id="productSpecial" role="tabpanel" aria-labelledby="home-tab">
+        @await Component.InvokeAsync("ProductSpecification", new { productId = Model })
+    </div>
+    <div class="tab-pane fade text-right" id="profile" role="tabpanel" aria-labelledby="profile-tab">فرهاد سلام خسته نباشی </div>
+    <div class="tab-pane fade rtl" id="contact" role="tabpanel" aria-labelledby="contact-tab">asdadadsadadasdadasd.</div>
+</div>

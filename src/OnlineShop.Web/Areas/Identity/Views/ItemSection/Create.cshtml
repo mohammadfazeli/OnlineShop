@@ -1,0 +1,66 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionDto
+
+<partial name="~/Areas/Identity/Views/Product/_SearchProduct.cshtml" />
+
+<form asp-action="Create" method="post">
+    <partial name="_CustomValidationSummary" />
+    <div class="card _borderTop  _shadow ">
+
+        <div class="card-header  bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @Html.HiddenFor(x => x.ProductDetailId)
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="disabled">
+                        @Resource.Product :
+                        <input id="ProductName" class="form-control  " />
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="FromDate" asp-Class="persianDatepicker "></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="ToDate" asp-Class="persianDatepicker "></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomCheckBox asp-for="InActive"></CustomCheckBox>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <CustomSelect asp-for="ItemSectionType"
+                                      asp-expression="ItemSectionType"
+                                      asp-optionLabel="@Resource.SelectedOneItem"
+                                      asp-selectList="@Html.GetEnumSelectList<ItemSectionType>()"
+                                      asp-Class=" select2bs4 ">
+                        </CustomSelect>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <partial name="_CardFooter">
+    </div>
+</form>
+
+<script>
+
+    function TransferSelectedItem() {
+        debugger;
+        if ($('.CustomDataTable').DataTable().rows({ selected: true }).count() < 1) {
+            alert("موردی انتخاب نشده");
+        }
+        var items = $('.CustomDataTable').DataTable().rows({ selected: true }).data();
+        var ids = [];
+
+        for (i = 0; i < items.length; i++) {
+            ids.push(items[i].id);
+            $("#ProductName").val(items[i].name)
+            $("#ProductDetailId").val(items[i].id)
+        }
+    }
+</script>

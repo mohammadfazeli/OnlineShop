@@ -4,9 +4,9 @@
     TempData["ParentId"] = Model.ProductId;
 }
 
-<div class="card">
-    <div class="card-header">
-        <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Index" />
+<div class="card _borderTop  _shadow ">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.Index" />
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -17,8 +17,8 @@
                         <td style="width:15px;">#</td>
                         <td>@Html.DisplayNameFor(r => r.Id)</td>
                         <td>@Html.DisplayNameFor(r => r.SpecificationName)</td>
-                        @*<td>@Html.DisplayNameFor(r => r.SpecificationType)</td>*@
                         <td>@Html.DisplayNameFor(r => r.SpecificationValue)</td>
+                        <td>@Html.DisplayNameFor(r => r.SortOrder)</td>
                         <td style="width:50px;">@Resource.Operation</td>
                     </tr>
                 </thead>
@@ -55,13 +55,12 @@
                         { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
                         { "data": "id", className: "text-center ", visible: false },
                         { "data": "specificationName", className: "text-center "},
-                        //{ "data": "specificationType", className: "text-center "},
                         { "data": "specificationValue", className: "text-center "},
+                        { "data": "sortOrder", className: "text-center "},
                         {
                             "data": null,
                             "render": function (data, type, row, meta) {
                                 return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
-
                                 );
                             }
                         }

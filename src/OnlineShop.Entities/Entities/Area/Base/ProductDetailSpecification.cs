@@ -1,4 +1,4 @@
-﻿using OnlineShop.Common.Enum;
+﻿using OnlineShop.Common.Enums;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 

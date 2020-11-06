@@ -1,5 +1,31 @@
 ﻿@using OnlineShop.Web.Areas.Identity
-    <div class="navbar-nav">
+
+<li class="has-children active">
+    <a href="#">
+        منوی مدیریتی
+    </a>
+    <ul class="dropdown">
+        <li>
+            <a class="text-right" asp-controller="UsersManager" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                مدیریت کاربران
+                <i class="fas fa-user "></i>
+            </a>
+        </li>
+        <li>
+            <a class="text-right" asp-controller="RolesManager" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                مدیریت نقش‌ سیستم
+                <i class="fas fa-object-group "></i>
+            </a>
+        </li>
+        <li>
+            <a class="text-right" asp-controller="SystemLog" asp-action="Index" asp-area="@AreaConstants.Area.IdentityArea">
+                گزارش رخ‌دادهای سیستم
+                <i class="fas fa-bell "></i>
+            </a>
+        </li>
+    </ul>
+</li>
+@*<div class="navbar-nav">
         <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"
                id="adminDropdown" aria-haspopup="true"
@@ -27,12 +53,12 @@
                 <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left"></span>
             </a>
         </div>
-    </div>
+    </div>*@
 @*<a href="#"> منوی مدیریتی</a>
-<div class="uk-navbar-dropdown">
-    <ul class="uk-nav uk-navbar-dropdown-nav">
-        <li><a asp-controller="UsersManager" asp-action="Index" asp-area="@AreaConstants.IdentityArea"><i class="fas fa-user mr-1" aria-hidden="true"></i>مدیریت کاربران</a></li>
-        <li><a asp-controller="RolesManager" asp-action="Index" asp-area="@AreaConstants.IdentityArea">  <i class="fas fa-object-group mr-1" aria-hidden="true"></i> مدیریت نقش‌های سیستم</a></li>
-        <li><a asp-controller="SystemLog" asp-action="Index" asp-area="@AreaConstants.Area.IdentityArea">  <i class="fas fa-bell mr-1" aria-hidden="true"></i>گزارش رخ‌دادهای سیستم</a></li>
-    </ul>
-</div>*@
+    <div class="uk-navbar-dropdown">
+        <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li><a asp-controller="UsersManager" asp-action="Index" asp-area="@AreaConstants.IdentityArea"><i class="fas fa-user mr-1" aria-hidden="true"></i>مدیریت کاربران</a></li>
+            <li><a asp-controller="RolesManager" asp-action="Index" asp-area="@AreaConstants.IdentityArea">  <i class="fas fa-object-group mr-1" aria-hidden="true"></i> مدیریت نقش‌های سیستم</a></li>
+            <li><a asp-controller="SystemLog" asp-action="Index" asp-area="@AreaConstants.Area.IdentityArea">  <i class="fas fa-bell mr-1" aria-hidden="true"></i>گزارش رخ‌دادهای سیستم</a></li>
+        </ul>
+    </div>*@

@@ -1,9 +1,11 @@
-﻿using AutoMapper;
+﻿using AspNetCore.Unobtrusive.Ajax;
+using AutoMapper;
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using OnlineShop.Areas.Identity;
-using OnlineShop.Common.Enum;
+using OnlineShop.Common.Enums;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.Colors;
@@ -22,11 +24,14 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
     {
         private readonly IColorService _ColorService;
         private readonly IMapper _mapper;
+        private readonly IToastNotification _toastNotification;
 
-        public ColorController(IColorService ColorService, IMapper mapper)
+        public ColorController(IColorService ColorService, IMapper mapper,
+            IToastNotification toastNotification)
         {
             _ColorService = ColorService;
             _mapper = mapper;
+            _toastNotification = toastNotification;
         }
 
         [BreadCrumb(Title = "لیست رنگ ها", TitleResourceType = typeof(Resource.Resource), Order = 1)]
@@ -72,6 +77,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             return View();
         }
 
+        [AjaxOnly]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(ColorstDto dto)
@@ -82,7 +88,8 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             }
 
             _ColorService.Add(dto);
-            return RedirectToAction(nameof(Index));
+            _toastNotification.AddSuccessToastMessage("با موفقیت انجام شد.");
+            return Content("");
         }
 
         [HttpGet]

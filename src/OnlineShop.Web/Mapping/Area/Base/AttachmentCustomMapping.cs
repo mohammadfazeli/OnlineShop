@@ -11,6 +11,11 @@ namespace OnlineShop.Web.Mapping.Area.Base
         {
             profile.CreateMap<Attachment, AttachmentDto>()
                 .ReverseMap();
+
+            profile.CreateMap<Attachment, AttachmentListDto>()
+                .ForMember(dist => dist.imageUrl,
+                opt => opt.MapFrom(s => $"/Images/Products/{s.Id}▲{s.RelateId}{s.ExtentionFile}"))
+               .ReverseMap();
         }
     }
 }

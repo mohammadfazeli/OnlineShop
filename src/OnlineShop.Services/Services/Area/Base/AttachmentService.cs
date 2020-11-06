@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using OnlineShop.Common.Enum;
+using OnlineShop.Common.Enums;
 using OnlineShop.Common.ViewModel;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
@@ -49,6 +50,14 @@ namespace OnlineShop.Services.Services.Area.Base
                 });
             }
             return new CreateStatusvm() { Valid = true, CreateStatus = CreateStatus.Successfully };
+        }
+
+        public IQueryable<AttachmentListDto> GetList(Guid RelatedId)
+        {
+            return GetAllNoTracking()
+                .Where(row => row.RelateId == RelatedId)?
+                .OrderByDescending(x => x.CreateOn)?
+                .ProjectTo<AttachmentListDto>(_mapper.ConfigurationProvider) ?? null;
         }
 
         public override async Task<CreateStatusvm> AddAsync(AttachmentDto dto)
@@ -137,6 +146,24 @@ namespace OnlineShop.Services.Services.Area.Base
                     File.Delete(filePath);
                     await this.DeleteAsync(file.Id);
                 }
+            }
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true };
+        }
+
+        public async Task<DeleteStatusvm> RemoveImage(Guid id, Guid relateId)
+        {
+            var file = Get(id);
+            if (file == null) return new DeleteStatusvm() { Valid = true, DeleteStatus = DeleteStatus.NotExists };
+
+            var ProductImagesFolder = _siteSettings.Value.ProductImagesFolder;
+            var uploadsRootFolder = Path.Combine(_hostingEnvironment.WebRootPath, ProductImagesFolder);
+
+            var fileName = $"{id}▲{relateId}{file.ExtentionFile}";
+            var filePath = Path.Combine(uploadsRootFolder, fileName);
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                await this.DeleteAsync(file.Id);
             }
             return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true };
         }

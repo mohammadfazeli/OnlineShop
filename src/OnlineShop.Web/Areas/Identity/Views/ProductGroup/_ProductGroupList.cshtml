@@ -1,13 +1,13 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.ProductGroups.ProductGroupDto
 
-<div class="card">
-    <div class="card-header">
-        <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Index" />
+<div class="card _borderTop  _shadow ">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.All" />
     </div>
 
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="example2" class=" float-right CustomDataTable  table table-bordered table-striped   ">
+        <table id="example2" class=" CustomDataTable  table table-bordered table-striped   ">
             <thead>
                 <tr>
                     <th>@Html.DisplayNameFor(r => r.Id)</th>
@@ -49,8 +49,7 @@
                             "render": function (data, type, row, meta) {
                                 return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
                                     , [
-                                        '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductController).Replace("Controller","")" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductController.Create)" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductAdd</a>  '
-
+                                        '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductController).Replace("Controller","")"    + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductController.Create)"     + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductAdd</a>'
                                     ]
                                 )
                             }

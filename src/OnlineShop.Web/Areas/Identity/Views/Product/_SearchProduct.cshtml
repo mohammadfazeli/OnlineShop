@@ -1,0 +1,24 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProductSearch
+@inject OnlineShop.Services.Contracts.Area.Base.IModelService modelService
+
+
+<div class="card _borderTop  _shadow">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.Search" />
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                <CustomInput asp-for="Name"></CustomInput>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                <CustomInput asp-for="UserCode"></CustomInput>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                <CustomSelect asp-for="ModelId" asp-expression="ModelId" asp-optionLabel="@Resource.SelectedOneItem" asp-selectList="modelService.GetDropDown().SelectList" asp-Class=" select2bs4 "></CustomSelect>
+            </div>      
+        </div>
+        <partial name="~/Areas/Identity/Views/Product/_SearchProductList.cshtml" />
+    </div>
+    <a href="##" onclick="TransferSelectedItem()" class="btn btn-primary">transfer</a>
+</div>

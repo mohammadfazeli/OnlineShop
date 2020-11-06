@@ -12,6 +12,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AspNetCore.Unobtrusive.Ajax" Version="1.0.1" />
     <PackageReference Include="DNTBreadCrumb.Core" Version="1.9.2" />
     <PackageReference Include="DNTCaptcha.Core" Version="2.5.0" />
     <PackageReference Include="DNTCommon.Web.Core" Version="1.8.2" />
@@ -23,7 +24,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="NToastNotify" Version="7.0.0" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <PlatformTarget>anycpu</PlatformTarget>
@@ -2835,7 +2838,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\css\" />
+    <Folder Include="Areas\WareHouse\Controllers\" />
+    <Folder Include="Areas\WareHouse\Data\" />
+    <Folder Include="Areas\WareHouse\Models\" />
+    <Folder Include="Areas\WareHouse\Views\" />
     <Folder Include="wwwroot\Images\Products\" />
   </ItemGroup>
 
@@ -2849,5 +2855,9 @@
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="npm install" />
   </Target>
 
-  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4dist_4css_4alt_4adminlte_1components_1min_1css_1map__JsonSchema="https://json.schemastore.org/traefik-v2" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties wwwroot_4dist_4css_4alt_4adminlte_1components_1min_1css_1map__JsonSchema="https://json.schemastore.org/traefik-v2" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

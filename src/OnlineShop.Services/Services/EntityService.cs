@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OnlineShop.Common.Enum;
+using NToastNotify;
+using OnlineShop.Common.Enums;
 using OnlineShop.Common.Utilities;
 using OnlineShop.Common.ViewModel;
 using OnlineShop.DataLayer.Context;
@@ -99,18 +100,38 @@ namespace OnlineShop.Services.Services
             return new UpdateStatusvm() { RetrunId = dto.Id, Valid = true, UpdateStatus = UpdateStatus.Successfully };
         }
 
+        public virtual DeleteStatusvm Remove(Guid id)
+        {
+            var entity = _repository.Get(id);
+            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
+            return _repository.Remove(entity);
+        }
+
+        public virtual async Task<DeleteStatusvm> RemoveAsync(Guid id)
+        {
+            var entity = _repository.Get(id);
+            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
+            return await _repository.RemoveAsync(entity);
+        }
+
         public virtual DeleteStatusvm Delete(Guid id)
         {
             var entity = _repository.Get(id);
             if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
-            return _repository.Delete(entity);
+            _unitOfWork.Entry(entity).State = EntityState.Modified;
+            entity.IsDeleted = true;
+            _unitOfWork.SaveChanges();
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
         public virtual async Task<DeleteStatusvm> DeleteAsync(Guid id)
         {
-            var entity = _repository.Get(id);
+            var entity = await _repository.GetAsync(id);
             if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
-            return await _repository.DeleteAsync(entity);
+            _unitOfWork.Entry(entity).State = EntityState.Modified;
+            entity.IsDeleted = true;
+            await _unitOfWork.SaveChangesAsync();
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
         }
 
         #endregion CUD

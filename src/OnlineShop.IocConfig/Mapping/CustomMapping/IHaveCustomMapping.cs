@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Options;
+using OnlineShop.ViewModels.Identity.Settings;
 
 namespace OnlineShop.IocConfig.CustomMapping
 {
@@ -7,4 +9,3 @@ namespace OnlineShop.IocConfig.CustomMapping
         void CreateMappings(Profile profile);
     }
 }
- 

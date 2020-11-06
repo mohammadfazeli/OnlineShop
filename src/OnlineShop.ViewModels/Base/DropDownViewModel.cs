@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using OnlineShop.Common.Enum;
+using OnlineShop.Common.Enums;
 
 namespace OnlineShop.ViewModels.Base
 {

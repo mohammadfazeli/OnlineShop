@@ -97,6 +97,24 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ضمیمه.
+        /// </summary>
+        public static string Attachment {
+            get {
+                return ResourceManager.GetString("Attachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ضمائم.
+        /// </summary>
+        public static string Attachments {
+            get {
+                return ResourceManager.GetString("Attachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to لغو.
         /// </summary>
         public static string Cancel {
@@ -259,11 +277,65 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to موارد بخش های سایت.
+        /// </summary>
+        public static string ItemSection {
+            get {
+                return ResourceManager.GetString("ItemSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن موارد بخش های سایت.
+        /// </summary>
+        public static string ItemSectionAdd {
+            get {
+                return ResourceManager.GetString("ItemSectionAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش موارد بخش های سایت.
+        /// </summary>
+        public static string ItemSectionEdit {
+            get {
+                return ResourceManager.GetString("ItemSectionEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست موارد بخش های سایت.
+        /// </summary>
+        public static string ItemSectionList {
+            get {
+                return ResourceManager.GetString("ItemSectionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نوع بخش مورد نظر.
+        /// </summary>
+        public static string ItemSectionType {
+            get {
+                return ResourceManager.GetString("ItemSectionType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نام مدیر.
         /// </summary>
         public static string ManagerName {
             get {
                 return ResourceManager.GetString("ManagerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مدیریت محصولات .
+        /// </summary>
+        public static string MangmenetSugestProduct {
+            get {
+                return ResourceManager.GetString("MangmenetSugestProduct", resourceCulture);
             }
         }
         
@@ -439,6 +511,15 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to پیش نمایش محصولات.
+        /// </summary>
+        public static string ProductPreView {
+            get {
+                return ResourceManager.GetString("ProductPreView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to قیمت گذازی.
         /// </summary>
         public static string ProductPriceModificatin {
@@ -570,6 +651,15 @@ namespace OnlineShop.Resource {
         public static string SelectedOneItem {
             get {
                 return ResourceManager.GetString("SelectedOneItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ترتیب نمایش.
+        /// </summary>
+        public static string SortOrder {
+            get {
+                return ResourceManager.GetString("SortOrder", resourceCulture);
             }
         }
         

@@ -18,7 +18,6 @@ namespace OnlineShop.Entities
         public bool InActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CreateOn { get; set; }
-
         public string Description { get; set; }
     }
 }

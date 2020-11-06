@@ -14,5 +14,7 @@ namespace OnlineShop.Services.Contracts.Area.Base
         ProdcutListDto GetGeneralInfo(Guid id);
 
         IQueryable<ProdcutListDto> GetLastProduct(int take = 7);
+
+        IQueryable<ProdcutListFullInfoDto> SearchProduct(ProductSearch productSearch);
     }
 }

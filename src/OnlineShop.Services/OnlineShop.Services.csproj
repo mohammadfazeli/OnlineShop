@@ -18,5 +18,6 @@
     <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.5" />
+    <PackageReference Include="NToastNotify" Version="7.0.0" />
   </ItemGroup>
 </Project>

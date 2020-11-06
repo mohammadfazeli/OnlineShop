@@ -1,47 +1,17 @@
 ﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto>
 
-<div class="  ">
-    <div class="bg-white p-1 mb-1 mt-3">
-        <p><img src="~/SVG/random.svg" style="width:30px;" />@Resource.Product </p>
-    </div>
-
-    <div class="card-deck lightSlider">
-        @{
-            foreach (var item in Model)
-            {
-                <div class="card shadow">
-                    <partial name="_DisplayImage" model="@item.Id" />
-
-                    <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(x => item.Name)</h5>
-                        <span class="card-text">@Html.DisplayFor(x => item.UserCode)</span>
-                    </div>
-                    <div class="uk-card-footer">
-                        <button class="uk-button uk-button-primary">خرید</button>
-                    </div>
-                </div>
-
-            }
-        }
+<div class="row">
+    <div class="title-section mb-5 col-12">
+        <h2 class="text-uppercase p-2">محصولات محبوب</h2>
     </div>
 </div>
-
-@*<ul class=" lightSlider ">
-        @{
-            foreach (var item in Model)
-            {
-                <li>
-                    <div class="uk-card ">
-                        <div class="uk-card-media-top uk-responsive-width">
-                            <partial name="_DisplayImage" model="@item.Id" />
-                        </div>
-                        <div class="uk-card-body">
-                            @Html.LabelFor(x => item.Name) : @Html.DisplayFor(x => item.Name)
-                            @Html.LabelFor(x => item.Description) : @Html.DisplayFor(x => item.Description)
-                        </div>
-                    </div>
-                </li>
-            }
-
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-md-6 col-xl-3 col-lg-4  item-entry mb-4 ">
+                <partial name="_DisplayItems" model="item" />
+            </div>
         }
-    </ul>*@
+    }
+</div>

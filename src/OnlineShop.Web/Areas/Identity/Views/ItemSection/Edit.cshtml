@@ -1,0 +1,59 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionDto
+
+<form asp-action="Create" method="post">
+    <partial name="_CustomValidationSummary" />
+    @Html.HiddenFor(x => x.Id)
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header  bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @Html.HiddenFor(x => x.ProductDetailId)
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="FromDate" asp-Class="persianDatepicker "></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="ToDate" asp-Class="persianDatepicker "></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomCheckBox asp-for="InActive"></CustomCheckBox>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group">
+                        <CustomSelect asp-for="ItemSectionType"
+                                      asp-expression="ItemSectionType"
+                                      asp-optionLabel="@Resource.SelectedOneItem"
+                                      asp-currentValues="new List<string>() { Model.ItemSectionType.ToString() } "
+                                      asp-selectList="@Html.GetEnumSelectList<ItemSectionType>()"
+                                      asp-Class=" select2bs4 ">
+                        </CustomSelect>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <partial name="_CardFooter">
+    </div>
+</form>
+
+<script>
+
+    function TransferSelectedItem() {
+        debugger;
+        if ($('.CustomDataTable').DataTable().rows({ selected: true }).count() < 1) {
+            alert("موردی انتخاب نشده");
+        }
+        var items = $('.CustomDataTable').DataTable().rows({ selected: true }).data();
+        var ids = [];
+
+        for (i = 0; i < items.length; i++) {
+            ids.push(items[i].id);
+            $("#ProductName").val(items[i].name)
+            $("#ProductId").val(items[i].id)
+        }
+    }
+</script>

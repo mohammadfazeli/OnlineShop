@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto>
+<div class="row">
+    <div class="title-section mb-5 col-12">
+        <h2 class="text-uppercase p-2">Most Rated</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 block-3">
+        <div class="nonloop-block-3 owl-carousel">
+            @{
+                foreach (var item in Model)
+                {
+                    <partial name="_DisplayItems" model="item" />
+                    <!--<div class="item ">
+                        <div class="item-entry">
+                            <a href="#" class="product-item md-height bg-gray d-block  ">
+                                <partial name="_DisplayImage" model="@item.Id" />
+                            </a>
+                            <div class="">
+                                <h2 class="item-title text-right pb-2 pr-2">
+                                    <a href="#">
+                                        @Html.DisplayFor(x => item.Name)
+                                    </a>
+                                </h2>
+                                <div class="row">
+                                    <div class="col-md col-sm col-lg col-xl text-center ">
+                                        <strong class="item-price"><del style="color:red">120,000ریال</del></strong>
+                                    </div>
+                                    <div class="col-md col-sm col-lg col-xl text-center ">
+                                        <strong class="item-price   " style="color:forestgreen">
+                                            <span class="ltr"> 10000ريال</span>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="star-rating">
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                            </div>-->
+                    @*<span class="btn-group text-center ">
+                            <a href="#" class="btn btn-white  btn-block "><span style="color:red;" class="fas  fa-heart "></span></a>
+                            <a href="#" class=" btn btn-white btn-block"><span style="color:dodgerblue;" class="fas fa-eye "></span></a>
+                            <a href="#" class=" btn btn-white btn-block"><span style="color:forestgreen" class="fas fa-cart-plus "></span></a>
+                        </span>*@
+                    <!--</div>
+                    </div>-->
+                }
+            }
+        </div>
+    </div>
+</div>

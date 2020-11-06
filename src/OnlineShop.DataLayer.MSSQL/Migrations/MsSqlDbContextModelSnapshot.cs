@@ -15,7 +15,7 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -200,6 +200,71 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Color");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ItemSection", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FromDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ProductDetailId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ToDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("itemSectionType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductDetailId");
+
+                    b.ToTable("ItemSection");
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Model", b =>
@@ -703,6 +768,9 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
 
                     b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
 
                     b.Property<string>("SpecificationName")
                         .HasColumnType("nvarchar(max)");
@@ -1770,6 +1838,13 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.ToTable("AppUserUsedPasswords");
                 });
 
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ItemSection", b =>
+                {
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
+                        .WithMany("ItemSections")
+                        .HasForeignKey("ProductDetailId");
+                });
+
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Product", b =>
                 {
                     b.HasOne("OnlineShop.Entities.Category", null)
@@ -1792,7 +1867,7 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                         .HasForeignKey("ModelId");
 
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductDetails")
                         .HasForeignKey("ProductId");
 
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.Provider", "Provider")

@@ -1,0 +1,37 @@
+﻿@model PaginatedList<OnlineShop.ViewModels.Area.Base.Attachments.AttachmentListDto>
+
+@{
+    TempData["ParentId"] = ViewBag.ParentId;
+}
+
+<div class="card _borderTop  _shadow">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.All" />
+    </div>
+    <div class="card-body ">
+        <div class=" row card-group">
+            @{
+                foreach (var item in Model)
+                {
+
+                    <div class="col-md-3 col-lg-3 col-sm-6  col-xl-3 d-flex">
+                        <div class="card  ">
+                            <div class=" ">
+                                <partial name="_LightgalleryByImageUrl" model="@item.imageUrl" />
+                            </div>
+                            <div class="card-body ">
+                                @Html.LabelFor(x => item.Name) : @Html.DisplayFor(x => item.Name)
+                            </div>
+                            <div class="card-footer ">
+                                <a class="btn btn-danger" href="#" onclick="ShowModalConfirmRemove('@AreaConstants.IdentityArea','Attachment','@item.Id')"> @Resource.Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <partial name="_PaginatedFooter" model="@new PaginatedListvm() { HasNextPage=Model.HasNextPage, HasPreviousPage=Model.HasPreviousPage , PageIndex=Model.PageIndex, TotalPages=Model.TotalPages }" />
+    </div>
+</div>

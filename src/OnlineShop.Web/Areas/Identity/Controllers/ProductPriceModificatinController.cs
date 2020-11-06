@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Areas.Identity;
-using OnlineShop.Common.Enum;
+using OnlineShop.Common.Enums;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.ProductPriceModificatin;

@@ -1,6 +1,4 @@
-﻿using DNTPersianUtils.Core;
-using Org.BouncyCastle.Math.EC.Rfc7748;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.ViewModels.Area.Base.ProductPriceModificatin

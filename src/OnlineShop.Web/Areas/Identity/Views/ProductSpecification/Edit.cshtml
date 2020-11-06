@@ -1,5 +1,4 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.ProductSpecification.ProductSpecificationDto
-@using OnlineShop.Common.Enum
 @{
     TempData["ParentId"] = Model.ProductId;
 }
@@ -7,11 +6,10 @@
 <partial name="_CustomValidationSummary" />
 
 <form asp-action="Edit" method="post">
-    <div class="card">
-        @Html.HiddenFor(x => x.Id)
-
-        <div class="card-header">
-            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Create" />
+    @Html.HiddenFor(x => x.Id)
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
         </div>
         <div class="card-body">
             <div class="row">
@@ -30,7 +28,10 @@
                     <CustomInput asp-for="SpecificationName"></CustomInput>
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <CustomInput asp-for="SpecificationValue"></CustomInput>
+                    <CustomInputTextArea asp-for="SpecificationValue"></CustomInputTextArea>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="SortOrder"></CustomInput>
                 </div>
                 <select asp-for="SpecificationType" asp-items="Html.GetEnumSelectList<SpecificationType>()">
                     <option selected="selected" disabled class="select2bs4" value="">@Resource.SelectedOneItem</option>

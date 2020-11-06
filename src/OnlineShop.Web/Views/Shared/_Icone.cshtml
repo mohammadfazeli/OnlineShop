@@ -1,27 +1,25 @@
 ﻿@model OnlineShop.ViewModels.Base.IconViewModel
 
-
-
 @{
     switch (Model.Type)
     {
-        case OnlineShop.Common.Enum.IconType.UiKit:
+        case IconType.UiKit:
             <a href="#"><i uk-icon="icon: @Model.Icon"></i> <span>@Model.Name</span> </a>
 
     break;
 
-        case OnlineShop.Common.Enum.IconType.BootStrap:
+        case IconType.BootStrap:
 
             <span class="uk-modal-title">  <span class="@Model.Icon"></span>@Model.Name </span>
             break;
 
-        case OnlineShop.Common.Enum.IconType.FontAwesome4:
+        case IconType.FontAwesome4:
 
             <span class="uk-modal-title"><spna class="@Model.Icon"></spna>@Model.Name </span>
 
             break;
 
-        case OnlineShop.Common.Enum.IconType.FontAwesome5:
+        case IconType.FontAwesome5:
 
             <span class="uk-modal-title"><spna class="@Model.Icon"></spna>@Model.Name </span>
 
@@ -29,5 +27,3 @@
     }
 
 }
-
-

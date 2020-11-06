@@ -1,4 +1,4 @@
-﻿using OnlineShop.Common.Enum;
+﻿using OnlineShop.Common.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,5 +19,8 @@ namespace OnlineShop.ViewModels.Area.Base.ProductSpecification
 
         [Display(Name = nameof(Resource.Resource.SpecificationValue), Prompt = nameof(Resource.Resource.SpecificationValue), ResourceType = typeof(Resource.Resource))]
         public string SpecificationValue { get; set; }
+
+        [Display(Name = nameof(Resource.Resource.SortOrder), Prompt = nameof(Resource.Resource.SortOrder), ResourceType = typeof(Resource.Resource))]
+        public int SortOrder { get; set; }
     }
 }

@@ -1,0 +1,84 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Attachments.AttachmentListDto
+
+@{
+    TempData["ParentId"] = Model.RelateId;
+}
+
+<div class="card _borderTop  _shadow">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.Index" />
+        <div class="card-tools float-left pl-3">
+            <a class="btn btn-tool  " data-toggle="tooltip" title="پیش نمایش" asp-area="@ViewContext.RouteData.Values["area"]" asp-controller="@ViewContext.RouteData.Values["controller"]" asp-action="PreView" asp-route-id="@TempData["ParentId"]">
+                <i class="fas fa-images"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body ">
+        <div class="table-responsive">
+            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+                <thead>
+                    <tr>
+                        <td style="width:15px;">#</td>
+                        <td>@Html.DisplayNameFor(r => r.Id)</td>
+                        <td>@Html.DisplayNameFor(r => r.Name)</td>
+                        <td>@Html.DisplayNameFor(r => r.imageUrl)</td>
+                        <td style="width:50px;">@Resource.Operation</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<script>
+
+       $(function () {
+
+           $('.CustomDataTable').DataTable({
+
+                "paging": true,
+               "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+               "autoWidth": false,
+               "responsive": false,
+                "language": {
+                    "url": "/js/Persian.json",
+                },
+                 "ajax": {
+                        url: '/@ViewContext.RouteData.Values["Area"]/@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        data: { relatedId:'@Model.RelateId' },
+                        dataType: "json",
+                    },
+
+                "columns": [
+                        { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
+                        { "data": "id", className: "text-center ", visible: false },
+                        { "data": "name", className: "text-center " },
+                        {
+                            "data": "imageUrl", className: "text-center img-fluid ",
+                            render: function (data) {
+                                return '<img src="' + data + '"  class="img-fluid" style="height: 200px;" />';
+                            }
+                        },
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                                    , [
+                                        '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductDetailController).Replace("Controller","")" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductDetailController.Index)" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductDetail</a>  '
+                                        , '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductSpecificationController).Replace("Controller","")" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductSpecificationController.Index)" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSpecification</a>  '
+
+                                    ]
+                                );
+                            }
+                        }
+               ]
+            });
+        });
+</script>

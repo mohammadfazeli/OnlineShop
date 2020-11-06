@@ -1,10 +1,10 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Models.ModelDto
 
 <form asp-action="Edit" method="post">
-    <div class="card ">
-        @Html.HiddenFor(r => r.Id)
-        <div class="card-header">
-            <partial name="_CardHeader" model="OnlineShop.Common.Enum.CardHeaderTye.Edit" />
+    @Html.HiddenFor(r => r.Id)
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Edit" />
         </div>
         <div class="card-body">
             <div class="row">

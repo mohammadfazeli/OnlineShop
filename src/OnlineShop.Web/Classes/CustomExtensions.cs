@@ -10,7 +10,6 @@ namespace OnlineShop.Web.Classes
             dto.Id = Guid.NewGuid();
             dto.CreateOn = DateTime.Now;
             return dto;
-            var s = "asd";
         }
 
         public static string ReverseString(this string s)

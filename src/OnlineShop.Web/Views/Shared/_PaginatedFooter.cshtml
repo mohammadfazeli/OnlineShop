@@ -1,0 +1,32 @@
+﻿@model PaginatedListvm
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="PreView"
+   asp-route-page="@(Model.PageIndex + 1)"
+   class=" page-item btn btn-default @nextDisabled">
+    <span class="	fas fa-angle-double-right"></span>
+</a>
+<a asp-action="PreView"
+   asp-route-page="@(Model.PageIndex + 1)"
+   class=" page-item btn btn-default @nextDisabled">
+    <span class="">@(Model.PageIndex + 1)</span>
+</a>
+
+<a asp-action="PreView"
+   asp-route-page="@(Model.PageIndex)"
+   class="bg-blue page-item btn btn-default @nextDisabled">
+    <span class=" page-item ">@(Model.PageIndex)</span>
+</a>
+
+<a asp-action="PreView"
+   asp-route-page="@(Model.PageIndex - 1)"
+   class="page-item btn btn-default @prevDisabled">
+    <span class="	">@(Model.PageIndex - 1)</span>
+</a> <a asp-action="PreView"
+        asp-route-page="@(Model.PageIndex - 1)"
+        class="page-item btn btn-default @prevDisabled">
+    <span class="	fas fa-angle-double-left"></span>
+</a>

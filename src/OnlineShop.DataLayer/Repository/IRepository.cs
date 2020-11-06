@@ -15,7 +15,7 @@ namespace OnlineShop.DataLayer.Repository
 
         Task<UpdateStatusvm> UpdateAsync(TEntity entity, bool saveNow = true);
 
-        Task<DeleteStatusvm> DeleteAsync(TEntity entity, bool saveNow = true);
+        Task<DeleteStatusvm> RemoveAsync(TEntity entity, bool saveNow = true);
 
         //Task<TEntity> GetAsync(int code);
         Task<TEntity> GetAsync(Guid id);
@@ -28,7 +28,7 @@ namespace OnlineShop.DataLayer.Repository
 
         UpdateStatusvm Update(TEntity entity, bool saveNow = true);
 
-        DeleteStatusvm Delete(TEntity entity, bool saveNow = true);
+        DeleteStatusvm Remove(TEntity entity, bool saveNow = true);
 
         //TEntity Get(int code);
         TEntity Get(Guid id);

@@ -1,4 +1,4 @@
-﻿using OnlineShop.Common.Enum;
+﻿using OnlineShop.Common.Enums;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,5 +14,6 @@ namespace OnlineShop.Entities.Entities.Area.Base
         public string SpecificationName { get; set; }
         public SpecificationType SpecificationType { get; set; }
         public string SpecificationValue { get; set; }
+        public int SortOrder { get; set; }
     }
 }
