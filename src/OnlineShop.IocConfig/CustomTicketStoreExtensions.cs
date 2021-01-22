@@ -1,7 +1,7 @@
 using System;
 using OnlineShop.DataLayer.MSSQL;
-using OnlineShop.Services.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.Services.Admin;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.DependencyInjection;
 

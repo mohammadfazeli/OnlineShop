@@ -15,21 +15,21 @@
             <span class="author">@displayName</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="userDropdown">
-                <a class="dropdown-item" asp-controller="UserCard" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                <a class="dropdown-item" asp-controller="UserCard" asp-action="Index" asp-area="@AreaConstants.AdminArea">
                     <span class="mr-1 fas fa-user" aria-hidden="true"></span>
                     برگه‌ی کاربری من
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" asp-controller="UserProfile" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                <a class="dropdown-item" asp-controller="UserProfile" asp-action="Index" asp-area="@AreaConstants.AdminArea">
                     <span class="mr-1 fas fa-cog" aria-hidden="true"></span>
                     تنظیمات کاربری من
                 </a>
-                <a class="dropdown-item" asp-controller="ChangePassword" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+                <a class="dropdown-item" asp-controller="ChangePassword" asp-action="Index" asp-area="@AreaConstants.AdminArea">
                     <span class="mr-1 fas fa-asterisk" aria-hidden="true"></span>
                     تغییر کلمه‌ی عبور
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" asp-controller="Login" asp-action="LogOff" asp-area="@AreaConstants.IdentityArea">
+                <a class="dropdown-item" asp-controller="Login" asp-action="LogOff" asp-area="@AreaConstants.AdminArea">
                     <span class="mr-1 fas fa-sign-out-alt" aria-hidden="true"></span>
                     خروج
                 </a>

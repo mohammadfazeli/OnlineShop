@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
-namespace OnlineShop.ViewModels.Identity
+namespace OnlineShop.ViewModels.Admin
 {
     public class ChangeUserPasswordViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace OnlineShop.Services.Contracts.Identity
+namespace OnlineShop.Services.Contracts.Admin
 {
     public interface IIdentityDbInitializer
     {

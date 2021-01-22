@@ -2,15 +2,15 @@
 using OnlineShop.Entities.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using OnlineShop.Common.IdentityToolkit;
-using OnlineShop.Services.Contracts.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.Common.AdminToolkit;
+using OnlineShop.Services.Contracts.Admin;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.Extensions.Options;
 using System;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
-    public class UsersPhotoService : IUsersPhotoService
+    public class UsersPhotoService:IUsersPhotoService
     {
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly IWebHostEnvironment _hostingEnvironment;
@@ -29,8 +29,8 @@ namespace OnlineShop.Services.Identity
         public string GetUsersAvatarsFolderPath()
         {
             var usersAvatarsFolder = _siteSettings.Value.UsersAvatarsFolder;
-            var uploadsRootFolder = Path.Combine(_hostingEnvironment.WebRootPath, usersAvatarsFolder);
-            if (!Directory.Exists(uploadsRootFolder))
+            var uploadsRootFolder = Path.Combine(_hostingEnvironment.WebRootPath,usersAvatarsFolder);
+            if(!Directory.Exists(uploadsRootFolder))
             {
                 Directory.CreateDirectory(uploadsRootFolder);
             }
@@ -39,13 +39,13 @@ namespace OnlineShop.Services.Identity
 
         public void SetUserDefaultPhoto(User user)
         {
-            if (!string.IsNullOrWhiteSpace(user.PhotoFileName))
+            if(!string.IsNullOrWhiteSpace(user.PhotoFileName))
             {
                 return;
             }
 
-            var avatarPath = Path.Combine(GetUsersAvatarsFolderPath(), user.PhotoFileName ?? string.Empty);
-            if (!File.Exists(avatarPath))
+            var avatarPath = Path.Combine(GetUsersAvatarsFolderPath(),user.PhotoFileName ?? string.Empty);
+            if(!File.Exists(avatarPath))
             {
                 user.PhotoFileName = _siteSettings.Value.UserDefaultPhoto;
             }
@@ -53,12 +53,12 @@ namespace OnlineShop.Services.Identity
 
         public string GetUserDefaultPhoto(string photoFileName)
         {
-            if (string.IsNullOrWhiteSpace(photoFileName))
+            if(string.IsNullOrWhiteSpace(photoFileName))
             {
                 return _siteSettings.Value.UserDefaultPhoto;
             }
 
-            var avatarPath = Path.Combine(GetUsersAvatarsFolderPath(), photoFileName ?? string.Empty);
+            var avatarPath = Path.Combine(GetUsersAvatarsFolderPath(),photoFileName ?? string.Empty);
             return !File.Exists(avatarPath) ? _siteSettings.Value.UserDefaultPhoto : photoFileName;
         }
 

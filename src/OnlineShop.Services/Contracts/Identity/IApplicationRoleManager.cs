@@ -4,11 +4,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using OnlineShop.Entities.Identity;
-using OnlineShop.ViewModels.Identity;
+using OnlineShop.ViewModels.Admin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace OnlineShop.Services.Contracts.Identity
+namespace OnlineShop.Services.Contracts.Admin
 {
     public interface IApplicationRoleManager : IDisposable
     {

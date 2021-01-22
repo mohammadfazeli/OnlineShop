@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using OnlineShop.DataLayer.Context;
 using System;
 using System.IO;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

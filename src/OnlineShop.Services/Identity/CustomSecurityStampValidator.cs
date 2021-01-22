@@ -1,5 +1,5 @@
 ﻿using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
+using OnlineShop.Services.Contracts.Admin;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
@@ -8,7 +8,7 @@ using System;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// Keep track of on-line users

@@ -1,6 +1,6 @@
 ﻿using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineShop.Entities.AuditableEntity;
 
-namespace OnlineShop.Services.Identity.Logger
+namespace OnlineShop.Services.Admin.Logger
 {
     public class LoggerItem
     {

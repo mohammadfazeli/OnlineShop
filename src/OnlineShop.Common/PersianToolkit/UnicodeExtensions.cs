@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -12,16 +11,16 @@ namespace OnlineShop.Common.PersianToolkit
     {
         public static string RemoveDiacritics(this string text)
         {
-            if (string.IsNullOrWhiteSpace(text))
+            if(string.IsNullOrWhiteSpace(text))
                 return string.Empty;
 
             var normalizedString = text.Normalize(NormalizationForm.FormKC);
             var stringBuilder = new StringBuilder();
 
-            foreach (var c in normalizedString)
+            foreach(var c in normalizedString)
             {
                 var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                if(unicodeCategory != UnicodeCategory.NonSpacingMark)
                 {
                     stringBuilder.Append(c);
                 }
@@ -32,14 +31,14 @@ namespace OnlineShop.Common.PersianToolkit
 
         public static string CleanUnderLines(this string text)
         {
-            if (string.IsNullOrWhiteSpace(text))
+            if(string.IsNullOrWhiteSpace(text))
                 return string.Empty;
 
             const char chr1600 = (char)1600; //ـ=1600
             const char chr8204 = (char)8204; //‌=8204
 
-            return text.Replace(chr1600.ToString(), "")
-                       .Replace(chr8204.ToString(), "");
+            return text.Replace(chr1600.ToString(),"")
+                       .Replace(chr8204.ToString(),"");
         }
 
         public static string RemovePunctuation(this string text)

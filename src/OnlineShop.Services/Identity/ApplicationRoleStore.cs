@@ -2,11 +2,11 @@
 using System.Security.Claims;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
+using OnlineShop.Services.Contracts.Admin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2578

@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Services.Services
 {
-    public class EntityService<TEntity, TDto> : IEntityService<TEntity, TDto>
+    public class EntityService<TEntity, TDto>:IEntityService<TEntity,TDto>
           where TEntity : BaseEntity
           where TDto : BaseDto
 
@@ -27,7 +27,7 @@ namespace OnlineShop.Services.Services
         protected readonly IMapper _mapper;
         protected readonly IRepository<TEntity> _repository;
 
-        public EntityService(IUnitOfWork unitOfWork, IMapper mapper, IRepository<TEntity> repository)
+        public EntityService(IUnitOfWork unitOfWork,IMapper mapper,IRepository<TEntity> repository)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -48,17 +48,17 @@ namespace OnlineShop.Services.Services
 
         public virtual IQueryable<TEntity> GetAllNoTracking() => _repository.GetAllNoTracking();
 
-        public virtual SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name")
+        public virtual SelectList GetSelectList(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name")
         {
-            return new SelectList(GetAllNoTracking().Where(x => !x.InActive), dataValueField, dataTextField, selectedValue: id.GuidIsValid() ? id.ToString() : null);
+            return new SelectList(GetAllNoTracking().Where(x => !x.InActive),dataValueField,dataTextField,selectedValue: id.GuidIsValid() ? id.ToString() : null);
         }
 
-        public virtual DropDownViewModel GetDropDown(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name")
+        public virtual DropDownViewModel GetDropDown(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name")
         {
             var dd = new DropDownViewModel()
             {
                 id = id,
-                SelectList = GetSelectList(id, dataValueField, dataTextField),
+                SelectList = GetSelectList(id,dataValueField,dataTextField),
                 CurrentValues = id == null ? null : new List<string>() { id.ToString() },
             };
             return dd;
@@ -83,21 +83,35 @@ namespace OnlineShop.Services.Services
         public virtual UpdateStatusvm Update(TDto dto)
         {
             var objectEntity = _repository.GetNoTracking(dto.Id);/*  Get(dto.Id);*/
-            if (objectEntity is null) return new UpdateStatusvm() { Valid = false, UpdateStatus = UpdateStatus.NotExists };
+            if(objectEntity is null) return new UpdateStatusvm() { Valid = false,UpdateStatus = UpdateStatus.NotExists };
 
             _unitOfWork.Entry(objectEntity).State = EntityState.Modified;
-            objectEntity = _mapper.Map<TDto, TEntity>(dto, objectEntity);
+            objectEntity = _mapper.Map<TDto,TEntity>(dto,objectEntity);
             _unitOfWork.SaveChanges();
-            return new UpdateStatusvm() { RetrunId = dto.Id, Valid = true, UpdateStatus = UpdateStatus.Successfully };
+            return new UpdateStatusvm() { RetrunId = dto.Id,Valid = true,UpdateStatus = UpdateStatus.Successfully };
         }
 
         public virtual async Task<UpdateStatusvm> UpdateAsync(TDto dto)
         {
             var objectEntity = await GetAsync(dto.Id);
-            if (objectEntity is null) return new UpdateStatusvm() { Valid = false, UpdateStatus = UpdateStatus.NotExists };
-            _mapper.Map(dto, objectEntity);
+            if(objectEntity is null) return new UpdateStatusvm() { Valid = false,UpdateStatus = UpdateStatus.NotExists };
+            _mapper.Map(dto,objectEntity);
             await _unitOfWork.SaveChangesAsync();
-            return new UpdateStatusvm() { RetrunId = dto.Id, Valid = true, UpdateStatus = UpdateStatus.Successfully };
+            return new UpdateStatusvm() { RetrunId = dto.Id,Valid = true,UpdateStatus = UpdateStatus.Successfully };
+        }
+
+        public virtual DeleteStatusvm Remove(Guid id)
+        {
+            var entity = _repository.Get(id);
+            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
+            return _repository.Remove(entity);
+        }
+
+        public virtual async Task<DeleteStatusvm> RemoveAsync(Guid id)
+        {
+            var entity = _repository.Get(id);
+            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
+            return await _repository.RemoveAsync(entity);
         }
 
         public virtual DeleteStatusvm Remove(Guid id)
@@ -117,21 +131,37 @@ namespace OnlineShop.Services.Services
         public virtual DeleteStatusvm Delete(Guid id)
         {
             var entity = _repository.Get(id);
+<<<<<<< HEAD
+            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
+            _unitOfWork.Entry(entity).State = EntityState.Modified;
+            entity.IsDeleted = true;
+            _unitOfWork.SaveChanges();
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Valid = true,RetrunId = entity.Id };
+=======
             if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             _unitOfWork.SaveChanges();
             return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
         }
 
         public virtual async Task<DeleteStatusvm> DeleteAsync(Guid id)
         {
             var entity = await _repository.GetAsync(id);
+<<<<<<< HEAD
+            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
+            _unitOfWork.Entry(entity).State = EntityState.Modified;
+            entity.IsDeleted = true;
+            await _unitOfWork.SaveChangesAsync();
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Valid = true,RetrunId = entity.Id };
+=======
             if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             await _unitOfWork.SaveChangesAsync();
             return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
         }
 
         #endregion CUD

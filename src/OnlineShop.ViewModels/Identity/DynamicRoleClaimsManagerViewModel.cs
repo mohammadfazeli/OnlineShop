@@ -2,7 +2,7 @@
 using OnlineShop.Entities.Identity;
 using DNTCommon.Web.Core;
 
-namespace OnlineShop.ViewModels.Identity
+namespace OnlineShop.ViewModels.Admin
 {
     public class DynamicRoleClaimsManagerViewModel
     {

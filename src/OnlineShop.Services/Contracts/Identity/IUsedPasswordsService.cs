@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using OnlineShop.Entities.Identity;
 
-namespace OnlineShop.Services.Contracts.Identity
+namespace OnlineShop.Services.Contracts.Admin
 {
     public interface IUsedPasswordsService
     {

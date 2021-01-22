@@ -1,6 +1,6 @@
 ﻿using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +9,7 @@ using System.Linq;
 using System;
 using OnlineShop.IocConfig;
 using DNTCommon.Web.Core;
-using OnlineShop.Services.Contracts.Identity;
+using OnlineShop.Services.Contracts.Admin;
 using Microsoft.Extensions.Logging;
 
 namespace OnlineShop.MsTests

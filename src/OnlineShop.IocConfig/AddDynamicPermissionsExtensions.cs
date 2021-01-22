@@ -1,4 +1,4 @@
-using OnlineShop.Services.Identity;
+using OnlineShop.Services.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 

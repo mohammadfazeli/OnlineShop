@@ -1,8 +1,8 @@
 ﻿using OnlineShop.Common.GuardToolkit;
-using OnlineShop.Common.IdentityToolkit;
+using OnlineShop.Common.AdminToolkit;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
+using OnlineShop.Services.Contracts.Admin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,9 +11,9 @@ using Microsoft.Extensions.Options;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2577

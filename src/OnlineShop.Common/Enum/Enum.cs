@@ -55,6 +55,15 @@ namespace OnlineShop.Common.Enums
         Edit,
         Search,
         All
+<<<<<<< HEAD
+    }
+
+    public enum AddCardItemType
+    {
+        link,
+        Form
+=======
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
     }
 
     public enum SpecificationType

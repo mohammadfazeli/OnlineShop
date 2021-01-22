@@ -1,8 +1,8 @@
-﻿using System;
+﻿using DNTPersianUtils.Core;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
-using DNTPersianUtils.Core;
 
 namespace OnlineShop.Common.GuardToolkit
 {
@@ -11,18 +11,18 @@ namespace OnlineShop.Common.GuardToolkit
         /// <summary>
         /// Checks if the argument is null.
         /// </summary>
-        public static void CheckArgumentIsNull(this object o, string name)
+        public static void CheckArgumentIsNull(this object o,string name)
         {
-            if (o == null)
+            if(o == null)
                 throw new ArgumentNullException(name);
         }
 
         /// <summary>
         /// Checks if the parameter is null.
         /// </summary>
-        public static void CheckMandatoryOption(this string s, string name)
+        public static void CheckMandatoryOption(this string s,string name)
         {
-            if (string.IsNullOrEmpty(s))
+            if(string.IsNullOrEmpty(s))
                 throw new ArgumentException(name);
         }
 
@@ -31,16 +31,16 @@ namespace OnlineShop.Common.GuardToolkit
             return !string.IsNullOrWhiteSpace(inputText) && inputText.ToEnglishNumbers().Any(char.IsDigit);
         }
 
-        public static bool HasConsecutiveChars(this string inputText, int sequenceLength = 3)
+        public static bool HasConsecutiveChars(this string inputText,int sequenceLength = 3)
         {
             var charEnumerator = StringInfo.GetTextElementEnumerator(inputText);
             var currentElement = string.Empty;
             var count = 1;
-            while (charEnumerator.MoveNext())
+            while(charEnumerator.MoveNext())
             {
-                if (currentElement == charEnumerator.GetTextElement())
+                if(currentElement == charEnumerator.GetTextElement())
                 {
-                    if (++count >= sequenceLength)
+                    if(++count >= sequenceLength)
                     {
                         return true;
                     }
@@ -61,8 +61,8 @@ namespace OnlineShop.Common.GuardToolkit
 
         public static bool IsNumeric(this string inputText)
         {
-            if (string.IsNullOrWhiteSpace(inputText)) return false;
-            return long.TryParse(inputText.ToEnglishNumbers(), out _);
+            if(string.IsNullOrWhiteSpace(inputText)) return false;
+            return long.TryParse(inputText.ToEnglishNumbers(),out _);
         }
     }
 }

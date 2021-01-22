@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OnlineShop.IocConfig;
-using OnlineShop.Services.Identity.Logger;
+using OnlineShop.Services.Admin.Logger;
 
 namespace OnlineShop
 {

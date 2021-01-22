@@ -2,7 +2,7 @@ using System;
 using OnlineShop.Common.PersianToolkit;
 using OnlineShop.Common.WebToolkit;
 using OnlineShop.DataLayer.Context;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

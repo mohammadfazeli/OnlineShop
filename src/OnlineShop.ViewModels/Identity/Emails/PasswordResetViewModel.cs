@@ -1,4 +1,4 @@
-namespace OnlineShop.ViewModels.Identity.Emails
+namespace OnlineShop.ViewModels.Admin.Emails
 {
     public class PasswordResetViewModel : EmailsBase
     {

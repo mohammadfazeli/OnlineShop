@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OnlineShop.Web.Areas.Identity.Controllers;
+using OnlineShop.Web.Areas.Admin.Controllers;
 using System.Text;
 
 namespace OnlineShop.Web.Controllers

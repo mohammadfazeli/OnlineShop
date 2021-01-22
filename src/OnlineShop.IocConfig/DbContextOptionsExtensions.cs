@@ -2,8 +2,8 @@ using System;
 using OnlineShop.DataLayer.InMemoryDatabase;
 using OnlineShop.DataLayer.MSSQL;
 using OnlineShop.DataLayer.SQLite;
-using OnlineShop.Services.Contracts.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.Services.Contracts.Admin;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace OnlineShop.IocConfig

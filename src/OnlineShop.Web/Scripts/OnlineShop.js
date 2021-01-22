@@ -4,10 +4,10 @@
 
 function TableOperation(id, area, controller, OtherLinks = ['']) {
     if (OtherLinks.length != 0 && OtherLinks[0] != '') { Links = '<hr/>' + OtherLinks.join() } else { Links = OtherLinks.join(); }
-    return '<div class=" text-center dropdown dropright">' +
-        '<button type="button" class="  uk-button uk-button-default uk-button-small  dropdown-toggle" data-toggle="dropdown"></button>' +
+    return '<div class=" text-center ">' +
+        '<button type="button" class=" btn btn-small dropdown-toggle" data-toggle="dropdown"></button>' +
         '<div class="dropdown-menu">' +
-        '<a  class="dropdown-item"  onclick=' + `ShowModalConfirmRemove('${area}','${controller}','${id}')` + ' ><span uk-icon="icon: trash"></span>حذف</a>' +
+        '<a  class="dropdown-item"  onclick=' + `ShowModalConfirmRemove('${area}','${controller}','${id}')` + ' ><span uk-icon="icon: trash"></span>asdasd</a>' +
         '<a  class="dropdown-item"  href="/' + area + '/' + controller + '/Edit/' + id + '"><span uk-icon="icon: file-edit"></span>ویرایش</a>' +
         Links.replace(",", "");
     //'<a  class="dropdown-item"  onclick=' + `ShowModalConfirmedit('${area}','${controller}','${id}')` + ' ><span uk-icon="icon: file-edit"></span>ویرایش</a>' +
@@ -24,7 +24,7 @@ function ShowModalConfirmRemove(area, controller, id) {
 function ShowModalConfirmedit(area, controller, id) {
     $.ajax({
         type: "GET",
-        url: "/Identity/Part/Edit/" + id + "",
+        url: "/Admin/Part/Edit/" + id + "",
         success: function (viewHTML) {
             $("#MainModalBody").html(viewHTML);
             UIkit.modal("#MainModal").show();

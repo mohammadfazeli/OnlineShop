@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace OnlineShop.Services.Contracts.Identity
+namespace OnlineShop.Services.Contracts.Admin
 {
     public interface IApplicationSignInManager
     {

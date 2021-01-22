@@ -1,8 +1,8 @@
-﻿using OnlineShop.Common.IdentityToolkit;
+﻿using OnlineShop.Common.AdminToolkit;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
-using OnlineShop.ViewModels.Identity;
+using OnlineShop.Services.Contracts.Admin;
+using OnlineShop.ViewModels.Admin;
 using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using System;
 using DNTCommon.Web.Core;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2578

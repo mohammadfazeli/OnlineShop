@@ -1,3 +1,35 @@
+<<<<<<< HEAD
+﻿@using OnlineShop.ViewModels.Area
+@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto
+
+<div class="product-item">
+    <div class="pi-pic">
+        <partial name="_DisplayImage" model="Model.ProductId" />
+        <div class="sale">Sale</div>
+        <div class="icon">
+            <i class="icon_heart_alt"></i>
+        </div>
+        <ul>
+            <li class="w-icon active">
+                @Html.AjaxActionLink("","SelectItem","Card",new CustomerCardItem() { productId = Model.ProductId.Value },new AjaxOptions() { UpdateTargetId = "CustomerCardItems",HttpMethod = "Post" },new { @class = "icon_bag_alt" })
+            </li>
+            <li class="quick-view">
+                @Html.ActionLink("مشاهده محصول","Index","Product",new { Id = Model.ProductId })
+            </li>
+        </ul>
+    </div>
+    <div class="pi-text">
+        <div class="catagory-name">لباس</div>
+        <a href="#">
+            <h5>@Model.ProductName</h5>
+        </a>
+        <div class="product-price">
+            @Model.CurrentPrice
+            <span> @Model.OldPrice </span>
+        </div>
+    </div>
+</div>
+=======
 ﻿@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto
 
 <div class="item  ">
@@ -112,3 +144,4 @@
             <strong class="item-price">$58.00</strong>
         </div>
     </div>*@
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2

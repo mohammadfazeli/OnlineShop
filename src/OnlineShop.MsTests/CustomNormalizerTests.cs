@@ -1,4 +1,4 @@
-﻿using OnlineShop.Services.Identity;
+﻿using OnlineShop.Services.Admin;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace OnlineShop.MsTests

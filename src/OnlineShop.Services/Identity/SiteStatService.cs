@@ -1,7 +1,7 @@
 ﻿using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
-using OnlineShop.ViewModels.Identity;
+using OnlineShop.Services.Contracts.Admin;
+using OnlineShop.ViewModels.Admin;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System;
 using DNTPersianUtils.Core;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     public class SiteStatService : ISiteStatService
     {

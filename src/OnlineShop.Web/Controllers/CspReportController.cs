@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OnlineShop.Web.Areas.Identity.Controllers;
+using OnlineShop.Web.Areas.Admin.Controllers;
 
 namespace OnlineShop.Controllers
 {

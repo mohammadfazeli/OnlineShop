@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.Services.Identity
+﻿namespace OnlineShop.Services.Admin
 {
     public static class ConstantRoles
     {

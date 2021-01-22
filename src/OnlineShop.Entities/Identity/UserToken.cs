@@ -1,5 +1,5 @@
-﻿using OnlineShop.Entities.AuditableEntity;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using OnlineShop.Entities.AuditableEntity;
 
 namespace OnlineShop.Entities.Identity
 {
@@ -7,7 +7,7 @@ namespace OnlineShop.Entities.Identity
     /// More info: http://www.dotnettips.info/post/2577
     /// and http://www.dotnettips.info/post/2578
     /// </summary>
-    public class UserToken : IdentityUserToken<int>, IAuditableEntity
+    public class UserToken:IdentityUserToken<int>, IAuditableEntity
     {
         public virtual User User { get; set; }
     }

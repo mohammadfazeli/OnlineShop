@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace OnlineShop.Services.Contracts.Identity
+namespace OnlineShop.Services.Contracts.Admin
 {
     public interface ISecurityTrimmingService
     {

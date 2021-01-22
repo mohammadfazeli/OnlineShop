@@ -8,12 +8,12 @@ namespace OnlineShop.Common.GuardToolkit
     {
         public static bool IsImageFile(this byte[] photoFile)
         {
-            if (photoFile == null || photoFile.Length == 0)
+            if(photoFile == null || photoFile.Length == 0)
                 return false;
 
-            using (var memoryStream = new MemoryStream(photoFile))
+            using(var memoryStream = new MemoryStream(photoFile))
             {
-                using (var img = Image.FromStream(memoryStream))
+                using(var img = Image.FromStream(memoryStream))
                 {
                     return img.Width > 0;
                 }
@@ -21,23 +21,23 @@ namespace OnlineShop.Common.GuardToolkit
         }
 
         //public static bool IsValidImageFile(this IFormFile photoFile, int maxWidth = 150, int maxHeight = 150)
-        public static bool IsValidImageFile(this IFormFile photoFile, int maxWidth = 2000, int maxHeight = 2000)
+        public static bool IsValidImageFile(this IFormFile photoFile,int maxWidth = 2000,int maxHeight = 2000)
         {
-            if (photoFile == null || photoFile.Length == 0) return false;
-            using (var img = Image.FromStream(photoFile.OpenReadStream()))
+            if(photoFile == null || photoFile.Length == 0) return false;
+            using(var img = Image.FromStream(photoFile.OpenReadStream()))
             {
-                if (img.Width > maxWidth) return false;
-                if (img.Height > maxHeight) return false;
+                if(img.Width > maxWidth) return false;
+                if(img.Height > maxHeight) return false;
             }
             return true;
         }
 
         public static bool IsImageFile(this IFormFile photoFile)
         {
-            if (photoFile == null || photoFile.Length == 0)
+            if(photoFile == null || photoFile.Length == 0)
                 return false;
 
-            using (var img = Image.FromStream(photoFile.OpenReadStream()))
+            using(var img = Image.FromStream(photoFile.OpenReadStream()))
             {
                 return img.Width > 0;
             }

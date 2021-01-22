@@ -14,7 +14,7 @@ using OnlineShop.Entities;
 using OnlineShop.Entities.AuditableEntity;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Entities.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -28,8 +28,8 @@ namespace OnlineShop.DataLayer.Context
     /// and http://www.dotnettips.info/post/2578
     /// plus http://www.dotnettips.info/post/2491
     /// </summary>
-    public class ApplicationDbContext :
-        IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>,
+    public class ApplicationDbContext:
+        IdentityDbContext<User,Role,int,UserClaim,UserRole,UserLogin,RoleClaim,UserToken>,
         IUnitOfWork
     {
         private IDbContextTransaction _transaction;
@@ -56,7 +56,7 @@ namespace OnlineShop.DataLayer.Context
 
         public void RollbackTransaction()
         {
-            if (_transaction == null)
+            if(_transaction == null)
             {
                 throw new NullReferenceException("Please call `BeginTransaction()` method first.");
             }
@@ -65,7 +65,7 @@ namespace OnlineShop.DataLayer.Context
 
         public void CommitTransaction()
         {
-            if (_transaction == null)
+            if(_transaction == null)
             {
                 throw new NullReferenceException("Please call `BeginTransaction()` method first.");
             }
@@ -83,20 +83,20 @@ namespace OnlineShop.DataLayer.Context
             Database.ExecuteSqlInterpolated(query);
         }
 
-        public void ExecuteSqlRawCommand(string query, params object[] parameters)
+        public void ExecuteSqlRawCommand(string query,params object[] parameters)
         {
-            Database.ExecuteSqlRaw(query, parameters);
+            Database.ExecuteSqlRaw(query,parameters);
         }
 
-        public T GetShadowPropertyValue<T>(object entity, string propertyName) where T : IConvertible
+        public T GetShadowPropertyValue<T>(object entity,string propertyName) where T : IConvertible
         {
             var value = this.Entry(entity).Property(propertyName).CurrentValue;
             return value != null
-                ? (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture)
+                ? (T)Convert.ChangeType(value,typeof(T),CultureInfo.InvariantCulture)
                 : default;
         }
 
-        public object GetShadowPropertyValue(object entity, string propertyName)
+        public object GetShadowPropertyValue(object entity,string propertyName)
         {
             return this.Entry(entity).Property(propertyName).CurrentValue;
         }
@@ -147,14 +147,14 @@ namespace OnlineShop.DataLayer.Context
             return result;
         }
 
-        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken())
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess,CancellationToken cancellationToken = new CancellationToken())
         {
             ChangeTracker.DetectChanges();
 
             beforeSaveTriggers();
 
             ChangeTracker.AutoDetectChangesEnabled = false; // for performance reasons, to avoid calling DetectChanges() again.
-            var result = base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+            var result = base.SaveChangesAsync(false,cancellationToken);
             ChangeTracker.AutoDetectChangesEnabled = true;
             return result;
         }
@@ -175,7 +175,7 @@ namespace OnlineShop.DataLayer.Context
         private void validateEntities()
         {
             var errors = this.GetValidationErrors();
-            if (!string.IsNullOrWhiteSpace(errors))
+            if(!string.IsNullOrWhiteSpace(errors))
             {
                 // we can't use constructor injection anymore, because we are using the `AddDbContextPool<>`
                 var loggerFactory = this.GetService<ILoggerFactory>();
@@ -198,7 +198,7 @@ namespace OnlineShop.DataLayer.Context
 
             // Custom application mappings
             builder.SetDecimalPrecision();
-            builder.AddDateTimeUtcKindConverter();
+            //builder.AddDateTimeUtcKindConverter();
             builder.RegisterAllEntities<BaseEntity>(typeof(BaseEntity).Assembly);
 
             // This should be placed here, at the end.

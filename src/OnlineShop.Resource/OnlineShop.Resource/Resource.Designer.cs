@@ -70,6 +70,24 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to اطلاعات وارد شده تکراری است.
+        /// </summary>
+        public static string AddExists {
+            get {
+                return ResourceManager.GetString("AddExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ثبت انجام نشد. خطایی رخ داده است.
+        /// </summary>
+        public static string AddFail {
+            get {
+                return ResourceManager.GetString("AddFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to افزودن قطعه.
         /// </summary>
         public static string AddPart {
@@ -84,6 +102,15 @@ namespace OnlineShop.Resource {
         public static string Addrss {
             get {
                 return ResourceManager.GetString("Addrss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ثبت با موفقیت انجام شد.
+        /// </summary>
+        public static string AddSuccessfully {
+            get {
+                return ResourceManager.GetString("AddSuccessfully", resourceCulture);
             }
         }
         
@@ -165,6 +192,51 @@ namespace OnlineShop.Resource {
         public static string CreateOn {
             get {
                 return ResourceManager.GetString("CreateOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to قیمت فعلی .
+        /// </summary>
+        public static string CurrentPrice {
+            get {
+                return ResourceManager.GetString("CurrentPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to به دلیل وجود اطلاعات وابسته ، امکان حذف میسر نمی باشد.
+        /// </summary>
+        public static string DeleteDependent {
+            get {
+                return ResourceManager.GetString("DeleteDependent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to حذف انجام نشد. خطایی رخ داده است.
+        /// </summary>
+        public static string DeleteFail {
+            get {
+                return ResourceManager.GetString("DeleteFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to موردی جهت حذف یافت نشد.
+        /// </summary>
+        public static string DeleteNotExists {
+            get {
+                return ResourceManager.GetString("DeleteNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to حذف با موفقیت انجام شد.
+        /// </summary>
+        public static string DeleteSuccessfully {
+            get {
+                return ResourceManager.GetString("DeleteSuccessfully", resourceCulture);
             }
         }
         
@@ -367,7 +439,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to قیمت فعلی.
+        ///   Looks up a localized string similar to قیمت جدید.
         /// </summary>
         public static string NewPrice {
             get {
@@ -376,7 +448,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to قیمت قبلی.
+        ///   Looks up a localized string similar to قیمت قدیم.
         /// </summary>
         public static string OldPrice {
             get {
@@ -522,36 +594,45 @@ namespace OnlineShop.Resource {
         /// <summary>
         ///   Looks up a localized string similar to قیمت گذازی.
         /// </summary>
-        public static string ProductPriceModificatin {
+        public static string ProductSalePrice {
             get {
-                return ResourceManager.GetString("ProductPriceModificatin", resourceCulture);
+                return ResourceManager.GetString("ProductSalePrice", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to افزودن قیمت گذاری.
         /// </summary>
-        public static string ProductPriceModificatinAdd {
+        public static string ProductSalePriceAdd {
             get {
-                return ResourceManager.GetString("ProductPriceModificatinAdd", resourceCulture);
+                return ResourceManager.GetString("ProductSalePriceAdd", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ویرایش قیمت گذاری.
         /// </summary>
-        public static string ProductPriceModificatinEdit {
+        public static string ProductSalePriceEdit {
             get {
-                return ResourceManager.GetString("ProductPriceModificatinEdit", resourceCulture);
+                return ResourceManager.GetString("ProductSalePriceEdit", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to لیست قیمت گذاری.
         /// </summary>
-        public static string ProductPriceModificatinList {
+        public static string ProductSalePriceList {
             get {
-                return ResourceManager.GetString("ProductPriceModificatinList", resourceCulture);
+                return ResourceManager.GetString("ProductSalePriceList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to محصولات مرتبط.
+        /// </summary>
+        public static string ProductRelated {
+            get {
+                return ResourceManager.GetString("ProductRelated", resourceCulture);
             }
         }
         
@@ -646,6 +727,15 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to حذف با موفقیت انجام شد.
+        /// </summary>
+        public static string RemoveSuccess {
+            get {
+                return ResourceManager.GetString("RemoveSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to یک گزینه انتخاب کنید.
         /// </summary>
         public static string SelectedOneItem {
@@ -714,6 +804,33 @@ namespace OnlineShop.Resource {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش انجام نشد. خطایی رخ داده است.
+        /// </summary>
+        public static string UpdateFail {
+            get {
+                return ResourceManager.GetString("UpdateFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to موردی جهت ویرایش یافت نشد.
+        /// </summary>
+        public static string UpdateNotExists {
+            get {
+                return ResourceManager.GetString("UpdateNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش با موفقیت انجام شد.
+        /// </summary>
+        public static string UpdateSuccess {
+            get {
+                return ResourceManager.GetString("UpdateSuccess", resourceCulture);
             }
         }
         

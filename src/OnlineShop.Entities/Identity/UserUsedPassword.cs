@@ -2,7 +2,7 @@
 
 namespace OnlineShop.Entities.Identity
 {
-    public class UserUsedPassword : IAuditableEntity
+    public class UserUsedPassword:IAuditableEntity
     {
         public int Id { get; set; }
 

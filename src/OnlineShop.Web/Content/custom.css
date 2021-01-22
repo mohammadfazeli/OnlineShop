@@ -6,27 +6,22 @@
 }
 
 @font-face {
-  font-family: Samim;
-  src: url('/fonts/Samim.eot?v=1.0.2');
-  src: url('/fonts/Samim.eot?v=1.0.2#iefix') format('embedded-opentype'),
-       url('/fonts/Samim.woff?v=1.0.2') format('woff'),
-       url('/fonts/Samim.ttf?v=1.0.2') format('truetype');
-  font-weight: normal;
+    font-family: Samim;
+    src: url('/fonts/Samim.eot?v=1.0.2');
+    src: url('/fonts/Samim.eot?v=1.0.2#iefix') format('embedded-opentype'), url('/fonts/Samim.woff?v=1.0.2') format('woff'), url('/fonts/Samim.ttf?v=1.0.2') format('truetype');
+    font-weight: normal;
 }
 
 @font-face {
-  font-family: Samim;
-  src: url('/fonts/Samim-Bold.eot?v=1.0.2');
-  src: url('/fonts/Samim-Bold.eot?v=1.0.2#iefix') format('embedded-opentype'),
-       url('/fonts/Samim-Bold.woff?v=1.0.2') format('woff'),
-       url('/fonts/Samim-Bold.ttf?v=1.0.2') format('truetype');
-  font-weight: bold;
+    font-family: Samim;
+    src: url('/fonts/Samim-Bold.eot?v=1.0.2');
+    src: url('/fonts/Samim-Bold.eot?v=1.0.2#iefix') format('embedded-opentype'), url('/fonts/Samim-Bold.woff?v=1.0.2') format('woff'), url('/fonts/Samim-Bold.ttf?v=1.0.2') format('truetype');
+    font-weight: bold;
 }
 
-#footer{
+#footer {
     min-height: 30px;
 }
-
 
 h3, h4, h5, h1, h6 {
     font-family: 'Samim', arial, Sans-Serif;
@@ -40,7 +35,6 @@ h2 {
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #E5E3E3;
 }
-
 
 ul.nav.navbar-nav {
     font-family: 'Samim', arial, Sans-Serif;
@@ -139,7 +133,7 @@ ul.nav.navbar-nav {
 }
 
 .navbar-nav > li > a {
-   line-height: 40px;
+    line-height: 40px;
 }
 
 .navbar-brand {
@@ -185,8 +179,7 @@ ul.nav.navbar-nav {
     padding: 5px 14px;
 }
 
-.pagerSpan:hover {
+    .pagerSpan:hover {
         background-color: #eee;
         text-decoration: none;
     }
-

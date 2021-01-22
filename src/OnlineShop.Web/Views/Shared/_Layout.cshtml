@@ -11,6 +11,32 @@
     <title>@pageTitle</title>
     <link rel="icon" href="/grow-shop.png" />
 
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    @*<link rel="stylesheet" href="~/dist/css/uikit.css">
+        <link rel="stylesheet" href="/dist/css/mdb.min.css">
+        <link rel="stylesheet" href="/dist/css/custom.css">*@
+    @*<link rel="stylesheet" href="/dist/css/mdb.min.css">
+        <link rel="stylesheet" href="~/dist/css/uikit.css">*@
+    <link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">
+
+    <!-- Google Font -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">-->
+    <!-- Css Styles -->
+    @*<link rel="stylesheet" href="~/Layout/css/bootstrap.min.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/font-awesome.min.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/themify-icons.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/elegant-icons.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/owl.carousel.min.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/nice-select.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/jquery-ui.min.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/slicknav.min.css" type="text/css" asp-append-version="true">
+        <link rel="stylesheet" href="~/Layout/css/style.css" type="text/css" asp-append-version="true">*@
+    <link rel="stylesheet" href="~/css/site.min.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="../Content/noty.min.css" asp-append-version="true">
+
+=======
     <!-- Google Font: Source Sans Pro -->
     @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
     <!-- Font Awesome Icons -->
@@ -42,11 +68,80 @@
     <link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">
     @*<link rel="stylesheet" href="/dist/css/bootstrap-rtl.css">*@
     <script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
     <script src="/plugins/jquery/jquery.min.js" asp-append-version="true"></script>
     @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
 </head>
 <body>
 
+<<<<<<< HEAD
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header-top">
+            <div class="container">
+                <div class="ht-left">
+                    <div class="mail-service">
+                        <i class=" fa fa-envelope"></i>
+                        hello.colorlib@gmail.com
+                    </div>
+                    <div class="phone-service">
+                        <i class=" fa fa-phone"></i>
+                        +65 11.188.888
+                    </div>
+                </div>
+                <div class="ht-right">
+                    <a asp-area="Admin" asp-controller="Login" asp-action="Index" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <div class="lan-selector">
+                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
+                            <option value='yt' data-image="/Layout/img/flag-1.jpg" data-imagecss="flag yt"
+                                    data-title="English">
+                                English
+                            </option>
+
+                            <option value='yu' data-image="/Layout/img/flag-2.jpg" data-imagecss="flag yu"
+                                    data-title="Bangladesh">
+                                German
+                            </option>
+                        </select>
+                    </div>
+                    <div class="top-social">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter-alt"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="./index.html">
+                                <img src="/Layout/img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7">
+                        <div class="advanced-search">
+                            <button type="button" class="category-btn">All Categories</button>
+                            <div class="input-group">
+                                <input type="text" placeholder="What do you need?">
+                                <button type="button"><i class="ti-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-right col-md-3">
+                        <div>
+                            <vc:customer-card-item></vc:customer-card-item>
+                        </div>
+=======
     <div class="site-wrap">
 
         @*@Html.Partial("_NavBar")*@
@@ -67,10 +162,211 @@
                     </div>
                     <div class="col-md-6 order-1 align-self-end">
                         <img src="~/Layout/images/456.png" alt="Image" class="img-fluid">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+        <div class="nav-item" id="navbar_top">
+            <div class="container">
+                <div class="nav-depart">
+                    <div class="depart-btn">
+                        <i class="ti-menu"></i>
+                        <span>All departments</span>
+                        <ul class="depart-hover">
+                            <li class="active"><a href="#">Women’s Clothing</a></li>
+                            <li><a href="#">Men’s Clothing</a></li>
+                            <li><a href="#">Underwear</a></li>
+                            <li><a href="#">Kid's Clothing</a></li>
+                            <li><a href="#">Brand Fashion</a></li>
+                            <li><a href="#">Accessories/Shoes</a></li>
+                            <li><a href="#">Luxury Brands</a></li>
+                            <li><a href="#">Brand Outdoor Apparel</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li><a href="./shop.html">Shop</a></li>
+                        <li>
+                            <a href="#">Collection</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Men's</a></li>
+                                <li><a href="#">Women's</a></li>
+                                <li><a href="#">Kid's</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                        <li>
+                            <a href="#">Pages</a>
+                            <ul class="dropdown">
+                                <li><a href="./blog-details.html">Blog Details</a></li>
+                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                <li><a href="./check-out.html">Checkout</a></li>
+                                <li><a href="./faq.html">Faq</a></li>
+                                <li><a href="./register.html">Register</a></li>
+                                <li><a href="./login.html">Login</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <section>
+        @RenderBody()
+    </section>
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <a href="#"><img src="/Layout/img/footer-logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello.colorlib@gmail.com</li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Serivius</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2  ">
+                    <div class="footer-widget">
+                        <h5>My Account</h5>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Shopping Cart</a></li>
+                            <li><a href="#">Shop</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="newslatter-item">
+                        <h5>Join Our Newsletter Now</h5>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" placeholder="Enter Your Mail">
+                            <button type="button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-reserved">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                        <div class="payment-pic">
+                            <img src="/Layout/img/payment-method.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Js Plugins -->
+    @*<script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery-ui.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.countdown.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.nice-select.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.zoom.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.dd.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.slicknav.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/owl.carousel.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/main.js" asp-append-version="true"></script>*@
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+    <!-- Js Plugins -->
+    @*<script src="/dist/js/uikit.js" asp-append-version="true"></script>*@
+    <script src="/plugins/toastr/toastr.min.js" asp-append-version="true"></script>
+    <script src="../Scripts/noty.min.js" asp-append-version="true"></script>
+
+    @* <script src="/plugins/lightslider-master/js/lightslider.js" asp-append-version="true"></script>*@
+    @*<script>
+            $(function () {
+                $(document).ready(function () {
+                    $(".lightSlider").lightSlider({
+                        item: 3,
+                        loop: true,
+                        slideMove: 1,
+                        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                        speed: 600,
+                        rtl: true,
+                        pager: false,
+                        responsive: [
+                            {
+                                breakpoint: 800,
+                                settings: {
+                                    item: 3,
+                                    slideMove: 1,
+                                    slideMargin: 6,
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    item: 2,
+                                    slideMove: 1
+                                }
+                            }
+                        ]
+                    });
+
+                    $('.adaptive').lightSlider({
+                        adaptiveHeight: true,
+                        item: 1,
+                        slideMargin: 0,
+                        loop: true
+                    });
+
+                    $('.imageGallery').lightSlider({
+                        gallery: true,
+                        item: 1,
+                        loop: true,
+                        thumbItem: 9,
+                        slideMargin: 0,
+                        enableDrag: false,
+                        currentPagerPosition: 'left',
+                        onSliderLoad: function (el) {
+                            el.lightGallery({
+                                selector: '#imageGallery .lslide'
+                            });
+=======
 
         <div class="site-section">
             <ul class="adaptive ">
@@ -325,8 +621,9 @@
                                 item: 2,
                                 slideMove: 1
                             }
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                         }
-                    ]
+                    });
                 });
 
                 $('.adaptive').lightSlider({
@@ -351,12 +648,20 @@
                     }
                 });
             });
+<<<<<<< HEAD
+        </script>*@
+
+    <!--Place it at the end of body and after jquery-->
+    @Html.RenderUnobtrusiveAjaxScript()
+    @await RenderSectionAsync("Scripts",required: false)
+=======
         });
     </script>
 
     <!--Place it at the end of body and after jquery-->
     @Html.RenderUnobtrusiveAjaxScript()
     @await RenderSectionAsync("Scripts", required: false)
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
     @await Component.InvokeAsync("NToastNotify")
 </body>
 </html>

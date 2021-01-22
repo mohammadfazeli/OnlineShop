@@ -1,86 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Classes
 {
-    public class CustomPersianCulture : CultureInfo
+    public static class PersianDateExtensionMethods
     {
-        private readonly Calendar cal;
-        private readonly Calendar[] optionals;
+        private static CultureInfo _Culture;
 
-        /// <summary>
-        /// كد رو بخوان تا بفهمي
-        /// </summary>
-        /// <param name="cultureName">fa-IR</param>
-        /// <param name="useUserOverride">true</param>
-        /// <remarks>لطفا در هنگام استفاده به سايت سايان اشاره كنيد.</remarks>
-        public CustomPersianCulture() : this("fa-IR", true)
+        public static CultureInfo GetPersianCulture()
         {
+            if(_Culture == null)
+            {
+                _Culture = new CultureInfo("fa-IR");
+                DateTimeFormatInfo formatInfo = _Culture.DateTimeFormat;
+                formatInfo.AbbreviatedDayNames = new[] { "ی","د","س","چ","پ","ج","ش" };
+                formatInfo.DayNames = new[] { "یکشنبه","دوشنبه","سه شنبه","چهار شنبه","پنجشنبه","جمعه","شنبه" };
+                var monthNames = new[]
+                {
+                    "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن",
+                    "اسفند",
+                    ""
+                };
+                formatInfo.AbbreviatedMonthNames =
+                    formatInfo.MonthNames =
+                    formatInfo.MonthGenitiveNames = formatInfo.AbbreviatedMonthGenitiveNames = monthNames;
+                formatInfo.AMDesignator = "ق.ظ";
+                formatInfo.PMDesignator = "ب.ظ";
+                formatInfo.ShortDatePattern = "yyyy/MM/dd";
+                formatInfo.LongDatePattern = "dddd, dd MMMM,yyyy";
+                formatInfo.FirstDayOfWeek = DayOfWeek.Saturday;
+                System.Globalization.Calendar cal = new PersianCalendar();
+
+                FieldInfo fieldInfo = _Culture.GetType().GetField("calendar",BindingFlags.NonPublic | BindingFlags.Instance);
+                if(fieldInfo != null)
+                    fieldInfo.SetValue(_Culture,cal);
+
+                FieldInfo info = formatInfo.GetType().GetField("calendar",BindingFlags.NonPublic | BindingFlags.Instance);
+                if(info != null)
+                    info.SetValue(formatInfo,cal);
+
+                _Culture.NumberFormat.NumberDecimalSeparator = ",";
+                _Culture.NumberFormat.DigitSubstitution = DigitShapes.NativeNational;
+                _Culture.NumberFormat.NumberNegativePattern = 0;
+            }
+            return _Culture;
         }
 
-        public CustomPersianCulture(string cultureName, bool useUserOverride)
-            : base(cultureName, useUserOverride)
+        public static string ToPeString(this DateTime date,string format = "yyyy/MM/dd")
         {
-            //Temporary Value for cal.
-            cal = base.OptionalCalendars[0];
-            this.NumberFormat.CurrencyDecimalSeparator = ".";
-            this.NumberFormat.NumberDecimalSeparator = ".";
-
-            //populating new list of optional calendars.
-            var optionalCalendars = new List<Calendar>();
-            optionalCalendars.AddRange(base.OptionalCalendars);
-            optionalCalendars.Insert(0, new PersianCalendar());
-
-            Type formatType = typeof(DateTimeFormatInfo);
-            Type calendarType = typeof(Calendar);
-
-            PropertyInfo idProperty = calendarType.GetProperty("ID", BindingFlags.Instance | BindingFlags.NonPublic);
-            FieldInfo optionalCalendarfield = formatType.GetField("optionalCalendars",
-                                                                  BindingFlags.Instance | BindingFlags.NonPublic);
-
-            ////populating new list of optional calendar ids
-            //var newOptionalCalendarIDs = new Int32[optionalCalendars.Count];
-            //for (int i = 0; i < newOptionalCalendarIDs.Length; i++)
-            //    newOptionalCalendarIDs[i] = (Int32)idProperty.GetValue(optionalCalendars[i], null);
-
-            //optionalCalendarfield.SetValue(DateTimeFormat, newOptionalCalendarIDs);
-
-            optionals = optionalCalendars.ToArray();
-            cal = optionals[0];
-            DateTimeFormat.Calendar = optionals[0];
-            DateTimeFormat.MonthNames = new[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند", "" };
-            DateTimeFormat.MonthGenitiveNames = new[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند", "" };
-            DateTimeFormat.AbbreviatedMonthNames = new[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند", "" };
-            DateTimeFormat.AbbreviatedMonthGenitiveNames = new[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند", "" };
-
-            DateTimeFormat.AbbreviatedDayNames = new string[] { "ی", "د", "س", "چ", "پ", "ج", "ش" };
-            DateTimeFormat.ShortestDayNames = new string[] { "ی", "د", "س", "چ", "پ", "ج", "ش" };
-            DateTimeFormat.DayNames = new string[] { "یکشنبه", "دوشنبه", "ﺳﻪ شنبه", "چهارشنبه", "پنج شنبه", "جمعه", "شنبه" };
-
-            DateTimeFormat.AMDesignator = "ق.ظ";
-            DateTimeFormat.PMDesignator = "ب.ظ";
-
-            DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
-            DateTimeFormat.LongDatePattern = "yyyy-MM-dd";
-
-            DateTimeFormat.SetAllDateTimePatterns(new[] { "yyyy-MM-dd" }, 'd');
-            DateTimeFormat.SetAllDateTimePatterns(new[] { "dddd, dd MMMM yyyy" }, 'D');
-            DateTimeFormat.SetAllDateTimePatterns(new[] { "yyyy MMMM" }, 'y');
-            DateTimeFormat.SetAllDateTimePatterns(new[] { "yyyy MMMM" }, 'Y');
-        }
-
-        public override Calendar Calendar
-        {
-            get { return cal; }
-        }
-
-        public override Calendar[] OptionalCalendars
-        {
-            get { return optionals; }
+            return date.ToString(format,GetPersianCulture());
         }
     }
 }

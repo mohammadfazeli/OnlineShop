@@ -1,6 +1,7 @@
-﻿using OnlineShop.Services.Contracts.Identity;
-using DNTCommon.Web.Core;
+﻿using DNTCommon.Web.Core;
 using Microsoft.AspNetCore.Http;
+using OnlineShop.Services.Admin;
+using OnlineShop.Services.Contracts.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace OnlineShop.Services.Identity
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2581
     /// </summary>
-    public class SecurityTrimmingService : ISecurityTrimmingService
+    public class SecurityTrimmingService:ISecurityTrimmingService
     {
         private readonly HttpContext _httpContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -26,26 +27,26 @@ namespace OnlineShop.Services.Identity
             _mvcActionsDiscoveryService = mvcActionsDiscoveryService ?? throw new ArgumentNullException(nameof(_mvcActionsDiscoveryService));
         }
 
-        public bool CanCurrentUserAccess(string area, string controller, string action)
+        public bool CanCurrentUserAccess(string area,string controller,string action)
         {
-            return _httpContext != null && CanUserAccess(_httpContext.User, area, controller, action);
+            return _httpContext != null && CanUserAccess(_httpContext.User,area,controller,action);
         }
 
-        public bool CanUserAccess(ClaimsPrincipal user, string area, string controller, string action)
+        public bool CanUserAccess(ClaimsPrincipal user,string area,string controller,string action)
         {
             var currentClaimValue = $"{area}:{controller}:{action}";
             var securedControllerActions = _mvcActionsDiscoveryService.GetAllSecuredControllerActionsWithPolicy(ConstantPolicies.DynamicPermission);
-            if (!securedControllerActions.SelectMany(x => x.MvcActions).Any(x => x.ActionId == currentClaimValue))
+            if(!securedControllerActions.SelectMany(x => x.MvcActions).Any(x => x.ActionId == currentClaimValue))
             {
                 throw new KeyNotFoundException($"The `secured` area={area}/controller={controller}/action={action} with `ConstantPolicies.DynamicPermission` policy not found. Please check you have entered the area/controller/action names correctly and also it's decorated with the correct security policy.");
             }
 
-            if (!user.Identity.IsAuthenticated)
+            if(!user.Identity.IsAuthenticated)
             {
                 return false;
             }
 
-            if (user.IsInRole(ConstantRoles.Admin))
+            if(user.IsInRole(ConstantRoles.Admin))
             {
                 // Admin users have access to all of the pages.
                 return true;

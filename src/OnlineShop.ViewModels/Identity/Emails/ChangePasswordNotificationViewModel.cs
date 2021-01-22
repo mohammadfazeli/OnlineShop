@@ -1,6 +1,6 @@
 ﻿using OnlineShop.Entities.Identity;
 
-namespace OnlineShop.ViewModels.Identity.Emails
+namespace OnlineShop.ViewModels.Admin.Emails
 {
     public class ChangePasswordNotificationViewModel : EmailsBase
     {

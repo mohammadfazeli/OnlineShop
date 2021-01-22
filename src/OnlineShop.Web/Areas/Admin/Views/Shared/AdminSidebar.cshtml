@@ -1,0 +1,50 @@
+﻿<script>
+    function SearchAdminMenu() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('SearchMenu');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("AdminMenu");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+<!-- Sidebar user panel (optional) -->
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+    </div>
+    <div class="info">
+        <a href="#" class="d-block">محمد فاضلی</a>
+    </div>
+</div>
+
+<!-- SidebarSearch Form -->
+@*<div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar text-right" onkeydown="SearchAdminMenu()" type="search" id="SearchMenu" placeholder=" جستجو کنید" aria-label="Search">
+            <div class="input-group-append">
+            </div>
+        </div>
+    </div>*@
+
+<!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" id="AdminMenu" data-widget="treeview" role="menu" data-accordion="true">
+        <!-- Add icons to the links using the .nav-icon class
+        with font-awesome or any other icon font library -->
+        @await Component.InvokeAsync("Menu",new { area = AreaConstants.AdminArea })
+    </ul>
+</nav>
+<!-- /.sidebar-menu -->

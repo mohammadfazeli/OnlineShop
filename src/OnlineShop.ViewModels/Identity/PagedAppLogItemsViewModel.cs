@@ -2,7 +2,7 @@
 using OnlineShop.Entities.Identity;
 using cloudscribe.Web.Pagination;
 
-namespace OnlineShop.ViewModels.Identity
+namespace OnlineShop.ViewModels.Admin
 {
     public class PagedAppLogItemsViewModel
     {

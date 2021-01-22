@@ -1,0 +1,137 @@
+﻿@inject IUsersPhotoService PhotoService
+@model OnlineShop.ViewModels.Area.Base.Products.ProdcutDto
+
+<partial name="_CustomValidationSummary" />
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="card">
+
+        <div class="card-header  bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="Name"></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="UserCode"></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="ForeignName"></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInputTextArea asp-for="Description"></CustomInputTextArea>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="ModelId"
+                                  asp-expression="ModelId"
+                                  asp-optionLabel="@Resource.SelectedOneItem"
+                                  asp-currentValues="@Model.ModelDropDown.CurrentValues"
+                                  asp-selectList="@Model.ModelDropDown.SelectList"
+                                  asp-FormClass="@( Model.ModelId)"
+                                  asp-Class=" select2bs4 ">
+                    </CustomSelect>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="ProviderId"
+                                  asp-expression="ProviderId"
+                                  asp-optionLabel="@Resource.SelectedOneItem"
+                                  asp-currentValues="@Model.ProviderDropDown.CurrentValues"
+                                  asp-selectList="@Model.ProviderDropDown.SelectList"
+                                  asp-FormClass="@( Model.ProviderId)"
+                                  asp-Class=" select2bs4 ">
+                    </CustomSelect>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="ProductGroupId" asp-expression="ProductGroupId" asp-optionLabel="@Resource.SelectedOneItem" asp-currentValues="@Model.ProductGroupDropDown.CurrentValues" asp-selectList="@Model.ProductGroupDropDown.SelectList" asp-Class=" select2bs4 "></CustomSelect>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group row">
+                        <label asp-for="PhotoFileName" class="col-md-2 col-form-label text-md-left"></label>
+                        <div class=" col col-md-9">
+                            <img src="@PhotoService.GetUserPhotoUrl("")"
+                                 asp-append-version="true" alt="photo" />
+
+                            <input type="file" asp-for="Photo" class="form-control " multiple />
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="row  ">
+            <div class="col-md-12">
+                <div class="">
+
+                    <div class="card-body">
+                        <div id="actions" class="row">
+                            <div class="col-lg-6">
+                                <div class="btn-group w-100">
+                                    <input multiple asp-for="Photo" type="file" class="btn btn-success col fileinput-button " />
+                                    <i class="fas fa-plus"></i>
+                                    <span>Add files</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center">
+                                <div class="fileupload-process w-100">
+                                    <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                        <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table table-striped files" id="previews">
+                            <div id="template" class="row mt-2">
+                                <div class="col-auto">
+                                    <span class="preview"><img src="data:," alt="" data-dz-thumbnail /></span>
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <p class="mb-0">
+                                        <span class="lead" data-dz-name></span>
+                                        (<span data-dz-size></span>)
+                                    </p>
+                                    <strong class="error text-danger" data-dz-errormessage></strong>
+                                </div>
+                                <div class="col-4 d-flex align-items-center">
+                                    <div class="progress progress-striped active w-100" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                        <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                                    </div>
+                                </div>
+                                <div class="col-auto d-flex align-items-center">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary start">
+                                            <i class="fas fa-upload"></i>
+                                            <span>Start</span>
+                                        </button>
+                                        <button data-dz-remove class="btn btn-warning cancel">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>Cancel</span>
+                                        </button>
+                                        <button data-dz-remove class="btn btn-danger delete">
+                                            <i class="fas fa-trash"></i>
+                                            <span>Delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+            <!-- /.card-body -->
+            <!--<div class="card-footer">
+                    Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about the plugin.
+                </div>
+            </div>-->
+            <!-- /.card -->
+            <!--</div>
+            </div>-->
+        </div>
+
+        <partial name="_CardFooter">
+    </div>
+</form>

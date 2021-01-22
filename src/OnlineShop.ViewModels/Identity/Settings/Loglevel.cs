@@ -1,6 +1,6 @@
 using MsLogLevel = Microsoft.Extensions.Logging.LogLevel;
 
-namespace OnlineShop.ViewModels.Identity.Settings
+namespace OnlineShop.ViewModels.Admin.Settings
 {
     public class Loglevel
     {

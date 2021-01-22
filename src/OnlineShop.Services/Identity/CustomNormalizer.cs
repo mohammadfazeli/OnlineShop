@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using OnlineShop.Common.PersianToolkit;
 using DNTPersianUtils.Core;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2579

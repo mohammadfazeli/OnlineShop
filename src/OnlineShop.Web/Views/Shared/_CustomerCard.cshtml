@@ -1,0 +1,104 @@
+﻿@using OnlineShop.Common.Utilities
+@model IEnumerable<OnlineShop.ViewModels.Area.CustomerCardItem>
+
+<div id="CustomerCardItems">
+    <ul class="nav-right">
+        <li class="heart-icon">
+            <a href="#">
+                <i class="icon_heart_alt"></i>
+                <span>1</span>
+            </a>
+        </li>
+        <li class="cart-icon">
+            <a href="#">
+                <i class="icon_bag_alt"></i>
+                <span>@Model.Count()</span>
+            </a>
+            <div class="cart-hover">
+                @{
+                    if(Model.Any())
+                    {
+
+                        <div class="select-items">
+                            <table>
+                                <tbody>
+                                    @{
+                                        foreach(var item in Model)
+                                        {
+
+                                            <tr>
+                                                <td class="si-pic">
+                                                    <img src="/Layout/img/select-product-1.jpg" alt="">
+                                                </td>
+                                                <td class="si-text">
+                                                    <div class="product-selected">
+                                                        <p>$60.00 x 1</p>
+                                                        <h6>Kabino Bedside Table</h6>
+                                                    </div>
+                                                </td>
+                                                <td class="si-close">
+                                                    @Html.AjaxActionLink("","RemovePreOrder","Card",new { productId = item.productId },new AjaxOptions() { UpdateTargetId = "CustomerCardItems" },new { @class = "ti-close" })
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="select-total">
+                            <span>total:</span>
+                            <h5>$120.00</h5>
+                        </div>
+                        <div class="select-button">
+                            <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                            <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>محصولی در سبد کالا وجود ندارد</p>
+                    }
+
+                }
+            </div>
+        </li>
+        <li class="cart-price">$150.00</li>
+    </ul>
+</div>
+
+@*<a href="#" class="icons-btn d-inline-block bag ">
+        <span class="icon-shopping-bag"></span>
+        <span class="number">@Model.Count()</span>
+    </a>
+
+    <div uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-justify; duration: 1000">
+
+        @{
+            if (!Model.Any())
+            {
+                <p>محصولی در سبد کالا وجود ندارد</p>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered text-right table-hover  table-sm">
+                        <tbody>
+                            @{
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="height-auto"> @item.ProductName </td>
+                                        <td class="height-auto"> @item.price.ToNumeric().ToPersianNumbers()  </td>
+                                        <td style="overflow-wrap: anywhere;">@item.Number.ToString().ToPersianNumbers()</td>
+                                        <td>
+                                            @Html.AjaxActionLink("حذف از سید", "RemovePreOrder", "Card", new { productDetailId = item.productDetailId }, new AjaxOptions() { UpdateTargetId = "CustomerCardItems" }, new { @class = "btn btn-white " })
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+    </div>*@

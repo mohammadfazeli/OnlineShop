@@ -7,7 +7,7 @@ using System.IO;
 namespace OnlineShop.Web.Classes.CustomTagHelper
 {
     [HtmlTargetElement("CustomSelect")]
-    public class CustomSelectTagHelper : TagHelper
+    public class CustomSelectTagHelper:TagHelper
     {
         [HtmlAttributeName("asp-for")]
         public ModelExpression For { get; set; }
@@ -46,19 +46,19 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
             _generator = generator;
         }
 
-        public override void Process(TagHelperContext context, TagHelperOutput output)
+        public override void Process(TagHelperContext context,TagHelperOutput output)
         {
-            using (var writer = new StringWriter())
+            using(var writer = new StringWriter())
             {
                 writer.Write($"<div class={FormClass} form-group>");
 
                 var label = _generator.GenerateLabel(
                                 ViewContext,
                                 For.ModelExplorer,
-                                For.Name, null,
+                                For.Name,null,
                                 new { @class = "control-label" });
 
-                label.WriteTo(writer, NullHtmlEncoder.Default);
+                label.WriteTo(writer,NullHtmlEncoder.Default);
 
                 var isOptinal = !For.ModelExplorer.Metadata.IsRequired ? " bg-light" : "";
 
@@ -71,7 +71,7 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
                                     allowMultiple,
                                     new { @class = $"{Class} form-control {isOptinal}" });
 
-                textArea.WriteTo(writer, NullHtmlEncoder.Default);
+                textArea.WriteTo(writer,NullHtmlEncoder.Default);
 
                 var validationMsg = _generator.GenerateValidationMessage(
                                         ViewContext,
@@ -81,7 +81,7 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
                                         ViewContext.ValidationMessageElement,
                                         new { @class = "text-danger" });
 
-                validationMsg.WriteTo(writer, NullHtmlEncoder.Default);
+                validationMsg.WriteTo(writer,NullHtmlEncoder.Default);
 
                 writer.Write(@"</div>");
 

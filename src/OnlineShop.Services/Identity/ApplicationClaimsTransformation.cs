@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
-using OnlineShop.Services.Contracts.Identity;
+using OnlineShop.Services.Contracts.Admin;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     ///  To register it: services.AddScoped<IClaimsTransformation, ApplicationClaimsTransformation>();
     ///  How to add existing db user's claims to the user's active directory claims.
     /// More info: http://www.dotnettips.info/post/2762
     /// </summary>
-    public class ApplicationClaimsTransformation : IClaimsTransformation
+    public class ApplicationClaimsTransformation:IClaimsTransformation
     {
         private readonly IApplicationUserManager _userManager;
         private readonly IApplicationRoleManager _roleManager;
@@ -34,7 +34,7 @@ namespace OnlineShop.Services.Identity
 
         public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
         {
-            if (!(principal.Identity is ClaimsIdentity identity) || !isNTLM(identity))
+            if(!(principal.Identity is ClaimsIdentity identity) || !isNTLM(identity))
             {
                 return principal;
             }
@@ -51,7 +51,7 @@ namespace OnlineShop.Services.Identity
             var user = await _userManager.Users.Include(u => u.Claims)
                                                  .FirstOrDefaultAsync(u => u.UserName == identity.Name)
                                                  ;
-            if (user == null)
+            if(user == null)
             {
                 _logger.LogError($"Couldn't find {identity.Name}.");
                 return claims;
@@ -59,36 +59,36 @@ namespace OnlineShop.Services.Identity
 
             var Options = new ClaimsIdentityOptions();
 
-            claims.Add(new Claim(Options.UserIdClaimType, user.Id.ToString()));
-            claims.Add(new Claim(Options.UserNameClaimType, user.UserName));
+            claims.Add(new Claim(Options.UserIdClaimType,user.Id.ToString()));
+            claims.Add(new Claim(Options.UserNameClaimType,user.UserName));
 
-            if (_userManager.SupportsUserSecurityStamp)
+            if(_userManager.SupportsUserSecurityStamp)
             {
                 claims.Add(new Claim(Options.SecurityStampClaimType,
                     await _userManager.GetSecurityStampAsync(user)));
             }
 
-            if (_userManager.SupportsUserClaim)
+            if(_userManager.SupportsUserClaim)
             {
                 claims.AddRange(await _userManager.GetClaimsAsync(user));
             }
 
-            if (_userManager.SupportsUserRole)
+            if(_userManager.SupportsUserRole)
             {
                 var roles = await _userManager.GetRolesAsync(user);
-                foreach (var roleName in roles)
+                foreach(var roleName in roles)
                 {
-                    claims.Add(new Claim(Options.RoleClaimType, roleName));
+                    claims.Add(new Claim(Options.RoleClaimType,roleName));
 
-                    if (isNTLM(identity))
+                    if(isNTLM(identity))
                     {
-                        claims.Add(new Claim(ClaimTypes.GroupSid, roleName));
+                        claims.Add(new Claim(ClaimTypes.GroupSid,roleName));
                     }
 
-                    if (_roleManager.SupportsRoleClaims)
+                    if(_roleManager.SupportsRoleClaims)
                     {
                         var role = await _roleManager.FindByNameAsync(roleName);
-                        if (role != null)
+                        if(role != null)
                         {
                             claims.AddRange(await _roleManager.GetClaimsAsync(role));
                         }

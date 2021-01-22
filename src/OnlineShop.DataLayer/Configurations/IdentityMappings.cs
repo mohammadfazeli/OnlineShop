@@ -1,4 +1,4 @@
-﻿using OnlineShop.ViewModels.Identity.Settings;
+﻿using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.EntityFrameworkCore;
 
 namespace OnlineShop.DataLayer.Mappings
@@ -10,7 +10,7 @@ namespace OnlineShop.DataLayer.Mappings
         /// More info: http://www.dotnettips.info/post/2577
         /// and http://www.dotnettips.info/post/2578
         /// </summary>
-        public static void AddCustomIdentityMappings(this ModelBuilder modelBuilder, SiteSettings siteSettings)
+        public static void AddCustomIdentityMappings(this ModelBuilder modelBuilder,SiteSettings siteSettings)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(IdentityMappings).Assembly);
 

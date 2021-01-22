@@ -2,7 +2,7 @@
 using DNTCommon.Web.Core;
 using Microsoft.AspNetCore.Identity;
 
-namespace OnlineShop.ViewModels.Identity.Settings
+namespace OnlineShop.ViewModels.Admin.Settings
 {
     public class SiteSettings
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace OnlineShop.Services.Identity.Logger
+namespace OnlineShop.Services.Admin.Logger
 {
     public static class DbLoggerFactoryExtensions
     {

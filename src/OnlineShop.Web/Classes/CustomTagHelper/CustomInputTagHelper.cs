@@ -1,14 +1,14 @@
-﻿using DNTPersianUtils.Core;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using OnlineShop.Common.Utilities;
 using System;
 using System.IO;
 
 namespace OnlineShop.Web.Classes.CustomTagHelper
 {
     [HtmlTargetElement("CustomInput")]
-    public class CustomInputTagHelper : TagHelper
+    public class CustomInputTagHelper:TagHelper
     {
         [HtmlAttributeName("asp-for")]
         public ModelExpression For { get; set; }
@@ -37,10 +37,10 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
 
         public string GetFormat()
         {
-            if (For.Model == null)
+            if(For.Model == null)
                 return Format;
 
-            switch (Type.GetTypeCode(For.Model.GetType()))
+            switch(Type.GetTypeCode(For.Model.GetType()))
             {
                 case TypeCode.Empty:
                     break;
@@ -92,7 +92,7 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
                     break;
 
                 case TypeCode.DateTime:
-                    Format = ((DateTime)For.Model).ToShortPersianDateString();
+                    Format = ((DateTime)For.Model).ToString("yyyy/MM/dd");
                     break;
 
                 case TypeCode.String:
@@ -104,9 +104,9 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
             return Format;
         }
 
-        public override void Process(TagHelperContext context, TagHelperOutput output)
+        public override void Process(TagHelperContext context,TagHelperOutput output)
         {
-            using (var writer = new StringWriter())
+            using(var writer = new StringWriter())
             {
                 writer.Write($"<div class= {FormClass} form-group>");
 
@@ -117,7 +117,7 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
                                 null,
                                 new { @class = "control-label" });
 
-                label.WriteTo(writer, NullHtmlEncoder.Default);
+                label.WriteTo(writer,NullHtmlEncoder.Default);
                 var isOptinal = !For.ModelExplorer.Metadata.IsRequired ? " bg-light" : "";
 
                 var textArea = _generator.GenerateTextBox(
@@ -128,7 +128,7 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
                                     format: string.IsNullOrEmpty(Format) ? GetFormat() : Format,
                                     htmlAttributes: new { @class = $"{Class} form-control {isOptinal} " });
 
-                textArea.WriteTo(writer, NullHtmlEncoder.Default);
+                textArea.WriteTo(writer,NullHtmlEncoder.Default);
 
                 var validationMsg = _generator.GenerateValidationMessage(
                                         ViewContext,
@@ -138,7 +138,7 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
                                         ViewContext.ValidationMessageElement,
                                         new { @class = "text-danger" });
 
-                validationMsg.WriteTo(writer, NullHtmlEncoder.Default);
+                validationMsg.WriteTo(writer,NullHtmlEncoder.Default);
 
                 writer.Write(@"</div>");
 

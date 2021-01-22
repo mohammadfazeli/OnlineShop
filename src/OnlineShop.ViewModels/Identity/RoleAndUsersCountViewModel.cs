@@ -1,6 +1,6 @@
 ﻿using OnlineShop.Entities.Identity;
 
-namespace OnlineShop.ViewModels.Identity
+namespace OnlineShop.ViewModels.Admin
 {
     public class RoleAndUsersCountViewModel
     {

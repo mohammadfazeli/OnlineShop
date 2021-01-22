@@ -1,9 +1,9 @@
 ﻿using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OnlineShop.Services.Identity;
-using OnlineShop.ViewModels.Identity;
-using OnlineShop.Web.Areas.Identity.Controllers;
+using OnlineShop.Services.Admin;
+using OnlineShop.ViewModels.Admin;
+using OnlineShop.Web.Areas.Admin.Controllers;
 using System.ComponentModel;
 
 namespace OnlineShop.Web.Controllers

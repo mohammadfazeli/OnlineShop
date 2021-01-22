@@ -10,7 +10,7 @@ using DNTCommon.Web.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2717/

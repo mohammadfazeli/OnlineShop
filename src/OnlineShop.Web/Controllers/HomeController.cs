@@ -3,14 +3,18 @@ using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
+<<<<<<< HEAD
+using OnlineShop.Common.AdminToolkit;
+=======
 using OnlineShop.Common.IdentityToolkit;
 using OnlineShop.Services.Services;
 using OnlineShop.Web.Areas.Identity.Controllers;
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 
 namespace OnlineShop.Web.Controllers
 {
-    [BreadCrumb(Title = "خانه", UseDefaultRouteUrl = true, Order = 0)]
-    public class HomeController : Controller
+    [BreadCrumb(Title = "خانه",UseDefaultRouteUrl = true,Order = 0)]
+    public class HomeController:Controller
     {
         private readonly IToastNotification _toastNotification;
 
@@ -19,6 +23,18 @@ namespace OnlineShop.Web.Controllers
             _toastNotification = toastNotification;
         }
 
+<<<<<<< HEAD
+        [BreadCrumb(Title = "ایندکس",Order = 1)]
+        public IActionResult Index()
+        {
+            _toastNotification.AddSuccessToastMessage();
+            _toastNotification.AddErrorToastMessage("Test Erro",new NotyOptions()
+            {
+                Timeout = 0
+            });
+            _toastNotification.AddInfoToastMessage("Dont get confused. <br /> <strong>You were redirected from Contact Page. <strong/>");
+            _toastNotification.AddSuccessToastMessage("با موفقیت انجام شد.");
+=======
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
@@ -35,10 +51,11 @@ namespace OnlineShop.Web.Controllers
             //Error
             _toastNotification.AddErrorToastMessage();
 
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
             return View();
         }
 
-        [BreadCrumb(Title = "خطا", Order = 1)]
+        [BreadCrumb(Title = "خطا",Order = 1)]
         public IActionResult Error()
         {
             return View();
@@ -49,10 +66,28 @@ namespace OnlineShop.Web.Controllers
         /// Sample URL: http://localhost:5000/Home/CallBackResult?token=1&status=2&orderId=3&terminalNo=4&rrn=5
         /// </summary>
         [Authorize]
-        public IActionResult CallBackResult(long token, string status, string orderId, string terminalNo, string rrn)
+        public IActionResult CallBackResult(long token,string status,string orderId,string terminalNo,string rrn)
         {
             var userId = User.Identity.GetUserId();
-            return Json(new { userId, token, status, orderId, terminalNo, rrn });
+            return Json(new { userId,token,status,orderId,terminalNo,rrn });
+        }
+
+        [HttpPost]
+        [AjaxOnly]
+        public IActionResult AjaxMethod(string name)
+        {
+            if(string.IsNullOrEmpty(name))
+            {
+                return SweetAlert("Oops!","Please enter your name.","warning");
+            }
+            _toastNotification.AddSuccessToastMessage("با موفقیت انجام شد.");
+
+            return View();
+        }
+
+        private IActionResult SweetAlert(string title,string message,string type)
+        {
+            return Content($"swal ('{title}',  '{message}',  '{type}')","text/javascript");
         }
 
         [HttpPost]

@@ -1,9 +1,8 @@
-﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
-@{
+﻿@{
     var pageTitle = ViewData["Title"] ?? "ASP.NET Core Identity Sample";
 }
 <!DOCTYPE html>
-<html lang="en " dir="rtl">
+<html lang="en ">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,60 +11,65 @@
     <!-- Google Font: Source Sans Pro -->
     @*<link rel="stylesheet" href="https:/fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
     <link rel="icon" href="/grow-shop.png" />
-    <!-- Theme style -->
+    <link rel="stylesheet" href="~/css/Adminsite.min.css" asp-append-version="true" />
 
-    <link rel="stylesheet" href="/dist/css/adminlte.css">
-    <link rel="stylesheet" href="/dist/css/custom.css">
-
-    <!-- bootstrap rtl -->
-    <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
-    <!-- template rtl version -->
-    <link rel="stylesheet" href="/dist/css/custom-style.css">
-    <!-- Persian Data Picker -->
-    @*<link rel="stylesheet" href="/dist/css/persian-datepicker.min.css">*@
-    <link rel="stylesheet" href="/dist/css/persianDatepicker-default.css">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- Font Awesome Icons -->
+    <!--<link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">    <!-- Theme style -->
+    <!--<link rel="stylesheet" href="/dist/css/adminlte.min.css">-->
+    <!-- Google Font: Source Sans Pro -->-->
+    <!--@*<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">*@-->
+    <!--<!-- bootstrap rtl -->
+    <!--<link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">-->
+    <!-- template rtl version -->
+    <!--<link rel="stylesheet" href="/dist/css/custom-style.css">-->
+    @*<link rel="stylesheet" href="/dist/css/mdb.min.css">*@-->
+    <!--<!-- Persian Data Picker -->-->
+    <!--@*<link rel="stylesheet" href="/dist/css/persian-datepicker.min.css">*@
+    <link rel="stylesheet" href="/dist/css/persianDatepicker-default.css">-->
+    <!-- Font Awesome Icons -->
+    <!--<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">-->
     <!-- Toastr -->
-    <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
-
+    <!--<link rel="stylesheet" href="/plugins/toastr/toastr.min.css">-->
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="/plugins/lightgallery/css/lightgallery.min.css">
-
+    <!--<link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="/plugins/lightgallery/css/lightgallery.min.css">-->
     <!-- DataTables -->
-    <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <!--<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/plugins/datatables-select/css/select.bootstrap4.css">-->
+=======
     <link rel="stylesheet" href="/plugins/datatables-select/css/select.bootstrap4.css">
     <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
     <!-- Select2 -->
-    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
+    <!--<link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">-->
     <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-
+    <!--<link rel="stylesheet" href="/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">-->
     <!-- dropzonejs -->
-    <link rel="stylesheet" href="/plugins/dropzone/min/dropzone.min.css">
+    <!--<link rel="stylesheet" href="/plugins/dropzone/min/dropzone.min.css">-->
     <!-- js -->
     <script src="/plugins/jquery/jquery.min.js"></script>
     <script src="/dist/js/jquery.validate.js"></script>
     <script src="/dist/js/jquery.validate.unobtrusive.js"></script>
-    <script src="/dist/js/jquery.unobtrusive-ajax.js"></script>
+    @*<script src="/dist/js/jquery.unobtrusive-ajax.js"></script>*@
     <script src="/dist/js/custom.js"></script>
     <script src="/js/OnlineShop.js"></script>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="sidebar-mini">
+
     <div class="wrapper">
         <!-- Navbar -->
         <partial name="AdminNavbar" />
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">  @User.Identity.GetUserFullName()  پنل مدیریت</span>
             </a>
 
             <!-- Sidebar -->
@@ -95,8 +99,8 @@
                             <!-- /.card -->
                             <div>
 
-                                <div class="modal fade " id="ModalRemove">
-                                    <div class="modal-dialog modal-xl">
+                                <div class="modal fade" id="ModalRemove">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <div class="right">
@@ -113,6 +117,10 @@
                                                 <p>آیا حذف انجام شود ؟</p>
                                             </div>
                                             <div class="modal-footer " id="ModalRemoveFooter">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#OperationModal">
+                                                    Launch demo modal
+                                                </button>
+
                                                 <div class="float-left">
                                                     <buttn type="button" class="   btn  btn-outline-danger btn-flat " data-dismiss="modal"><span class="fas fa-times"></span></buttn>
                                                 </div>
@@ -122,7 +130,7 @@
                                 </div>
 
                                 <div class="modal fade" id="ModalInfo" aria-modal="true">
-                                    <div class="modal-dialog modal-xl" style="border-radius:0px !important; ">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered" style="border-radius:0px !important; ">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h4 class="modal-title">مشاهده جزئیات</h4>
@@ -133,6 +141,23 @@
                                                 </div>
                                             </div>
                                             <div class="modal-body" id="ModalInfoBody">
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <div class="modal fade " id="OperationModal" aria-modal="true">
+                                    <div class="modal-dialog  modal-dialog-centered modal-lg" role="document" style="border-radius:0px !important; ">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="float-left">
+                                                    <button type="button" class="close btn  btn-outline-danger btn-flat " data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body" id="OperationModalBody">
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -152,7 +177,6 @@
         <!-- /.content-wrapper -->
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
-            Control sidebar content goes here
         </aside>
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
@@ -169,6 +193,10 @@
     <!-- jQuery -->
     <!-- Bootstrap -->
     <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.js"></script>
+    @*<script src="/dist/js/mdb.min.js"></script>*@
+
     <!-- Select2 -->
     <script src="/plugins/select2/js/select2.full.min.js"></script>
     <!-- overlayScrollbars -->
@@ -180,11 +208,14 @@
     <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="/plugins/datatables-select/js/select.bootstrap4.min.js"></script>
     <script src="/plugins/datatables-select/js/dataTables.select.min.js"></script>
+<<<<<<< HEAD
+=======
     <script src="/plugins/datatables-buttons/js/buttons.bootstrap4.js"></script>
 
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.js"></script>
     <script src="/dist/js/mdb.min.js"></script>
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 
     <!-- PAGE PLUGINS -->
     <!-- jQuery Mapael -->
@@ -206,7 +237,7 @@
     <!-- dropzonejs -->
     <script src="/plugins/dropzone/min/dropzone.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="/dist/js/demo.js"></script>
+    @*<script src="/dist/js/demo.js"></script>*@
     <script src="/dist/js/signalr.min.js"></script>
     <script src="/dist/js/Notification.js"></script>
     <!-- Toastr -->
@@ -225,12 +256,12 @@
         });
 
         $(function () {
-
-            $('.persianDatepicker').persianDatepicker({ format: "yyyy/MM/dd" });
+            $('.persianDatepicker').persianDatepicker({
+                formatDate: "YYYY/MM/DD"
+            });
             $(".persianDatepicker").on("keydown", function (e) {
                 return false;
             });
-
             $(".price").on("keydown", function (e) {
                 var keycode = (event.which) ? event.which : event.keyCode;
                 if (e.shiftKey == true || e.ctrlKey == true) return false;
@@ -338,7 +369,12 @@
     <script src="/plugins/lightgallery/js/lightgallery-all.min.js"></script>
     <script src="/plugins/lightgallery/js/jquery.mousewheel.min.js"></script>
     @Html.RenderUnobtrusiveAjaxScript()
+<<<<<<< HEAD
+    @await Component.InvokeAsync("NToastNotify")
+    @RenderSection("Scripts",false)
+=======
     @RenderSection("Scripts", false)
     @await Component.InvokeAsync("NToastNotify")
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 </body>
 </html>

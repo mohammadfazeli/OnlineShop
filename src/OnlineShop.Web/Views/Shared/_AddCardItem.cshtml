@@ -1,0 +1,28 @@
+﻿@using OnlineShop.ViewModels.Area
+@model OnlineShop.ViewModels.Area.AddCardItem
+
+@{
+
+    if(Model.AddCardItemType == AddCardItemType.link)
+    {
+        @Html.AjaxActionLink("افزون به سید","SelectItem","Card",new CustomerCardItem() { productId = Model.ProductId },new AjaxOptions() { UpdateTargetId = "CustomerCardItems",HttpMethod = "Post" },new { @class = "btn btn-white btn-block  text-green" })
+    }
+    else
+    {
+
+        @using(Html.AjaxBeginForm("SelectItem","Card",new AjaxOptions
+        {
+            UpdateTargetId = "CustomerCardItems",
+            HttpMethod = "Post"
+
+        }))
+        {
+            @Html.HiddenFor(x => x.ProductId)
+            <div class="input-group">
+                @Html.TextBox("Number",null,new { placeholder = "Type your name",@class = "form-control mx-sm-2" })
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        }
+    }
+
+}

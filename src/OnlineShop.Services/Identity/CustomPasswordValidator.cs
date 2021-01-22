@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.Services.Contracts.Admin;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// Extending the Built-in Password Validation

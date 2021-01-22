@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using OnlineShop.ViewModels.Identity;
+using OnlineShop.ViewModels.Admin;
 
-namespace OnlineShop.Services.Contracts.Identity
+namespace OnlineShop.Services.Contracts.Admin
 {
     public interface IAppLogItemsService
     {

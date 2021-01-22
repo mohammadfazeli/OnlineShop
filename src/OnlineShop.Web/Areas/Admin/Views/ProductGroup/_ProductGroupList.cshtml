@@ -1,0 +1,64 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ProductGroups.ProductGroupDto
+
+<div class="card _borderTop  _shadow ">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.All" />
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example2" class=" CustomDataTable  table table-bordered table-striped   ">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(r => r.Id)</th>
+                    <th>@Html.DisplayNameFor(r => r.Name)</th>
+                    <th>@Resource.Operation</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<script>
+
+       $(function () {
+
+            $('.CustomDataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "language": {
+                    "url": "../js/Persian.json",
+                },
+                 "ajax": {
+                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        dataType: "json",
+                    },
+
+                    "columns": [
+                        { "data": "id", className: "text-center ", visible: false },
+                        { "data": "name", className: "text-center "},
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                                    , [
+<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Views/ProductGroup/_ProductGroupList.cshtml
+                                        '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "@nameof(OnlineShop.Web.Areas.Admin.Controllers.ProductController).Replace("Controller","")"    + '/' + "@nameof(OnlineShop.Web.Areas.Admin.Controllers.ProductController.Create)"     + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductAdd</a>'
+=======
+                                        '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductController).Replace("Controller","")"    + '/' + "@nameof(OnlineShop.Web.Areas.Identity.Controllers.ProductController.Create)"     + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductAdd</a>'
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Views/ProductGroup/_ProductGroupList.cshtml
+                                    ]
+                                )
+                            }
+                        }
+                    ]
+            });
+        });
+</script>

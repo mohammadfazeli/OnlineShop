@@ -1,7 +1,7 @@
-using System;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System;
+using System.Linq;
 
 namespace OnlineShop.Common.EFCoreToolkit
 {
@@ -9,7 +9,7 @@ namespace OnlineShop.Common.EFCoreToolkit
     {
         public static void SetDecimalPrecision(this ModelBuilder builder)
         {
-            foreach (var property in builder.Model.GetEntityTypes()
+            foreach(var property in builder.Model.GetEntityTypes()
                                                               .SelectMany(t => t.GetProperties())
                                                               .Where(p => p.ClrType == typeof(decimal)
                                                                           || p.ClrType == typeof(decimal?)))
@@ -21,23 +21,23 @@ namespace OnlineShop.Common.EFCoreToolkit
         public static void AddDateTimeOffsetConverter(this ModelBuilder builder)
         {
             // SQLite does not support DateTimeOffset
-            foreach (var property in builder.Model.GetEntityTypes()
+            foreach(var property in builder.Model.GetEntityTypes()
                                                   .SelectMany(t => t.GetProperties())
                                                   .Where(p => p.ClrType == typeof(DateTimeOffset)))
             {
                 property.SetValueConverter(
-                     new ValueConverter<DateTimeOffset, DateTime>(
+                     new ValueConverter<DateTimeOffset,DateTime>(
                           convertToProviderExpression: dateTimeOffset => dateTimeOffset.UtcDateTime,
                           convertFromProviderExpression: dateTime => new DateTimeOffset(dateTime)
                     ));
             }
 
-            foreach (var property in builder.Model.GetEntityTypes()
+            foreach(var property in builder.Model.GetEntityTypes()
                                                   .SelectMany(t => t.GetProperties())
                                                   .Where(p => p.ClrType == typeof(DateTimeOffset?)))
             {
                 property.SetValueConverter(
-                     new ValueConverter<DateTimeOffset?, DateTime>(
+                     new ValueConverter<DateTimeOffset?,DateTime>(
                           convertToProviderExpression: dateTimeOffset => dateTimeOffset.Value.UtcDateTime,
                           convertFromProviderExpression: dateTime => new DateTimeOffset(dateTime)
                     ));
@@ -49,23 +49,23 @@ namespace OnlineShop.Common.EFCoreToolkit
             // If you store a DateTime object to the DB with a DateTimeKind of either `Utc` or `Local`,
             // when you read that record back from the DB you'll get a DateTime object whose kind is `Unspecified`.
             // Here is a fix for it!
-            var dateTimeConverter = new ValueConverter<DateTime, DateTime>(
+            var dateTimeConverter = new ValueConverter<DateTime,DateTime>(
                         v => v.Kind == DateTimeKind.Utc ? v : v.ToUniversalTime(),
-                        v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
+                        v => DateTime.SpecifyKind(v,DateTimeKind.Utc));
 
-            var nullableDateTimeConverter = new ValueConverter<DateTime?, DateTime?>(
+            var nullableDateTimeConverter = new ValueConverter<DateTime?,DateTime?>(
                         v => !v.HasValue ? v : (v.Value.Kind == DateTimeKind.Utc ? v : v.Value.ToUniversalTime()),
-                        v => v.HasValue ? DateTime.SpecifyKind(v.Value, DateTimeKind.Utc) : v);
+                        v => v.HasValue ? DateTime.SpecifyKind(v.Value,DateTimeKind.Utc) : v);
 
-            foreach (var property in builder.Model.GetEntityTypes()
+            foreach(var property in builder.Model.GetEntityTypes()
                                                   .SelectMany(t => t.GetProperties()))
             {
-                if (property.ClrType == typeof(DateTime))
+                if(property.ClrType == typeof(DateTime))
                 {
                     property.SetValueConverter(dateTimeConverter);
                 }
 
-                if (property.ClrType == typeof(DateTime?))
+                if(property.ClrType == typeof(DateTime?))
                 {
                     property.SetValueConverter(nullableDateTimeConverter);
                 }

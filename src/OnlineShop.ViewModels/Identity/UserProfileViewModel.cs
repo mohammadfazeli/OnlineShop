@@ -3,7 +3,7 @@ using DNTCommon.Web.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace OnlineShop.ViewModels.Identity
+namespace OnlineShop.ViewModels.Admin
 {
     public class UserProfileViewModel
     {

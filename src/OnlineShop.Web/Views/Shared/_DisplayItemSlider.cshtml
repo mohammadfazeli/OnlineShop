@@ -1,0 +1,13 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto>
+
+@{
+    <div class="product-slider owl-carousel">
+        @{
+            foreach(var item in Model)
+            {
+                <partial name="_DisplayItems" model="item" />
+            }
+        }
+    </div>
+
+}

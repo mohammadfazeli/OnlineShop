@@ -1,15 +1,15 @@
+using DNTPersianUtils.Core;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Data;
 using System.Data.Common;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
-using DNTPersianUtils.Core;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace OnlineShop.Common.PersianToolkit
 {
-    public class PersianYeKeCommandInterceptor : DbCommandInterceptor
+    public class PersianYeKeCommandInterceptor:DbCommandInterceptor
     {
         public override InterceptionResult<DbDataReader> ReaderExecuting(
             DbCommand command,
@@ -72,19 +72,19 @@ namespace OnlineShop.Common.PersianToolkit
         {
             command.CommandText = command.CommandText.ApplyCorrectYeKe();
 
-            foreach (DbParameter parameter in command.Parameters)
+            foreach(DbParameter parameter in command.Parameters)
             {
-                switch (parameter.DbType)
+                switch(parameter.DbType)
                 {
                     case DbType.AnsiString:
                     case DbType.AnsiStringFixedLength:
                     case DbType.String:
                     case DbType.StringFixedLength:
                     case DbType.Xml:
-                        if (!(parameter.Value is DBNull) && parameter.Value is string)
+                        if(!(parameter.Value is DBNull) && parameter.Value is string)
                         {
                             parameter.Value =
-                                Convert.ToString(parameter.Value, CultureInfo.InvariantCulture).ApplyCorrectYeKe();
+                                Convert.ToString(parameter.Value,CultureInfo.InvariantCulture).ApplyCorrectYeKe();
                         }
                         break;
                 }

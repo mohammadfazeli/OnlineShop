@@ -10,6 +10,40 @@
 <div class="container">
     <div class="d-flex align-items-center justify-content-between ">
         <div class="icons">
+<<<<<<< HEAD
+
+            @*<span>
+                    <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+                </span>*@
+
+            @*<a data-toggle="dropdown" href="#" class="icons-btn d-inline-block bag">
+                    <span class="icon-shopping-bag"></span>
+                    <span class="number">2</span>
+                </a>*@
+
+            @*<a href="#" class="icons-btn d-inline-block bag ">
+                    <span class="icon-shopping-bag"></span>
+                    <span class="number">2</span>
+                </a>
+                <div id="CustomerCadrItems" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-justify; duration: 1000">
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                </div>*@
+            <span id="CustomerCardItems">
+                @await Component.InvokeAsync("CustomerCardItem")
+            </span>
+
+            <!--<div class="has-children ">
+            <a class="icons-btn d-inline-block bag" href="#" data-toggle="dropdown">-->
+            @*<img class="img-thumbnail userImage" src="@photoUrl" alt="@displayName" asp-append-version="true"
+                onerror="this.style.visibility = 'hidden';this.width=0; this.height=0;" />*@
+            <!--<span class="author fas fa-user" d></span>
+                </a>
+                <ul class="dropdown">
+                    <li>
+
+                        <a class=" text-right" asp-controller="UserCard" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+=======
 
             @*<span>
                     <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
@@ -38,6 +72,7 @@
                     <li>
 
                         <a class=" text-right" asp-controller="UserCard" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                             برگه‌ی کاربری من
                             <span class="mr-1 fas fa-user" aria-hidden="true"></span>
                         </a>
@@ -45,14 +80,22 @@
 
                     <li> <span class="dropdown-divider"></span></li>
                     <li>
+<<<<<<< HEAD
+                        <a class=" text-right" asp-controller="UserProfile" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+=======
                         <a class=" text-right" asp-controller="UserProfile" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                             تنظیمات کاربری من
                             <span class="mr-1 fas fa-cog" aria-hidden="true"></span>
                         </a>
                     </li>
                     <li>
 
+<<<<<<< HEAD
+                        <a class="text-right" asp-controller="ChangePassword" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+=======
                         <a class="text-right" asp-controller="ChangePassword" asp-action="Index" asp-area="@AreaConstants.IdentityArea">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                             تغییر کلمه‌ی عبور
                             <span class="mr-1 fas fa-asterisk" aria-hidden="true"></span>
                         </a>
@@ -63,7 +106,11 @@
                     </li>
                     <li>
 
+<<<<<<< HEAD
+                        <a class=" text-right" asp-controller="Login" asp-action="LogOff" asp-area="@AreaConstants.AdminArea">
+=======
                         <a class=" text-right" asp-controller="Login" asp-action="LogOff" asp-area="@AreaConstants.IdentityArea">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                             خروج
                             <span class="mr-1 fas fa-sign-out-alt" aria-hidden="true"></span>
                         </a>
@@ -172,13 +219,21 @@
                             </a>
                             <ul class="dropdown">
                                 <li>
+<<<<<<< HEAD
+                                    <a class="nav-item nav-link" asp-area="@AreaConstants.AdminArea" asp-controller="Login" asp-action="Index">
+=======
                                     <a class="nav-item nav-link" asp-area="@AreaConstants.IdentityArea" asp-controller="Login" asp-action="Index">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                                         <span class="fas fa-sign-in-alt" aria-hidden="true"></span>
                                         ورود
                                     </a>
                                 </li>
                                 <li>
+<<<<<<< HEAD
+                                    <a class="nav-item nav-link" asp-area="@AreaConstants.AdminArea" asp-controller="Register" asp-action="Index">
+=======
                                     <a class="nav-item nav-link" asp-area="@AreaConstants.IdentityArea" asp-controller="Register" asp-action="Index">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                                         <span class="fas fa-plug" aria-hidden="true"></span>
                                         ثبت نام
                                     </a>

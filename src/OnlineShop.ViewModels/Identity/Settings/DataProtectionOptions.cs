@@ -1,6 +1,6 @@
 using System;
 
-namespace OnlineShop.ViewModels.Identity.Settings
+namespace OnlineShop.ViewModels.Admin.Settings
 {
     public class DataProtectionOptions
     {

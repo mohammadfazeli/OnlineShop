@@ -1,16 +1,16 @@
 ﻿using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.AuditableEntity;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
+using OnlineShop.Services.Contracts.Admin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     public class UsedPasswordsService : IUsedPasswordsService
     {

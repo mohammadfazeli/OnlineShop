@@ -1,4 +1,4 @@
-﻿@using OnlineShop.Web.Areas.Identity
+﻿@using OnlineShop.Web.Areas.Admin
 @{
     ViewData["Title"] = "خطا!";
     this.Context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
@@ -12,7 +12,7 @@
         متاسفانه در حین پردازش درخواست جاری خطایی رخ داده‌است.
         @if (User.IsInRole(ConstantRoles.Admin))
         {
-            <a asp-controller="SystemLog" asp-action="Index" asp-area="@AreaConstants.IdentityArea"> مشاهده‌ی لیست خطاهای ثبت شده. </a>
+            <a asp-controller="SystemLog" asp-action="Index" asp-area="@AreaConstants.AdminArea"> مشاهده‌ی لیست خطاهای ثبت شده. </a>
         }
     </div>
 </div>

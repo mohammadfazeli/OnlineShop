@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using DNTCommon.Web.Core;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     public class NoBrowserCacheMiddleware
     {

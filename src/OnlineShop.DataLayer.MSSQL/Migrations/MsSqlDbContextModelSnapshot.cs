@@ -19,66 +19,6 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("OnlineShop.Entities.Category", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedByBrowserName")
-                        .HasColumnType("nvarchar(1000)")
-                        .HasMaxLength(1000);
-
-                    b.Property<string>("CreatedByIp")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<int?>("CreatedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("InActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ModifiedByBrowserName")
-                        .HasColumnType("nvarchar(1000)")
-                        .HasMaxLength(1000);
-
-                    b.Property<string>("ModifiedByIp")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<int?>("ModifiedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Category");
-                });
-
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Attachment", b =>
                 {
                     b.Property<Guid>("Id")
@@ -251,6 +191,71 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<DateTime?>("ModifiedDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ToDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("itemSectionType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ItemSection");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ItemSection", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FromDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid?>("ProductDetailId")
                         .HasColumnType("uniqueidentifier");
 
@@ -327,81 +332,12 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.ToTable("Model");
                 });
 
-            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Part", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedByBrowserName")
-                        .HasColumnType("nvarchar(1000)")
-                        .HasMaxLength(1000);
-
-                    b.Property<string>("CreatedByIp")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<int?>("CreatedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ForeignName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("InActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ModifiedByBrowserName")
-                        .HasColumnType("nvarchar(1000)")
-                        .HasMaxLength(1000);
-
-                    b.Property<string>("ModifiedByIp")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<int?>("ModifiedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OperationCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PartNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Part");
-                });
-
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreateOn")
                         .HasColumnType("datetime2");
 
@@ -430,6 +366,9 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModelId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ModifiedByBrowserName")
                         .HasColumnType("nvarchar(1000)")
@@ -453,19 +392,24 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<Guid?>("ProductGroupId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ProviderId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("UserCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ModelId");
 
                     b.HasIndex("ProductGroupId");
+
+                    b.HasIndex("ProviderId");
 
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductDetail", b =>
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductColor", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -500,9 +444,6 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("ModelId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("ModifiedByBrowserName")
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
@@ -520,27 +461,23 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProviderId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ColorId");
 
-                    b.HasIndex("ModelId");
-
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("ProviderId");
-
-                    b.ToTable("ProductDetail");
+                    b.ToTable("ProductColor");
                 });
 
-            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductDetailSpecification", b =>
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductCommnet", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Commnet")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateOn")
                         .HasColumnType("datetime2");
@@ -582,23 +519,24 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<DateTime?>("ModifiedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ProductDetailId")
+                    b.Property<Guid?>("ParentProductCommnetId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("SpecificationName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("SpecificationType")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<string>("SpecificationValue")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductDetailId");
+                    b.HasIndex("ParentProductCommnetId");
 
-                    b.ToTable("ProductDetailSpecification");
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProductCommnet");
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductGroup", b =>
@@ -655,7 +593,186 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.ToTable("ProductGroup");
                 });
 
-            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductPriceModificatin", b =>
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductGroupSlider", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FromDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ToDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductGroupSlider");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModelId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ModelId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductModel");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductRelated", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RelatedProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("RelatedProductId");
+
+                    b.ToTable("ProductRelated");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductSalePrice", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -710,14 +827,75 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<decimal>("OldPrice")
                         .HasColumnType("decimal(18, 6)");
 
-                    b.Property<Guid?>("ProductDetailId")
+                    b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductDetailId");
+                    b.HasIndex("ProductId");
 
-                    b.ToTable("ProductPriceModificatin");
+                    b.ToTable("ProductSalePrice");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductSize", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("SizeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SizeId");
+
+                    b.ToTable("ProductSize");
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductSpecification", b =>
@@ -788,6 +966,65 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.ToTable("ProductSpecification");
                 });
 
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductTags", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductTags");
+                });
+
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Provider", b =>
                 {
                     b.Property<Guid>("Id")
@@ -855,6 +1092,63 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Provider");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Size", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("CreatedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ForeignName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("InActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("ModifiedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Size");
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.WareHouse.Buy", b =>
@@ -979,7 +1273,7 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ProductDetailId")
+                    b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -988,7 +1282,7 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
 
                     b.HasIndex("BuyId1");
 
-                    b.HasIndex("ProductDetailId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("BuyDetail");
                 });
@@ -1109,14 +1403,14 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<int?>("Number")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ProductDetailId")
+                    b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ExitId");
 
-                    b.HasIndex("ProductDetailId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ExitDetail");
                 });
@@ -1243,7 +1537,7 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ProductDetailId")
+                    b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ProductRequestId")
@@ -1251,7 +1545,7 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductDetailId");
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("ProductRequestId");
 
@@ -1840,59 +2134,115 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ItemSection", b =>
                 {
+<<<<<<< HEAD
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("ItemSections")
+                        .HasForeignKey("ProductId");
+=======
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
                         .WithMany("ItemSections")
                         .HasForeignKey("ProductDetailId");
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Product", b =>
                 {
-                    b.HasOne("OnlineShop.Entities.Category", null)
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId");
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Model", "Model")
+                        .WithMany()
+                        .HasForeignKey("ModelId");
 
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductGroup", "ProductGroup")
                         .WithMany("Products")
                         .HasForeignKey("ProductGroupId");
-                });
-
-            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductDetail", b =>
-                {
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Color", "Color")
-                        .WithMany("ProductDetails")
-                        .HasForeignKey("ColorId");
-
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Model", "Model")
-                        .WithMany("ProductDetails")
-                        .HasForeignKey("ModelId");
-
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
-                        .WithMany("ProductDetails")
-                        .HasForeignKey("ProductId");
 
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.Provider", "Provider")
-                        .WithMany("ProductDetails")
+                        .WithMany("Products")
                         .HasForeignKey("ProviderId");
                 });
 
-            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductDetailSpecification", b =>
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductColor", b =>
                 {
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
-                        .WithMany("ProductDetailSpecifications")
-                        .HasForeignKey("ProductDetailId");
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Color", "Color")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ColorId");
+
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductPriceModificatin", b =>
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductCommnet", b =>
                 {
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
-                        .WithMany("ProductPriceModificatins")
-                        .HasForeignKey("ProductDetailId");
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductCommnet", "ParentProductCommnet")
+                        .WithMany("ReplayProductCommnet")
+                        .HasForeignKey("ParentProductCommnetId");
+
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("ProductCommnets")
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("OnlineShop.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductModel", b =>
+                {
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Model", "Model")
+                        .WithMany("ProductModels")
+                        .HasForeignKey("ModelId");
+
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+<<<<<<< HEAD
+                        .WithMany("ProductModels")
+=======
+                        .WithMany("ProductDetails")
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
+                        .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductRelated", b =>
+                {
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("RelatedProducts")
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "RelatedProduct")
+                        .WithMany("Relateds")
+                        .HasForeignKey("RelatedProductId");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductSalePrice", b =>
+                {
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("ProductSalePrices")
+                        .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductSize", b =>
+                {
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("ProductSizes")
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Size", "Size")
+                        .WithMany("ProductSize")
+                        .HasForeignKey("SizeId");
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductSpecification", b =>
                 {
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
                         .WithMany("ProductSpecifications")
+                        .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ProductTags", b =>
+                {
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("ProductTags")
                         .HasForeignKey("ProductId");
                 });
 
@@ -1919,9 +2269,9 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                         .WithMany("BuyDetails")
                         .HasForeignKey("BuyId1");
 
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
                         .WithMany("BuyDetails")
-                        .HasForeignKey("ProductDetailId");
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.WareHouse.Exit", b =>
@@ -1945,9 +2295,9 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                         .WithMany("ExitDetails")
                         .HasForeignKey("ExitId");
 
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
                         .WithMany("ExitDetails")
-                        .HasForeignKey("ProductDetailId");
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.WareHouse.ProductRequest", b =>
@@ -1967,9 +2317,9 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.WareHouse.ProductRequestDetail", b =>
                 {
-                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
-                        .WithMany()
-                        .HasForeignKey("ProductDetailId");
+                    b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
+                        .WithMany("ProductRequestDetails")
+                        .HasForeignKey("ProductId");
 
                     b.HasOne("OnlineShop.Entities.Entities.Area.WareHouse.ProductRequest", "ProductRequest")
                         .WithMany()

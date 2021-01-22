@@ -7,17 +7,6 @@ namespace OnlineShop.IocConfig.CustomMapping
 {
     public static class AutoMapperConfiguration
     {
-        //public static void InitializeAutoMapper()
-        //{
-        //    Mapper.Initialize(config =>
-        //    {
-        //        config.AddCustomMappingProfile();
-        //    });
-
-        //    //Compile mapping after configuration to boost map speed
-        //    Mapper.Configuration.CompileMappings();
-        //}
-
         public static void AddCustomMappingProfile(this IMapperConfigurationExpression config)
         {
             config.AddCustomMappingProfile(Assembly.GetEntryAssembly());
@@ -34,6 +23,6 @@ namespace OnlineShop.IocConfig.CustomMapping
             var profile = new CustomMappingProfile(list);
 
             config.AddProfile(profile);
-        }       
+        }
     }
 }

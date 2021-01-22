@@ -1,13 +1,13 @@
 ﻿using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Contracts.Identity;
-using OnlineShop.ViewModels.Identity;
+using OnlineShop.Services.Contracts.Admin;
+using OnlineShop.ViewModels.Admin;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
 
-namespace OnlineShop.Services.Identity.Logger
+namespace OnlineShop.Services.Admin.Logger
 {
     public class AppLogItemsService : IAppLogItemsService
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
 using OnlineShop.Entities.Identity;
-using OnlineShop.Services.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.Services.Admin;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -72,7 +72,7 @@ namespace OnlineShop.IocConfig
                     // Invoked when the default security stamp validator replaces the user's ClaimsPrincipal in the cookie.
 
                     //var newId = new ClaimsIdentity();
-                    //newId.AddClaim(new Claim("PreviousName", principalContext.CurrentPrincipal.Identity.Name));
+                    //newId.AddClaim(new Claim("PreviousName", principalContext.CurrentPrincipal.Admin.Name));
                     //principalContext.NewPrincipal.AddIdentity(newId);
 
                     return Task.CompletedTask;

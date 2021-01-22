@@ -1,0 +1,19 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ProductSalePrice.ProductSalePriceListDto
+
+<div id="ProductSalePriceGeneralInformation" class="card card-outline card-green  GeneralInformation">
+</div>
+<partial name="_ProductSalePriceList" model="@Model" />
+
+<script>
+    $(function () {
+        debugger;
+        $.ajax({
+            type: "GET",
+            url: "/" + "Admin" + "/" + "Product" + "/GetInfo/" + '@Model.ProductId',
+            success: function (viewHTML) {
+                $("#ProductSalePriceGeneralInformation").html(viewHTML);
+            },
+            error: function (errorData) { onError(errorData); }
+        });
+    });
+</script>

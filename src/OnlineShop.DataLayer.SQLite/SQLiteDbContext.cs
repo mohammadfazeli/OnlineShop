@@ -4,7 +4,7 @@ using OnlineShop.Common.EFCoreToolkit;
 
 namespace OnlineShop.DataLayer.SQLite
 {
-    public class SQLiteDbContext : ApplicationDbContext
+    public class SQLiteDbContext:ApplicationDbContext
     {
         public SQLiteDbContext(DbContextOptions options) : base(options)
         {
@@ -14,7 +14,7 @@ namespace OnlineShop.DataLayer.SQLite
         {
             base.OnModelCreating(builder);
 
-            builder.AddDateTimeOffsetConverter();
+            //builder.AddDateTimeOffsetConverter();
         }
     }
 }

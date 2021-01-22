@@ -1,11 +1,11 @@
-﻿using OnlineShop.Services.Contracts.Identity;
+﻿using OnlineShop.Services.Contracts.Admin;
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using DNTCommon.Web.Core;
 using System;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2551

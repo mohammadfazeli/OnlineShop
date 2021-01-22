@@ -1,0 +1,10 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto>
+
+@{
+    foreach(var item in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <partial name="_DisplayItems" model="item" />
+        </div>
+    }
+}

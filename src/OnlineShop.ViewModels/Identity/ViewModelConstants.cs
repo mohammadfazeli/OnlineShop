@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.ViewModels.Identity
+﻿namespace OnlineShop.ViewModels.Admin
 {
     public static class ViewModelConstants
     {

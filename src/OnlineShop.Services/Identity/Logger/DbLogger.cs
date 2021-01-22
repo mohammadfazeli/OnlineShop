@@ -1,6 +1,6 @@
 ﻿using OnlineShop.Entities.AuditableEntity;
 using OnlineShop.Entities.Identity;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Text.Json;
 
-namespace OnlineShop.Services.Identity.Logger
+namespace OnlineShop.Services.Admin.Logger
 {
     public class DbLogger : ILogger
     {

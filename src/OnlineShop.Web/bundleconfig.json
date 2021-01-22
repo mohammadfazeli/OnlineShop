@@ -3,16 +3,16 @@
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
-      "node_modules/bootstrap/dist/css/bootstrap.min.css",
-      "node_modules/@ghalamborm/bootstrap4-rtl/bootstrap-rtl.css",
-      "node_modules/components-font-awesome/css/solid.min.css",
-      "node_modules/components-font-awesome/css/fontawesome.min.css",
-      "Content/uikit.css",
-      "Content/datatables.min.css",
-      "Content/CustomSite.css",
-      "Content/AdminLTE.css",
-      "Content/custom.css",
-      "Content/skins/_all-skins.css"
+      "Content/Layout/Css/bootstrap.min.css",
+      "Content/Layout/Css/font-awesome.min.css",
+      "Content/Layout/Css/themify-icons.css",
+      "Content/Layout/Css/elegant-icons.css",
+      "Content/Layout/Css/owl.carousel.min.css",
+      "Content/Layout/Css/nice-select.css",
+      "Content/Layout/Css/jquery-ui.min.css",
+      "Content/Layout/Css/slicknav.min.css",
+      "Content/Layout/Css/style.css",
+      "Content/custom.css"
     ],
     "minify": {
       "enabled": true,
@@ -21,25 +21,49 @@
     },
     "sourceMap": false
   },
+
+  {
+    "outputFileName": "wwwroot/css/Adminsite.min.css",
+    "inputFiles": [
+      "wwwroot/plugins/font-awesome/css/font-awesome.min.css",
+      "wwwroot/dist/css/adminlte.min.css",
+      "wwwroot/dist/css/bootstrap-rtl.min.css",
+      "wwwroot/dist/css/custom-style.css",
+      "wwwroot/dist/css/persianDatepicker-default.css",
+      "wwwroot/plugins/fontawesome-free/css/all.min.css",
+      "wwwroot/plugins/toastr/toastr.min.css",
+      "wwwroot/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+      "wwwroot/plugins/lightgallery/css/lightgallery.min.css",
+      "wwwroot/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",
+      "wwwroot/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
+      "wwwroot/plugins/datatables-select/css/select.bootstrap4.css",
+      "wwwroot/plugins/select2/css/select2.min.css",
+      "wwwroot/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css",
+      "wwwroot/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
+      "wwwroot/plugins/dropzone/min/dropzone.min.css"
+
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false,
+      "adjustRelativePaths": false
+    },
+    "sourceMap": false
+  },
+
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
-      "scripts/uikit.js",
-      "scripts/UikitIcons.js",
-      "node_modules/jquery/dist/jquery.min.js",
-      "node_modules/popper.js/dist/umd/popper.min.js",
-      "node_modules/jquery-validation/dist/jquery.validate.min.js",
-      "node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js",
-      "node_modules/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js",
-      "node_modules/bootstrap/dist/js/bootstrap.min.js",
-      "scripts/jquery.bootstrap-modal-confirm.js",
-      "scripts/jquery.bootstrap-modal-alert.js",
-      "scripts/jquery.bootstrap-modal-ajax-form.js",
-      "scripts/custom.js",
-      "scripts/OnlineShop.js",
-      "scripts/datatables.min.js",
-      "scripts/app.js"
-
+      "scripts/Layout/js/jquery-3.3.1.min.js",
+      "scripts/Layout/js/bootstrap.min.js",
+      "scripts/Layout/js/jquery-ui.min.js",
+      "scripts/Layout/js/jquery.countdown.min.js",
+      "scripts/Layout/js/jquery.nice-select.min.js",
+      "scripts/Layout/js/jquery.zoom.min.js",
+      "scripts/Layout/js/jquery.dd.min.js",
+      "scripts/Layout/js/jquery.slicknav.js",
+      "scripts/Layout/js/owl.carousel.min.js",
+      "scripts/Layout/js/main.js"
     ],
     "minify": {
       "enabled": true,
@@ -48,3 +72,54 @@
     "sourceMap": false
   }
 ]
+
+//[
+//  //More info: http://www.dotnettips.info/post/2471
+//  {
+//    "outputFileName": "wwwroot/css/site.min.css",
+//    "inputFiles": [
+//      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+//      "node_modules/@ghalamborm/bootstrap4-rtl/bootstrap-rtl.css",
+//      "node_modules/components-font-awesome/css/solid.min.css",
+//      "node_modules/components-font-awesome/css/fontawesome.min.css",
+//      "Content/uikit.css",
+//      "Content/datatables.min.css",
+//      "Content/CustomSite.css",
+//      "Content/AdminLTE.css",
+//      "Content/custom.css",
+//      "Content/skins/_all-skins.css"
+//    ],
+//    "minify": {
+//      "enabled": true,
+//      "renameLocals": false,
+//      "adjustRelativePaths": false
+//    },
+//    "sourceMap": false
+//  },
+//  {
+//    "outputFileName": "wwwroot/js/site.min.js",
+//    "inputFiles": [
+//      "scripts/uikit.js",
+//      "scripts/UikitIcons.js",
+//      "node_modules/jquery/dist/jquery.min.js",
+//      "node_modules/popper.js/dist/umd/popper.min.js",
+//      "node_modules/jquery-validation/dist/jquery.validate.min.js",
+//      "node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js",
+//      "node_modules/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js",
+//      "node_modules/bootstrap/dist/js/bootstrap.min.js",
+//      "scripts/jquery.bootstrap-modal-confirm.js",
+//      "scripts/jquery.bootstrap-modal-alert.js",
+//      "scripts/jquery.bootstrap-modal-ajax-form.js",
+//      "scripts/custom.js",
+//      "scripts/OnlineShop.js",
+//      "scripts/datatables.min.js",
+//      "scripts/app.js"
+
+//    ],
+//    "minify": {
+//      "enabled": true,
+//      "renameLocals": true
+//    },
+//    "sourceMap": false
+//  }
+//]

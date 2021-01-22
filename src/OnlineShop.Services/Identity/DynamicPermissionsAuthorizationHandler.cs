@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
-using OnlineShop.Services.Contracts.Identity;
-using OnlineShop.ViewModels.Identity;
+using OnlineShop.Services.Contracts.Admin;
+using OnlineShop.ViewModels.Admin;
 using System;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// More info: http://www.dotnettips.info/post/2581

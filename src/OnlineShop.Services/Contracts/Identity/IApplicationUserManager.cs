@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using OnlineShop.ViewModels.Identity;
+using OnlineShop.ViewModels.Admin;
 
-namespace OnlineShop.Services.Contracts.Identity
+namespace OnlineShop.Services.Contracts.Admin
 {
     public interface IApplicationUserManager : IDisposable
     {

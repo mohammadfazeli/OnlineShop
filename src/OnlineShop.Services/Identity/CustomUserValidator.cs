@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using OnlineShop.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using OnlineShop.Common.GuardToolkit;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using Microsoft.Extensions.Options;
 
-namespace OnlineShop.Services.Identity
+namespace OnlineShop.Services.Admin
 {
     /// <summary>
     /// Extending the Built-in User Validation

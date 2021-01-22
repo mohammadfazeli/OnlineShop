@@ -10,20 +10,20 @@ using System.Linq;
 
 namespace OnlineShop.Services.Services.Area.Base
 {
-    public class ProviderService : EntityService<Provider, ProviderDto>, IProviderService
+    public class ProviderService:EntityService<Provider,ProviderDto>, IProviderService
     {
-        public ProviderService(IUnitOfWork unitOfWork, IMapper mapper, IRepository<Provider> repository) : base(unitOfWork, mapper, repository)
+        public ProviderService(IUnitOfWork unitOfWork,IMapper mapper,IRepository<Provider> repository) : base(unitOfWork,mapper,repository)
         {
         }
 
         public List<ProviderDto> GetList()
         {
-            return _mapper.Map(GetAll().OrderByDescending(x => x.CreateOn).ToList(), new List<ProviderDto>());
+            return _mapper.Map(GetAll().OrderByDescending(x => x.CreateOn).ToList(),new List<ProviderDto>());
         }
 
         public ProviderDto GetInfo(Guid id)
         {
-            return _mapper.Map(Get(id), new ProviderDto());
+            return _mapper.Map(Get(id),new ProviderDto());
         }
     }
 }

@@ -1,0 +1,91 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto
+
+<div class="card _borderTop  _shadow">
+<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Views/Product/_ProductList.cshtml
+    <div class="card-header ">
+=======
+    <div class="card-header bg-light">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Views/Product/_ProductList.cshtml
+        <partial name="_CardHeader" model="CardHeaderTye.Index" />
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="dataTable" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+                <thead>
+                    <tr>
+                        <td style="width:15px;">#</td>
+                        <td>@Html.DisplayNameFor(r => r.Id)</td>
+                        <td>@Html.DisplayNameFor(r => r.Name)</td>
+                        <td>@Html.DisplayNameFor(r => r.ForeignName)</td>
+                        <td>@Html.DisplayNameFor(r => r.UserCode)</td>
+                        <td>@Html.DisplayNameFor(r => r.ProductGroupName)</td>
+                        <td>@Html.DisplayNameFor(r => r.ModelName)</td>
+                        <td>@Html.DisplayNameFor(r => r.Provider)</td>
+                        <td style="width:50px;">@Resource.Operation</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<script>
+
+    function ReloadTable() {
+        debugger;
+        $('#dataTable').DataTable().ajax.reload();
+    }
+       $(function () {
+
+           $('.CustomDataTable').DataTable({
+
+                "paging": true,
+               "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": false,
+                "language": {
+                    "url": "../js/Persian.json",
+                },
+                 "ajax": {
+                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        dataType: "json",
+                    },
+
+                "columns": [
+                        { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
+                        { "data": "id", className: "text-center ", visible: false },
+                        { "data": "name", className: "text-center "},
+                        { "data": "foreignName", className: "text-center "},
+                        { "data": "userCode", className: "text-center "},
+                        { "data": "productGroupName", className: "text-center "},
+                    { "data": "modelName", className: "text-center "},
+                    { "data": "provider", className: "text-center "},
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                                    , [
+<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Views/Product/_ProductList.cshtml
+                                          '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductSpecification" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSpecification</a>  '
+                                        , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductRelated" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductRelated</a>  '
+                                        , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductSalePrice" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSalePrice</a>  '
+=======
+                                          '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "ProductDetail" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductDetail</a>  '
+                                        , '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "ProductSpecification" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSpecification</a>  '
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Views/Product/_ProductList.cshtml
+
+                                    ]
+                                );
+                            }
+                        }
+               ]
+            });
+        });
+</script>

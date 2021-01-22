@@ -10,7 +10,7 @@ using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.Attachments;
-using OnlineShop.ViewModels.Identity.Settings;
+using OnlineShop.ViewModels.Admin.Settings;
 using System;
 using System.Collections.Generic;
 using System.IO;

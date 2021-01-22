@@ -1,0 +1,48 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutDto
+
+<partial name="_CustomValidationSummary" />
+@{
+
+    var currentValues = new List<string>() { Model.ProductGroupId.ToString() };
+}
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+<<<<<<< HEAD
+    <div class="card _borderTop  _shadow ">
+=======
+    <div class="card _borderTop  _shadow">
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
+        @Html.HiddenFor(r => r.Id)
+        <div class="card-header bg-light">
+            <partial name="_CardHeader" model="CardHeaderTye.Edit" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="Name"></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="UserCode"></CustomInput>
+                </div> <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="ForeignName"></CustomInput>
+                </div> <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="ProductGroupId" asp-expression="ProductGroupId" asp-optionLabel="@Resource.SelectedOneItem" asp-currentValues="@Model.ProductGroupDropDown.CurrentValues" asp-selectList="@Model.ProductGroupDropDown.SelectList" asp-Class=" select2bs4 "></CustomSelect>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInputTextArea asp-for="Description"></CustomInputTextArea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <partial name="_Lightgallery" model="@Model.Id" />
+                    <label asp-for="PhotoFileName" class="col-md-2 col-form-label text-md-left"></label>
+                    <input type="file" asp-for="Photo" class="form-control" multiple />
+                </div>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>
