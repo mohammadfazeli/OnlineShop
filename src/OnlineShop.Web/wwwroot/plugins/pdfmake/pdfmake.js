@@ -2991,7 +2991,7 @@ Buffer.prototype.fill = function fill (val, start, end, encoding) {
 }
 
 // HELPER FUNCTIONS
-// ================
+// ==
 
 var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g
 
@@ -31013,8 +31013,8 @@ var adler32 = __webpack_require__(246);
 var crc32   = __webpack_require__(247);
 var msg     = __webpack_require__(357);
 
-/* Public constants ==========================================================*/
-/* ===========================================================================*/
+/* Public constants ==*/
+/* =====*/
 
 
 /* Allowed flush values; see deflate() and inflate() below for details */
@@ -31064,7 +31064,7 @@ var Z_UNKNOWN             = 2;
 /* The deflate compression method */
 var Z_DEFLATED  = 8;
 
-/*============================================================================*/
+/*======*/
 
 
 var MAX_MEM_LEVEL = 9;
@@ -31122,7 +31122,7 @@ function rank(f) {
 function zero(buf) { var len = buf.length; while (--len >= 0) { buf[len] = 0; } }
 
 
-/* =========================================================================
+/* ===
  * Flush as much pending output as possible. All deflate() output goes
  * through this function so some applications may wish to modify it
  * to avoid allocating a large strm->output buffer and copying into it.
@@ -31162,7 +31162,7 @@ function put_byte(s, b) {
 }
 
 
-/* =========================================================================
+/* ===
  * Put a short in the pending buffer. The 16-bit value is put in MSB order.
  * IN assertion: the stream state is correct and there is enough room in
  * pending_buf.
@@ -31175,7 +31175,7 @@ function putShortMSB(s, b) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Read a new buffer from the current input stream, update the adler32
  * and total number of bytes read.  All deflate() input goes through
  * this function so some applications may wish to modify it to avoid
@@ -31207,7 +31207,7 @@ function read_buf(strm, buf, start, size) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Set match_start to the longest match starting at the given string and
  * return its length. Matches shorter or equal to prev_length are discarded,
  * in which case the result is equal to prev_length and match_start is
@@ -31319,7 +31319,7 @@ function longest_match(s, cur_match) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Fill the window when the lookahead becomes insufficient.
  * Updates strstart and lookahead.
  *
@@ -31476,7 +31476,7 @@ function fill_window(s) {
 //    "not enough room for search");
 }
 
-/* ===========================================================================
+/* =====
  * Copy without compression as much as possible from the input stream, return
  * the current block state.
  * This function does not insert new strings in the dictionary since
@@ -31576,7 +31576,7 @@ function deflate_stored(s, flush) {
   return BS_NEED_MORE;
 }
 
-/* ===========================================================================
+/* =====
  * Compress as much as possible from the input stream, return the current
  * block state.
  * This function does not perform lazy evaluation of matches and inserts
@@ -31706,7 +31706,7 @@ function deflate_fast(s, flush) {
   return BS_BLOCK_DONE;
 }
 
-/* ===========================================================================
+/* =====
  * Same as above, but achieves better compression. We use a lazy
  * evaluation for matches: a match is finally adopted only if there is
  * no better match at the next window position.
@@ -31868,7 +31868,7 @@ function deflate_slow(s, flush) {
 }
 
 
-/* ===========================================================================
+/* =====
  * For Z_RLE, simply look for runs of bytes, generate matches only of distance
  * one.  Do not maintain a hash table.  (It will be regenerated if this run of
  * deflate switches away from Z_RLE.)
@@ -31964,7 +31964,7 @@ function deflate_rle(s, flush) {
   return BS_BLOCK_DONE;
 }
 
-/* ===========================================================================
+/* =====
  * For Z_HUFFMAN_ONLY, do not look for matches.  Do not maintain a hash table.
  * (It will be regenerated if this run of deflate switches away from Huffman.)
  */
@@ -32051,7 +32051,7 @@ configuration_table = [
 ];
 
 
-/* ===========================================================================
+/* =====
  * Initialize the "longest match" routines for a new zlib stream
  */
 function lm_init(s) {
@@ -32754,7 +32754,7 @@ function deflateEnd(strm) {
 }
 
 
-/* =========================================================================
+/* ===
  * Initializes the compression dictionary from the given byte
  * sequence without producing any compressed output.
  */
@@ -32892,8 +32892,8 @@ exports.deflateTune = deflateTune;
 
 var utils = __webpack_require__(124);
 
-/* Public constants ==========================================================*/
-/* ===========================================================================*/
+/* Public constants ==*/
+/* =====*/
 
 
 //var Z_FILTERED          = 1;
@@ -32908,7 +32908,7 @@ var Z_TEXT                = 1;
 //var Z_ASCII             = 1; // = Z_TEXT
 var Z_UNKNOWN             = 2;
 
-/*============================================================================*/
+/*======*/
 
 
 function zero(buf) { var len = buf.length; while (--len >= 0) { buf[len] = 0; } }
@@ -32925,7 +32925,7 @@ var MAX_MATCH    = 258;
 /* The minimum and maximum match lengths */
 
 // From deflate.h
-/* ===========================================================================
+/* =====
  * Internal compression state.
  */
 
@@ -32954,7 +32954,7 @@ var Buf_size      = 16;
 /* size of bit buffer in bi_buf */
 
 
-/* ===========================================================================
+/* =====
  * Constants
  */
 
@@ -32991,7 +32991,7 @@ var bl_order =
  * probability, to avoid transmitting the lengths for unused bit length codes.
  */
 
-/* ===========================================================================
+/* =====
  * Local data. These are initialized only once.
  */
 
@@ -33065,7 +33065,7 @@ function d_code(dist) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Output a short LSB first on the stream.
  * IN assertion: there is enough room in pendingBuf.
  */
@@ -33077,7 +33077,7 @@ function put_short(s, w) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Send a value on a given number of bits.
  * IN assertion: length <= 16 and value fits in length bits.
  */
@@ -33099,7 +33099,7 @@ function send_code(s, c, tree) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Reverse the first len bits of a code, using straightforward code (a faster
  * method would use a table)
  * IN assertion: 1 <= len <= 15
@@ -33115,7 +33115,7 @@ function bi_reverse(code, len) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Flush the bit buffer, keeping at most 7 bits in it.
  */
 function bi_flush(s) {
@@ -33132,7 +33132,7 @@ function bi_flush(s) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Compute the optimal bit lengths for a tree and update the total bit length
  * for the current block.
  * IN assertion: the fields freq and dad are set, heap[heap_max] and
@@ -33231,7 +33231,7 @@ function gen_bitlen(s, desc)
 }
 
 
-/* ===========================================================================
+/* =====
  * Generate the codes for a given tree and bit counts (which need not be
  * optimal).
  * IN assertion: the array bl_count contains the bit length statistics for
@@ -33274,7 +33274,7 @@ function gen_codes(tree, max_code, bl_count)
 }
 
 
-/* ===========================================================================
+/* =====
  * Initialize the various 'constant' tables.
  */
 function tr_static_init() {
@@ -33378,7 +33378,7 @@ function tr_static_init() {
 }
 
 
-/* ===========================================================================
+/* =====
  * Initialize a new block.
  */
 function init_block(s) {
@@ -33395,7 +33395,7 @@ function init_block(s) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Flush the bit buffer and align the output on a byte boundary
  */
 function bi_windup(s)
@@ -33410,7 +33410,7 @@ function bi_windup(s)
   s.bi_valid = 0;
 }
 
-/* ===========================================================================
+/* =====
  * Copy a stored block, storing first the length and its
  * one's complement if requested.
  */
@@ -33433,7 +33433,7 @@ function copy_block(s, buf, len, header)
   s.pending += len;
 }
 
-/* ===========================================================================
+/* =====
  * Compares to subtrees, using the tree depth as tie breaker when
  * the subtrees have equal frequency. This minimizes the worst case length.
  */
@@ -33444,7 +33444,7 @@ function smaller(tree, n, m, depth) {
          (tree[_n2]/*.Freq*/ === tree[_m2]/*.Freq*/ && depth[n] <= depth[m]));
 }
 
-/* ===========================================================================
+/* =====
  * Restore the heap property by moving down the tree starting at node k,
  * exchanging a node with the smallest of its two sons if necessary, stopping
  * when the heap property is re-established (each father smaller than its
@@ -33480,7 +33480,7 @@ function pqdownheap(s, tree, k)
 // inlined manually
 // var SMALLEST = 1;
 
-/* ===========================================================================
+/* =====
  * Send the block data compressed using the given Huffman trees
  */
 function compress_block(s, ltree, dtree)
@@ -33535,7 +33535,7 @@ function compress_block(s, ltree, dtree)
 }
 
 
-/* ===========================================================================
+/* =====
  * Construct one Huffman tree and assigns the code bit strings and lengths.
  * Update the total bit length for the current block.
  * IN assertion: the field freq is set for all tree elements.
@@ -33635,7 +33635,7 @@ function build_tree(s, desc)
 }
 
 
-/* ===========================================================================
+/* =====
  * Scan a literal or distance tree to determine the frequencies of the codes
  * in the bit length tree.
  */
@@ -33701,7 +33701,7 @@ function scan_tree(s, tree, max_code)
 }
 
 
-/* ===========================================================================
+/* =====
  * Send a literal or distance tree in compressed form, using the codes in
  * bl_tree.
  */
@@ -33772,7 +33772,7 @@ function send_tree(s, tree, max_code)
 }
 
 
-/* ===========================================================================
+/* =====
  * Construct the Huffman tree for the bit lengths and return the index in
  * bl_order of the last bit length code to send.
  */
@@ -33807,7 +33807,7 @@ function build_bl_tree(s) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Send the header for a block using dynamic Huffman trees: the counts, the
  * lengths of the bit length codes, the literal tree and the distance tree.
  * IN assertion: lcodes >= 257, dcodes >= 1, blcodes >= 4.
@@ -33839,7 +33839,7 @@ function send_all_trees(s, lcodes, dcodes, blcodes)
 }
 
 
-/* ===========================================================================
+/* =====
  * Check if the data type is TEXT or BINARY, using the following algorithm:
  * - TEXT if the two conditions below are satisfied:
  *    a) There are no non-portable control characters belonging to the
@@ -33887,7 +33887,7 @@ function detect_data_type(s) {
 
 var static_init_done = false;
 
-/* ===========================================================================
+/* =====
  * Initialize the tree data structures for a new zlib stream.
  */
 function _tr_init(s)
@@ -33910,7 +33910,7 @@ function _tr_init(s)
 }
 
 
-/* ===========================================================================
+/* =====
  * Send a stored block
  */
 function _tr_stored_block(s, buf, stored_len, last)
@@ -33924,7 +33924,7 @@ function _tr_stored_block(s, buf, stored_len, last)
 }
 
 
-/* ===========================================================================
+/* =====
  * Send one empty static block to give enough lookahead for inflate.
  * This takes 10 bits, of which 7 may remain in the bit buffer.
  */
@@ -33935,7 +33935,7 @@ function _tr_align(s) {
 }
 
 
-/* ===========================================================================
+/* =====
  * Determine the best encoding for the current block: dynamic trees, static
  * trees or store, and output the encoded block to the zip file.
  */
@@ -34022,7 +34022,7 @@ function _tr_flush_block(s, buf, stored_len, last)
   //       s->compressed_len-7*last));
 }
 
-/* ===========================================================================
+/* =====
  * Save the match info and tally the frequency counts. Return true if
  * the current block must be flushed.
  */
@@ -34166,8 +34166,8 @@ var CODES = 0;
 var LENS = 1;
 var DISTS = 2;
 
-/* Public constants ==========================================================*/
-/* ===========================================================================*/
+/* Public constants ==*/
+/* =====*/
 
 
 /* Allowed flush values; see deflate() and inflate() below for details */
@@ -34197,8 +34197,8 @@ var Z_BUF_ERROR     = -5;
 var Z_DEFLATED  = 8;
 
 
-/* STATES ====================================================================*/
-/* ===========================================================================*/
+/* STATES =====*/
+/* =====*/
 
 
 var    HEAD = 1;       /* i: waiting for magic header */
@@ -34234,7 +34234,7 @@ var    BAD = 30;       /* got a data error -- remain here until reset */
 var    MEM = 31;       /* got an inflate() memory error -- remain here until reset */
 var    SYNC = 32;      /* looking for synchronization bytes to restart inflate() */
 
-/* ===========================================================================*/
+/* =====*/
 
 
 
@@ -55171,7 +55171,7 @@ InternalDecoderCesu8.prototype.end = function() {
 
 var Buffer = __webpack_require__(39).Buffer;
 
-// == UTF32-LE/BE codec. ==========================================================
+// == UTF32-LE/BE codec. ==
 
 exports._utf32 = Utf32Codec;
 
@@ -55330,7 +55330,7 @@ Utf32Decoder.prototype.end = function() {
     this.overflow = null;
 };
 
-// == UTF-32 Auto codec =============================================================
+// == UTF-32 Auto codec =====
 // Decoder chooses automatically from UTF-32LE and UTF-32BE using BOM and space-based heuristic.
 // Defaults to UTF-32LE. http://en.wikipedia.org/wiki/UTF-32
 // Encoder/decoder default can be changed: iconv.decode(buf, 'utf32', {defaultEncoding: 'utf-32be'});
@@ -55470,7 +55470,7 @@ var Buffer = __webpack_require__(39).Buffer;
 
 // Note: UTF16-LE (or UCS2) codec is Node.js native. See encodings/internal.js
 
-// == UTF16-BE codec. ==========================================================
+// == UTF16-BE codec. ==
 
 exports.utf16be = Utf16BECodec;
 function Utf16BECodec() {
@@ -55531,7 +55531,7 @@ Utf16BEDecoder.prototype.end = function() {
 }
 
 
-// == UTF-16 codec =============================================================
+// == UTF-16 codec =====
 // Decoder chooses automatically from UTF-16LE and UTF-16BE using BOM and space-based heuristic.
 // Defaults to UTF-16LE, as it's prevalent and default in Node.
 // http://en.wikipedia.org/wiki/UTF-16 and http://encoding.spec.whatwg.org/#utf-16le
@@ -56333,77 +56333,92 @@ module.exports = {
   "cp1258": "windows1258",
   "iso88591": {
     "type": "_sbcs",
-    "chars": " ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
+    "chars": "
+ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
   },
   "cp28591": "iso88591",
   "iso88592": {
     "type": "_sbcs",
-    "chars": " Ą˘Ł¤ĽŚ§¨ŠŞŤŹ­ŽŻ°ą˛ł´ľśˇ¸šşťź˝žżŔÁÂĂÄĹĆÇČÉĘËĚÍÎĎĐŃŇÓÔŐÖ×ŘŮÚŰÜÝŢßŕáâăäĺćçčéęëěíîďđńňóôőö÷řůúűüýţ˙"
+    "chars": "
+ Ą˘Ł¤ĽŚ§¨ŠŞŤŹ­ŽŻ°ą˛ł´ľśˇ¸šşťź˝žżŔÁÂĂÄĹĆÇČÉĘËĚÍÎĎĐŃŇÓÔŐÖ×ŘŮÚŰÜÝŢßŕáâăäĺćçčéęëěíîďđńňóôőö÷řůúűüýţ˙"
   },
   "cp28592": "iso88592",
   "iso88593": {
     "type": "_sbcs",
-    "chars": " Ħ˘£¤�Ĥ§¨İŞĞĴ­�Ż°ħ²³´µĥ·¸ışğĵ½�żÀÁÂ�ÄĊĈÇÈÉÊËÌÍÎÏ�ÑÒÓÔĠÖ×ĜÙÚÛÜŬŜßàáâ�äċĉçèéêëìíîï�ñòóôġö÷ĝùúûüŭŝ˙"
+    "chars": "
+ Ħ˘£¤�Ĥ§¨İŞĞĴ­�Ż°ħ²³´µĥ·¸ışğĵ½�żÀÁÂ�ÄĊĈÇÈÉÊËÌÍÎÏ�ÑÒÓÔĠÖ×ĜÙÚÛÜŬŜßàáâ�äċĉçèéêëìíîï�ñòóôġö÷ĝùúûüŭŝ˙"
   },
   "cp28593": "iso88593",
   "iso88594": {
     "type": "_sbcs",
-    "chars": " ĄĸŖ¤ĨĻ§¨ŠĒĢŦ­Ž¯°ą˛ŗ´ĩļˇ¸šēģŧŊžŋĀÁÂÃÄÅÆĮČÉĘËĖÍÎĪĐŅŌĶÔÕÖ×ØŲÚÛÜŨŪßāáâãäåæįčéęëėíîīđņōķôõö÷øųúûüũū˙"
+    "chars": "
+ ĄĸŖ¤ĨĻ§¨ŠĒĢŦ­Ž¯°ą˛ŗ´ĩļˇ¸šēģŧŊžŋĀÁÂÃÄÅÆĮČÉĘËĖÍÎĪĐŅŌĶÔÕÖ×ØŲÚÛÜŨŪßāáâãäåæįčéęëėíîīđņōķôõö÷øųúûüũū˙"
   },
   "cp28594": "iso88594",
   "iso88595": {
     "type": "_sbcs",
-    "chars": " ЁЂЃЄЅІЇЈЉЊЋЌ­ЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя№ёђѓєѕіїјљњћќ§ўџ"
+    "chars": "
+ ЁЂЃЄЅІЇЈЉЊЋЌ­ЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя№ёђѓєѕіїјљњћќ§ўџ"
   },
   "cp28595": "iso88595",
   "iso88596": {
     "type": "_sbcs",
-    "chars": " ���¤�������،­�������������؛���؟�ءآأؤإئابةتثجحخدذرزسشصضطظعغ�����ـفقكلمنهوىيًٌٍَُِّْ�������������"
+    "chars": "
+ ���¤�������،­�������������؛���؟�ءآأؤإئابةتثجحخدذرزسشصضطظعغ�����ـفقكلمنهوىيًٌٍَُِّْ�������������"
   },
   "cp28596": "iso88596",
   "iso88597": {
     "type": "_sbcs",
-    "chars": " ‘’£€₯¦§¨©ͺ«¬­�―°±²³΄΅Ά·ΈΉΊ»Ό½ΎΏΐΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡ�ΣΤΥΦΧΨΩΪΫάέήίΰαβγδεζηθικλμνξοπρςστυφχψωϊϋόύώ�"
+    "chars": "
+ ‘’£€₯¦§¨©ͺ«¬­�―°±²³΄΅Ά·ΈΉΊ»Ό½ΎΏΐΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡ�ΣΤΥΦΧΨΩΪΫάέήίΰαβγδεζηθικλμνξοπρςστυφχψωϊϋόύώ�"
   },
   "cp28597": "iso88597",
   "iso88598": {
     "type": "_sbcs",
-    "chars": " �¢£¤¥¦§¨©×«¬­®¯°±²³´µ¶·¸¹÷»¼½¾��������������������������������‗אבגדהוזחטיךכלםמןנסעףפץצקרשת��‎‏�"
+    "chars": "
+ �¢£¤¥¦§¨©×«¬­®¯°±²³´µ¶·¸¹÷»¼½¾��������������������������������‗אבגדהוזחטיךכלםמןנסעףפץצקרשת��‎‏�"
   },
   "cp28598": "iso88598",
   "iso88599": {
     "type": "_sbcs",
-    "chars": " ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõö÷øùúûüışÿ"
+    "chars": "
+ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõö÷øùúûüışÿ"
   },
   "cp28599": "iso88599",
   "iso885910": {
     "type": "_sbcs",
-    "chars": " ĄĒĢĪĨĶ§ĻĐŠŦŽ­ŪŊ°ąēģīĩķ·ļđšŧž―ūŋĀÁÂÃÄÅÆĮČÉĘËĖÍÎÏÐŅŌÓÔÕÖŨØŲÚÛÜÝÞßāáâãäåæįčéęëėíîïðņōóôõöũøųúûüýþĸ"
+    "chars": "
+ ĄĒĢĪĨĶ§ĻĐŠŦŽ­ŪŊ°ąēģīĩķ·ļđšŧž―ūŋĀÁÂÃÄÅÆĮČÉĘËĖÍÎÏÐŅŌÓÔÕÖŨØŲÚÛÜÝÞßāáâãäåæįčéęëėíîïðņōóôõöũøųúûüýþĸ"
   },
   "cp28600": "iso885910",
   "iso885911": {
     "type": "_sbcs",
-    "chars": " กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮฯะัาำิีึืฺุู����฿เแโใไๅๆ็่้๊๋์ํ๎๏๐๑๒๓๔๕๖๗๘๙๚๛����"
+    "chars": "
+ กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮฯะัาำิีึืฺุู����฿เแโใไๅๆ็่้๊๋์ํ๎๏๐๑๒๓๔๕๖๗๘๙๚๛����"
   },
   "cp28601": "iso885911",
   "iso885913": {
     "type": "_sbcs",
-    "chars": " ”¢£¤„¦§Ø©Ŗ«¬­®Æ°±²³“µ¶·ø¹ŗ»¼½¾æĄĮĀĆÄÅĘĒČÉŹĖĢĶĪĻŠŃŅÓŌÕÖ×ŲŁŚŪÜŻŽßąįāćäåęēčéźėģķīļšńņóōõö÷ųłśūüżž’"
+    "chars": "
+ ”¢£¤„¦§Ø©Ŗ«¬­®Æ°±²³“µ¶·ø¹ŗ»¼½¾æĄĮĀĆÄÅĘĒČÉŹĖĢĶĪĻŠŃŅÓŌÕÖ×ŲŁŚŪÜŻŽßąįāćäåęēčéźėģķīļšńņóōõö÷ųłśūüżž’"
   },
   "cp28603": "iso885913",
   "iso885914": {
     "type": "_sbcs",
-    "chars": " Ḃḃ£ĊċḊ§Ẁ©ẂḋỲ­®ŸḞḟĠġṀṁ¶ṖẁṗẃṠỳẄẅṡÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏŴÑÒÓÔÕÖṪØÙÚÛÜÝŶßàáâãäåæçèéêëìíîïŵñòóôõöṫøùúûüýŷÿ"
+    "chars": "
+ Ḃḃ£ĊċḊ§Ẁ©ẂḋỲ­®ŸḞḟĠġṀṁ¶ṖẁṗẃṠỳẄẅṡÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏŴÑÒÓÔÕÖṪØÙÚÛÜÝŶßàáâãäåæçèéêëìíîïŵñòóôõöṫøùúûüýŷÿ"
   },
   "cp28604": "iso885914",
   "iso885915": {
     "type": "_sbcs",
-    "chars": " ¡¢£€¥Š§š©ª«¬­®¯°±²³Žµ¶·ž¹º»ŒœŸ¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
+    "chars": "
+ ¡¢£€¥Š§š©ª«¬­®¯°±²³Žµ¶·ž¹º»ŒœŸ¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
   },
   "cp28605": "iso885915",
   "iso885916": {
     "type": "_sbcs",
-    "chars": " ĄąŁ€„Š§š©Ș«Ź­źŻ°±ČłŽ”¶·žčș»ŒœŸżÀÁÂĂÄĆÆÇÈÉÊËÌÍÎÏĐŃÒÓÔŐÖŚŰÙÚÛÜĘȚßàáâăäćæçèéêëìíîïđńòóôőöśűùúûüęțÿ"
+    "chars": "
+ ĄąŁ€„Š§š©Ș«Ź­źŻ°±ČłŽ”¶·žčș»ŒœŸżÀÁÂĂÄĆÆÇÈÉÊËÌÍÎÏĐŃÒÓÔŐÖŚŰÙÚÛÜĘȚßàáâăäćæçèéêëìíîïđńòóôőöśűùúûüęțÿ"
   },
   "cp28606": "iso885916",
   "cp437": {
@@ -56510,7 +56525,8 @@ module.exports = {
   "csibm869": "cp869",
   "cp922": {
     "type": "_sbcs",
-    "chars": " ¡¢£¤¥¦§¨©ª«¬­®‾°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏŠÑÒÓÔÕÖ×ØÙÚÛÜÝŽßàáâãäåæçèéêëìíîïšñòóôõö÷øùúûüýžÿ"
+    "chars": "
+ ¡¢£¤¥¦§¨©ª«¬­®‾°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏŠÑÒÓÔÕÖ×ØÙÚÛÜÝŽßàáâãäåæçèéêëìíîïšñòóôõö÷øùúûüýžÿ"
   },
   "ibm922": "cp922",
   "csibm922": "cp922",
@@ -56522,7 +56538,8 @@ module.exports = {
   "csibm1046": "cp1046",
   "cp1124": {
     "type": "_sbcs",
-    "chars": " ЁЂҐЄЅІЇЈЉЊЋЌ­ЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя№ёђґєѕіїјљњћќ§ўџ"
+    "chars": "
+ ЁЂҐЄЅІЇЈЉЊЋЌ­ЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя№ёђґєѕіїјљњћќ§ўџ"
   },
   "ibm1124": "cp1124",
   "csibm1124": "cp1124",
@@ -56534,13 +56551,15 @@ module.exports = {
   "csibm1125": "cp1125",
   "cp1129": {
     "type": "_sbcs",
-    "chars": " ¡¢£¤¥¦§œ©ª«¬­®¯°±²³Ÿµ¶·Œ¹º»¼½¾¿ÀÁÂĂÄÅÆÇÈÉÊË̀ÍÎÏĐÑ̉ÓÔƠÖ×ØÙÚÛÜỮßàáâăäåæçèéêë́íîïđṇ̃óôơö÷øùúûüư₫ÿ"
+    "chars": "
+ ¡¢£¤¥¦§œ©ª«¬­®¯°±²³Ÿµ¶·Œ¹º»¼½¾¿ÀÁÂĂÄÅÆÇÈÉÊË̀ÍÎÏĐÑ̉ÓÔƠÖ×ØÙÚÛÜỮßàáâăäåæçèéêë́íîïđṇ̃óôơö÷øùúûüư₫ÿ"
   },
   "ibm1129": "cp1129",
   "csibm1129": "cp1129",
   "cp1133": {
     "type": "_sbcs",
-    "chars": " ກຂຄງຈສຊຍດຕຖທນບປຜຝພຟມຢຣລວຫອຮ���ຯະາຳິີຶືຸູຼັົຽ���ເແໂໃໄ່້໊໋໌ໍໆ�ໜໝ₭����������������໐໑໒໓໔໕໖໗໘໙��¢¬¦�"
+    "chars": "
+ ກຂຄງຈສຊຍດຕຖທນບປຜຝພຟມຢຣລວຫອຮ���ຯະາຳິີຶືຸູຼັົຽ���ເແໂໃໄ່້໊໋໌ໍໆ�ໜໝ₭����������������໐໑໒໓໔໕໖໗໘໙��¢¬¦�"
   },
   "ibm1133": "cp1133",
   "csibm1133": "cp1133",
@@ -56558,7 +56577,8 @@ module.exports = {
   "csibm1162": "cp1162",
   "cp1163": {
     "type": "_sbcs",
-    "chars": " ¡¢£€¥¦§œ©ª«¬­®¯°±²³Ÿµ¶·Œ¹º»¼½¾¿ÀÁÂĂÄÅÆÇÈÉÊË̀ÍÎÏĐÑ̉ÓÔƠÖ×ØÙÚÛÜỮßàáâăäåæçèéêë́íîïđṇ̃óôơö÷øùúûüư₫ÿ"
+    "chars": "
+ ¡¢£€¥¦§œ©ª«¬­®¯°±²³Ÿµ¶·Œ¹º»¼½¾¿ÀÁÂĂÄÅÆÇÈÉÊË̀ÍÎÏĐÑ̉ÓÔƠÖ×ØÙÚÛÜỮßàáâăäåæçèéêë́íîïđṇ̃óôơö÷øùúûüư₫ÿ"
   },
   "ibm1163": "cp1163",
   "csibm1163": "cp1163",
@@ -56616,7 +56636,8 @@ module.exports = {
   },
   "armscii8": {
     "type": "_sbcs",
-    "chars": " �և։)(»«—.՝,-֊…՜՛՞ԱաԲբԳգԴդԵեԶզԷէԸըԹթԺժԻիԼլԽխԾծԿկՀհՁձՂղՃճՄմՅյՆնՇշՈոՉչՊպՋջՌռՍսՎվՏտՐրՑցՒւՓփՔքՕօՖֆ՚�"
+    "chars": "
+ �և։)(»«—.՝,-֊…՜՛՞ԱաԲբԳգԴդԵեԶզԷէԸըԹթԺժԻիԼլԽխԾծԿկՀհՁձՂղՃճՄմՅյՆնՇշՈոՉչՊպՋջՌռՍսՎվՏտՐրՑցՒւՓփՔքՕօՖֆ՚�"
   },
   "rk1048": {
     "type": "_sbcs",
@@ -56652,7 +56673,8 @@ module.exports = {
   },
   "hproman8": {
     "type": "_sbcs",
-    "chars": " ÀÂÈÊËÎÏ´ˋˆ¨˜ÙÛ₤¯Ýý°ÇçÑñ¡¿¤£¥§ƒ¢âêôûáéóúàèòùäëöüÅîØÆåíøæÄìÖÜÉïßÔÁÃãÐðÍÌÓÒÕõŠšÚŸÿÞþ·µ¶¾—¼½ªº«■»±�"
+    "chars": "
+ ÀÂÈÊËÎÏ´ˋˆ¨˜ÙÛ₤¯Ýý°ÇçÑñ¡¿¤£¥§ƒ¢âêôûáéóúàèòùäëöüÅîØÆåíøæÄìÖÜÉïßÔÁÃãÐðÍÌÓÒÕõŠšÚŸÿÞþ·µ¶¾—¼½ªº«■»±�"
   },
   "macintosh": {
     "type": "_sbcs",
@@ -56972,7 +56994,7 @@ DBCSCodec.prototype._fillEncodeTable = function(nodeIdx, prefix, skipEncodeChars
 
 
 
-// == Encoder ==================================================================
+// == Encoder ===
 
 function DBCSEncoder(options, codec) {
     // Encoder state
@@ -57146,7 +57168,7 @@ DBCSEncoder.prototype.end = function() {
 DBCSEncoder.prototype.findIdx = findIdx;
 
 
-// == Decoder ==================================================================
+// == Decoder ===
 
 function DBCSDecoder(options, codec) {
     // Decoder state
@@ -57279,7 +57301,7 @@ function findIdx(table, val) {
 
 module.exports = {
     
-    // == Japanese/ShiftJIS ====================================================
+    // == Japanese/ShiftJIS ===
     // All japanese encodings are based on JIS X set of standards:
     // JIS X 0201 - Single-byte encoding of ASCII + ¥ + Kana chars at 0xA1-0xDF.
     // JIS X 0208 - Main set of 6879 characters, placed in 94x94 plane, to be encoded by 2 bytes. 
@@ -57339,7 +57361,7 @@ module.exports = {
     // TODO: IBM CCSID 943 = Shift_JIS = CP932 with original Shift_JIS lower 128 chars.
 
 
-    // == Chinese/GBK ==========================================================
+    // == Chinese/GBK ==
     // http://en.wikipedia.org/wiki/GBK
     // We mostly implement W3C recommendation: https://www.w3.org/TR/encoding/#gbk-encoder
 
@@ -57384,7 +57406,7 @@ module.exports = {
     'chinese': 'gb18030',
 
 
-    // == Korean ===============================================================
+    // == Korean 
     // EUC-KR, KS_C_5601 and KS X 1001 are exactly the same.
     'windows949': 'cp949',
     'ms949': 'cp949',
@@ -57404,7 +57426,7 @@ module.exports = {
     'ksc5601': 'cp949',
 
 
-    // == Big5/Taiwan/Hong Kong ================================================
+    // == Big5/Taiwan/Hong Kong ======
     // There are lots of tables for Big5 and cp950. Please see the following links for history:
     // http://moztw.org/docs/big5/  http://www.haible.de/bruno/charsets/conversion-tables/Big5.html
     // Variations, in roughly number of defined chars:
@@ -57493,7 +57515,7 @@ var Buffer = __webpack_require__(39).Buffer;
 module.exports = function(stream_module) {
     var Transform = stream_module.Transform;
 
-    // == Encoder stream =======================================================
+    // == Encoder stream ======
 
     function IconvLiteEncoderStream(conv, options) {
         this.conv = conv;
@@ -57541,7 +57563,7 @@ module.exports = function(stream_module) {
     }
 
 
-    // == Decoder stream =======================================================
+    // == Decoder stream ======
 
     function IconvLiteDecoderStream(conv, options) {
         this.conv = conv;
@@ -63255,7 +63277,7 @@ module.exports="W5/fcQLn5gKf2XUbAiQ1XULX+TZz6ADToDsgqk6qVfeC0e4m6OO2wcQ1J76ZBVRV
    | Second   \---------------------------------------------------------------|
    | last byte \    ASCII            |   cont. byte        |   lead byte      |
    |            \   (0-127)          |   (128-191)         |   (192-)         |
-   |=============|===================|=====================|==================|
+   |======|=====||====|
    |  ASCII      | next: ASCII/lead  |  not valid          |  next: cont.     |
    |  (0-127)    | context: 4 - 63   |                     |  context: 2 - 3  |
    |-------------|-------------------|---------------------|------------------|

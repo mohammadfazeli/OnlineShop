@@ -4,7 +4,7 @@
 
 function TableOperation(id, area, controller, OtherLinks = ['']) {
     if (OtherLinks.length != 0 && OtherLinks[0] != '') { Links = '<hr/>' + OtherLinks.join() } else { Links = OtherLinks.join(); }
-<<<<<<< HEAD
+
     return '<span class=" text-center TableOperation">' +
         '<button type="button" class="btn btn-default fas fa-ellipsis-v  " data-toggle="dropdown"></button>' +
         '<span class="dropdown-menu">' +
@@ -12,15 +12,6 @@ function TableOperation(id, area, controller, OtherLinks = ['']) {
         '<a  class="dropdown-item text-right"   href="/' + area + '/' + controller + '/Edit/' + id + '"> ویرایش <li class="fas fa-edit left"></li></a>  ' +
         '<a  class="dropdown-item text-right "  href="#"  onclick=' + `ShowModalGetDetail('${area}','${controller}','${id}')` + ' >جزئیات <li class="fas fa-info"></li></a>' +
         '<a  class="dropdown-item text-right"   href="/' + "Admin" + '/' + "Attachment" + '/' + "PreView" + '/' + id + '"> ضمیمه ها  <li class="fas fa-images left"></li></a> ' +
-=======
-    return '<div class=" text-center dropdown dropright">' +
-        '<button type="button" class="btn btn-default  dropdown-toggle dropdown-icon dropdown-toggle" data-toggle="dropdown"></button>' +
-        '<div class="dropdown-menu">' +
-        '<a  class="dropdown-item text-right "  href="#" onclick=' + `ShowModalConfirmRemove('${area}','${controller}','${id}')` + ' ><li class="fas fa-trash"></li>حذف</a>' +
-        '<a  class="dropdown-item text-right"   href="/' + area + '/' + controller + '/Edit/' + id + '"><li class="fas fa-edit left"></li> ویرایش</a>  ' +
-        '<a  class="dropdown-item text-right "  href="#"  onclick=' + `ShowModalGetDetail('${area}','${controller}','${id}')` + ' ><li class="fas fa-info"></li>جزئیات</a>' +
-        '<a  class="dropdown-item text-right"   href="/' + "Identity" + '/' + "Attachment" + '/' + "PreView" + '/' + id + '"><li class="fas fa-images left"></li> ضمیمه ها </a> ' +
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 
         Links.replace(/,/g, "");//replace all ',' --> ''
     //Links.replace(",", "");

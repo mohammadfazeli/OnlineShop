@@ -16,10 +16,7 @@ namespace OnlineShop.Services.Contracts.Area.Base
         IQueryable<ProdcutListDto> GetLastProduct(int take = 7);
 
         IQueryable<ProdcutListFullInfoDto> SearchProduct(ProductSearch productSearch);
-<<<<<<< HEAD
 
         decimal GetLastPrice(Guid productId);
-=======
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
     }
 }

@@ -20,11 +20,7 @@ namespace OnlineShop.ViewModels.Area.Base.ProductSpecification
         [Display(Name = nameof(Resource.Resource.SpecificationValue),Prompt = nameof(Resource.Resource.SpecificationValue),ResourceType = typeof(Resource.Resource))]
         public string SpecificationValue { get; set; }
 
-<<<<<<< HEAD
         [Display(Name = nameof(Resource.Resource.SortOrder),Prompt = nameof(Resource.Resource.SortOrder),ResourceType = typeof(Resource.Resource))]
-=======
-        [Display(Name = nameof(Resource.Resource.SortOrder), Prompt = nameof(Resource.Resource.SortOrder), ResourceType = typeof(Resource.Resource))]
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
         public int SortOrder { get; set; }
     }
 }

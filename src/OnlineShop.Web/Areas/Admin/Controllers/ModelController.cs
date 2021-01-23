@@ -2,11 +2,7 @@
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Controllers/ModelController.cs
 using OnlineShop.Areas.Admin;
-=======
-using OnlineShop.Areas.Identity;
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Controllers/ModelController.cs
 using OnlineShop.Common.Enums;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
@@ -20,21 +16,21 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 {
     [Area(AreaConstants.AdminArea)]
     [AllowAnonymous]
-    [BreadCrumb(Title = "مدل", UseDefaultRouteUrl = true, Order = 0)]
-    [Menu(IconType = IconType.FontAwesome4, Icon = "	fa fa-share", Name = nameof(Resource.Resource.Model), order = 4)]
-    public class ModelController : BaseController
+    [BreadCrumb(Title = "مدل",UseDefaultRouteUrl = true,Order = 0)]
+    [Menu(IconType = IconType.FontAwesome4,Icon = "	fa fa-share",Name = nameof(Resource.Resource.Model),order = 4)]
+    public class ModelController:BaseController
     {
         private readonly IModelService _ModelService;
         private readonly IMapper _mapper;
 
-        public ModelController(IModelService ModelService, IMapper mapper)
+        public ModelController(IModelService ModelService,IMapper mapper)
         {
             _ModelService = ModelService;
             _mapper = mapper;
         }
 
-        [BreadCrumb(Title = "مشاهده مدل ها", TitleResourceType = typeof(Resource.Resource), Order = 1)]
-        [Menu(IconType = IconType.UiKit, Icon = "list", Name = nameof(Resource.Resource.Model), order = 1)]
+        [BreadCrumb(Title = "مشاهده مدل ها",TitleResourceType = typeof(Resource.Resource),Order = 1)]
+        [Menu(IconType = IconType.UiKit,Icon = "list",Name = nameof(Resource.Resource.Model),order = 1)]
         public IActionResult Index()
         {
             return View();
@@ -42,17 +38,17 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 
         public JsonResult ReadData()
         {
-            var list = _mapper.Map(_ModelService.GetAll().ToList(), new List<ModelDto>());
+            var list = _mapper.Map(_ModelService.GetAll().ToList(),new List<ModelDto>());
 
             return Json(new { Data = list });
         }
 
         [HttpGet]
-        [ActionInfo(IconType = IconType.UiKit, Icon = "file-edit", Name = nameof(Resource.Resource.Edit))]
+        [ActionInfo(IconType = IconType.UiKit,Icon = "file-edit",Name = nameof(Resource.Resource.Edit))]
         public IActionResult Edit(Guid id)
         {
             var x = _ModelService.Get(id);
-            var ModelDTo = _mapper.Map<Model, ModelDto>(x);
+            var ModelDTo = _mapper.Map<Model,ModelDto>(x);
             return View(ModelDTo);
         }
 
@@ -60,7 +56,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ModelDto dto)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return View(dto);
             }
@@ -70,7 +66,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Menu(IconType = IconType.UiKit, Icon = "plus", Name = nameof(Resource.Resource.Add), order = 2)]
+        [Menu(IconType = IconType.UiKit,Icon = "plus",Name = nameof(Resource.Resource.Add),order = 2)]
         public IActionResult Create()
         {
             return View();
@@ -80,7 +76,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(ModelDto dto)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return View(dto);
             }

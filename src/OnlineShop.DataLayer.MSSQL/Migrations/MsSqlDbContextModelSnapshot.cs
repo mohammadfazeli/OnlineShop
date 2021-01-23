@@ -2134,15 +2134,15 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.ItemSection", b =>
                 {
-<<<<<<< HEAD
+
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
                         .WithMany("ItemSections")
                         .HasForeignKey("ProductId");
-=======
+
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.ProductDetail", "ProductDetail")
                         .WithMany("ItemSections")
                         .HasForeignKey("ProductDetailId");
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
+
                 });
 
             modelBuilder.Entity("OnlineShop.Entities.Entities.Area.Base.Product", b =>
@@ -2195,11 +2195,7 @@ namespace OnlineShop.DataLayer.MSSQL.Migrations
                         .HasForeignKey("ModelId");
 
                     b.HasOne("OnlineShop.Entities.Entities.Area.Base.Product", "Product")
-<<<<<<< HEAD
                         .WithMany("ProductModels")
-=======
-                        .WithMany("ProductDetails")
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
                         .HasForeignKey("ProductId");
                 });
 

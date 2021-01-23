@@ -4,11 +4,7 @@ using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
-<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Controllers/ColorController.cs
 using OnlineShop.Areas.Admin;
-=======
-using OnlineShop.Areas.Identity;
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Controllers/ColorController.cs
 using OnlineShop.Common.Enums;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
@@ -30,11 +26,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly IToastNotification _toastNotification;
 
-<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Controllers/ColorController.cs
         public ColorController(IColorService ColorService,IMapper mapper,
-=======
-        public ColorController(IColorService ColorService, IMapper mapper,
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Controllers/ColorController.cs
             IToastNotification toastNotification)
         {
             _ColorService = ColorService;

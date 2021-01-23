@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
-                <vc:item-section item-section-type="@ItemSectionType.Random"></vc:item-section>
+                @*<vc:item-section item-section-type="@ItemSectionType.Random"></vc:item-section>*@
             </div>
         </div>
     </div>
@@ -450,7 +450,6 @@
 
     <script>
 
-<<<<<<< HEAD
         function OnBegin() {
             toastr.error('Hi! I am error OnBegin.');
         }
@@ -464,18 +463,17 @@
             toastr.error('شسحینشسیخج');
         }
     </script>*@
-=======
-    <a class="nav-item nav-link" asp-controller="Product" asp-action="Index">
-        <span class="fas fa-plug" aria-hidden="true"></span>
-        محصولات
-    </a>
-</div>
+
+<a class="nav-item nav-link" asp-controller="Product" asp-action="Index">
+    <span class="fas fa-plug" aria-hidden="true"></span>
+    محصولات
+</a>
 
 <br />
 <br />
 
 <p><strong>AjaxOnly</strong> Form</p>
-@using (Html.AjaxBeginForm("AjaxMethod", new AjaxOptions
+@using(Html.AjaxBeginForm("AjaxMethod",new AjaxOptions
 {
     HttpMethod = "post",
     OnBegin = "OnBegin",
@@ -484,12 +482,12 @@
     UpdateTargetId = "UpdateTargetId"
 }))
 {
-<div class="input-group">
-    @Html.AjaxActionLink("حذف", "Remove", "Contoller", new { area = "" }, null)
+    <div class="input-group">
+        @Html.AjaxActionLink("حذف","Remove","Contoller",new { area = "" },null)
 
-    @Html.TextBox("name", null, new { placeholder = "Type your name", @class = "form-control mx-sm-2" })
-    <button class="btn btn-primary">Submit</button>
-</div>}
+        @Html.TextBox("name",null,new { placeholder = "Type your name",@class = "form-control mx-sm-2" })
+        <button class="btn btn-primary">Submit</button>
+    </div>}
 
 <script>
 
@@ -532,4 +530,3 @@
         toastr.error('شسحینشسیخج');
     }
 </script>
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2

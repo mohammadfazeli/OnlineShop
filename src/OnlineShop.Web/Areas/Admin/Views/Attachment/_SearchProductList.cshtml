@@ -1,70 +1,70 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutListFullInfoDto
 
-    <div class="mb-5">
-        <a href="##" onclick="ReloadTable()" class="btn btn-outline-danger float-left  " style="width:100% !important;"><span class="fas fa-search"></span>  </a>
+<div class="mb-5">
+    <a href="##" onclick="ReloadTable()" class="btn btn-outline-danger float-left  " style="width:100% !important;"><span class="fas fa-search"></span>  </a>
+</div>
+<div class="card-body border">
+    <div class="table-responsive border-dark">
+        <table id="dataTable" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+            <thead>
+                <tr>
+                    <td style="width:15px;">#</td>
+                    <td>@Html.DisplayNameFor(r => r.Id)</td>
+                    <td>@Html.DisplayNameFor(r => r.Name)</td>
+                    <td>@Html.DisplayNameFor(r => r.UserCode)</td>
+                    <td>@Html.DisplayNameFor(r => r.ProductGroupName)</td>
+                    <td>@Html.DisplayNameFor(r => r.ProviderName)</td>
+                    <td>@Html.DisplayNameFor(r => r.ModelName)</td>
+                    <td>@Html.DisplayNameFor(r => r.Price)</td>
+                </tr>
+            </thead>
+        </table>
     </div>
-    <div class="card-body border">
-        <div class="table-responsive border-dark">
-            <table id="dataTable" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
-                <thead>
-                    <tr>
-                        <td style="width:15px;">#</td>
-                        <td>@Html.DisplayNameFor(r => r.Id)</td>
-                        <td>@Html.DisplayNameFor(r => r.Name)</td>
-                        <td>@Html.DisplayNameFor(r => r.UserCode)</td>
-                        <td>@Html.DisplayNameFor(r => r.ProductGroupName)</td>
-                        <td>@Html.DisplayNameFor(r => r.ProviderName)</td>
-                        <td>@Html.DisplayNameFor(r => r.ModelName)</td>
-                        <td>@Html.DisplayNameFor(r => r.PricePrice)</td>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
+</div>
 
-    <script>
-        function ReloadTable() {
-            debugger;
-            var x = $("#ModelId").val();
-            $('.CustomDataTable').DataTable().ajax.reload();
-        }
-        $(function () {
+<script>
+    function ReloadTable() {
+        debugger;
+        var x = $("#ModelId").val();
+        $('.CustomDataTable').DataTable().ajax.reload();
+    }
+    $(function () {
 
-            $('.CustomDataTable').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "select": {
-                    style: 'single'
-                },
-                "autoWidth": false,
-                "responsive": true,
-                "destroy": true,
-                "language": {
-                    "url": "/js/Persian.json",
-                },
+        $('.CustomDataTable').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "select": {
+                style: 'single'
+            },
+            "autoWidth": false,
+            "responsive": true,
+            "destroy": true,
+            "language": {
+                "url": "/js/Persian.json",
+            },
 
-                "ajax": {
+            "ajax": {
 
-                    url: '/Identity/Product/SearchProduct',
-                    type: "GEt",
-                    data: function (d) { d.Name = $("#Name").val(), d.UserCode = $("#UserCode").val(), d.modelId = $("#ModelId").val() },
-                    dataType: "json"
-                },
+                url: '/Identity/Product/SearchProduct',
+                type: "GEt",
+                data: function (d) { d.Name = $("#Name").val(), d.UserCode = $("#UserCode").val(), d.modelId = $("#ModelId").val() },
+                dataType: "json"
+            },
 
-                "columns": [
+            "columns": [
 
-                    { "data": null, className: "text-center ", "render": function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
-                    { "data": "id", className: "text-center ", visible: false },
-                    { "data": "name", className: "text-center " },
-                    { "data": "userCode", className: "text-center " },
-                    { "data": "productGroupName", className: "text-center " },
-                    { "data": "providerName", className: "text-center " },
-                    { "data": "modelName", className: "text-center " },
-                    { "data": "pricePrice", className: "text-center " }
-                ],
-            });
+                { "data": null, className: "text-center ", "render": function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
+                { "data": "id", className: "text-center ", visible: false },
+                { "data": "name", className: "text-center " },
+                { "data": "userCode", className: "text-center " },
+                { "data": "productGroupName", className: "text-center " },
+                { "data": "providerName", className: "text-center " },
+                { "data": "modelName", className: "text-center " },
+                { "data": "price", className: "text-center " }
+            ],
         });
-    </script>
+    });
+</script>

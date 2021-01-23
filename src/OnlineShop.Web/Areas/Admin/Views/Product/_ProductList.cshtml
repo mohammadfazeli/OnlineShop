@@ -1,11 +1,7 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto
 
-<div class="card _borderTop  _shadow">
-<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Views/Product/_ProductList.cshtml
-    <div class="card-header ">
-=======
+<div class="card _borderTop  _shadow ">
     <div class="card-header bg-light">
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Views/Product/_ProductList.cshtml
         <partial name="_CardHeader" model="CardHeaderTye.Index" />
     </div>
 
@@ -29,15 +25,15 @@
             </table>
         </div>
     </div>
-    <!-- /.card-body -->
 </div>
+    <!-- /.card-body -->
 
-<script>
+    <script>
 
     function ReloadTable() {
         debugger;
         $('#dataTable').DataTable().ajax.reload();
-    }
+        }
        $(function () {
 
            $('.CustomDataTable').DataTable({
@@ -72,20 +68,15 @@
                             "render": function (data, type, row, meta) {
                                 return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
                                     , [
-<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Views/Product/_ProductList.cshtml
                                           '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductSpecification" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSpecification</a>  '
                                         , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductRelated" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductRelated</a>  '
                                         , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductSalePrice" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSalePrice</a>  '
-=======
-                                          '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "ProductDetail" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductDetail</a>  '
-                                        , '<a  class="dropdown-item text-right"  href="/' + "Identity" + '/' + "ProductSpecification" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSpecification</a>  '
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Views/Product/_ProductList.cshtml
 
                                     ]
-                                );
-                            }
-                        }
+                                )
+                       }
+                   }
                ]
-            });
-        });
-</script>
+           });
+       });
+    </script>

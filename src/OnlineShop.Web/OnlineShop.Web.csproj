@@ -2195,10 +2195,10 @@
     <Folder Include="Areas\WareHouse\Data\" />
     <Folder Include="Areas\WareHouse\Models\" />
     <Folder Include="Areas\WareHouse\Views\" />
-<<<<<<< HEAD
+
     <Folder Include="Views\Card\" />
-=======
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
+
+
     <Folder Include="wwwroot\Images\Products\" />
   </ItemGroup>
 

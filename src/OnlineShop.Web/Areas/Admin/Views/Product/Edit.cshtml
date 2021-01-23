@@ -2,19 +2,11 @@
 
 <partial name="_CustomValidationSummary" />
 
-<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Views/Product/Edit.cshtml
-<form asp-action="Edit" method="post" enctype="multipart/form-data">
-    <div class="card _borderTop  _shadow ">
-        @Html.HiddenFor(r => r.Id)
-        <div class="card-header bg-light">
-            <partial name="_CardHeader" model="CardHeaderTye.Edit" />
-=======
 <form asp-action="Edit" method="post">
     @Html.HiddenFor(x => x.Id)
     <div class="card _borderTop  _shadow ">
         <div class="card-header bg-light">
             <partial name="_CardHeader" model="CardHeaderTye.Create" />
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Views/ProductDetail/Edit.cshtml
         </div>
         <div class="card-body">
             <div class="row">

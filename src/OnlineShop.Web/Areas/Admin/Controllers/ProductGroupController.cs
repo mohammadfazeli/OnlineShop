@@ -2,11 +2,7 @@
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD:src/OnlineShop.Web/Areas/Admin/Controllers/ProductGroupController.cs
 using OnlineShop.Areas.Admin;
-=======
-using OnlineShop.Areas.Identity;
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2:src/OnlineShop.Web/Areas/Identity/Controllers/ProductGroupController.cs
 using OnlineShop.Common.Enums;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
@@ -20,21 +16,21 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 {
     [Area(AreaConstants.AdminArea)]
     [AllowAnonymous]
-    [BreadCrumb(Title = "گروه محصول", UseDefaultRouteUrl = true, Order = 0)]
-    [Menu(IconType = IconType.FontAwesome5, Icon = "fab fa-codepen", Name = nameof(Resource.Resource.ProductGroup), order = 3)]
-    public class ProductGroupController : BaseController
+    [BreadCrumb(Title = "گروه محصول",UseDefaultRouteUrl = true,Order = 0)]
+    [Menu(IconType = IconType.FontAwesome5,Icon = "fab fa-codepen",Name = nameof(Resource.Resource.ProductGroup),order = 3)]
+    public class ProductGroupController:BaseController
     {
         private readonly IProductGroupService _ProductGroupService;
         private readonly IMapper _mapper;
 
-        public ProductGroupController(IProductGroupService ProductGroupService, IMapper mapper)
+        public ProductGroupController(IProductGroupService ProductGroupService,IMapper mapper)
         {
             _ProductGroupService = ProductGroupService;
             _mapper = mapper;
         }
 
-        [BreadCrumb(Title = "لیست گروه محصولات", TitleResourceType = typeof(Resource.Resource), Order = 1)]
-        [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-list", Name = nameof(Resource.Resource.ProductGroupList), order = 1)]
+        [BreadCrumb(Title = "لیست گروه محصولات",TitleResourceType = typeof(Resource.Resource),Order = 1)]
+        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-list",Name = nameof(Resource.Resource.ProductGroupList),order = 1)]
         public IActionResult Index()
         {
             return View();
@@ -42,17 +38,17 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 
         public JsonResult ReadData()
         {
-            var list = _mapper.Map(_ProductGroupService.GetAll().ToList(), new List<ProductGroupDto>());
+            var list = _mapper.Map(_ProductGroupService.GetAll().ToList(),new List<ProductGroupDto>());
 
             return Json(new { Data = list });
         }
 
         [HttpGet]
-        [ActionInfo(IconType = IconType.FontAwesome4, Icon = "fas fa-edit", Name = nameof(Resource.Resource.ProductGroupEdit))]
+        [ActionInfo(IconType = IconType.FontAwesome4,Icon = "fas fa-edit",Name = nameof(Resource.Resource.ProductGroupEdit))]
         public IActionResult Edit(Guid id)
         {
             var x = _ProductGroupService.Get(id);
-            var ProductGroupDTo = _mapper.Map<ProductGroup, ProductGroupDto>(x);
+            var ProductGroupDTo = _mapper.Map<ProductGroup,ProductGroupDto>(x);
             return View(ProductGroupDTo);
         }
 
@@ -60,7 +56,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ProductGroupDto dto)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return View(dto);
             }
@@ -70,7 +66,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Menu(IconType = IconType.FontAwesome5, Icon = "fas fa-plus", Name = nameof(Resource.Resource.ProductGroupAdd), order = 2)]
+        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductGroupAdd),order = 2)]
         public IActionResult Create()
         {
             return View();
@@ -80,7 +76,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(ProductGroupDto dto)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return View(dto);
             }

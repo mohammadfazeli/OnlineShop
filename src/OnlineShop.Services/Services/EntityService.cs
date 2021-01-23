@@ -114,54 +114,38 @@ namespace OnlineShop.Services.Services
             return await _repository.RemoveAsync(entity);
         }
 
-        public virtual DeleteStatusvm Remove(Guid id)
-        {
-            var entity = _repository.Get(id);
-            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
-            return _repository.Remove(entity);
-        }
-
-        public virtual async Task<DeleteStatusvm> RemoveAsync(Guid id)
-        {
-            var entity = _repository.Get(id);
-            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
-            return await _repository.RemoveAsync(entity);
-        }
-
         public virtual DeleteStatusvm Delete(Guid id)
         {
             var entity = _repository.Get(id);
-<<<<<<< HEAD
+
             if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             _unitOfWork.SaveChanges();
             return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Valid = true,RetrunId = entity.Id };
-=======
-            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
+
+            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             _unitOfWork.SaveChanges();
-            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Valid = true,RetrunId = entity.Id };
         }
 
         public virtual async Task<DeleteStatusvm> DeleteAsync(Guid id)
         {
             var entity = await _repository.GetAsync(id);
-<<<<<<< HEAD
+
             if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             await _unitOfWork.SaveChangesAsync();
             return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Valid = true,RetrunId = entity.Id };
-=======
-            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
+
+            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Valid = false,RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             await _unitOfWork.SaveChangesAsync();
-            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Valid = true, RetrunId = entity.Id };
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Valid = true,RetrunId = entity.Id };
         }
 
         #endregion CUD

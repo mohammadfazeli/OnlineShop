@@ -31,7 +31,6 @@ namespace OnlineShop.IocConfig
 
             #region Service
 
-<<<<<<< HEAD
             services.AddScoped<IProductGroupService,ProductGroupService>();
             services.AddScoped<IColorService,ColorService>();
             services.AddScoped<IProductService,ProductService>();
@@ -42,19 +41,6 @@ namespace OnlineShop.IocConfig
             services.AddScoped<IProductSpecificationService,ProductSpecificationService>();
             services.AddScoped<IItemSectionService,ItemSectionService>();
             services.AddScoped<IProductRelatedService,ProductRelatedService>();
-=======
-            services.AddScoped<IPartService, PartService>();
-            services.AddScoped<IProductGroupService, ProductGroupService>();
-            services.AddScoped<IColorService, ColorService>();
-            services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IModelService, ModelService>();
-            services.AddScoped<IAttachmentService, AttachmentService>();
-            services.AddScoped<IProviderService, ProviderService>();
-            services.AddScoped<IProductDetailService, ProductDetailService>();
-            services.AddScoped<IProductPriceModificatinService, ProductPriceModificatinService>();
-            services.AddScoped<IProductSpecificationService, ProductSpecificationService>();
-            services.AddScoped<IItemSectionService, ItemSectionService>();
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 
             #endregion Service
 

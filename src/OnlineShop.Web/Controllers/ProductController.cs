@@ -1,13 +1,8 @@
-﻿using AspNetCore.Unobtrusive.Ajax;
-using DNTBreadCrumb.Core;
+﻿using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
-<<<<<<< HEAD
 using OnlineShop.Common.AdminToolkit;
-=======
-using OnlineShop.Common.IdentityToolkit;
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area;
 using System;
@@ -32,10 +27,7 @@ namespace OnlineShop.Web.Controllers
         public IActionResult Index(Guid? Id = null)
         {
             var model = _productService.GetGeneralInfo(id: Id.Value);
-<<<<<<< HEAD
-=======
             _toastNotification.AddSuccessToastMessage("اولین پیغام");
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
             return View(model);
         }
 

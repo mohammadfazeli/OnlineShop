@@ -5266,7 +5266,7 @@
                      *      <div class="os-scrollbar-corner"></div>
                      *  </div>
                      *
-                     * =====================================================================================
+                     * =
                      * 
                      * On a Textarea Element The if checks only whether:
                      * - the targetElement has the class "os-textarea" 

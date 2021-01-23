@@ -16,12 +16,7 @@ using OnlineShop.IocConfig.CustomMapping;
 using OnlineShop.ViewModels.Admin.Settings;
 using OnlineShop.Web.Classes;
 using OnlineShop.Web.Hubs;
-<<<<<<< HEAD
 using System.Threading;
-=======
-using System.Collections.Generic;
-using System.Globalization;
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace OnlineShop
@@ -54,7 +49,6 @@ namespace OnlineShop
                 {
                     options.DataAnnotationLocalizerProvider = (type,factory) =>
                         factory.Create(typeof(Resource.Resource));
-<<<<<<< HEAD
                 })
             .AddNToastNotifyToastr(new ToastrOptions()
             {
@@ -62,15 +56,6 @@ namespace OnlineShop
                 CloseButton = true,
                 ShowDuration = 5,
             });
-            //.AddNToastNotifyNoty();
-=======
-                }).AddNToastNotifyToastr(new ToastrOptions()
-                {
-                    Rtl = true,
-                    CloseButton = true,
-                    ShowDuration = 5,
-                });
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
             services.AddUnobtrusiveAjax();
             //services.AddUnobtrusiveAjax(useCdn: true, injectScriptIfNeeded: false);
             services.AddDNTCommonWeb();
@@ -92,7 +77,6 @@ namespace OnlineShop
             {
                 app.UseHsts();
             }
-<<<<<<< HEAD
             //app.UseHttpsRedirection();
 
             Thread.CurrentThread.CurrentUICulture = PersianDateExtensionMethods.GetPersianCulture();
@@ -116,42 +100,6 @@ namespace OnlineShop
             // };
             app.UseNToastNotify();
             // app.UseRequestLocalization(options);
-=======
-            app.UseHttpsRedirection();
-
-            //var persianCulture = new CustomPersianCulture
-            //{
-            //    DateTimeFormat =
-            //        {
-            //            ShortDatePattern = "yyyy/MM/dd",
-            //            LongDatePattern = "dddd d MMMM yyyy",
-            //            AMDesignator = "صبح",
-            //            PMDesignator = "عصر"
-            //        }
-            //};
-            //Thread.CurrentThread.CurrentCulture = persianCulture;
-            //Thread.CurrentThread.CurrentUICulture = persianCulture;
-
-            var supportedCultures = new List<CultureInfo>()
-            {
-                new CustomPersianCulture(),
-                new CultureInfo("en-US")
-            };
-            var options = new RequestLocalizationOptions()
-            {
-                DefaultRequestCulture = new RequestCulture("fa-IR"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures,
-                RequestCultureProviders = new List<IRequestCultureProvider>()
-                {
-                    new QueryStringRequestCultureProvider(),
-                    new CookieRequestCultureProvider()
-                }
-            };
-            app.UseNToastNotify();
-
-            app.UseRequestLocalization(options);
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 
             app.UseContentSecurityPolicy();
 

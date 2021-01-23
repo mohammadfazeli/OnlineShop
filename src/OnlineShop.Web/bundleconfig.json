@@ -41,7 +41,6 @@
       "wwwroot/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css",
       "wwwroot/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
       "wwwroot/plugins/dropzone/min/dropzone.min.css"
-
     ],
     "minify": {
       "enabled": true,

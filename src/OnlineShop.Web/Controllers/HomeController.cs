@@ -3,13 +3,7 @@ using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
-<<<<<<< HEAD
 using OnlineShop.Common.AdminToolkit;
-=======
-using OnlineShop.Common.IdentityToolkit;
-using OnlineShop.Services.Services;
-using OnlineShop.Web.Areas.Identity.Controllers;
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
 
 namespace OnlineShop.Web.Controllers
 {
@@ -23,19 +17,7 @@ namespace OnlineShop.Web.Controllers
             _toastNotification = toastNotification;
         }
 
-<<<<<<< HEAD
         [BreadCrumb(Title = "ایندکس",Order = 1)]
-        public IActionResult Index()
-        {
-            _toastNotification.AddSuccessToastMessage();
-            _toastNotification.AddErrorToastMessage("Test Erro",new NotyOptions()
-            {
-                Timeout = 0
-            });
-            _toastNotification.AddInfoToastMessage("Dont get confused. <br /> <strong>You were redirected from Contact Page. <strong/>");
-            _toastNotification.AddSuccessToastMessage("با موفقیت انجام شد.");
-=======
-        [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
             _toastNotification.AddSuccessToastMessage("Same for success message");
@@ -51,7 +33,6 @@ namespace OnlineShop.Web.Controllers
             //Error
             _toastNotification.AddErrorToastMessage();
 
->>>>>>> 61412acc67ab38b6674945c0f58f2656ed110af2
             return View();
         }
 
@@ -88,24 +69,6 @@ namespace OnlineShop.Web.Controllers
         private IActionResult SweetAlert(string title,string message,string type)
         {
             return Content($"swal ('{title}',  '{message}',  '{type}')","text/javascript");
-        }
-
-        [HttpPost]
-        [AjaxOnly]
-        public IActionResult AjaxMethod(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                return SweetAlert("Oops!", "Please enter your name.", "warning");
-            }
-            _toastNotification.AddSuccessToastMessage("با موفقیت انجام شد.");
-
-            return View();
-        }
-
-        private IActionResult SweetAlert(string title, string message, string type)
-        {
-            return Content($"swal ('{title}',  '{message}',  '{type}')", "text/javascript");
         }
     }
 }
