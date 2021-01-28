@@ -13,6 +13,7 @@ using OnlineShop.ViewModels.Area.Base.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace OnlineShop.Services.Services.Area.Base
 {
@@ -68,43 +69,50 @@ namespace OnlineShop.Services.Services.Area.Base
         public IQueryable<ProdcutListFullInfoDto> SearchProduct(ProductSearch productSearch)
         {
             if(string.IsNullOrEmpty(productSearch.Name) && productSearch.ModelId == null && string.IsNullOrEmpty(productSearch.UserCode))
-
-                if(string.IsNullOrEmpty(productSearch.Name) && productSearch.ModelId == null && string.IsNullOrEmpty(productSearch.UserCode))
-
-                    return new List<ProdcutListFullInfoDto>().AsQueryable();
+                return new List<ProdcutListFullInfoDto>().AsQueryable();
 
             var result = (from p in GetAllNoTracking()
-                          join pg in _productGroups.AsNoTracking() on p.ProductGroupId equals pg.Id
+                          join m in _models.AsNoTracking() on p.ModelId equals m.Id into model_result
+                          from m in model_result.DefaultIfEmpty()
 
-                          join m in _models.AsNoTracking() on p.ModelId equals m.Id
-                          join pr in _providers.AsNoTracking() on p.ProviderId equals pr.Id
-                          join pdp in _productSalePrices.AsNoTracking() on p.Id equals pdp.ProductId
-                          where !p.IsDeleted && !pdp.IsDeleted && !p.InActive && !pdp.InActive &&
-                          DateTime.Now >= pdp.FromDate &&
+                          join pg in _productGroups.AsNoTracking() on p.ProductGroupId equals pg.Id into productGroup_result
+                          from pg in productGroup_result.DefaultIfEmpty()
+
+                          join pr in _providers.AsNoTracking() on p.ProviderId equals pr.Id into provider_result
+                          from pr in provider_result.DefaultIfEmpty()
+
+                          where !p.IsDeleted && !p.InActive &&
                           (string.IsNullOrEmpty(productSearch.Name) || p.Name.Contains(productSearch.Name)) &&
                           (productSearch.ModelId == null || m.Id == productSearch.ModelId) &&
                           (string.IsNullOrEmpty(productSearch.UserCode) || p.UserCode.Contains(productSearch.UserCode))
+
+                          let product = _productSalePrices.AsNoTracking()
+                                .Where(row => row.ProductId == p.Id && !row.IsDeleted && !row.InActive)
+                                .OrderByDescending(o => o.CreateOn)
+                                .FirstOrDefault()
+
                           select new ProdcutListFullInfoDto()
                           {
                               Id = p.Id,
                               Name = p.Name,
-                              ProductGroupName = pg.Name,
                               UserCode = p.UserCode,
-                              ProviderName = pr.Name,
-                              ModelName = m.Name,
-                              Price = pdp.NewPrice,
-                              OldPrice = pdp.OldPrice,
+                              ProductGroupName = pg != null ? pg.Name : "",
+                              ProviderName = pr == null ? "" : pr.Name,
+                              ModelName = m == null ? "" : m.Name,
+                              Price = product.NewPrice.ToCurrency(),
+                              OldPrice = product.OldPrice.ToCurrency()
                           });
+
             return result;
         }
 
-        public decimal GetLastPrice(Guid productId)
+        public ProductSalePrice GetLastPrice(Guid productId)
         {
-            return Get(productId)
-                .ProductSalePrices.Where(p => !p.IsDeleted && !p.InActive && p.FromDate <= DateTime.Now)
+            var item = _productSalePrices.AsNoTracking()
+                .Where(p => p.ProductId == productId && !p.IsDeleted && !p.InActive)
                 .OrderByDescending(o => o != null ? o.CreateOn : new DateTime())
-                .FirstOrDefault()?
-                .NewPrice ?? 0;
+                .FirstOrDefault();
+            return item;
         }
     }
 }

@@ -20,9 +20,9 @@ namespace OnlineShop.ViewModels.Area.Base.Products
         public string ModelName { get; set; }
 
         [Display(Name = nameof(Resource.Resource.NewPrice),ResourceType = typeof(Resource.Resource))]
-        public decimal Price { get; set; }
+        public string Price { get; set; }
 
         [Display(Name = nameof(Resource.Resource.OldPrice),ResourceType = typeof(Resource.Resource))]
-        public decimal OldPrice { get; set; }
+        public string OldPrice { get; set; }
     }
 }

@@ -6,12 +6,12 @@ function TableOperation(id, area, controller, OtherLinks = ['']) {
     if (OtherLinks.length != 0 && OtherLinks[0] != '') { Links = '<hr/>' + OtherLinks.join() } else { Links = OtherLinks.join(); }
 
     return '<span class=" text-center TableOperation">' +
-        '<button type="button" class="btn btn-default fas fa-ellipsis-v  " data-toggle="dropdown"></button>' +
+        '<button type="button" class="btn btn-default fa fa-ellipsis-v  " data-toggle="dropdown"></button>' +
         '<span class="dropdown-menu">' +
-        '<a  class="dropdown-item text-right "  href="#" onclick=' + `ShowModalConfirmRemove('${area}','${controller}','${id}')` + ' >حذف <li class="fas fa-trash"></li></a>' +
-        '<a  class="dropdown-item text-right"   href="/' + area + '/' + controller + '/Edit/' + id + '"> ویرایش <li class="fas fa-edit left"></li></a>  ' +
-        '<a  class="dropdown-item text-right "  href="#"  onclick=' + `ShowModalGetDetail('${area}','${controller}','${id}')` + ' >جزئیات <li class="fas fa-info"></li></a>' +
-        '<a  class="dropdown-item text-right"   href="/' + "Admin" + '/' + "Attachment" + '/' + "PreView" + '/' + id + '"> ضمیمه ها  <li class="fas fa-images left"></li></a> ' +
+        '<a  class="dropdown-item text-right "  href="#" onclick=' + `ShowModalConfirmRemove('${area}','${controller}','${id}')` + ' > <li class="fas fa-trash"></li> حذف </a>' +
+        '<a  class="dropdown-item text-right"   href="/' + area + '/' + controller + '/Edit/' + id + '">  <li class="fas fa-edit left"></li> ویرایش </a>  ' +
+        '<a  class="dropdown-item text-right "  href="#"  onclick=' + `ShowModalGetDetail('${area}','${controller}','${id}')` + ' > <li class="fas fa-info"></li> جزئیات </a>' +
+        '<a  class="dropdown-item text-right"   href="/' + "Admin" + '/' + "Attachment" + '/' + "PreView" + '/' + id + '">   <li class="fas fa-images left"></li> ضمیمه ها </a> ' +
 
         Links.replace(/,/g, "");//replace all ',' --> ''
     //Links.replace(",", "");

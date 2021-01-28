@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="~/Layout/css/style.css" type="text/css" asp-append-version="true">*@
     <link rel="stylesheet" href="~/css/site.min.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
-
+    @*<link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">*@
     <!-- Google Font: Source Sans Pro -->
     @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
     <!-- Font Awesome Icons -->
@@ -119,61 +119,62 @@
                         </div>
                     </div>
                     <div class="col-lg-3 text-right col-md-3">
-                        <ul class="nav-right">
-                            <li class="heart-icon">
-                                <a href="#">
-                                    <i class="icon_heart_alt"></i>
-                                    <span>1</span>
-                                </a>
-                            </li>
-                            <li class="cart-icon">
-                                <a href="#">
-                                    <i class="icon_bag_alt"></i>
-                                    <span>3</span>
-                                </a>
-                                <div class="cart-hover">
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                        <vc:customer-card-item></vc:customer-card-item>
+                        @*<ul class="nav-right">
+                                <li class="heart-icon">
+                                    <a href="#">
+                                        <i class="icon_heart_alt"></i>
+                                        <span>1</span>
+                                    </a>
+                                </li>
+                                <li class="cart-icon">
+                                    <a href="#">
+                                        <i class="icon_bag_alt"></i>
+                                        <span>3</span>
+                                    </a>
+                                    <div class="cart-hover">
+                                        <div class="select-items">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
+                                                        <td class="si-text">
+                                                            <div class="product-selected">
+                                                                <p>$60.00 x 1</p>
+                                                                <h6>Kabino Bedside Table</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td class="si-close">
+                                                            <i class="ti-close"></i>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
+                                                        <td class="si-text">
+                                                            <div class="product-selected">
+                                                                <p>$60.00 x 1</p>
+                                                                <h6>Kabino Bedside Table</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td class="si-close">
+                                                            <i class="ti-close"></i>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="select-total">
+                                            <span>total:</span>
+                                            <h5>$120.00</h5>
+                                        </div>
+                                        <div class="select-button">
+                                            <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                                            <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                        </div>
                                     </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>$120.00</h5>
-                                    </div>
-                                    <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="cart-price">$150.00</li>
-                        </ul>
+                                </li>
+                                <li class="cart-price">$150.00</li>
+                            </ul>*@
                     </div>
                 </div>
             </div>
@@ -198,7 +199,7 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a href="./shop.html">Shop</a></li>
                         <li>
                             <a href="#">Collection</a>
@@ -309,17 +310,17 @@
     </footer>
     <!-- Footer Section End -->
     <!-- Js Plugins -->
-    @*<script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/bootstrap.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery-ui.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.countdown.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.nice-select.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.zoom.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.dd.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.slicknav.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/owl.carousel.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/main.js" asp-append-version="true"></script>*@
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/jquery-ui.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/jquery.countdown.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/jquery.nice-select.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/jquery.zoom.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/jquery.dd.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/jquery.slicknav.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/owl.carousel.min.js" asp-append-version="true"></script>
+    <script src="~/Layout/js/main.js" asp-append-version="true"></script>
+    @*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
 
     <!-- Js Plugins -->
     @*<script src="/dist/js/uikit.js" asp-append-version="true"></script>*@
@@ -355,7 +356,7 @@
                             }
 
                         }
-                                            });
+                                                                                                });
             });
 
             $('.adaptive').lightSlider({

@@ -54,8 +54,8 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [BreadCrumb(Title = "مشاهده محصولات",Order = 1)]
-        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-list",Name = nameof(Resource.Resource.ProductGroupList),order = 1)]
+        [BreadCrumb(Title = "لیست محصولات",Order = 1)]
+        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-list",Name = nameof(Resource.Resource.ProductList),order = 1)]
         public IActionResult Index() => View();
 
         public JsonResult ReadData() => Json(new { Data = _productService.GetList() });
@@ -65,7 +65,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductPreView),order = 2)]
         public async Task<IActionResult> PreView(int page = 1) => View(await PaginatedList<ProdcutListDto>.CreateAsync(_productService.GetList(),page));
 
-        [ActionInfo(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductGroupAdd),order = 2)]
+        [ActionInfo(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductAdd),order = 2)]
         [HttpGet]
         public async Task<IActionResult> Create(Guid? id = null)
         {
@@ -109,7 +109,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [ActionInfo(IconType = IconType.FontAwesome4,Icon = "fas fa-edit",Name = nameof(Resource.Resource.ProductGroupEdit))]
+        [ActionInfo(IconType = IconType.FontAwesome4,Icon = "fas fa-edit",Name = nameof(Resource.Resource.ProductEdit))]
         public IActionResult Edit(Guid id)
         {
             var x = _productService.Get(id);

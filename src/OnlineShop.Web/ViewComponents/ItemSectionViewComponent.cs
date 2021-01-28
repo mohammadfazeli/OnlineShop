@@ -16,6 +16,7 @@ namespace OnlineShop.Web.ViewComponents
         public IViewComponentResult Invoke(ItemSectionType itemSectionType)
         {
             var itemSections = _itemSectionService.GetList(itemSectionType);
+
             return View(itemSections);
         }
     }

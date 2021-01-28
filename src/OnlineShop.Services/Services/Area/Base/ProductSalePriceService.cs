@@ -7,6 +7,7 @@ using OnlineShop.ViewModels.Area.Base.ProductSalePrice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Services.Services.Area.Base
 {
@@ -28,6 +29,14 @@ namespace OnlineShop.Services.Services.Area.Base
         public ProductSalePriceListDto GetInfo(Guid id)
         {
             return _mapper.Map(Get(id),new ProductSalePriceListDto());
+        }
+
+        public ProductSalePrice GetLastPrice(Guid productId)
+        {
+            var item = GetAllNoTracking().Where(p => p.ProductId == productId && !p.IsDeleted && !p.InActive)
+                .OrderByDescending(o => o != null ? o.CreateOn : new DateTime())
+                .FirstOrDefault();
+            return item;
         }
     }
 }

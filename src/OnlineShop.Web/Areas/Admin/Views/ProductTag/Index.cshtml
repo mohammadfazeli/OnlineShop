@@ -1,0 +1,20 @@
+﻿@model OnlineShop.ViewModels.Area.Base.ProductTag.ProductTagListDto
+
+<div id="ProductGeneralInformation" class="card card-outline card-green  GeneralInformation">
+</div>
+
+<partial name="_ProductTagList" model="@Model" />
+
+<script>
+    $(function () {
+        debugger;
+        $.ajax({
+            type: "GET",
+            url: "/" + "Admin" + "/" + "Product" + "/GetInfo/" + '@Model.ProductId',
+            success: function (viewHTML) {
+                $("#ProductGeneralInformation").html(viewHTML);
+            },
+            error: function (errorData) { onError(errorData); }
+        });
+    });
+</script>

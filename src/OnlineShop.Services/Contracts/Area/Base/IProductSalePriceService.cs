@@ -10,5 +10,7 @@ namespace OnlineShop.Services.Contracts.Area.Base
         List<ProductSalePriceListDto> GetList(Guid productId);
 
         ProductSalePriceListDto GetInfo(Guid id);
+
+        ProductSalePrice GetLastPrice(Guid productId);
     }
 }

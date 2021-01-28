@@ -1,6 +1,6 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionDto
 
-<partial name="~/Areas/Identity/Views/Product/_SearchProduct.cshtml" />
+<partial name="~/Areas/Admin/Views/Product/_SearchProduct.cshtml" />
 
 <form asp-action="Create" method="post">
     <partial name="_CustomValidationSummary" />
@@ -52,7 +52,7 @@
     function TransferSelectedItem() {
         debugger;
         if ($('.CustomDataTable').DataTable().rows({ selected: true }).count() < 1) {
-            alert("موردی انتخاب نشده");
+            toastr.error('موردی انتخاب نشده');
         }
         var items = $('.CustomDataTable').DataTable().rows({ selected: true }).data();
         var ids = [];

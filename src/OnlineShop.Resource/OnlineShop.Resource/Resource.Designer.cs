@@ -349,7 +349,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to موارد بخش های سایت.
+        ///   Looks up a localized string similar to  بخش های سایت.
         /// </summary>
         public static string ItemSection {
             get {
@@ -358,7 +358,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to افزودن موارد بخش های سایت.
+        ///   Looks up a localized string similar to افزودن بخش های سایت.
         /// </summary>
         public static string ItemSectionAdd {
             get {
@@ -367,7 +367,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ویرایش موارد بخش های سایت.
+        ///   Looks up a localized string similar to ویرایش بخش های سایت.
         /// </summary>
         public static string ItemSectionEdit {
             get {
@@ -376,7 +376,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لیست موارد بخش های سایت.
+        ///   Looks up a localized string similar to لیست بخش های سایت.
         /// </summary>
         public static string ItemSectionList {
             get {
@@ -594,6 +594,24 @@ namespace OnlineShop.Resource {
         /// <summary>
         ///   Looks up a localized string similar to قیمت گذازی.
         /// </summary>
+        public static string ProductPriceModificatin {
+            get {
+                return ResourceManager.GetString("ProductPriceModificatin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to محصولات مرتبط.
+        /// </summary>
+        public static string ProductRelated {
+            get {
+                return ResourceManager.GetString("ProductRelated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to قیمت فروش محصول.
+        /// </summary>
         public static string ProductSalePrice {
             get {
                 return ResourceManager.GetString("ProductSalePrice", resourceCulture);
@@ -628,16 +646,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to محصولات مرتبط.
-        /// </summary>
-        public static string ProductRelated {
-            get {
-                return ResourceManager.GetString("ProductRelated", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to وِیژگی محصول.
+        ///   Looks up a localized string similar to مشخصات محصول.
         /// </summary>
         public static string ProductSpecification {
             get {
@@ -646,7 +655,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to افزودن ویژگی محصول.
+        ///   Looks up a localized string similar to افزودن مشخصات محصول.
         /// </summary>
         public static string ProductSpecificationAdd {
             get {
@@ -655,7 +664,7 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ویرایش ویژگی محصول.
+        ///   Looks up a localized string similar to ویرایش مشخصات محصول.
         /// </summary>
         public static string ProductSpecificationEdit {
             get {
@@ -664,11 +673,38 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لیست ویژگی های محصول.
+        ///   Looks up a localized string similar to لیست مشخصات محصول.
         /// </summary>
         public static string ProductSpecificationList {
             get {
                 return ResourceManager.GetString("ProductSpecificationList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن برچسب های محصول.
+        /// </summary>
+        public static string ProductTagAdd {
+            get {
+                return ResourceManager.GetString("ProductTagAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش برچسب های محصول.
+        /// </summary>
+        public static string ProductTagEdit {
+            get {
+                return ResourceManager.GetString("ProductTagEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست برچسب های محصول.
+        /// </summary>
+        public static string ProductTags {
+            get {
+                return ResourceManager.GetString("ProductTags", resourceCulture);
             }
         }
         
@@ -745,6 +781,42 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to سایز.
+        /// </summary>
+        public static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to افزودن سایز.
+        /// </summary>
+        public static string SizeAdd {
+            get {
+                return ResourceManager.GetString("SizeAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش سایز.
+        /// </summary>
+        public static string SizeEdit {
+            get {
+                return ResourceManager.GetString("SizeEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لیست سایزها.
+        /// </summary>
+        public static string SizeList {
+            get {
+                return ResourceManager.GetString("SizeList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ترتیب نمایش.
         /// </summary>
         public static string SortOrder {
@@ -786,6 +858,15 @@ namespace OnlineShop.Resource {
         public static string submit {
             get {
                 return ResourceManager.GetString("submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to برچسب.
+        /// </summary>
+        public static string Tag {
+            get {
+                return ResourceManager.GetString("Tag", resourceCulture);
             }
         }
         

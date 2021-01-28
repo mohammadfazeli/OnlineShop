@@ -1,0 +1,14 @@
+﻿@inject OnlineShop.Services.Contracts.Area.Base.IAttachmentService AttachmentService
+
+@model Guid
+
+@{
+    var photos = AttachmentService.GetPhotoUrl(Model).FirstOrDefault();
+}
+@{
+    @*<img class="card-img-top" src="@photos" asp-append-version="true" alt="slide">*@
+
+    <a asp-action="index" asp-controller="Product" asp-route-id="@Model">
+        <img src="@photos" alt="Image" style="width:70px; height:70px;" asp-append-version="true">
+    </a>
+}

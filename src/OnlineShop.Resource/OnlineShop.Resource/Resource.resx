@@ -214,16 +214,16 @@
     <value>اجباری است</value>
   </data>
   <data name="ItemSection" xml:space="preserve">
-    <value>موارد بخش های سایت</value>
+    <value> بخش های سایت</value>
   </data>
   <data name="ItemSectionAdd" xml:space="preserve">
-    <value>افزودن موارد بخش های سایت</value>
+    <value>افزودن بخش های سایت</value>
   </data>
   <data name="ItemSectionEdit" xml:space="preserve">
-    <value>ویرایش موارد بخش های سایت</value>
+    <value>ویرایش بخش های سایت</value>
   </data>
   <data name="ItemSectionList" xml:space="preserve">
-    <value>لیست موارد بخش های سایت</value>
+    <value>لیست بخش های سایت</value>
   </data>
   <data name="ItemSectionType" xml:space="preserve">
     <value>نوع بخش مورد نظر</value>
@@ -297,29 +297,41 @@
   <data name="ProductPriceModificatin" xml:space="preserve">
     <value>قیمت گذازی</value>
   </data>
-  <data name="ProductPriceModificatinAdd" xml:space="preserve">
-    <value>افزودن قیمت گذاری</value>
-  </data>
-  <data name="ProductPriceModificatinEdit" xml:space="preserve">
-    <value>ویرایش قیمت گذاری</value>
-  </data>
-  <data name="ProductPriceModificatinList" xml:space="preserve">
-    <value>لیست قیمت گذاری</value>
-  </data>
   <data name="ProductRelated" xml:space="preserve">
     <value>محصولات مرتبط</value>
   </data>
+  <data name="ProductSalePrice" xml:space="preserve">
+    <value>قیمت فروش محصول</value>
+  </data>
+  <data name="ProductSalePriceAdd" xml:space="preserve">
+    <value>افزودن قیمت گذاری</value>
+  </data>
+  <data name="ProductSalePriceEdit" xml:space="preserve">
+    <value>ویرایش قیمت گذاری</value>
+  </data>
+  <data name="ProductSalePriceList" xml:space="preserve">
+    <value>لیست قیمت گذاری</value>
+  </data>
   <data name="ProductSpecification" xml:space="preserve">
-    <value>وِیژگی محصول</value>
+    <value>مشخصات محصول</value>
   </data>
   <data name="ProductSpecificationAdd" xml:space="preserve">
-    <value>افزودن ویژگی محصول</value>
+    <value>افزودن مشخصات محصول</value>
   </data>
   <data name="ProductSpecificationEdit" xml:space="preserve">
-    <value>ویرایش ویژگی محصول</value>
+    <value>ویرایش مشخصات محصول</value>
   </data>
   <data name="ProductSpecificationList" xml:space="preserve">
-    <value>لیست ویژگی های محصول</value>
+    <value>لیست مشخصات محصول</value>
+  </data>
+  <data name="ProductTagAdd" xml:space="preserve">
+    <value>افزودن برچسب های محصول</value>
+  </data>
+  <data name="ProductTagEdit" xml:space="preserve">
+    <value>ویرایش برچسب های محصول</value>
+  </data>
+  <data name="ProductTags" xml:space="preserve">
+    <value>لیست برچسب های محصول</value>
   </data>
   <data name="Provider" xml:space="preserve">
     <value>تامین کننده</value>
@@ -345,6 +357,18 @@
   <data name="SelectedOneItem" xml:space="preserve">
     <value>یک گزینه انتخاب کنید</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>سایز</value>
+  </data>
+  <data name="SizeAdd" xml:space="preserve">
+    <value>افزودن سایز</value>
+  </data>
+  <data name="SizeEdit" xml:space="preserve">
+    <value>ویرایش سایز</value>
+  </data>
+  <data name="SizeList" xml:space="preserve">
+    <value>لیست سایزها</value>
+  </data>
   <data name="SortOrder" xml:space="preserve">
     <value>ترتیب نمایش</value>
   </data>
@@ -359,6 +383,9 @@
   </data>
   <data name="submit" xml:space="preserve">
     <value>ثبت</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>برچسب</value>
   </data>
   <data name="Tel" xml:space="preserve">
     <value>تلفن</value>

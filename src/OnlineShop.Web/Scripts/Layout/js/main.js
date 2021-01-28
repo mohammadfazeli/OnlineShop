@@ -42,8 +42,8 @@
     });
 
     /*------------------
-		Navigation
-	--------------------*/
+        Navigation
+    --------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
@@ -73,8 +73,8 @@
         loop: true,
         margin: 25,
         nav: true,
-        items: 4,
-        dots: true,
+        items: 2,
+        dots: false,
         navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
         smartSpeed: 1200,
         autoHeight: false,
@@ -192,8 +192,8 @@
         $("#tech").data("dd");
     });
     /*-------------------
-		Range Slider
-	--------------------- */
+        Range Slider
+    --------------------- */
     var rangeSlider = $(".price-range"),
         minamount = $("#minamount"),
         maxamount = $("#maxamount"),
@@ -213,21 +213,21 @@
     maxamount.val('$' + rangeSlider.slider("values", 1));
 
     /*-------------------
-		Radio Btn
-	--------------------- */
+        Radio Btn
+    --------------------- */
     $(".fw-size-choose .sc-item label, .pd-size-choose .sc-item label").on('click', function () {
         $(".fw-size-choose .sc-item label, .pd-size-choose .sc-item label").removeClass('active');
         $(this).addClass('active');
     });
 
     /*-------------------
-		Nice Select
+        Nice Select
     --------------------- */
     $('.sorting, .p-show').niceSelect();
 
     /*------------------
-		Single Product
-	--------------------*/
+        Single Product
+    --------------------*/
     $('.product-thumbs-track .pt').on('click', function () {
         $('.product-thumbs-track .pt').removeClass('active');
         $(this).addClass('active');
@@ -242,8 +242,8 @@
     $('.product-pic-zoom').zoom();
 
     /*-------------------
-		Quantity change
-	--------------------- */
+        Quantity change
+    --------------------- */
     var proQty = $('.pro-qty');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');

@@ -58,10 +58,10 @@
             @foreach(var item in menuItem.menuItems)
             {
 
-                <li class="nav-item">
+                <li class="nav-item  ">
                     <a asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action" class="nav-link   @(ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller  && ViewContext.RouteData.Values["action"].ToString()==item.Action? "active":"")">
-                        <i class=" fas fa-circle-o nav-icon"></i>
-                        <p>@item.ActionName</p>
+                        <p class=" ">@item.ActionName</p>
+                        <i class="  fa fa-minus nav-icon"></i>
                     </a>
                 </li>
             }

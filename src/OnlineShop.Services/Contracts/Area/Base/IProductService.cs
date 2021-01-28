@@ -17,6 +17,6 @@ namespace OnlineShop.Services.Contracts.Area.Base
 
         IQueryable<ProdcutListFullInfoDto> SearchProduct(ProductSearch productSearch);
 
-        decimal GetLastPrice(Guid productId);
+        ProductSalePrice GetLastPrice(Guid productId);
     }
 }

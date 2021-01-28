@@ -20,18 +20,18 @@ namespace OnlineShop.Web.Controllers
         [BreadCrumb(Title = "ایندکس",Order = 1)]
         public IActionResult Index()
         {
-            _toastNotification.AddSuccessToastMessage("Same for success message");
-            // Success with default options (taking into account the overwritten defaults when initializing in Startup.cs)
-            _toastNotification.AddSuccessToastMessage("با موفقیت انجام شد.");
+            //_toastNotification.AddSuccessToastMessage("Same for success message");
+            //// Success with default options (taking into account the overwritten defaults when initializing in Startup.cs)
+            //_toastNotification.AddSuccessToastMessage("با موفقیت انجام شد.");
 
-            //Info
-            _toastNotification.AddInfoToastMessage();
+            ////Info
+            //_toastNotification.AddInfoToastMessage();
 
-            //Warning
-            _toastNotification.AddWarningToastMessage();
+            ////Warning
+            //_toastNotification.AddWarningToastMessage();
 
-            //Error
-            _toastNotification.AddErrorToastMessage();
+            ////Error
+            //_toastNotification.AddErrorToastMessage();
 
             return View();
         }

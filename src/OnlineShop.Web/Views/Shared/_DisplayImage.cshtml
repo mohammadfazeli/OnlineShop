@@ -8,8 +8,7 @@
 @{
     @*<img class="card-img-top" src="@photos" asp-append-version="true" alt="slide">*@
 
-    <a class=" md-height bg-gray d-block  " asp-action="index" asp-controller="Product" asp-route-id="@Model">
-
-        <img src="@photos" alt="Image" class="img-fluid" asp-append-version="true">
+    <a asp-action="index" asp-controller="Product" asp-route-id="@Model">
+        <img src="@photos" alt="" asp-append-version="true">
     </a>
 }

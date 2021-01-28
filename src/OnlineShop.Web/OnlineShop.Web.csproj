@@ -284,6 +284,17 @@
     <None Include="wwwroot\Layout\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\Layout\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\Layout\fonts\themify.svg" />
+    <None Include="wwwroot\Layout\js\bootstrap.min.js" />
+    <None Include="wwwroot\Layout\js\imagesloaded.pkgd.min.js" />
+    <None Include="wwwroot\Layout\js\jquery-3.3.1.min.js" />
+    <None Include="wwwroot\Layout\js\jquery-ui.min.js" />
+    <None Include="wwwroot\Layout\js\jquery.countdown.min.js" />
+    <None Include="wwwroot\Layout\js\jquery.dd.min.js" />
+    <None Include="wwwroot\Layout\js\jquery.nice-select.min.js" />
+    <None Include="wwwroot\Layout\js\jquery.slicknav.js" />
+    <None Include="wwwroot\Layout\js\jquery.zoom.min.js" />
+    <None Include="wwwroot\Layout\js\main.js" />
+    <None Include="wwwroot\Layout\js\owl.carousel.min.js" />
     <None Include="wwwroot\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <None Include="wwwroot\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
     <None Include="wwwroot\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />

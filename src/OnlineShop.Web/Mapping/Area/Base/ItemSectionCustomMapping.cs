@@ -20,8 +20,8 @@ namespace OnlineShop.Web.Mapping.Area.Base
                 .ForMember(d => d.StrToDate,opt => opt.MapFrom(s => s.ToDate == null ? "" : s.ToDate.ToPersianDate().ToPersianNumbers()))
                 .ForMember(d => d.ProductName,opt => opt.MapFrom(s => s.Product.Name))
                 .ForMember(d => d.ModelName,opt => opt.MapFrom(s => s.Product.Model.Name))
-                .ForMember(d => d.CurrentPrice,opt => opt.MapFrom(s => s.Product.ProductSalePrices.OrderByDescending(pc => pc.CreateOn).FirstOrDefault(price => !price.IsDeleted && !price.InActive).NewPrice.ToCurrency()))
-                .ForMember(d => d.OldPrice,opt => opt.MapFrom(s => s.Product.ProductSalePrices.OrderByDescending(pc => pc.CreateOn).FirstOrDefault(price => !price.IsDeleted && !price.InActive).OldPrice.ToCurrency()))
+                .ForMember(d => d.CurrentPrice,opt => opt.MapFrom(s => s.Product.ProductSalePrices.OrderByDescending(pc => pc.CreateOn).FirstOrDefault(price => !price.IsDeleted && !price.InActive).NewPrice.ToCurrency().ToPersianNumbers()))
+                .ForMember(d => d.OldPrice,opt => opt.MapFrom(s => s.Product.ProductSalePrices.OrderByDescending(pc => pc.CreateOn).FirstOrDefault(price => !price.IsDeleted && !price.InActive).OldPrice.ToCurrency().ToPersianNumbers()))
                  .ReverseMap();
         }
     }

@@ -16,7 +16,7 @@
                         <th>@Html.DisplayNameFor(r => r.ForeignName)</th>
                         <th>@Html.DisplayNameFor(r => r.UserCode)</th>
                         <th>@Html.DisplayNameFor(r => r.Description)</th>
-                        <th>@Html.DisplayNameFor(r => r.InActive)</th>
+                        <th   >@Html.DisplayNameFor(r => r.InActive)</th>
                         <th style="width:50px;">@Resource.Operation</th>
                     </tr>
                 </thead>
@@ -51,10 +51,10 @@
                         { "data": "id", className: "text-center", visible: false },
                         { "data": "name", className: "text-center"},
                         { "data": "foreignName", className: "text-center"},
-                        { "data": "userCode", className: "text-center"},
+                        { "data": "userCode", className: "text-center", "sbackground-color": "userCode"},
                         { "data": "description", className: "text-center"},
                         {
-                            "data": "inActive", className: "text-center", type: "checkbox", dataType: Boolean,
+                            "data": "inActive" , className: "text-center", type: "checkbox", dataType: Boolean,
                             render: function (data) {
                                 if (data == true) {
                                     return '<input  type="checkbox" checked="checked" />'

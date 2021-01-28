@@ -28,12 +28,15 @@
 
                                             <tr>
                                                 <td class="si-pic">
-                                                    <img src="/Layout/img/select-product-1.jpg" alt="">
+                                                    @*<img src="/Layout/img/select-product-1.jpg" alt="">*@
+                                                    <partial name="_CustomerCardDisplayImage" model="item.productId" />
                                                 </td>
-                                                <td class="si-text">
+                                                <td class="si-text text-right">
                                                     <div class="product-selected">
-                                                        <p>$60.00 x 1</p>
-                                                        <h6>Kabino Bedside Table</h6>
+                                                        @*<p>$60.00 x 1</p>
+                                                            <h6>Kabino Bedside Table</h6>*@
+                                                        <p>@item.price.ToCurrency().ToPersianNumbers() </p>
+                                                        <h6>@item.ProductName</h6>
                                                     </div>
                                                 </td>
                                                 <td class="si-close">

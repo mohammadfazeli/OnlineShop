@@ -22,7 +22,6 @@ namespace OnlineShop.Services.Services.Area.Base
         public IQueryable<ItemSectionListDto> GetList(ItemSectionType? itemSectionType = null)
         {
             return GetAllNoTracking()
-
                 .OrderByDescending(x => x.CreateOn)
                 .ProjectTo<ItemSectionListDto>(_mapper.ConfigurationProvider);
         }

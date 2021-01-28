@@ -80,13 +80,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3">
-                <div class="product-large set-bg" data-setbg="/Layout/img/products/women-large.jpg">
-                    <h2>Women’s</h2>
-                    <a href="#">Discover More</a>
-                </div>
+                @*<div class="product-large set-bg" data-setbg="/Layout/img/products/women-large.jpg">
+                        <h2>Women’s</h2>
+                        <a href="#">Discover More</a>
+                    </div>*@
+                <vc:item-section2 item-section-type="@ItemSectionType.Suggested"></vc:item-section2>
             </div>
             <div class="col-lg-8 offset-lg-1">
-                @*<vc:item-section item-section-type="@ItemSectionType.Random"></vc:item-section>*@
+                <vc:item-section item-section-type="@ItemSectionType.Suggested"></vc:item-section>
             </div>
         </div>
     </div>

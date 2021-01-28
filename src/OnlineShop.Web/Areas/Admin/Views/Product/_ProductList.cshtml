@@ -1,7 +1,7 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutListDto
 
 <div class="card _borderTop  _shadow ">
-    <div class="card-header bg-light">
+    <div class="card-header ">
         <partial name="_CardHeader" model="CardHeaderTye.Index" />
     </div>
 
@@ -26,9 +26,9 @@
         </div>
     </div>
 </div>
-    <!-- /.card-body -->
+<!-- /.card-body -->
 
-    <script>
+<script>
 
     function ReloadTable() {
         debugger;
@@ -64,13 +64,15 @@
                     { "data": "modelName", className: "text-center "},
                     { "data": "provider", className: "text-center "},
                         {
-                            "data": null,
+                            "data": null, className: "text-center ",
                             "render": function (data, type, row, meta) {
                                 return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
                                     , [
                                           '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductSpecification" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSpecification</a>  '
                                         , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductRelated" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductRelated</a>  '
                                         , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductSalePrice" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductSalePrice</a>  '
+                                        , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductTag" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> @Resource.ProductTags</a>  '
+                                        , '<a  class="dropdown-item text-right"  href="/' + "Admin" + '/' + "ProductColor" + '/' + "Index" + '/' + data['id'] + '"><li class="fas fa-archive left"></li> رنگ های محصول</a>  '
 
                                     ]
                                 )
@@ -79,4 +81,4 @@
                ]
            });
        });
-    </script>
+</script>

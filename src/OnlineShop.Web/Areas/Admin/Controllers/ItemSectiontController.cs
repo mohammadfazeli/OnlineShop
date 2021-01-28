@@ -38,7 +38,7 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             _mapper = mapper;
         }
 
-        [BreadCrumb(Title = "لیست  موارد بخش های سایت",Order = 1)]
+        [BreadCrumb(Title = "",Order = 1)]
         [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-list",Name = nameof(Resource.Resource.ItemSectionList),order = 1)]
         public IActionResult Index() => View();
 

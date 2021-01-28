@@ -46,7 +46,7 @@ namespace OnlineShop.Web.Controllers
             {
                 productId = item.productId,
                 Number = item.Number,
-                price = _productService.GetLastPrice(item.productId),
+                price = _productService.GetLastPrice(item.productId).NewPrice,
                 ProductName = _productService.Get(item.productId).Name,
             });
 
@@ -57,11 +57,11 @@ namespace OnlineShop.Web.Controllers
         }
 
         [AjaxOnly]
-        public IActionResult RemovePreOrder(Guid productDetailId)
+        public IActionResult RemovePreOrder(Guid productId)
         {
             var preOrdercookie = _httpContextAccessor.HttpContext.Request.Cookies["PreOrderInOnlineShop"];
             var preOrders = preOrdercookie == null ? new List<CustomerCardItem>() : JsonSerializer.Deserialize<List<CustomerCardItem>>(preOrdercookie);
-            preOrders.RemoveAll(x => x.productId == productDetailId);
+            preOrders.RemoveAll(x => x.productId == productId);
             Response.Cookies.Append("PreOrderInOnlineShop",JsonSerializer.Serialize(preOrders),new CookieOptions() { Expires = DateTime.Now.AddDays(1) });
             _toastNotification.AddInfoToastMessage($"محصول با موفقیت از سبد حذف گردید");
             return PartialView("_CustomerCard",preOrders);

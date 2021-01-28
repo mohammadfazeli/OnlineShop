@@ -1,13 +1,12 @@
 ﻿@model CardHeaderTye
 
-<div class="row mb-3">
-    <h3 class="card-title float-right "><span><spna class="@ViewBag.Icon"></spna></span> @ViewData["title"]</h3>
-</div>
+<span class="card-title float-right "><span><spna class="@ViewBag.Icon"></spna></span> @ViewData["title"]</span>
+
 <div class="row float-left ">
     <div class="card-tools float-left ">
         <div class="float-left">
             @{
-                switch (Model)
+                switch(Model)
                 {
                     case CardHeaderTye.Index:
                         <a class="btn btn-tool btn-default ml-2 " data-toggle="tooltip" title="صفحه قبلی" href="#" onClick="history.go(-1); return false;">

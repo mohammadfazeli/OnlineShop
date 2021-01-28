@@ -1,7 +1,7 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto
 
 <div class="card _borderTop  _shadow ">
-    <div class="card-header bg-light">
+    <div class="card-header ">
         <partial name="_CardHeader" model="CardHeaderTye.Index" />
     </div>
     <div class="card-body">
@@ -47,7 +47,7 @@
                 },
 
                 "ajax": {
-                        url: '/Identity/@ViewContext.RouteData.Values["controller"]/ReadData',
+                        url: '/Admin/@ViewContext.RouteData.Values["controller"]/ReadData',
                         type: "GEt",
                         dataType: "json"
                     },
@@ -58,7 +58,7 @@
                         { "data": "itemSectionType", className: "text-center "},
                         { "data": "productName", className: "text-center "},
                         { "data": "currentPrice", className: "text-center "},
-                        { "data": "oldprice", className: "text-center "},
+                         { "data": "oldPrice", className: "text-center "},
                         { "data": "strFromDate", className: "text-center "},
                         { "data": "strToDate", className: "text-center "},
                         {
@@ -73,7 +73,7 @@
                             }
                         },
                         {
-                            "data": null,
+                            "data": null, className: "text-center ",
                             "render": function (data, type, row, meta) {
                                 return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
                                 );
