@@ -1258,15 +1258,17 @@ ol {
             }
 
         .product-item .pi-text .product-price {
-            color: #e7ab3c;
-            font-size: 20px;
+            /*color: #e7ab3c;*/
+            color: #76BC42;
+            /*font-size: 20px;*/
             font-weight: 700;
         }
 
             .product-item .pi-text .product-price span {
                 font-size: 14px;
-                font-weight: 400;
-                color: #b2b2b2;
+                /*font-weight: 400;*/
+                /*color: #b2b2b2;*/
+                color: #f44336;
                 text-decoration: line-through;
             }
 

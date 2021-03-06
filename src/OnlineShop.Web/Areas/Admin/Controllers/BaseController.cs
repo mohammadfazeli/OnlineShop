@@ -49,16 +49,16 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             switch(result.CreateStatus)
             {
                 case CreateStatus.Successfully:
-                    _toastNotification.AddSuccessToastMessage(Resource.Resource.AddSuccessfully);
+                    _toastNotification.AddSuccessToastMessage(result.Message);
                     break;
 
                 case CreateStatus.Fail:
-                    _toastNotification.AddErrorToastMessage(Resource.Resource.AddFail);
+                    _toastNotification.AddErrorToastMessage(result.Message);
 
                     break;
 
                 case CreateStatus.Exists:
-                    _toastNotification.AddWarningToastMessage(Resource.Resource.AddExists);
+                    _toastNotification.AddWarningToastMessage(result.Message);
                     break;
             }
         }
@@ -68,15 +68,15 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             switch(result.UpdateStatus)
             {
                 case UpdateStatus.Successfully:
-                    _toastNotification.AddSuccessToastMessage(Resource.Resource.UpdateSuccess);
+                    _toastNotification.AddSuccessToastMessage(result.Message);
                     break;
 
                 case UpdateStatus.Fail:
-                    _toastNotification.AddErrorToastMessage(Resource.Resource.UpdateFail);
+                    _toastNotification.AddErrorToastMessage(result.Message);
                     break;
 
                 case UpdateStatus.NotExists:
-                    _toastNotification.AddAlertToastMessage(Resource.Resource.UpdateNotExists);
+                    _toastNotification.AddAlertToastMessage(result.Message);
                     break;
             }
         }
@@ -86,22 +86,22 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             switch(result.DeleteStatus)
             {
                 case DeleteStatus.Successfully:
-                    _toastNotification.AddSuccessToastMessage(Resource.Resource.DeleteSuccessfully);
+                    _toastNotification.AddSuccessToastMessage(result.Message);
 
                     break;
 
                 case DeleteStatus.Fail:
-                    _toastNotification.AddErrorToastMessage(Resource.Resource.DeleteSuccessfully);
+                    _toastNotification.AddErrorToastMessage(result.Message);
 
                     break;
 
                 case DeleteStatus.NotExists:
-                    _toastNotification.AddWarningToastMessage(Resource.Resource.DeleteNotExists);
+                    _toastNotification.AddWarningToastMessage(result.Message);
 
                     break;
 
                 case DeleteStatus.Dependent:
-                    _toastNotification.AddAlertToastMessage(Resource.Resource.DeleteDependent);
+                    _toastNotification.AddAlertToastMessage(result.Message);
 
                     break;
 

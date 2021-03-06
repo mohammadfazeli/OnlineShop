@@ -1,11 +1,12 @@
-﻿using AutoMapper;
+﻿using AspNetCore.Unobtrusive.Ajax;
+using AutoMapper;
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using OnlineShop.Areas.Admin;
 using OnlineShop.Common.Enums;
+using OnlineShop.Common.ViewModel;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.ProductSizes;
@@ -19,30 +20,30 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
     [Area(AreaConstants.AdminArea)]
     [AllowAnonymous]
     [BreadCrumb(Title = "اندازه های محصول",UseDefaultRouteUrl = true,Order = 0)]
-    [Display(Name = "رنگ های محصول")]
+    [Display(Name = "اندازه های محصول")]
     public class ProductSizeController:BaseController
     {
         private readonly IProductService _productService;
         private readonly IProductSizeService _productSizeService;
         private readonly IMapper _mapper;
         private readonly IToastNotification _toastNotification;
-        private readonly ISizeService _colorService;
+        private readonly ISizeService _sizeService;
 
         public ProductSizeController(
             IProductService productService,
             IProductSizeService productSizeService,
             IMapper mapper,
             IToastNotification toastNotification,
-            ISizeService colorService)
+            ISizeService sizeService)
         {
             _productService = productService;
             _productSizeService = productSizeService;
             _mapper = mapper;
             _toastNotification = toastNotification;
-            _colorService = colorService;
+            _sizeService = sizeService;
         }
 
-        [BreadCrumb(Title = "مشاهده رنگ های محصول",Order = 1)]
+        [BreadCrumb(Title = "مشاهده اندازه های محصول",Order = 1)]
         [ActionInfo(IconType = IconType.FontAwesome4,Icon = "fas fa-list",Name = nameof(Resource.Resource.ProductDetailList))]
         public IActionResult Index(Guid id)
         {
@@ -55,21 +56,22 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [ActionInfo(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductDetailAdd))]
+        [ActionInfo(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.Add))]
         public IActionResult Create(Guid id)
         {
             var vm = new ProductSizesDto()
             {
                 ProductId = id,
                 ProductDropDown = _productService.GetDropDown(id),
-                SizeDropDown = _colorService.GetDropDown()
+                SizeDropDown = _sizeService.GetDropDown()
             };
             return View(vm);
         }
 
         [HttpPost]
+        [AjaxOnly]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ProductSizesDto dto,IFormFileCollection Photo)
+        public async Task<ActionResult> Create(ProductSizesDto dto)
         {
             if(!ModelState.IsValid)
             {
@@ -77,9 +79,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             }
 
             var result = (await _productSizeService.AddAsync(dto.Initialize()));
-            PushAddMessage(_toastNotification,result);
-
-            return RedirectToActionPermanent(nameof(Index),new { id = dto.ProductId });
+            return Json(new ResultAjaxvm { Message = result.Message,Status = result.CreateStatus.ToString() });
         }
 
         [HttpGet]
@@ -110,13 +110,16 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [AjaxOnly]
         public IActionResult Remove(Guid id)
         {
-            var item = _productSizeService.Get(id).ProductId;
             var result = _productSizeService.Delete(id);
-            PushDeleteMessage(_toastNotification,result);
 
-            return RedirectToActionPermanent(nameof(Index),new { id = item });
+            return Json(new ResultAjaxvm { Message = result.Message,Status = result.DeleteStatus.ToString() });
+
+            //PushDeleteMessage(_toastNotification,result);
+
+            //return RedirectToActionPermanent(nameof(Index),new { id = item });
         }
     }
 }

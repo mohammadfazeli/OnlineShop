@@ -6,9 +6,9 @@ using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.ItemSections;
+using OnlineShop.ViewModels.Area.Base.Products;
 using OnlineShop.ViewModels.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace OnlineShop.Services.Services.Area.Base
@@ -22,8 +22,17 @@ namespace OnlineShop.Services.Services.Area.Base
         public IQueryable<ItemSectionListDto> GetList(ItemSectionType? itemSectionType = null)
         {
             return GetAllNoTracking()
+                .Where(x => itemSectionType == null || x.itemSectionType == itemSectionType.Value)
                 .OrderByDescending(x => x.CreateOn)
                 .ProjectTo<ItemSectionListDto>(_mapper.ConfigurationProvider);
+        }
+
+        public IQueryable<ProdcutItemDto> GeProductItems(ItemSectionType? itemSectionType = null)
+        {
+            return GetAllNoTracking()
+                .Where(x => itemSectionType == null || x.itemSectionType == itemSectionType.Value)
+                .OrderByDescending(x => x.CreateOn)
+                .ProjectTo<ProdcutItemDto>(_mapper.ConfigurationProvider);
         }
 
         //public IQueryable<ItemSectionListDto> GetListItemSection(ItemSectionType itemSectionType)

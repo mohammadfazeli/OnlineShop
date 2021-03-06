@@ -21,9 +21,11 @@ namespace OnlineShop.Services.Contracts
 
         IQueryable<TEntity> GetAllNoTracking();
 
-        SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name");
+        SelectList GetSelectList(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name");
 
-        DropDownViewModel GetDropDown(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name");
+        DropDownViewModel GetDropDown(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name");
+
+        CheckBoxListViewModel GetCheckBoxList(string CheckBoxName,string name);
 
         CreateStatusvm Add(TDto dto);
 

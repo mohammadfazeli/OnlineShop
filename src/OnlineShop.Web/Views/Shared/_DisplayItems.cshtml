@@ -1,30 +1,52 @@
 ﻿@using OnlineShop.ViewModels.Area
-@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto
+@using OnlineShop.Common.Utilities
+@model OnlineShop.ViewModels.Area.Base.Products.ProdcutItemDto
 
-<div class="product-item ">
-    <div class="pi-pic">
-        <partial name="_DisplayImage" model="Model.ProductId" />
-        <div class="sale">Sale</div>
-        <div class="icon">
-            <i class="icon_heart_alt"></i>
+<div class="item   card    rounded-0 ">
+    <div class="product-item  Custom-font " style="padding:10px;">
+        <div class="pi-pic">
+            <div class="mt-2">
+                <partial name="_DisplayImage" model="Model.ProductId" />
+            </div>
+
+            <div class="sale">@Model.ModelName</div>
+            <div class="icon">
+                <i class="icon_heart_alt"></i>
+                <i>   @Html.ActionLink("","Index","Product",new { Id = Model.Id },new { @class = " btn btn-sm fa fa-eye" }) </i>
+            </div>
         </div>
-        <ul>
-            <li class="w-icon active">
-                @Html.AjaxActionLink("","SelectItem","Card",new CustomerCardItem() { productId = Model.ProductId.Value },new AjaxOptions() { UpdateTargetId = "CustomerCardItems",HttpMethod = "Post" },new { @class = "icon_bag_alt" })
-            </li>
-            <li class="quick-view">
-                @Html.ActionLink("مشاهده محصول","Index","Product",new { Id = Model.ProductId })
-            </li>
-        </ul>
+        <div class="pi-text   ">
+
+            <a href="#">
+                <p>@Model.ProductName</p>
+            </a>
+            <div class="w-100  rtl">
+                <div class="float-left w-50">
+
+                    <div class="product-price ">
+                        @Model.Price.ToCurrency().ToPersianNumbers()
+                    </div>
+                </div>
+                <div class="float-right w-50">
+
+                    <div class="product-price ">
+                        <span> @Model.OldPrice.ToCurrency().ToPersianNumbers() </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="pi-text">
-        <div class="catagory-name">لباس</div>
-        <a href="#">
-            <h5>@Model.ProductName</h5>
-        </a>
-        <div class="product-price">
-            @Model.CurrentPrice
-            <span> @Model.OldPrice </span>
-        </div>
+    <div class="">
+
+        @Html.AjaxActionLink("","SelectItem","Card",new CustomerCardItem() { productId = Model.Id },new AjaxOptions() { UpdateTargetId = "CustomerCardItems",HttpMethod = "Post" },new { @class = " pointer border-top uk-card-hover  p-2 btn btn-sm fa fa-shopping-bag w-100" })
+
+        @*<div class="float-right w-50 shadow bg-info p-2">
+
+                <div class="text-center ">
+                    <span>
+                        @Html.ActionLink("","Index","Product",new { Id = Model.Id },new { @class = " btn btn-sm fa fa-eye" })
+                    </span>
+                </div>
+            </div>*@
     </div>
 </div>

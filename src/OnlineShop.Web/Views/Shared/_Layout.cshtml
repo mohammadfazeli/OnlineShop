@@ -7,9 +7,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@pageTitle</title>
     <link rel="icon" href="/grow-shop.png" />
+
+    <link rel="stylesheet" type="text/css" href="~/plugins/slick/slick.css" />
+    @*// Add the new slick-theme.css if you want the default styling*@
+    <link rel="stylesheet" type="text/css" href="~/plugins/slick/slick-theme.css" />
 
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     @*<link rel="stylesheet" href="~/dist/css/uikit.css">
@@ -17,7 +22,7 @@
         <link rel="stylesheet" href="/dist/css/custom.css">*@
     @*<link rel="stylesheet" href="/dist/css/mdb.min.css">
         <link rel="stylesheet" href="~/dist/css/uikit.css">*@
-    <link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">
+    @*<link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">*@
 
     <!-- Google Font -->
     <!--<link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">-->
@@ -31,9 +36,22 @@
         <link rel="stylesheet" href="~/Layout/css/jquery-ui.min.css" type="text/css" asp-append-version="true">
         <link rel="stylesheet" href="~/Layout/css/slicknav.min.css" type="text/css" asp-append-version="true">
         <link rel="stylesheet" href="~/Layout/css/style.css" type="text/css" asp-append-version="true">*@
+    <link rel="stylesheet" href="~/dist/css/uikit.css">
     <link rel="stylesheet" href="~/css/site.min.css" type="text/css" asp-append-version="true">
-    <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
+    <!-- Select2 -->
+
+    <link rel="stylesheet" href="~/plugins/select2/select2.min.css" type="text/css" asp-append-version="true">
+
+    @*<link rel="stylesheet" href="/dist/css/mdb.min.css">*@
+    <link rel="stylesheet" href="/plugins/toastr/toastr.min.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="/plugins/NouiSlider/nouislider.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="/plugins/Flickity/flickity.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="/plugins/Flickity/fullscreen.css" asp-append-version="true">
+    @*<link rel="stylesheet" href="~/dist/css/uikit.css">*@
     @*<link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">*@
+    @*<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />*@
+
     <!-- Google Font: Source Sans Pro -->
     @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
     <!-- Font Awesome Icons -->
@@ -50,7 +68,6 @@
     <link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">-->
     @*<link rel="stylesheet" href="/dist/css/bootstrap-rtl.css">*@
     <script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
-
     <script src="/plugins/jquery/jquery.min.js" asp-append-version="true"></script>
     @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
 </head>
@@ -61,6 +78,58 @@
         <div class="loader"></div>
     </div>
 
+    <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+        <div class="uk-offcanvas-bar">
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+            <h3>Title</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <ul class="uk-nav uk-nav-default">
+                <li class="active text-right"><a asp-controller="Home" asp-action="Index">صفحه اصلی</a></li>
+                <li class=" text-right"><a asp-controller="Product" asp-action="Shop">Shop</a></li>
+                <li class=" text-right">
+                    <a class=" text-right" href="#">Collection</a>
+                    <ul class="dropdown">
+                        <li class=" text-right"><a href="#">Men's</a></li>
+                        <li class=" text-right"><a href="#">Women's</a></li>
+                        <li class=" text-right"><a href="#">Kid's</a></li>
+                    </ul>
+                </li>
+                <li class=" text-right"><a href="./blog.html">Blog</a></li>
+                <li class=" text-right"><a href="./contact.html">Contact</a></li>
+                <li class=" text-right">
+                    <a href="#">Pages</a>
+                    <ul class="dropdown">
+                        <li class=" text-right"><a href="./blog-details.html">Blog Details</a></li>
+                        <li class=" text-right"><a href="./shopping-cart.html">Shopping Cart</a></li>
+                        <li class=" text-right"><a href="./check-out.html">Checkout</a></li>
+                        <li class=" text-right"><a href="./faq.html">Faq</a></li>
+                        <li class=" text-right"><a href="./register.html">Register</a></li>
+                        <li class=" text-right"><a href="./login.html">Login</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="uk-width-1-2@s">
+                <ul class="uk-nav-primary uk-nav-parent-icon" uk-nav>
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li class="uk-parent">
+                        <a href="#">Parent</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#">Sub item</a></li>
+                            <li><a href="#">Sub item</a></li>
+                        </ul>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#">Parent</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#">Sub item</a></li>
+                            <li><a href="#">Sub item</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="header-top">
@@ -99,138 +168,111 @@
                 </div>
             </div>
         </div>
+        <div class="">
+            <div class="d-block d-sm-block  d-md-none">
+                <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+                    <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
+                        <div class="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                <li> <a uk-navbar-toggle-icon uk-toggle="target: #offcanvas-flip"></a> </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="inner-header">
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/logo.png" alt="">
+                                @*<img src="img/logo.png" alt="">*@
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7">
                         <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
+                            <button type="button" class="category-btn">تمام محصولات</button>
                             <div class="input-group">
-                                <input type="text" placeholder="What do you need?">
+                                <input type="text" class="float-right mr-5 text-right" placeholder="دنبال چی میگردی؟">
                                 <button type="button"><i class="ti-search"></i></button>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 text-right col-md-3">
                         <vc:customer-card-item></vc:customer-card-item>
-                        @*<ul class="nav-right">
-                                <li class="heart-icon">
-                                    <a href="#">
-                                        <i class="icon_heart_alt"></i>
-                                        <span>1</span>
-                                    </a>
-                                </li>
-                                <li class="cart-icon">
-                                    <a href="#">
-                                        <i class="icon_bag_alt"></i>
-                                        <span>3</span>
-                                    </a>
-                                    <div class="cart-hover">
-                                        <div class="select-items">
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
-                                                        <td class="si-text">
-                                                            <div class="product-selected">
-                                                                <p>$60.00 x 1</p>
-                                                                <h6>Kabino Bedside Table</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td class="si-close">
-                                                            <i class="ti-close"></i>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
-                                                        <td class="si-text">
-                                                            <div class="product-selected">
-                                                                <p>$60.00 x 1</p>
-                                                                <h6>Kabino Bedside Table</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td class="si-close">
-                                                            <i class="ti-close"></i>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="select-total">
-                                            <span>total:</span>
-                                            <h5>$120.00</h5>
-                                        </div>
-                                        <div class="select-button">
-                                            <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                            <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="cart-price">$150.00</li>
-                            </ul>*@
                     </div>
                 </div>
             </div>
         </div>
-        <div class="nav-item">
-            <div class="container">
-                <div class="nav-depart">
-                    <div class="depart-btn">
-                        <i class="ti-menu"></i>
-                        <span>All departments</span>
-                        <ul class="depart-hover">
-                            <li class="active"><a href="#">Women’s Clothing</a></li>
-                            <li><a href="#">Men’s Clothing</a></li>
-                            <li><a href="#">Underwear</a></li>
-                            <li><a href="#">Kid's Clothing</a></li>
-                            <li><a href="#">Brand Fashion</a></li>
-                            <li><a href="#">Accessories/Shoes</a></li>
-                            <li><a href="#">Luxury Brands</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                        </ul>
+        <div class="d-none d-md-block d-lg-block d-xl-block">
+            <div class="nav-item " uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+                <div class="container">
+                    <div class="nav-depart">
+                        <div class="depart-btn">
+                            <i class="ti-menu"></i>
+                            <span>انواع محصولات</span>
+                            <ul class="depart-hover">
+                                <li class="active"><a href="#">Women’s Clothing</a></li>
+                                <li><a href="#">Men’s Clothing</a></li>
+                                <li><a href="#">Underwear</a></li>
+                                <li><a href="#">Kid's Clothing</a></li>
+                                <li><a href="#">Brand Fashion</a></li>
+                                <li><a href="#">Accessories/Shoes</a></li>
+                                <li><a href="#">Luxury Brands</a></li>
+                                <li><a href="#">Brand Outdoor Apparel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <nav class="nav-menu mobile-menu text-right" style="        direction: rtl;position: relative;">
+                            <ul>
+                                <li class="active text-right"><a asp-controller="Home" asp-action="Index">صفحه اصلی</a></li>
+                                <li class=" text-right"><a asp-controller="Product" asp-action="Shop">Shop</a></li>
+                                <li class=" text-right">
+                                    <a class=" text-right" href="#">Collection</a>
+                                    <ul class="dropdown">
+                                        <li class=" text-right"><a href="#">Men's</a></li>
+                                        <li class=" text-right"><a href="#">Women's</a></li>
+                                        <li class=" text-right"><a href="#">Kid's</a></li>
+                                    </ul>
+                                </li>
+                                <li class=" text-right"><a href="./blog.html">Blog</a></li>
+                                <li class=" text-right"><a href="./contact.html">Contact</a></li>
+                                <li class=" text-right">
+                                    <a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li class=" text-right"><a href="./blog-details.html">Blog Details</a></li>
+                                        <li class=" text-right"><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                        <li class=" text-right"><a href="./check-out.html">Checkout</a></li>
+                                        <li class=" text-right"><a href="./faq.html">Faq</a></li>
+                                        <li class=" text-right"><a href="./register.html">Register</a></li>
+                                        <li class=" text-right"><a href="./login.html">Login</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        @*<div id="mobile-menu-wrap"></div>*@
                     </div>
                 </div>
-                <nav class="nav-menu mobile-menu">
-                    <ul>
-                        <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li>
-                            <a href="#">Collection</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Women's</a></li>
-                                <li><a href="#">Kid's</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                        <li>
-                            <a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                                <li><a href="./register.html">Register</a></li>
-                                <li><a href="./login.html">Login</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div id="mobile-menu-wrap"></div>
             </div>
         </div>
     </header>
     <!-- Header End -->
 
     <section>
+
+        <div class="jumbotron">
+            <div class="main-carousel">
+                <div class="carousel-cell">1</div>
+                <div class="carousel-cell">2</div>
+                <div class="carousel-cell">3</div>
+            </div>
+        </div>
+
         @RenderBody()
     </section>
 
@@ -310,80 +352,149 @@
     </footer>
     <!-- Footer Section End -->
     <!-- Js Plugins -->
-    <script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/bootstrap.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/jquery-ui.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/jquery.countdown.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/jquery.nice-select.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/jquery.zoom.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/jquery.dd.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/jquery.slicknav.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/owl.carousel.min.js" asp-append-version="true"></script>
-    <script src="~/Layout/js/main.js" asp-append-version="true"></script>
-    @*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
+    @*<script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery-ui.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.countdown.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.nice-select.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.zoom.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.dd.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/jquery.slicknav.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/owl.carousel.min.js" asp-append-version="true"></script>
+        <script src="~/Layout/js/main.js" asp-append-version="true"></script>*@
+
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
 
     <!-- Js Plugins -->
-    @*<script src="/dist/js/uikit.js" asp-append-version="true"></script>*@
+    <script src="/dist/js/uikit.js" asp-append-version="true"></script>
     <script src="/plugins/toastr/toastr.min.js" asp-append-version="true"></script>
-    <script src="../Scripts/noty.min.js" asp-append-version="true"></script>
+    @*<script src="../Scripts/noty.min.js" asp-append-version="true"></script>*@
+    <!--Place it at the end of body and after jquery-->
+    <!-- Select2 -->
+    <!-- Select2 -->
 
-    <script src="/plugins/lightslider-master/js/lightslider.js"></script>
+    <script src="/plugins/select2/select2.full.min.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" src="~/plugins/slick/slick.min.js"></script>
+    <script type="text/javascript" src="~/plugins/NouiSlider/nouislider.js"></script>
+    <script>
+        var handlesSlider = document.getElementById('slider-handles');
+
+        noUiSlider.create(handlesSlider, {
+            start: [100000, 500000],
+            tooltips: [true, true],
+            connect: true,
+            direction: 'rtl',
+            step: 100,
+            //format: {
+            //    // 'to' the formatted value. Receives a number.
+            //    to: function (value) {
+            //        return value + 'ريال';
+            //    },
+            //    // 'from' the formatted value.
+            //    // Receives a string, should return a number.
+            //    from: function (value) {
+            //        return Number(value.replace('ريال', ''));
+            //    }
+            //},
+            range: {
+                'min': [0],
+                'max': [1000000]
+            }
+        });
+        function wNumb(x) {
+            return x;
+        }
+    </script>
     <script>
         $(function () {
-            $(document).ready(function () {
-                $(".lightSlider").lightSlider({
-                    item: 3,
-                    loop: true,
-                    slideMove: 1,
-                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-                    speed: 600,
-                    rtl: true,
-                    pager: false,
-                    responsive: [
-                        {
-                            breakpoint: 800,
-                            settings: {
-                                item: 3,
-                                slideMove: 1,
-                                slideMargin: 6,
-                            }
-                        },
-                        {
-                            breakpoint: 480,
-                            settings: {
-                                item: 2,
-                                slideMove: 1
-                            }
+            //Initialize Select2 Elements
+            $('.select2').select2({
+                dir: "rtl",
+                dropdownAutoWidth: true,
+                placeholder: 'لطفا یک گزینه انتخاب کنید',
 
+            });
+
+            $('.responsive').slick({
+                dots: true,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
                         }
-                                                                                                });
-            });
-
-            $('.adaptive').lightSlider({
-                adaptiveHeight: true,
-                item: 1,
-                slideMargin: 0,
-                loop: true
-            });
-
-            $('.imageGallery').lightSlider({
-                gallery: true,
-                item: 1,
-                loop: true,
-                thumbItem: 9,
-                slideMargin: 0,
-                enableDrag: false,
-                currentPagerPosition: 'left',
-                onSliderLoad: function (el) {
-                    el.lightGallery({
-                        selector: '#imageGallery .lslide'
-                    });
-                }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
             });
         });
-    </script>
 
-    <!--Place it at the end of body and after jquery-->
+        function onKeyUpCheckboxSearch(e) {
+            debugger;
+            var keyWord = $(e).val().toLowerCase();
+            if (keyWord !== "") {
+                $(e).closest(".checkbox-frame").find(".checkBoxRow").removeClass("d-none");
+                var checkBoxlbl = $(e).closest(".checkbox-frame").find(".checkBoxRow").find("label");
+                $(checkBoxlbl).each(function () {
+                    var x = $(this).text().toLowerCase();
+                    var y = $(this).text().toLowerCase().indexOf(keyWord);
+                    if ($(this).text().toLowerCase().indexOf(keyWord) <= -1) {
+                        $(this).closest(".checkBoxRow").addClass("d-none");
+                    }
+                });
+
+            } else {
+                $(e).closest(".checkbox-frame").find(".checkBoxRow").removeClass("d-none");
+            }
+        }
+
+        function GetSelectedItems(name) {
+            return $('input[type="checkbox"][name="' + name + '"]:checked').each(function () { $(this).val(); }).map(function () { return this.value; }).get();
+        }
+    </script>
+    <script src="/plugins/Flickity/flickity.pkgd.min.js"></script>
+    <script src="/plugins/Flickity/fullscreen.js"></script>
+    <script src="/plugins/Flickity/as-nav-for.js"></script>
+
+    <script>
+
+        $('.main-carousel').flickity({
+            // options
+            cellAlign: 'right',
+            imagesLoaded: true,
+            percentPosition: false
+        });
+
+        $('.carousel-nav').flickity({
+            asNavFor: '.main-carousel',
+            contain: true,
+            pageDots: false
+        });
+    </script>
     @Html.RenderUnobtrusiveAjaxScript()
     @await RenderSectionAsync("Scripts",required: false)
     @await Component.InvokeAsync("NToastNotify")

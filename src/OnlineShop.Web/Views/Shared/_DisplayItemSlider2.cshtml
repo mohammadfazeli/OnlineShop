@@ -1,13 +1,62 @@
-﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto>
+﻿@using OnlineShop.ViewModels.Area
 
-@{
-    <div class="hero-items owl-carousel">
-        @{
-            foreach(var item in Model)
-            {
-                <partial name="_DisplayItems" model="item" />
+@model IEnumerable<OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto>
+<p>محبوب محصولات</p>
+<div class="uk-slider-container-offset" uk-slider="autoplay: true">
+    <div class="uk-position-relative uk-visible-toggle uk-light " tabindex="-1">
+        <ul class="uk-slider-items  uk-child-width-1-6   uk-grid">
+
+            @{
+                foreach(var item in Model)
+                {
+                    <li>
+                        <div class="uk-card uk-card-default  product-item ">
+                            <div class="uk-card-media-top pi-pic">
+                                @*<img src="images/photo.jpg" alt="">*@
+                                <partial name="_DisplayImage" model="@item.ProductId" />
+                                <ul>
+                                    <li class="w-icon active">
+                                        @Html.AjaxActionLink("","SelectItem","Card",new CustomerCardItem() { productId = item.ProductId.Value },new AjaxOptions() { UpdateTargetId = "CustomerCardItems",HttpMethod = "Post" },new { @class = "icon_bag_alt" })
+                                    </li>
+                                    <li class="quick-view">
+                                        @Html.ActionLink("مشاهده محصول","Index","Product",new { Id = item.ProductId })
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="">
+                                <div class="pi-text">
+                                    <div class="catagory-name">@item.ModelName</div>
+                                    <a href="#">
+                                        <p>farhad fazeli</p>
+                                    </a>
+                                    <div class="product-price">
+                                        @item.CurrentPrice
+                                        <span> @item.OldPrice </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
             }
-        }
+        </ul>
+        <a class="uk-position-center-left uk-position-small " href="#" uk-slidenav-previous uk-slider-item="previous" style="color: black;"></a>
+        <a class="uk-position-center-right uk-position-small " href="#" uk-slidenav-next uk-slider-item="next" style="color: black;"></a>
     </div>
 
-}
+    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+</div>
+
+@*@{
+
+        <div class="hero-items owl-carousel">
+            @{
+                foreach(var item in Model)
+                {
+                    <partial name="_DisplayItems" model="item" />
+                }
+            }
+        </div>
+
+    }*@

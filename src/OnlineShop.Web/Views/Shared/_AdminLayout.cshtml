@@ -1,12 +1,13 @@
 ﻿@{
-    var pageTitle = ViewData["Title"] ?? "ASP.NET Core Identity Sample";
+
+    var pageTitle = $" پنل مدیریت - {ViewData["Title"] ?? ""} ";
 }
 <!DOCTYPE html>
 <html lang="en ">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>فروشگاه اینترنتی  بازار  من</title>
+    <title>@pageTitle</title>
 
     <!-- Google Font: Source Sans Pro -->
     @*<link rel="stylesheet" href="https:/fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
@@ -18,15 +19,16 @@
     <!--<link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">    <!-- Theme style -->
     <!--<link rel="stylesheet" href="/dist/css/adminlte.min.css">-->
     <!-- Google Font: Source Sans Pro -->-->
-    <!--@*<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">*@-->
+    <!--@*<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="styleshee<!--@*<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">*@-->
     <!--<!-- bootstrap rtl -->
     <!--<link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">-->
     <!-- template rtl version -->
     <!--<link rel="stylesheet" href="/dist/css/custom-style.css">-->
     @*<link rel="stylesheet" href="/dist/css/mdb.min.css">*@-->
     <!--<!-- Persian Data Picker -->-->
-    <!--@*<link rel="stylesheet" href="/dist/css/persian-datepicker.min.css">*@
-    <link rel="stylesheet" href="/dist/css/persianDatepicker-default.css">-->
+    <!--@*<link rel="stylesheet" href="/dist/css/persian-datepicker.min.cs
+       <!--@*<link rel="stylesheet" href="/dist/css/persian-datepicker.min.css">*@
+       <link rel="stylesheet" href="/dist/css/persianDatepicker-default.css">-->
     <!-- Font Awesome Icons -->
     <!--<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">-->
     <!-- Toastr -->
@@ -50,6 +52,8 @@
     <!-- dropzonejs -->
     <!--<link rel="stylesheet" href="/plugins/dropzone/min/dropzone.min.css">-->
     <!-- js -->
+    <link rel="stylesheet" href="~/plugins/select2/select2.min.css" type="text/css" asp-append-version="true">
+
     <script src="/plugins/jquery/jquery.min.js"></script>
     <script src="/dist/js/jquery.validate.js"></script>
     <script src="/dist/js/jquery.validate.unobtrusive.js"></script>
@@ -57,6 +61,7 @@
     <script src="/dist/js/custom.js"></script>
     <script src="/js/OnlineShop.js"></script>
 </head>
+
 <body class="hold-transition sidebar-mini text-sm">
 
     <div class="wrapper">
@@ -194,11 +199,12 @@
     <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.js"></script>
-    <script src="../Scripts/app.js"></script>
+    @*<script src="../Scripts/app.js"></script>*@
     @*<script src="/dist/js/mdb.min.js"></script>*@
 
     <!-- Select2 -->
-    <script src="/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/plugins/select2/select2.full.min.js" asp-append-version="true"></script>
+
     <!-- overlayScrollbars -->
     <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
@@ -238,14 +244,11 @@
 
             $('[data-toggle="tooltip"]').tooltip();
             $('.lightgallery').lightGallery();
-            $('.select2').select2();
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            });
-
         });
 
         $(function () {
+            $('.select2').select2();
+
             $('.persianDatepicker').persianDatepicker({
                 formatDate: "YYYY/MM/DD"
             });

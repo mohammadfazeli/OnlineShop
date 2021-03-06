@@ -11,7 +11,9 @@ namespace OnlineShop.Services.Contracts.Area.Base
     {
         IQueryable<ProdcutListDto> GetList();
 
-        ProdcutListDto GetGeneralInfo(Guid id);
+        ProdcutGeneralInfoDto GetGeneralInfo(Guid id);
+
+        IQueryable<ProdcutItemDto> GetShopItems(ShopDto productSearchShop);
 
         IQueryable<ProdcutListDto> GetLastProduct(int take = 7);
 

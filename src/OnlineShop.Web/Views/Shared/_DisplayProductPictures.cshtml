@@ -7,9 +7,9 @@
 }
 @{
     @*<img class="card-img-top" src="@photos" asp-append-version="true" alt="slide">*@
-    <a class="" asp-action="index" asp-controller="Product" asp-route-id="@Model">
-        <img src="@photos" alt="Image" class="img-fluid" asp-append-version="true">
-    </a>
+    @*<a class="" asp-action="index" asp-controller="Product" asp-route-id="@Model">
+            <img src="@photos" alt="Image" class="img-fluid" asp-append-version="true">
+        </a>*@
     if(!photos.Any())
     {
         <p>هیچ عکسی وجود ندارد</p>
@@ -17,52 +17,34 @@
     else
     {
         <div class="product-pic-zoom">
-            <img class="product-big-img" src="@photos.FirstOrDefault()" alt="">
+            <img style="width:100% ;height:500px" src="@photos.FirstOrDefault()" alt="">
             <div class="zoom-icon">
                 <i class="fa fa-search-plus"></i>
             </div>
         </div>
         <div class="product-thumbs">
             <div class="product-thumbs-track ps-slider owl-carousel">
-                @{
-
-                    for(int i = 0;i < photos.Count;i++)
-                    {
-                        <div class="pt @( i==0? "active" :""  )" data-imgbigurl="@photos[i]">
-                            <img src="@photos[i]" alt="">
-                        </div>
-                    }
-                    @*foreach(var item in photos)
+                <div class="main-carousel">
+                    @{
+                        for(int i = 0;i < photos.Count;i++)
                         {
-                            <div class="pt active" data-imgbigurl="@item">
-                                <img src="@item" alt="">
+                            <div class="pt cell @( i==0? "active" :""  )" data-imgbigurl="@photos[i]">
+                                <img src="@photos[i]" class="img-fluid" style="width:100% ;height:200px" alt="">
                             </div>
-                        }*@
-                }
+                        }
+                    }
+                </div>
+                <div class="carousel-nav">
+                    @{
+                        for(int i = 0;i < photos.Count;i++)
+                        {
+                            <div class="pt cell @( i==0? "active" :""  )" data-imgbigurl="@photos[i]">
+                                <img src="@photos[i]" class="img-fluid" style="width:100% ;height:200px" alt="">
+                            </div>
+                        }
+                    }
+                </div>
             </div>
         </div>
     }
 }
-
-@*<div class="product-pic-zoom">
-        <img class="product-big-img" src="img/product-single/product-1.jpg" alt="">
-        <div class="zoom-icon">
-            <i class="fa fa-search-plus"></i>
-        </div>
-    </div>
-    <div class="product-thumbs">
-        <div class="product-thumbs-track ps-slider owl-carousel">
-            <div class="pt active" data-imgbigurl="img/product-single/product-1.jpg">
-                <img src="img/product-single/product-1.jpg" alt="">
-            </div>
-            <div class="pt" data-imgbigurl="img/product-single/product-2.jpg">
-                <img src="img/product-single/product-2.jpg" alt="">
-            </div>
-            <div class="pt" data-imgbigurl="img/product-single/product-3.jpg">
-                <img src="img/product-single/product-3.jpg" alt="">
-            </div>
-            <div class="pt" data-imgbigurl="img/product-single/product-3.jpg">
-                <img src="img/product-single/product-3.jpg" alt="">
-            </div>
-        </div>
-    </div>*@

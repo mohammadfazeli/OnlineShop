@@ -273,3 +273,7 @@ ul {
 .datepicker-plot-area {
     font-family: 'Vazir', sans-serif;
 }
+
+span.TableOperation a {
+    font-size: small;
+}

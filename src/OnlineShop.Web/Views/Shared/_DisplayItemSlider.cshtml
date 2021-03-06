@@ -1,16 +1,29 @@
-﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionListDto>
-
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.Products.ProdcutItemDto>
 @{
-    @*<div class="product-slider owl-carousel">*@
-    <h4>محصولات محبوب</h4>
 
-    <div class="product-slider owl-carousel">
-        @{
-            foreach(var item in Model)
-            {
-                <partial name="_DisplayItems" model="item" />
-            }
-        }
+    <div class="mb-5">
+        <div class=" mr-md-5 ml-md-5  ">
+            <div class="card shadow ">
+                <div class="mr-md-5 ml-md-5   mr-sm-2 ml-sm-2  mr-2 ml-2">
+                    <div class="pt-4">
+                        <p class="text-right  float-right text-uppercase">بهترین محصولات</p>
+                    </div>
+                    <div class="pt-5 pb-5">
+                        @*<div class="main-carousel  ">*@
+                        <div class="owl-carousel product-Item">
+                            @{
+                                foreach(var item in Model)
+                                {
+                                    <div class="carousel-cell">
+                                        <partial name="_DisplayItems" model="item" />
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 }

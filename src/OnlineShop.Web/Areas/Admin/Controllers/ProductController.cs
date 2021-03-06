@@ -63,7 +63,10 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         public PartialViewResult GetInfo(Guid id) => PartialView("_Detail",_productService.GetGeneralInfo(id));
 
         [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductPreView),order = 2)]
-        public async Task<IActionResult> PreView(int page = 1) => View(await PaginatedList<ProdcutListDto>.CreateAsync(_productService.GetList(),page));
+        public async Task<IActionResult> PreView(int page = 1)
+        {
+            return View(await PaginatedList<ProdcutListDto>.CreateAsync(_productService.GetList(),page));
+        }
 
         [ActionInfo(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductAdd),order = 2)]
         [HttpGet]

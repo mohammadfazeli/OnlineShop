@@ -1,0 +1,52 @@
+﻿@using OnlineShop.ViewModels.Area.Base.Products
+
+@model PaginatedList<ProdcutItemDto>
+<div class="">
+
+    @{
+
+        if(Model.Count == 0)
+        {
+            <div class="alert alert-success  ">
+                <p class="text-right   ">   هیچ ایتمی وجود نداره :)</p>
+            </div>
+        }
+        else
+        {
+            <div class="row d-flex">
+                @foreach(var item in Model)
+                {
+                    <div class="col-lg-3 col-sm-6 col-md-3 col-xl-3 ">
+                        <div class="mb-3 uk-card-hover">
+                            <partial name="_DisplayItems" model="@item" />
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    }
+</div>
+
+<div class="card-footer text-center " style="direction:rtl">
+
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+
+    <a class=" page-item btn btn-default  @(nextDisabled)" onclick="ShopSearch('@(Model.PageIndex + 1)')"> @(Model.PageIndex + 1) </a>
+
+    <a class=" page-item btn btn-default" onclick="ShopSearch('@(Model.PageIndex )')"> @(Model.PageIndex ) </a>
+
+    @{
+
+        if(Model.PageIndex - 1 != 0)
+        {
+
+            <a class=" page-item btn btn-default @(prevDisabled)" onclick="ShopSearch('@(Model.PageIndex - 1)')">  @(Model.PageIndex - 1) </a>
+
+        }
+    }
+    @*<partial name="_PaginatedFooter" view-data='@new ViewDataDictionary(ViewData) { { "ActionName", "Shop" } , { "ShopItems", "" } }' model="@new PaginatedListvm() { HasNextPage=Model.HasNextPage, HasPreviousPage=Model.HasPreviousPage , PageIndex=Model.PageIndex, TotalPages=Model.TotalPages }" />*@
+</div>

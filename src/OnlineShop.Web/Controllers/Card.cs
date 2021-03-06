@@ -46,8 +46,8 @@ namespace OnlineShop.Web.Controllers
             {
                 productId = item.productId,
                 Number = item.Number,
-                price = _productService.GetLastPrice(item.productId).NewPrice,
-                ProductName = _productService.Get(item.productId).Name,
+                price = _productService.GetLastPrice(item.productId)?.NewPrice ?? 0,
+                ProductName = _productService.Get(item.productId)?.Name,
             });
 
             Response.Cookies.Append("PreOrderInOnlineShop",JsonSerializer.Serialize(preOrders),new CookieOptions() { Expires = DateTime.Now.AddDays(1) });

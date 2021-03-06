@@ -12,6 +12,7 @@
       "Content/Layout/Css/jquery-ui.min.css",
       "Content/Layout/Css/slicknav.min.css",
       "Content/Layout/Css/style.css",
+      "Content/Layout/Css/bsnav.min.css",
       "Content/custom.css"
     ],
     "minify": {
@@ -38,7 +39,6 @@
       "wwwroot/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
       "wwwroot/plugins/datatables-select/css/select.bootstrap4.css",
       "wwwroot/plugins/select2/css/select2.min.css",
-      "wwwroot/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css",
       "wwwroot/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
       "wwwroot/plugins/dropzone/min/dropzone.min.css"
     ],

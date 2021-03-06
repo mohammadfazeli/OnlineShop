@@ -81,16 +81,42 @@
         autoplay: true,
         responsive: {
             0: {
-                items: 1,
+                items: 1, nav: true
             },
             576: {
-                items: 2,
+                items: 2, nav: true
             },
             992: {
-                items: 2,
+                items: 2, nav: true
             },
             1200: {
-                items: 3,
+                items: 3, nav: true
+            }
+        }
+    });
+
+    $(".product-Item").owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        navText: ['<i class="ti-angle-left bg-info"></i>', '<i class="ti-angle-right bg-info"></i>'],
+        smartSpeed: 1200,
+        responsive: {
+            0: {
+                items: 2, nav: true, navText: ['<i class="ti-angle-left bg-info"></i>', '<i class="ti-angle-right bg-info"></i>']
+            },
+            576: {
+                items: 3, nav: true, navText: ['<i class="ti-angle-left bg-info"></i>', '<i class="ti-angle-right bg-info"></i>']
+            },
+            992: {
+                items: 4, nav: true, navText: ['<i class="ti-angle-left bg-info"></i>', '<i class="ti-angle-right bg-info"></i>']
+            },
+            1200: {
+                items: 5,
+                nav: true, navText: ['<i class="ti-angle-left bg-info"></i>', '<i class="ti-angle-right bg-info"></i>']
             }
         }
     });

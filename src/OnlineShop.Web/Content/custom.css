@@ -1,6 +1,6 @@
 ﻿body {
     font-size: 14px;
-    font-family: 'Samim',Tahoma;
+    font-family: 'Samim',Tahoma !important;
     /*background: #F0F0F0 none repeat scroll 0 0;*/
     /*background: url(/images/pattern.jpg);*/
 }
@@ -17,6 +17,18 @@
     src: url('/fonts/Samim-Bold.eot?v=1.0.2');
     src: url('/fonts/Samim-Bold.eot?v=1.0.2#iefix') format('embedded-opentype'), url('/fonts/Samim-Bold.woff?v=1.0.2') format('woff'), url('/fonts/Samim-Bold.ttf?v=1.0.2') format('truetype');
     font-weight: bold;
+}
+
+rtl {
+    direction: rtl !important;
+}
+
+Custom-font {
+    font-family: Samim !important;
+}
+
+p, li {
+    font-family: Samim !important;
 }
 
 #footer {
@@ -183,3 +195,13 @@ ul.nav.navbar-nav {
         background-color: #eee;
         text-decoration: none;
     }
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #007bff !important;
+    border-color: #006fe6 !important;
+    color: #fff !important;
+}
+
+.pointer {
+    cursor: pointer
+}

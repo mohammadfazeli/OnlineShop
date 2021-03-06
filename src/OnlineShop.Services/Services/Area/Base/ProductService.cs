@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-
 using OnlineShop.Common.Utilities;
-
 using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Entities.Area.Base;
@@ -12,39 +9,31 @@ using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.Products;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Security.Cryptography;
 
 namespace OnlineShop.Services.Services.Area.Base
 {
     public class ProductService:EntityService<Product,ProdcutDto>, IProductService
     {
-        private readonly IAttachmentService _attachmentService;
-
-        private DbSet<ProductSalePrice> _productPriceModificatins { set; get; }
         private DbSet<ProductGroup> _productGroups { set; get; }
-        private DbSet<ProductSize> _productSizes { set; get; }
 
         private DbSet<ProductSalePrice> _productSalePrices { set; get; }
 
         private DbSet<Model> _models { set; get; }
-        private DbSet<Color> _colors { set; get; }
+        private DbSet<ProductColor> _productColors { set; get; }
+        private DbSet<ProductSize> _productSizes { set; get; }
         private DbSet<Provider> _providers { set; get; }
 
         public ProductService(IUnitOfWork unitOfWork,IMapper mapper,IRepository<Product> repository
             ,IAttachmentService attachmentService
             ) : base(unitOfWork,mapper,repository)
         {
-            this._attachmentService = attachmentService;
-
-            _productPriceModificatins = unitOfWork.Set<ProductSalePrice>();
-
             _productSalePrices = unitOfWork.Set<ProductSalePrice>();
             _productGroups = unitOfWork.Set<ProductGroup>();
             _models = unitOfWork.Set<Model>();
-            _colors = unitOfWork.Set<Color>();
             _providers = unitOfWork.Set<Provider>();
-
+            _productColors = unitOfWork.Set<ProductColor>();
             _productSizes = unitOfWork.Set<ProductSize>();
         }
 
@@ -55,9 +44,31 @@ namespace OnlineShop.Services.Services.Area.Base
                 .ProjectTo<ProdcutListDto>(_mapper.ConfigurationProvider);
         }
 
-        public ProdcutListDto GetGeneralInfo(Guid id)
+        public ProdcutGeneralInfoDto GetGeneralInfo(Guid id)
         {
-            return _mapper.Map(Get(id),new ProdcutListDto());
+            return _mapper.Map(Get(id),new ProdcutGeneralInfoDto());
+        }
+
+        public IQueryable<ProdcutItemDto> GetShopItems(ShopDto search)
+        {
+            var minPrice = Convert.ToDecimal(search.MinPrice,new CultureInfo("en-US"));
+            var maxPrice = Convert.ToDecimal(search.MaxPrice,new CultureInfo("en-US"));
+
+            var items = (from p in GetAllNoTracking()
+                         join pc in _productColors.AsNoTracking() on p.Id equals pc.ProductId into result_pc
+                         from pc in result_pc.DefaultIfEmpty()
+                         join ps in _productSizes.AsNoTracking() on p.Id equals ps.ProductId into result_ps
+                         from ps in result_ps.DefaultIfEmpty()
+                         where
+                         (search.ProductGroupCheckBoxList == null || search.ProductGroupCheckBoxList.SelectedIds == null || search.ProductGroupCheckBoxList.SelectedIds.Contains(pc.ProductId.Value)) &&
+                          (search.ColorCheckBoxList == null || search.ColorCheckBoxList.SelectedIds == null || search.ColorCheckBoxList.SelectedIds.Contains(pc.ColorId.Value)) &&
+                          (search.ModelCheckBoxList == null || search.ModelCheckBoxList.SelectedIds == null || search.ModelCheckBoxList.SelectedIds.Contains(p.ModelId.Value)) &&
+                          (search.SizeCheckBoxList == null || search.SizeCheckBoxList.SelectedIds == null || search.SizeCheckBoxList.SelectedIds.Contains(ps.SizeId.Value))
+                         select p
+                        )
+            .ProjectTo<ProdcutItemDto>(_mapper.ConfigurationProvider)
+            .Where(row => search.IsFilterPrice ? minPrice <= row.Price && row.Price <= maxPrice : true);
+            return items;
         }
 
         public IQueryable<ProdcutListDto> GetLastProduct(int take = 7)

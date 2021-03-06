@@ -1,5 +1,4 @@
 using DNTPersianUtils.Core;
-using OnlineShop.Common.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 

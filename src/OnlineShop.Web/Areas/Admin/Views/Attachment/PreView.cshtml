@@ -11,7 +11,7 @@
     <div class="card-body ">
         <div class=" row card-group">
             @{
-                foreach (var item in Model)
+                foreach(var item in Model)
                 {
 
                     <div class="col-md-3 col-lg-3 col-sm-6  col-xl-3 d-flex">
@@ -32,6 +32,6 @@
         </div>
     </div>
     <div class="card-footer text-center">
-        <partial name="_PaginatedFooter" model="@new PaginatedListvm() { HasNextPage=Model.HasNextPage, HasPreviousPage=Model.HasPreviousPage , PageIndex=Model.PageIndex, TotalPages=Model.TotalPages }" />
+        <partial name="_PaginatedFooter" view-data='@new ViewDataDictionary(ViewData) { { "ActionName", "PreView" }, { "UpdateTargetId", "" } }' model="@new PaginatedListvm() { HasNextPage=Model.HasNextPage, HasPreviousPage=Model.HasPreviousPage , PageIndex=Model.PageIndex, TotalPages=Model.TotalPages }" />
     </div>
 </div>

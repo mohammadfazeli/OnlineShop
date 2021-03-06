@@ -5,6 +5,16 @@
     TempData["ParentId"] = Model.ProductId;
 }
 
+
+
+@Html.AjaxActionLink("asdasdas","Remove","ProductSize",new { id = Model.Id },new AjaxOptions
+{
+HttpMethod = "Get",
+OnSuccess = "OnSuccess",
+})
+
+<a data-ajax="true" data-ajax-method="Get" data-ajax-success="OnSuccess" href="~/Admin/ProductSize/Remove/@Model.Id">حذف</a>
+
 <form asp-action="Create" method="post">
     <div class="card _borderTop  _shadow ">
         <div class="card-header ">
@@ -25,7 +35,7 @@
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
                     <CustomSelect asp-for="SizeId"
-                                  asp-expression="SizetId"
+                                  asp-expression="SizeId"
                                   asp-optionLabel="@Resource.SelectedOneItem"
                                   asp-currentValues="@Model.SizeDropDown.CurrentValues"
                                   asp-selectList="@Model.SizeDropDown.SelectList"

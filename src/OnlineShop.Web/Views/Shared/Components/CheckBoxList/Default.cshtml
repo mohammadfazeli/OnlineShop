@@ -1,0 +1,30 @@
+﻿@model OnlineShop.ViewModels.Base.CheckBoxListViewModel
+
+<div class="CheckBox form-group text-right">
+    <div class="card  shadow">
+        <div class="  ">
+            <div class="pointer text-capitalize text-center  p-2 " data-toggle="collapse" data-target="#collapse@(Model.CheckBoxName)">
+                <span class=" ">@Model.Name </span>
+            </div>
+            <div id="collapse@(Model.CheckBoxName)" class="collapse checkbox-frame">
+                <div class="input-group   p-2 border-bottom">
+                    <input type="text" onkeyup="onKeyUpCheckboxSearch(this)" class="form-control  text-right " placeholder=" . . . جستجو ">
+                    <div class="input-group-append ">
+                        <span class="input-group-text fa fa-search"> </span>
+                    </div>
+                </div>
+
+                <div class="card-body  custom-control custom-checkbox " style=" max-height:333px; overflow:auto">
+
+                    @for(int i = 0;i < Model.Items.Count();i++)
+                    {
+                        <div class="checkBoxRow ">
+                            <label class="col-form-label control-label  " for="@(nameof(Model.CheckBoxName))[@i]"> @Model.Items.ElementAt(i).Text</label>
+                            <input name="@(Model.CheckBoxName)" id="@(Model.CheckBoxName)[@i]" type="checkbox" class="CheckBox pointer" value="@Model.Items.ElementAt(i).Value" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

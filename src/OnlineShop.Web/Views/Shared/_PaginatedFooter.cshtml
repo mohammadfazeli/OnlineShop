@@ -4,29 +4,48 @@
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
-<a asp-action="PreView"
-   asp-route-page="@(Model.PageIndex + 1)"
-   class=" page-item btn btn-default @nextDisabled">
-    <span class="	fas fa-angle-double-right"></span>
-</a>
-<a asp-action="PreView"
-   asp-route-page="@(Model.PageIndex + 1)"
-   class=" page-item btn btn-default @nextDisabled">
-    <span class="">@(Model.PageIndex + 1)</span>
-</a>
+@*<a asp-action="@ViewData["ActionName"]"
+       asp-route-page="@(Model.PageIndex + 1)"
+       class=" page-item btn btn-default @nextDisabled">
+        <span class="	fas fa-angle-double-right"></span>
+    </a>*@
+@*@Html.AjaxActionLink((Model.PageIndex + 1).ToString(),ViewData["ActionName"].ToString(),ViewContext.RouteData.Values["Controller"].ToString(),new { page = Model.PageIndex + 1 },new AjaxOptions() { UpdateTargetId = "CustomerCardItems",HttpMethod = "Post" },new { @class = " page-item btn btn-default " + nextDisabled })*@
 
-<a asp-action="PreView"
-   asp-route-page="@(Model.PageIndex)"
-   class="bg-blue page-item btn btn-default @nextDisabled">
-    <span class=" page-item ">@(Model.PageIndex)</span>
-</a>
+@*<a asp-action="@ViewData["ActionName"]"
+       asp-route-page="@(Model.PageIndex + 1)"
+       class=" page-item btn btn-default @nextDisabled">
+        <span class="">@(Model.PageIndex + 1)</span>
+    </a>*@
 
-<a asp-action="PreView"
-   asp-route-page="@(Model.PageIndex - 1)"
-   class="page-item btn btn-default @prevDisabled">
-    <span class="	">@(Model.PageIndex - 1)</span>
-</a> <a asp-action="PreView"
-        asp-route-page="@(Model.PageIndex - 1)"
-        class="page-item btn btn-default @prevDisabled">
-    <span class="	fas fa-angle-double-left"></span>
-</a>
+@Html.AjaxActionLink((Model.PageIndex + 1).ToString(),ViewData["ActionName"].ToString(),ViewContext.RouteData.Values["Controller"].ToString(),new { page = Model.PageIndex + 1 },new AjaxOptions() { UpdateTargetId = ViewData["UpdateTargetId"].ToString(),HttpMethod = "Post" },new { @class = " page-item btn btn-default " + nextDisabled })
+
+@*<a asp-action="@ViewData["ActionName"]"
+       asp-route-page="@(Model.PageIndex)"
+       class="bg-blue page-item btn btn-default @nextDisabled">
+        <span class=" page-item ">@(Model.PageIndex)</span>
+    </a>*@
+
+@Html.AjaxActionLink((Model.PageIndex).ToString(),ViewData["ActionName"].ToString(),ViewContext.RouteData.Values["Controller"].ToString(),new { page = Model.PageIndex },new AjaxOptions() { UpdateTargetId = ViewData["UpdateTargetId"].ToString(),HttpMethod = "Post" },new { @class = " page-item btn btn-default " + nextDisabled })
+
+@{
+
+    if(Model.PageIndex - 1 != 0)
+    {
+        @*<a asp-action="@ViewData["ActionName"]"
+               asp-route-page="@(Model.PageIndex - 1)"
+               class="page-item btn btn-default @prevDisabled">
+                <span class="	">@(Model.PageIndex - 1)</span>
+            </a>*@
+
+        @Html.AjaxActionLink((Model.PageIndex - 1).ToString(),ViewData["ActionName"].ToString(),ViewContext.RouteData.Values["Controller"].ToString(),new { page = Model.PageIndex - 1 },new AjaxOptions() { UpdateTargetId = ViewData["UpdateTargetId"].ToString(),HttpMethod = "Post" },new { @class = " page-item btn btn-default " + nextDisabled })
+
+        @*<a asp-action="@ViewData["ActionName"]"
+               asp-route-page="@(Model.PageIndex - 1)"
+               class="page-item btn btn-default @prevDisabled">
+                <span class="	fas fa-angle-double-left"></span>
+            </a>*@
+
+        @*@Html.AjaxActionLink("",ViewData["ActionName"].ToString(),ViewContext.RouteData.Values["Controller"].ToString(),new { page = Model.PageIndex - 1 },new AjaxOptions() { UpdateTargetId = "CustomerCardItems",HttpMethod = "Post" },new { @class = " page-item btn btn-default " + nextDisabled })*@
+
+    }
+}
