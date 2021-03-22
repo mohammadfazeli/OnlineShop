@@ -362,8 +362,7 @@
     <script src="/plugins/lightgallery/js/lightgallery-all.min.js"></script>
     <script src="/plugins/lightgallery/js/jquery.mousewheel.min.js"></script>
     @Html.RenderUnobtrusiveAjaxScript()
-
-    @await Component.InvokeAsync("NToastNotify")
     @RenderSection("Scripts",false)
+    @await Component.InvokeAsync("NToastNotify")
 </body>
 </html>

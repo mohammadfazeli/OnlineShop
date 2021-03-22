@@ -1,70 +1,46 @@
-﻿@using OnlineShop.Common.Utilities
-@model IEnumerable<OnlineShop.ViewModels.Area.CustomerCardItem>
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.CustomerCardItem>
+@using OnlineShop.Common.Utilities
 
-<div id="CustomerCardItems">
-    <ul class="nav-right">
-        <li class="heart-icon">
-            <a href="#">
-                <i class="icon_heart_alt"></i>
-                <span>1</span>
-            </a>
-        </li>
-        <li class="cart-icon">
-            <a href="#">
-                <i class="icon_bag_alt"></i>
-                <span>@Model.Count()</span>
-            </a>
-            <div class="cart-hover">
-                @{
-                    if(Model.Any())
-                    {
+<a class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">@Model.Count()</span></a>
 
-                        <div class="select-items">
-                            <table>
-                                <tbody>
-                                    @{
-                                        foreach(var item in Model)
-                                        {
+<div class="cart_box dropdown-menu dropdown-menu-right">
 
-                                            <tr>
-                                                <td class="si-pic">
-                                                    @*<img src="/Layout/img/select-product-1.jpg" alt="">*@
-                                                    <partial name="_CustomerCardDisplayImage" model="item.productId" />
-                                                </td>
-                                                <td class="si-text text-right">
-                                                    <div class="product-selected">
-                                                        @*<p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>*@
-                                                        <p>@item.price.ToCurrency().ToPersianNumbers() </p>
-                                                        <h6>@item.ProductName</h6>
-                                                    </div>
-                                                </td>
-                                                <td class="si-close">
-                                                    @Html.AjaxActionLink("","RemovePreOrder","Card",new { productId = item.productId },new AjaxOptions() { UpdateTargetId = "CustomerCardItems" },new { @class = "ti-close" })
-                                                </td>
-                                            </tr>
-                                        }
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="select-total">
-                            <span>total:</span>
-                            <h5>$120.00</h5>
-                        </div>
-                        <div class="select-button">
-                            <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                            <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                        </div>
-                    }
-                    else
-                    {
-                        <p>محصولی در سبد کالا وجود ندارد</p>
-                    }
+    @if(Model.Any())
+    {
+        <ul class="cart_list">
+            @foreach(var item in Model)
+            {
+                <li>
+                    @*<a href="#" class="item_remove"><i class="ion-close"></i></a>*@
+                    @Html.AjaxActionLink("","RemovePreOrder","Card",
+                   new { productId = item.productId },
+                   new AjaxOptions() { UpdateTargetId = "CustomerCardItems" },
+                   new { @class = "item_remove ion-close" })
+                    <a href="#"><img src="/layout/assets/images/cart_thamb1.jpg" alt="cart_thumb1">@item.ProductName</a>
+                    <span class="cart_quantity">@item.Number عدد<span class="cart_amount">   @item.Price.ToNumeric() <span class="price_symbole">تومان</span></span></span>
+                </li>
+            }
 
-                }
-            </div>
-        </li>
-        <li class="cart-price">$150.00</li>
-    </ul>
+            @*<li>
+                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                    <a href="#"><img src="/layout/assets/images/cart_thamb2.jpg" alt="cart_thumb2">لباس زنانه</a>
+                    <span class="cart_quantity"> 1عدد  81000<span class="cart_amount"> <span class="price_symbole">تومان</span></span></span>
+                </li>*@
+        </ul>
+        <div class="cart_footer">
+            <p class="cart_total"><strong>جمع:</strong> @Model.Sum(s => (s.Number * s.Price)).ToNumeric().ToPersianNumbers()<span class="cart_price">  <span class="price_symbole">تومان</span></span></p>
+            <p class="cart_buttons">
+                <a asp-controller="@nameof(OnlineShop.Web.Controllers.CardController).Replace("Controller","")"
+                   asp-action="@nameof(OnlineShop.Web.Controllers.CardController.DisplayCard)"
+                   class="btn btn-fill-line view-cart">سبد خرید</a>
+                <a href="#" class="btn btn-fill-out checkout">بررسی</a>
+            </p>
+        </div>
+    }
+    else
+    {
+        <ul class="cart_list">
+            <li><p class="text-white text-center">سبد خرید خالیه!</p></li>
+        </ul>
+    }
 </div>

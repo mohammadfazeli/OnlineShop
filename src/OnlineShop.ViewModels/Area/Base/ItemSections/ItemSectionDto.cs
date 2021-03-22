@@ -1,4 +1,4 @@
-﻿using OnlineShop.Common.Enums;
+﻿using OnlineShop.ViewModels.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,9 +9,13 @@ namespace OnlineShop.ViewModels.Area.Base.ItemSections
         [Required(ErrorMessage = "(*)")]
         public Guid? ProductId { get; set; }
 
-        [Display(Name = nameof(Resource.Resource.ItemSectionType),Prompt = nameof(Resource.Resource.ItemSectionType),ResourceType = typeof(Resource.Resource))]
+        public DropDownViewModel ProductDropDown { get; set; }
+
+        [Display(Name = nameof(Resource.Resource.Section),Prompt = nameof(Resource.Resource.Section),ResourceType = typeof(Resource.Resource))]
         [Required(ErrorMessage = "(*)")]
-        public ItemSectionType ItemSectionType { get; set; }
+        public Guid SectionId { get; set; }
+
+        public DropDownViewModel SectionDropDown { get; set; }
 
         [Display(Name = nameof(Resource.Resource.FromDate),Prompt = nameof(Resource.Resource.FromDate),ResourceType = typeof(Resource.Resource))]
         [Required(ErrorMessage = "(*)")]

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using OnlineShop.Areas.Admin;
 using OnlineShop.Common.Enums;
+using OnlineShop.Common.ViewModel;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area.Base.ProductColors;
@@ -86,7 +87,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         [ActionInfo(IconType = IconType.FontAwesome4,Icon = "fas fa-edit",Name = nameof(Resource.Resource.ProductDetailEdit))]
         public IActionResult Edit(Guid id)
         {
-            var item = _productColorService.Get(id);
+            ProductColor item = _productColorService.Get(id);
             var ProductColorDto = _mapper.Map<ProductColor,ProductColorsDto>(item);
 
             ProductColorDto.ProductDropDown = _productService.GetDropDown(ProductColorDto.ProductId);
@@ -103,7 +104,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                 return View(dto);
             }
 
-            var result = _productColorService.Update(dto);
+            UpdateStatusvm result = _productColorService.Update(dto);
             PushUpdateMessage(_toastNotification,result);
             return RedirectToActionPermanent(nameof(Index),new { id = dto.ProductId });
         }

@@ -11,7 +11,7 @@
                     <tr>
                         <td style="width:15px;">#</td>
                         <td>@Html.DisplayNameFor(r => r.Id)</td>
-                        <td>@Html.DisplayNameFor(r => r.ItemSectionType)</td>
+                        <td>@Html.DisplayNameFor(r => r.SectionName)</td>
                         <td>@Html.DisplayNameFor(r => r.ProductName)</td>
                         <td>@Html.DisplayNameFor(r => r.CurrentPrice)</td>
                         <td>@Html.DisplayNameFor(r => r.OldPrice)</td>
@@ -55,10 +55,10 @@
                 "columns": [
                         { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
                         { "data": "id", className: "text-center ", visible: false },
-                        { "data": "itemSectionType", className: "text-center "},
+                        { "data": "sectionName", className: "text-center "},
                         { "data": "productName", className: "text-center "},
                         { "data": "currentPrice", className: "text-center "},
-                         { "data": "oldPrice", className: "text-center "},
+                        { "data": "oldPrice", className: "text-center "},
                         { "data": "strFromDate", className: "text-center "},
                         { "data": "strToDate", className: "text-center "},
                         {

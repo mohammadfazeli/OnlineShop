@@ -22,7 +22,6 @@ namespace OnlineShop.Services.Services.Area.Base
         public IQueryable<ItemSectionListDto> GetList(ItemSectionType? itemSectionType = null)
         {
             return GetAllNoTracking()
-                .Where(x => itemSectionType == null || x.itemSectionType == itemSectionType.Value)
                 .OrderByDescending(x => x.CreateOn)
                 .ProjectTo<ItemSectionListDto>(_mapper.ConfigurationProvider);
         }
@@ -30,7 +29,6 @@ namespace OnlineShop.Services.Services.Area.Base
         public IQueryable<ProdcutItemDto> GeProductItems(ItemSectionType? itemSectionType = null)
         {
             return GetAllNoTracking()
-                .Where(x => itemSectionType == null || x.itemSectionType == itemSectionType.Value)
                 .OrderByDescending(x => x.CreateOn)
                 .ProjectTo<ProdcutItemDto>(_mapper.ConfigurationProvider);
         }
@@ -56,7 +54,7 @@ namespace OnlineShop.Services.Services.Area.Base
             if(GetAllNoTracking().Any(row => (!add || row.Id != item.Id) && row.ProductId == item.ProductId && !row.InActive &&
              row.FromDate <= item.FromDate && item.FromDate <= row.ToDate &&
              row.ToDate <= item.ToDate && item.ToDate <= row.ToDate &&
-             item.ItemSectionType == row.itemSectionType))
+             item.SectionId == row.SectionId))
             {
                 result.IsValid = false;
                 result.AppendMessage(Resource.Resource.AddExists);

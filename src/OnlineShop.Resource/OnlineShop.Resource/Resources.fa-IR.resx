@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>افزودن</value>
+  </data>
+  <data name="AddExists" xml:space="preserve">
+    <value>AddExists</value>
+  </data>
+  <data name="AddFail" xml:space="preserve">
+    <value>AddFail</value>
+  </data>
+  <data name="AddPart" xml:space="preserve">
+    <value>AddPart</value>
+  </data>
+  <data name="Addrss" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="AddSuccessfully" xml:space="preserve">
+    <value>AddSuccessfully</value>
+  </data>
+  <data name="asdsadasd" xml:space="preserve">
+    <value>sfda</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>ضمیمه</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>ضمائم</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>رنگ</value>
+  </data>
+  <data name="ColorAdd" xml:space="preserve">
+    <value>افزودن رنگ</value>
+  </data>
+  <data name="ColorEdit" xml:space="preserve">
+    <value>ویرایش رنگ</value>
+  </data>
+  <data name="ColorList" xml:space="preserve">
+    <value>لیست رنگ</value>
+  </data>
+  <data name="CreateOn" xml:space="preserve">
+    <value>CreateOn</value>
+  </data>
+  <data name="CurrentPrice" xml:space="preserve">
+    <value>قیمت فعلی </value>
+  </data>
+  <data name="DeleteDependent" xml:space="preserve">
+    <value>به دلیل وجود اطلاعات وابسته ، امکان حذف میسر نمی باشد</value>
+  </data>
+  <data name="DeleteFail" xml:space="preserve">
+    <value>حذف انجام نشد. خطایی رخ داده است</value>
+  </data>
+  <data name="DeleteNotExists" xml:space="preserve">
+    <value>موردی جهت حذف یافت نشد</value>
+  </data>
+  <data name="DeleteSuccessfully" xml:space="preserve">
+    <value>حذف با موفقیت انجام شد</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="DisplayParts" xml:space="preserve">
+    <value>مشاهده قطعات</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>فکس</value>
+  </data>
+  <data name="ForeignName" xml:space="preserve">
+    <value>نام خارجی</value>
+  </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>کلمه‌ی عبور خود را فراموش کرده‌اید؟</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>از تاریخ </value>
+  </data>
+  <data name="FullInfo" xml:space="preserve">
+    <value>اطلاعات کلی</value>
+  </data>
+  <data name="InActive" xml:space="preserve">
+    <value>غیر فعال</value>
+  </data>
+  <data name="InputMustBeNumber" xml:space="preserve">
+    <value>مبلغ {0} صحیح نمی باشد</value>
+  </data>
+  <data name="InValidMobileNumber" xml:space="preserve">
+    <value>شماره موبایل وارد شده معتبر نمی باشد</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>اجباری است</value>
+  </data>
+  <data name="ItemSection" xml:space="preserve">
+    <value> بخش های سایت</value>
+  </data>
+  <data name="ItemSectionAdd" xml:space="preserve">
+    <value>افزودن بخش های سایت</value>
+  </data>
+  <data name="ItemSectionEdit" xml:space="preserve">
+    <value>ویرایش بخش های سایت</value>
+  </data>
+  <data name="ItemSectionList" xml:space="preserve">
+    <value>لیست بخش های سایت</value>
+  </data>
+  <data name="ItemSectionType" xml:space="preserve">
+    <value>نوع بخش مورد نظر</value>
+  </data>
+  <data name="ManagerName" xml:space="preserve">
+    <value>نام مدیر</value>
+  </data>
+  <data name="MangmenetSugestProduct" xml:space="preserve">
+    <value>مدیریت محصولات </value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>موبایل</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>مدل</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="NewPrice" xml:space="preserve">
+    <value>قیمت جدید</value>
+  </data>
+  <data name="OldPrice" xml:space="preserve">
+    <value>قیمت قدیم</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
+  <data name="Parts" xml:space="preserve">
+    <value>قطعات</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>محصول</value>
+  </data>
+  <data name="ProductAdd" xml:space="preserve">
+    <value>افزودن محصول جدید</value>
+  </data>
+  <data name="ProductDetail" xml:space="preserve">
+    <value>جزئیات محصول</value>
+  </data>
+  <data name="ProductDetailAdd" xml:space="preserve">
+    <value>افزودن جزئیات محصول</value>
+  </data>
+  <data name="ProductDetailEdit" xml:space="preserve">
+    <value>ویرایش جزئیات محصول</value>
+  </data>
+  <data name="ProductDetailList" xml:space="preserve">
+    <value>مشاهده جزئیات محصول</value>
+  </data>
+  <data name="ProductEdit" xml:space="preserve">
+    <value>ویرایش محصول</value>
+  </data>
+  <data name="ProductGroup" xml:space="preserve">
+    <value>گروه محصول</value>
+  </data>
+  <data name="ProductGroupAdd" xml:space="preserve">
+    <value>افزودن گروه محصول جدید</value>
+  </data>
+  <data name="ProductGroupEdit" xml:space="preserve">
+    <value>ویرایش گروه محصولات</value>
+  </data>
+  <data name="ProductGroupList" xml:space="preserve">
+    <value>لیست گروه محصولات</value>
+  </data>
+  <data name="ProductList" xml:space="preserve">
+    <value>لیست محصولات</value>
+  </data>
+  <data name="ProductPreView" xml:space="preserve">
+    <value>پیش نمایش محصولات</value>
+  </data>
+  <data name="ProductPriceModificatin" xml:space="preserve">
+    <value>قیمت گذازی</value>
+  </data>
+  <data name="ProductRelated" xml:space="preserve">
+    <value>محصولات مرتبط</value>
+  </data>
+  <data name="ProductSalePrice" xml:space="preserve">
+    <value>قیمت فروش محصول</value>
+  </data>
+  <data name="ProductSalePriceAdd" xml:space="preserve">
+    <value>افزودن قیمت گذاری</value>
+  </data>
+  <data name="ProductSalePriceEdit" xml:space="preserve">
+    <value>ویرایش قیمت گذاری</value>
+  </data>
+  <data name="ProductSalePriceList" xml:space="preserve">
+    <value>لیست قیمت گذاری</value>
+  </data>
+  <data name="ProductSpecification" xml:space="preserve">
+    <value>مشخصات محصول</value>
+  </data>
+  <data name="ProductSpecificationAdd" xml:space="preserve">
+    <value>افزودن مشخصات محصول</value>
+  </data>
+  <data name="ProductSpecificationEdit" xml:space="preserve">
+    <value>ویرایش مشخصات محصول</value>
+  </data>
+  <data name="ProductSpecificationList" xml:space="preserve">
+    <value>لیست مشخصات محصول</value>
+  </data>
+  <data name="ProductTagAdd" xml:space="preserve">
+    <value>افزودن برچسب های محصول</value>
+  </data>
+  <data name="ProductTagEdit" xml:space="preserve">
+    <value>ویرایش برچسب های محصول</value>
+  </data>
+  <data name="ProductTags" xml:space="preserve">
+    <value>لیست برچسب های محصول</value>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>تامین کننده</value>
+  </data>
+  <data name="ProviderCreate" xml:space="preserve">
+    <value>افزودن تامین کننده</value>
+  </data>
+  <data name="ProviderEdit" xml:space="preserve">
+    <value>ویرایش تامین کننده</value>
+  </data>
+  <data name="ProviderList" xml:space="preserve">
+    <value>لیست تامین کنندگان</value>
+  </data>
+  <data name="ProviderName" xml:space="preserve">
+    <value>نام تامین کننده</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="RemoveSuccess" xml:space="preserve">
+    <value>حذف با موفقیت انجام شد</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>بخش</value>
+  </data>
+  <data name="SectionName" xml:space="preserve">
+    <value>اسم بخش </value>
+  </data>
+  <data name="SelectedOneItem" xml:space="preserve">
+    <value>یک گزینه انتخاب کنید</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>سایز</value>
+  </data>
+  <data name="SizeAdd" xml:space="preserve">
+    <value>افزودن سایز</value>
+  </data>
+  <data name="SizeEdit" xml:space="preserve">
+    <value>ویرایش سایز</value>
+  </data>
+  <data name="SizeList" xml:space="preserve">
+    <value>لیست سایزها</value>
+  </data>
+  <data name="SortOrder" xml:space="preserve">
+    <value>ترتیب نمایش</value>
+  </data>
+  <data name="SpecificationName" xml:space="preserve">
+    <value>نام ویژگی</value>
+  </data>
+  <data name="SpecificationType" xml:space="preserve">
+    <value>نوع ویژگی</value>
+  </data>
+  <data name="SpecificationValue" xml:space="preserve">
+    <value>مقدار وِیژگی</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>ثبت</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>برچسب</value>
+  </data>
+  <data name="Tel" xml:space="preserve">
+    <value>تلفن</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="UpdateFail" xml:space="preserve">
+    <value>ویرایش انجام نشد. خطایی رخ داده است</value>
+  </data>
+  <data name="UpdateNotExists" xml:space="preserve">
+    <value>موردی جهت ویرایش یافت نشد</value>
+  </data>
+  <data name="UpdateSuccess" xml:space="preserve">
+    <value>ویرایش با موفقیت انجام شد</value>
+  </data>
+  <data name="UserCode" xml:space="preserve">
+    <value>کد کاربری</value>
+  </data>
+</root>

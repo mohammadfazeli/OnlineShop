@@ -21,32 +21,37 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
     [Authorize(Roles = ConstantRoles.Admin)]
     [BreadCrumb(Title = "مدیریت بخش های سایت",UseDefaultRouteUrl = true,Order = 0)]
     [Display(Name = "مدیریت بخش های سایت")]
-    [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-archive",Name = nameof(Resource.Resource.ItemSection),order = 3)]
+    [Menu(MenuGroup = MenuGroupEnum.BasicInfo,IconType = IconType.FontAwesome5,Icon = "fas fa-archive",Name = nameof(Resource.Resource.ItemSection),order = 3)]
     public class ItemSectionController:BaseController
     {
         private readonly IItemSectionService _ItemSectionService;
         private readonly IProductService _productService;
+        private readonly ISectionService _sectionService;
         private readonly IMapper _mapper;
 
         public ItemSectionController(IItemSectionService ItemSectionService,
-            IProductService productService
+            IProductService productService,
+            ISectionService sectionService
             ,IMapper mapper
             )
         {
             _ItemSectionService = ItemSectionService;
             _productService = productService;
+            _sectionService = sectionService;
             _mapper = mapper;
         }
 
         [BreadCrumb(Title = "",Order = 1)]
-        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-list",Name = nameof(Resource.Resource.ItemSectionList),order = 1)]
-        public IActionResult Index() => View();
+        [Menu(MenuGroup = MenuGroupEnum.BasicInfo,IconType = IconType.FontAwesome5,Icon = "fas fa-list",Name = nameof(Resource.Resource.ItemSectionList),order = 1)]
+        public IActionResult Index()
+            => View();
 
-        public JsonResult ReadData() => Json(new { Data = _ItemSectionService.GetList() });
+        public JsonResult ReadData()
+            => Json(new { Data = _ItemSectionService.GetList() });
 
         //public PartialViewResult GetInfo(Guid id) => PartialView("_Detail", _ItemSectionService.GetGeneralInfo(id));
 
-        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductPreView),order = 2)]
+        [Menu(MenuGroup = MenuGroupEnum.BasicInfo,IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductPreView),order = 2)]
         [HttpGet]
         public IActionResult PreView()
         {
@@ -58,12 +63,10 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
             return View(await PaginatedList<ItemSectionListDto>.CreateAsync(_ItemSectionService.GetList(itemSectionType),page));
         }
 
-        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ItemSectionAdd),order = 2)]
+        [Menu(MenuGroup = MenuGroupEnum.BasicInfo,IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ItemSectionAdd),order = 2)]
         [HttpGet]
         public IActionResult Create()
-        {
-            return View();
-        }
+            => View(new ItemSectionDto() { SectionDropDown = _sectionService.GetDropDown() });
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,8 +86,10 @@ namespace OnlineShop.Web.Areas.Identity.Controllers
         public IActionResult Edit(Guid id)
         {
             var item = _ItemSectionService.Get(id);
-            var ItemSectionGroupDTo = _mapper.Map<ItemSection,ItemSectionDto>(item);
-            return View(ItemSectionGroupDTo);
+            var itemSection = _mapper.Map<ItemSection,ItemSectionDto>(item);
+            itemSection.SectionDropDown = _sectionService.GetDropDown(item.SectionId);
+            itemSection.ProductDropDown = _productService.GetDropDown(item.ProductId);
+            return View(itemSection);
         }
 
         [HttpPost]

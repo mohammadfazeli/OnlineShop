@@ -106,44 +106,43 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
 
         public override void Process(TagHelperContext context,TagHelperOutput output)
         {
-            using(var writer = new StringWriter())
-            {
-                writer.Write($"<div class= {FormClass} form-group>");
+            StringWriter stringWriter = new StringWriter();
+            using var writer = stringWriter;
+            writer.Write($"<div class= {FormClass} form-group>");
 
-                var label = _generator.GenerateLabel(
-                                ViewContext,
-                                For.ModelExplorer,
-                                For.Name,
-                                null,
-                                new { @class = "control-label" });
+            var label = _generator.GenerateLabel(
+                            ViewContext,
+                            For.ModelExplorer,
+                            For.Name,
+                            null,
+                            new { @class = "control-label" });
 
-                label.WriteTo(writer,NullHtmlEncoder.Default);
-                var isOptinal = !For.ModelExplorer.Metadata.IsRequired ? " bg-light" : "";
+            label.WriteTo(writer,NullHtmlEncoder.Default);
+            var isOptinal = !For.ModelExplorer.Metadata.IsRequired ? " bg-light" : "";
 
-                var textArea = _generator.GenerateTextBox(
-                                    viewContext: ViewContext,
-                                    modelExplorer: For.ModelExplorer,
-                                    expression: For.Name,
-                                    value: For.Model,
-                                    format: string.IsNullOrEmpty(Format) ? GetFormat() : Format,
-                                    htmlAttributes: new { @class = $"{Class} form-control {isOptinal} " });
+            var textArea = _generator.GenerateTextBox(
+                                viewContext: ViewContext,
+                                modelExplorer: For.ModelExplorer,
+                                expression: For.Name,
+                                value: For.Model,
+                                format: string.IsNullOrEmpty(Format) ? GetFormat() : Format,
+                                htmlAttributes: new { @class = $"{Class} form-control {isOptinal} " });
 
-                textArea.WriteTo(writer,NullHtmlEncoder.Default);
+            textArea.WriteTo(writer,NullHtmlEncoder.Default);
 
-                var validationMsg = _generator.GenerateValidationMessage(
-                                        ViewContext,
-                                        For.ModelExplorer,
-                                        For.Name,
-                                        null,
-                                        ViewContext.ValidationMessageElement,
-                                        new { @class = "text-danger" });
+            var validationMsg = _generator.GenerateValidationMessage(
+                                    ViewContext,
+                                    For.ModelExplorer,
+                                    For.Name,
+                                    null,
+                                    ViewContext.ValidationMessageElement,
+                                    new { @class = "text-danger" });
 
-                validationMsg.WriteTo(writer,NullHtmlEncoder.Default);
+            validationMsg.WriteTo(writer,NullHtmlEncoder.Default);
 
-                writer.Write(@"</div>");
+            writer.Write(@"</div>");
 
-                output.Content.SetHtmlContent(writer.ToString());
-            }
+            output.Content.SetHtmlContent(writer.ToString());
         }
     }
 }

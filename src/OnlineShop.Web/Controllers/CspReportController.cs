@@ -55,7 +55,7 @@ namespace OnlineShop.Controllers
     }
 
     [Route("api/[controller]")]
-    public class CspReportController : Controller
+    public class CspReportController:Controller
     {
         private readonly ILogger<CspReportController> _logger;
 
@@ -88,7 +88,7 @@ namespace OnlineShop.Controllers
             */
 
             CspPost cspPost;
-            using (var bodyReader = new StreamReader(this.HttpContext.Request.Body))
+            using(StreamReader bodyReader = new StreamReader(HttpContext.Request.Body))
             {
                 var body = await bodyReader.ReadToEndAsync();
 

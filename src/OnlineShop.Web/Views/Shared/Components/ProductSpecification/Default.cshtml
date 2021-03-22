@@ -1,23 +1,35 @@
 ﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.ProductSpecification.ProductSpecificationListDto>
 
-<div class="specification-table">
-    <table>
-        @{
-            foreach(var item in Model)
-            {
-                <tr class="m-5 ">
-
-                    <td style="overflow-wrap: anywhere;" class="text-right ">
-                        <div>
-                            @item.SpecificationValue
-                        </div>
-                    </td>
-                    <td class="p-catagory text-right mr-2"> @item.SpecificationName</td>
-                </tr>
-            }
+<table class="table table-bordered">
+    @{
+        foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.SpecificationName</td>
+                <td>@item.SpecificationValue</td>
+            </tr>
         }
-    </table>
-</div>
+    }
+</table>
+
+@*<div class="specification-table">
+        <table>
+            @{
+                foreach(var item in Model)
+                {
+                    <tr class="m-5 ">
+
+                        <td style="overflow-wrap: anywhere;" class="text-right ">
+                            <div>
+                                @item.SpecificationValue
+                            </div>
+                        </td>
+                        <td class="p-catagory text-right mr-2"> @item.SpecificationName</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>*@
 
 @*<div class="table-responsive">
         <table class="table table-striped table-bordered text-right table-hover  table-sm">

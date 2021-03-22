@@ -94,7 +94,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                 return View(dto);
             }
 
-            _ProductSpecificationService.Update(dto);
+            var updateStatusvm = _ProductSpecificationService.Update(dto);
             return RedirectToActionPermanent(nameof(Index),new { id = dto.ProductId });
         }
 

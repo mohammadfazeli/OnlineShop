@@ -9,15 +9,9 @@ namespace OnlineShop.Web.ViewComponents
         private readonly IItemSectionService _itemSectionService;
 
         public ItemSectionViewComponent(IItemSectionService itemSectionService)
-        {
-            _itemSectionService = itemSectionService;
-        }
+              => _itemSectionService = itemSectionService;
 
         public IViewComponentResult Invoke(ItemSectionType itemSectionType)
-        {
-            var itemSections = _itemSectionService.GeProductItems(itemSectionType);
-
-            return View(itemSections);
-        }
+            => View(_itemSectionService.GeProductItems(itemSectionType));
     }
 }

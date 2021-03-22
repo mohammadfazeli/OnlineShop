@@ -4,268 +4,418 @@
 
 @{ Layout = "_Layout"; }
 
-<!-- Breadcrumb Section Begin -->
-<div class="breacrumb-section">
+<!-- START SECTION SHOP -->
+<div class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                    <a href="./shop.html">Shop</a>
-                    <span>Detail</span>
+            <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                <div class="product-image vertical_gallery">
+                    <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-vertical="true" data-vertical-swiping="true" data-slides-to-show="5" data-slides-to-scroll="1" data-infinite="false">
+                        <div class="item">
+                            <a href="#" class="product_gallery_item active" data-image="/layout/assets/images/product_img1.jpg" data-zoom-image="/layout/assets/images/product_zoom_img1.jpg">
+                                <img src="/layout/assets/images/product_small_img1.jpg" alt="product_small_img1" />
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#" class="product_gallery_item" data-image="/layout/assets/images/product_img1-2.jpg" data-zoom-image="/layout/assets/images/product_zoom_img2.jpg">
+                                <img src="/layout/assets/images/product_small_img2.jpg" alt="product_small_img2" />
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#" class="product_gallery_item" data-image="/layout/assets/images/product_img1-3.jpg" data-zoom-image="/layout/assets/images/product_zoom_img3.jpg">
+                                <img src="/layout/assets/images/product_small_img3.jpg" alt="product_small_img3" />
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#" class="product_gallery_item" data-image="/layout/assets/images/product_img1-4.jpg" data-zoom-image="/layout/assets/images/product_zoom_img4.jpg">
+                                <img src="/layout/assets/images/product_small_img4.jpg" alt="product_small_img4" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product_img_box">
+                        <img id="product_img" src='/layout/assets/images/product_zoom_img1.jpg' data-zoom-image="/layout/assets/images/product_zoom_img1.jpg" alt="product_img1" />
+                        <a href="#" class="product_img_zoom" title="Zoom">
+                            <span class="linearicons-zoom-in"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-6 col-md-6">
+                <partial name="_ProductIDetailtem" model="Model" />
+            </div>
         </div>
-    </div>
-</div>
-<!-- Breadcrumb Section Begin -->
-<!-- Product Shop Section Begin -->
-<section class="product-shop spad page-details">
-    <div class="container">
         <div class="row">
-            @*<div class="col-lg-3">
-                    <div class="filter-widget">
-                        <h4 class="fw-title">Categories</h4>
-                        <ul class="filter-catagories">
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Women</a></li>
-                            <li><a href="#">Kids</a></li>
+            <div class="col-12">
+                <div class="large_divider clearfix"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <partial name="_productTabItems" model="Model" />
+                @*<div class="tab-style3">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="Description-tab" data-toggle="tab" href="#Description" role="tab" aria-controls="Description" aria-selected="true">توضیحات</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="Additional-info-tab" data-toggle="tab" href="#Additional-info" role="tab" aria-controls="Additional-info" aria-selected="false">اطلاعات اضافی</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">نظرات (2)</a>
+                            </li>
                         </ul>
-                    </div>
-                    <div class="filter-widget">
-                        <h4 class="fw-title">Brand</h4>
-                        <div class="fw-brand-check">
-                            <div class="bc-item">
-                                <label for="bc-calvin">
-                                    Calvin Klein
-                                    <input type="checkbox" id="bc-calvin">
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="tab-content shop_info_tab">
+                            <div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت.</p>
+                                <p>بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
                             </div>
-                            <div class="bc-item">
-                                <label for="bc-diesel">
-                                    Diesel
-                                    <input type="checkbox" id="bc-diesel">
-                                    <span class="checkmark"></span>
-                                </label>
+                            <div class="tab-pane fade" id="Additional-info" role="tabpanel" aria-labelledby="Additional-info-tab">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>وزن</td>
+                                        <td>5 Kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>رنگ</td>
+                                        <td>مشکی ، قهوه ای ، قرمز ،</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ضد آب</td>
+                                        <td>بله</td>
+                                    </tr>
+                                    <tr>
+                                        <td>جنس</td>
+                                        <td>چرم مصنوعی</td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="bc-item">
-                                <label for="bc-polo">
-                                    Polo
-                                    <input type="checkbox" id="bc-polo">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="bc-item">
-                                <label for="bc-tommy">
-                                    Tommy Hilfiger
-                                    <input type="checkbox" id="bc-tommy">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-widget">
-                        <h4 class="fw-title">Price</h4>
-                        <div class="filter-range-wrap">
-                            <div class="range-slider">
-                                <div class="price-input">
-                                    <input type="text" id="minamount">
-                                    <input type="text" id="maxamount">
+                            <div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
+                                <div class="comments">
+                                    <h5 class="product_tab_title">2 نظر برای <span>لباس آبی زنانه</span></h5>
+                                    <ul class="list_none comment_list mt-4">
+                                        <li>
+                                            <div class="comment_img">
+                                                <img src="assets/images/user1.jpg" alt="user1" />
+                                            </div>
+                                            <div class="comment_block">
+                                                <div class="rating_wrap">
+                                                    <div class="rating">
+                                                        <div class="product_rate" style="width:80%"></div>
+                                                    </div>
+                                                </div>
+                                                <p class="customer_meta">
+                                                    <span class="review_author">ستاره جمشیدی</span>
+                                                    <span class="comment-date">5 اسفند 1399</span>
+                                                </p>
+                                                <div class="description">
+                                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="comment_img">
+                                                <img src="assets/images/user2.jpg" alt="user2" />
+                                            </div>
+                                            <div class="comment_block">
+                                                <div class="rating_wrap">
+                                                    <div class="rating">
+                                                        <div class="product_rate" style="width:60%"></div>
+                                                    </div>
+                                                </div>
+                                                <p class="customer_meta">
+                                                    <span class="review_author">وحید سعیدی</span>
+                                                    <span class="comment-date">5 اسفند 1399</span>
+                                                </p>
+                                                <div class="description">
+                                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                 data-min="33" data-max="98">
-                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            </div>
-                        </div>
-                        <a href="#" class="filter-btn">Filter</a>
-                    </div>
-                    <div class="filter-widget">
-                        <h4 class="fw-title">Color</h4>
-                        <div class="fw-color-choose">
-                            <div class="cs-item">
-                                <input type="radio" id="cs-black">
-                                <label class="cs-black" for="cs-black">Black</label>
-                            </div>
-                            <div class="cs-item">
-                                <input type="radio" id="cs-violet">
-                                <label class="cs-violet" for="cs-violet">Violet</label>
-                            </div>
-                            <div class="cs-item">
-                                <input type="radio" id="cs-blue">
-                                <label class="cs-blue" for="cs-blue">Blue</label>
-                            </div>
-                            <div class="cs-item">
-                                <input type="radio" id="cs-yellow">
-                                <label class="cs-yellow" for="cs-yellow">Yellow</label>
-                            </div>
-                            <div class="cs-item">
-                                <input type="radio" id="cs-red">
-                                <label class="cs-red" for="cs-red">Red</label>
-                            </div>
-                            <div class="cs-item">
-                                <input type="radio" id="cs-green">
-                                <label class="cs-green" for="cs-green">Green</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-widget">
-                        <h4 class="fw-title">Size</h4>
-                        <div class="fw-size-choose">
-                            <div class="sc-item">
-                                <input type="radio" id="s-size">
-                                <label for="s-size">s</label>
-                            </div>
-                            <div class="sc-item">
-                                <input type="radio" id="m-size">
-                                <label for="m-size">m</label>
-                            </div>
-                            <div class="sc-item">
-                                <input type="radio" id="l-size">
-                                <label for="l-size">l</label>
-                            </div>
-                            <div class="sc-item">
-                                <input type="radio" id="xs-size">
-                                <label for="xs-size">xs</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-widget">
-                        <h4 class="fw-title">Tags</h4>
-                        <div class="fw-tags">
-                            <a href="#">Towel</a>
-                            <a href="#">Shoes</a>
-                            <a href="#">Coat</a>
-                            <a href="#">Dresses</a>
-                            <a href="#">Trousers</a>
-                            <a href="#">Men's hats</a>
-                            <a href="#">Backpack</a>
-                        </div>
-                    </div>
-                </div>*@
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
-                <div class="row text-right " style="direction:rtl!important">
+                                <div class="review_form field_form">
+                                    <h5>ارسال نظرات</h5>
+                                    <form class="row mt-3">
+                                        <div class="form-group col-12">
+                                            <div class="star_rating">
+                                                <span data-value="1"><i class="far fa-star"></i></span>
+                                                <span data-value="2"><i class="far fa-star"></i></span>
+                                                <span data-value="3"><i class="far fa-star"></i></span>
+                                                <span data-value="4"><i class="far fa-star"></i></span>
+                                                <span data-value="5"><i class="far fa-star"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <textarea required="required" placeholder="نظر شما *" class="form-control" name="message" rows="4"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input required="required" placeholder="نام خود را وارد کنید *" class="form-control" name="name" type="text">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input required="required" placeholder="ایمیل خود را وارد کنید *" class="form-control" name="email" type="email">
+                                        </div>
 
-                    <div class="col-lg-6">
-                        <div class="product-details">
-                            <div class="pd-title">
-                                <span> @Model.ModelName  </span>
-                                <h3> @Model.Name </h3>
-                                @*<a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>*@
-                            </div>
-                            <div class="pd-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span>(5)</span>
-                            </div>
-                            <div class="pd-desc">
-                                <p>
-                                    @Model.Description
-                                </p>
-                                <h4>@Model.OldPrice.ToCurrency().ToPersianNumbers() <span>@Model.Price.ToCurrency().ToPersianNumbers()</span></h4>
-                            </div>
-                            <div class="pd-color">
-                                <h6>Color</h6>
-                                <div class="pd-color-choose">
-                                    @*<div class="cc-item">
-                                            <input type="radio" id="cc-black">
-                                            <label for="cc-black"></label>
+                                        <div class="form-group col-12">
+                                            <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">ارسال نظر</button>
                                         </div>
-                                        <div class="cc-item">
-                                            <input type="radio" id="cc-yellow">
-                                            <label for="cc-yellow" class="cc-yellow"></label>
-                                        </div>*@
-                                    @foreach(var item in Model.ProductColors)
-                                    {
-                                        <div class="cc-item">
-                                            <input type="radio" id="@item.ColorId">
-                                            <label for="@item.ColorId" style="background-color:@item.Color.UserCode"></label>
-                                        </div>
-                                    }
+                                    </form>
                                 </div>
                             </div>
-                            <div class="pd-size-choose">
-                                @*<div class="sc-item">
-                                        <input type="radio" id="sm-size">
-                                        <label for="sm-size">s</label>
-                                    </div>
-                                    <div class="sc-item">
-                                        <input type="radio" id="md-size">
-                                        <label for="md-size">m</label>
-                                    </div>
-                                    <div class="sc-item">
-                                        <input type="radio" id="lg-size">
-                                        <label for="lg-size">l</label>
-                                    </div>*@
-                                @foreach(var item in Model.ProductSizes)
-                                {
-                                    <div class="sc-item">
-                                        <input type="radio" id="@item.SizeId">
-                                        <label for="@item.SizeId">@item.Size.Name</label>
-                                    </div>
-                                }
-                            </div>
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="small_divider"></div>
+                <div class="divider"></div>
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="heading_s1">
+                    <h3>محصولات مرتبط</h3>
+                </div>
+                <div class="releted_product_slider carousel_slider owl-carousel owl-theme" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="assets/images/product_img1.jpg" alt="product_img1">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
                                 </div>
-                                <a href="#" class="primary-btn pd-cart">Add To Cart</a>
                             </div>
-                            <ul class="pd-tags">
-                                <li><span>CATEGORIES</span>: More Accessories, Wallets & Cases</li>
-                                <li>
-                                    <span>TAGS</span>
-                                    @foreach(var item in Model.ProductTags)
-                                    {
-                                        <a href="#">@item.Name</a>
-                                    }
-                                    @*: Clothing, T-shirt, Woman*@
-                                </li>
-                            </ul>
-                            <div class="pd-share">
-                                <div class="p-code">Sku : 00012</div>
-                                <div class="pd-social">
-                                    <a href="#"><i class="ti-facebook"></i></a>
-                                    <a href="#"><i class="ti-twitter-alt"></i></a>
-                                    <a href="#"><i class="ti-linkedin"></i></a>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس آبی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">45000 تومان</span>
+                                    <del>55000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪35 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#87554B"></span>
+                                        <span data-color="#333333"></span>
+                                        <span data-color="#DA323F"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <partial name="_DisplayProductPictures" model="@Model.Id" />
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="assets/images/product_img2.jpg" alt="product_img2">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">کت اسپرت خاکستری</a></h6>
+                                <div class="product_price">
+                                    <span class="price">55000 تومان</span>
+                                    <del>95000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪25 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#847764"></span>
+                                        <span data-color="#0393B5"></span>
+                                        <span data-color="#DA323F"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product">
+                            <span class="pr_flash">جدید</span>
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="assets/images/product_img3.jpg" alt="product_img3">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس کامل زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">68000 تومان</span>
+                                    <del>99000 تومان</del>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:87%"></div>
+                                    </div>
+                                    <span class="rating_num">(25)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#333333"></span>
+                                        <span data-color="#7C502F"></span>
+                                        <span data-color="#2F366C"></span>
+                                        <span data-color="#874A3D"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="assets/images/product_img4.jpg" alt="product_img4">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">پیراهن آبی روشن</a></h6>
+                                <div class="product_price">
+                                    <span class="price">69000 تومان</span>
+                                    <del>89000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪20 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:70%"></div>
+                                    </div>
+                                    <span class="rating_num">(22)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#333333"></span>
+                                        <span data-color="#A92534"></span>
+                                        <span data-color="#B9C2DF"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="assets/images/product_img5.jpg" alt="product_img5">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس آبی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">45000 تومان</span>
+                                    <del>55000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪35 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#87554B"></span>
+                                        <span data-color="#333333"></span>
+                                        <span data-color="#5FB7D4"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="float-right text-right" style="direction:rtl !important">
-                    <partial name="_productTabItems" model="@Model.Id" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Product Shop Section End -->
-<!-- Related Products Section End -->
-<div class="related-products spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Related Products</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <vc:product-related product-id="@Model.Id"></vc:product-related>
         </div>
     </div>
 </div>
+<!-- END SECTION SHOP -->
+<!-- START SECTION SUBSCRIBE NEWSLETTER -->
+<div class="section bg_default small_pt small_pb">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="heading_s1 mb-md-0 heading_light">
+                    <h3>اشتراک در خبرنامه ما</h3>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="newsletter_form">
+                    <form>
+                        <input type="text" required="" class="form-control rounded-0" placeholder="آدرس ایمیل">
+                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">اشتراک</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- START SECTION SUBSCRIBE NEWSLETTER -->

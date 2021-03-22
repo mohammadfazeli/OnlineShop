@@ -19,6 +19,7 @@ namespace OnlineShop.Web.Mapping.Area.Base
             profile.CreateMap<ItemSection,ItemSectionListDto>()
                 .ForMember(d => d.strFromDate,opt => opt.MapFrom(s => s.FromDate == null ? "" : s.FromDate.ToPersianDate().ToPersianNumbers()))
                 .ForMember(d => d.StrToDate,opt => opt.MapFrom(s => s.ToDate == null ? "" : s.ToDate.ToPersianDate().ToPersianNumbers()))
+                .ForMember(d => d.SectionName,opt => opt.MapFrom(s => s.Section.Name))
                 .ForMember(d => d.ProductName,opt => opt.MapFrom(s => s.Product.Name))
                 .ForMember(d => d.ModelName,opt => opt.MapFrom(s => s.Product.Model.Name))
                 .ForMember(d => d.CurrentPrice,opt => opt.MapFrom(s => s.Product.ProductSalePrices == null ? "" : s.Product.ProductSalePrices.OrderByDescending(pc => pc.CreateOn).FirstOrDefault(price => !price.IsDeleted && !price.InActive).NewPrice.ToCurrency().ToPersianNumbers()))

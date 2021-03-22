@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>افزودن</value>
+    <value>Add</value>
   </data>
   <data name="AddExists" xml:space="preserve">
-    <value>اطلاعات وارد شده تکراری است</value>
+    <value>AddExists</value>
   </data>
   <data name="AddFail" xml:space="preserve">
-    <value>ثبت انجام نشد. خطایی رخ داده است</value>
+    <value>AddFail</value>
   </data>
   <data name="AddPart" xml:space="preserve">
-    <value>افزودن قطعه</value>
+    <value>AddPart</value>
   </data>
   <data name="Addrss" xml:space="preserve">
     <value>آدرس</value>
   </data>
   <data name="AddSuccessfully" xml:space="preserve">
-    <value>ثبت با موفقیت انجام شد</value>
+    <value>AddSuccessfully</value>
   </data>
   <data name="asdsadasd" xml:space="preserve">
     <value>sfda</value>
@@ -148,19 +148,19 @@
     <value>لغو</value>
   </data>
   <data name="Color" xml:space="preserve">
-    <value>رنگ</value>
+    <value>Color</value>
   </data>
   <data name="ColorAdd" xml:space="preserve">
-    <value>افزودن رنگ جدید</value>
+    <value>ColorAdd</value>
   </data>
   <data name="ColorEdit" xml:space="preserve">
-    <value>ویرایش رنگ</value>
+    <value>ColorEdit</value>
   </data>
   <data name="ColorList" xml:space="preserve">
-    <value>لیست رنگ ها</value>
+    <value>ColorList</value>
   </data>
   <data name="CreateOn" xml:space="preserve">
-    <value>تاریخ ایجاد</value>
+    <value>CreateOn</value>
   </data>
   <data name="CurrentPrice" xml:space="preserve">
     <value>قیمت فعلی </value>
@@ -353,6 +353,12 @@
   </data>
   <data name="RemoveSuccess" xml:space="preserve">
     <value>حذف با موفقیت انجام شد</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>بخش</value>
+  </data>
+  <data name="SectionName" xml:space="preserve">
+    <value>اسم بخش </value>
   </data>
   <data name="SelectedOneItem" xml:space="preserve">
     <value>یک گزینه انتخاب کنید</value>

@@ -10,24 +10,24 @@ using System.Linq;
 
 namespace OnlineShop.Services.Services.Area.Base
 {
-    public class ProductSpecificationService : EntityService<ProductSpecification, ProductSpecificationDto>, IProductSpecificationService
+    public class ProductSpecificationService:EntityService<ProductSpecification,ProductSpecificationDto>, IProductSpecificationService
     {
-        public ProductSpecificationService(IUnitOfWork unitOfWork, IMapper mapper, IRepository<ProductSpecification> repository
-            ) : base(unitOfWork, mapper, repository)
+        public ProductSpecificationService(IUnitOfWork unitOfWork,IMapper mapper,IRepository<ProductSpecification> repository
+            ) : base(unitOfWork,mapper,repository)
         {
         }
 
-        public IQueryable<ProductSpecificationListDto> GetList(Guid productId)
+        public IQueryable<ProductSpecificationListDto> GetList(Guid productId,bool all = true)
         {
             return GetAllNoTracking()
-                .Where(x => x.ProductId == productId)
+                .Where(x => (all || !x.InActive) && x.ProductId == productId)
                 .OrderBy(x => x.SortOrder)
                 .ProjectTo<ProductSpecificationListDto>(_mapper.ConfigurationProvider);
         }
 
         public ProductSpecificationListDto GetInfo(Guid id)
         {
-            return _mapper.Map(Get(id), new ProductSpecificationListDto());
+            return _mapper.Map(Get(id),new ProductSpecificationListDto());
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace OnlineShop.Web.ViewComponents
 {
-    public class CustomerCardItemViewComponent : ViewComponent
+    public class CustomerCardItemViewComponent:ViewComponent
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 

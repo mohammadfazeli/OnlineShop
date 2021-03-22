@@ -4,7 +4,7 @@ using System;
 
 namespace OnlineShop.Web.ViewComponents
 {
-    public class ProductSpecificationViewComponent : ViewComponent
+    public class ProductSpecificationViewComponent:ViewComponent
     {
         private readonly IProductSpecificationService _productSpecificationService;
 
@@ -15,7 +15,7 @@ namespace OnlineShop.Web.ViewComponents
 
         public IViewComponentResult Invoke(Guid productId)
         {
-            var itemSections = _productSpecificationService.GetList(productId);
+            var itemSections = _productSpecificationService.GetList(productId,false);
             return View(itemSections);
         }
     }

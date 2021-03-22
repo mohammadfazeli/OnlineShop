@@ -12,6 +12,7 @@ namespace OnlineShop.ViewModels.Area
         public Guid productId { get; set; }
         public string ProductName { get; set; }
         public int Number { get; set; }
-        public decimal price { get; set; }
+        public decimal Price { get; set; }
+        public decimal Total { get; set; }
     }
 }

@@ -33,6 +33,13 @@ namespace OnlineShop.Common.Enums
         Dependent
     }
 
+    public enum MenuGroupEnum
+    {
+        BasicInfo,
+        Warehouse,
+        Managment
+    }
+
     public enum IconType
     {
         UiKit,

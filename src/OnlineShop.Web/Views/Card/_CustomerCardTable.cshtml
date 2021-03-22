@@ -1,0 +1,74 @@
+﻿@using OnlineShop.Common.Utilities
+@model IEnumerable<OnlineShop.ViewModels.Area.CustomerCardItem>
+
+@{
+    if(Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="product-thumbnail">&nbsp;</th>
+                    <th class="product-name">محصول</th>
+                    <th class="product-price">قیمت</th>
+                    <th class="product-quantity">تعداد</th>
+                    <th class="product-subtotal">جمع</th>
+                    <th class="product-remove">حذف</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach(var item in Model.OrderBy(x => x.ProductName))
+                {
+                    <tr>
+                        <td class="product-thumbnail"><a href="#"><img src="/layout/assets/images/product_img1.jpg" alt="product1"></a></td>
+
+                        <td class="product-name" id="ProductName_@item.productId" data-title="محصول"><a href="#">@item.ProductName</a></td>
+
+                        <td class="product-price" id="Price_@item.productId" data-title="قیمت">@item.Price.ToNumeric() تومان</td>
+
+                        <td class="product-quantity" data-title="تعداد">
+                            <div class="quantity">
+                                <input type="button" onclick="MinsChangeNumber('@item.productId')" value="-" class="minus">
+                                <input type="text" id="quantity_@item.productId" name="quantity" onchange="Change()" value="@item.Number" title="Qty" class="qty" size="4">
+                                <input type="button" onclick="PlusChangeNumber('@item.productId')" value="+" class="plus">
+                            </div>
+                        </td>
+
+                        <td class="product-subtotal" data-title="جمع">@( (item.Total).ToNumeric() ) تومان</td>
+                        <td class="product-remove" data-title="حذف">
+                            @Html.AjaxActionLink("","RemovePreOrder","Card",new { productId = item.productId },new AjaxOptions() { UpdateTargetId = "CustomerCardItems" },new { @class = "item_remove ion-close" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="px-0">
+                        <div class="row no-gutters align-items-center">
+
+                            <div class="col-lg-4 col-md-6 mb-3 mb-md-0">
+                                <div class="coupon field_form input-group">
+                                    <input type="text" value="" class="form-control form-control-sm" placeholder="شماره کوپن را وارد کنید...">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-fill-out btn-sm" type="submit">کوپن</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6 text-left text-md-right">
+                                <button class="btn btn-line-fill btn-sm" type="submit">به روز رسانی سبد خرید</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-danger ">
+            <h6>سبد خرید خالی که !</h6>
+        </div>
+
+    }
+}

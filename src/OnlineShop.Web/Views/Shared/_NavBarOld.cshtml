@@ -1,0 +1,241 @@
+﻿<div class="search-wrap">
+    <div class="container">
+        <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
+        <form action="#" method="post">
+            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between ">
+        <div class="icons">
+
+            @*<span>
+                    <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+                </span>*@
+
+            @*<a data-toggle="dropdown" href="#" class="icons-btn d-inline-block bag">
+                    <span class="icon-shopping-bag"></span>
+                    <span class="number">2</span>
+                </a>*@
+
+            @*<a href="#" class="icons-btn d-inline-block bag ">
+                    <span class="icon-shopping-bag"></span>
+                    <span class="number">2</span>
+                </a>
+                <div id="CustomerCadrItems" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-justify; duration: 1000">
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                </div>*@
+            <span id="CustomerCardItems">
+                @await Component.InvokeAsync("CustomerCardItem")
+            </span>
+
+            <!--<div class="has-children ">
+            <a class="icons-btn d-inline-block bag" href="#" data-toggle="dropdown">-->
+            @*<img class="img-thumbnail userImage" src="@photoUrl" alt="@displayName" asp-append-version="true"
+                onerror="this.style.visibility = 'hidden';this.width=0; this.height=0;" />*@
+            <!--<span class="author fas fa-user" d></span>
+                </a>
+                <ul class="dropdown">
+                    <li>
+
+            @*<span>
+                    <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+                </span>*@
+
+            @*<a data-toggle="dropdown" href="#" class="icons-btn d-inline-block bag">
+                    <span class="icon-shopping-bag"></span>
+                    <span class="number">2</span>
+                </a>*@
+
+            <a href="#" class="icons-btn d-inline-block bag ">
+                <span class="icon-shopping-bag"></span>
+                <span class="number">2</span>
+            </a>
+            <div uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-justify; duration: 1000">
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+            </div>
+            <!--<div class="has-children ">
+            <a class="icons-btn d-inline-block bag" href="#" data-toggle="dropdown">-->
+            @*<img class="img-thumbnail userImage" src="@photoUrl" alt="@displayName" asp-append-version="true"
+                onerror="this.style.visibility = 'hidden';this.width=0; this.height=0;" />*@
+            <!--<span class="author fas fa-user" d></span>
+                            </a>
+                            <ul class="dropdown">
+                                <li>
+
+                                    <a class=" text-right" asp-controller="UserCard" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+
+                                        برگه‌ی کاربری من
+                                        <span class="mr-1 fas fa-user" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+
+                                <li> <span class="dropdown-divider"></span></li>
+                                <li>
+
+                                    <a class=" text-right" asp-controller="UserProfile" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+
+                                    <a class=" text-right" asp-controller="UserProfile" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+
+                                        تنظیمات کاربری من
+                                        <span class="mr-1 fas fa-cog" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li>
+
+                                    <a class="text-right" asp-controller="ChangePassword" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+
+                                    <a class="text-right" asp-controller="ChangePassword" asp-action="Index" asp-area="@AreaConstants.AdminArea">
+
+                                        تغییر کلمه‌ی عبور
+                                        <span class="mr-1 fas fa-asterisk" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li>
+
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li>
+
+                                    <a class=" text-right" asp-controller="Login" asp-action="LogOff" asp-area="@AreaConstants.AdminArea">
+
+                                    <a class=" text-right" asp-controller="Login" asp-action="LogOff" asp-area="@AreaConstants.AdminArea">
+
+                                        خروج
+                                        <span class="mr-1 fas fa-sign-out-alt" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a class="icons-btn d-inline-block bag" data-toggle="dropdown" href="#">
+                                <span class="fas fa-shopping-cart "></span>
+                                <span class="number">3</span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                <a href="#" class="dropdown-item">-->
+            <!-- Message Start -->
+            <!--<div class="media">
+                <img src="/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">Call me whenever you can...</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+            </div>-->
+            <!-- Message End -->
+            <!--</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">-->
+            <!-- Message Start -->
+            <!--<div class="media">
+                <img src="/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">I got your message bro</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+            </div>-->
+            <!-- Message End -->
+            <!--</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">-->
+            <!-- Message Start -->
+            <!--<div class="media">
+                <img src="/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">The subject goes here</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+            </div>-->
+            <!-- Message End -->
+            <!--</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                </div>
+            </div>-->
+
+            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span class="icon-menu"></span></a>
+        </div>
+        <div class="logo">
+            <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">فروشگاه من</a>
+            </div>
+        </div>
+        <div class="main-nav d-none d-lg-block">
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+                <ul class="site-menu js-clone-nav d-none d-lg-block">
+                    <li class="has-children active">
+                        <a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a class="text-right" href="#">Menu One</a></li>
+                            <li><a class="text-right" href="#">Menu Two</a></li>
+                            <li><a class="text-right" href="#">Menu Three</a></li>
+                            <li class="has-children">
+                                <a href="#">Sub Menu</a>
+                                <ul class="dropdown">
+                                    <li><a class="text-right" href="#">Menu One</a></li>
+                                    <li><a class="text-right" href="#">Menu Two</a></li>
+                                    <li><a class="text-right" href="#">Menu Three</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        @*<partial name="_UserMenu" />
+                            <partial name="_ReportsMenu" />*@
+                        if(User.IsInRole(ConstantRoles.Admin))
+                        {
+                            <partial name="_AdminMenu" />
+                        }
+                    }
+                    else
+                    {
+                        <li class="has-children ">
+                            <a href="#">
+                                منوی مدیریتی
+                            </a>
+                            <ul class="dropdown">
+                                <li>
+
+                                    <a class="nav-item nav-link" asp-area="@AreaConstants.AdminArea" asp-controller="Login" asp-action="Index">
+                                        <span class="fas fa-sign-in-alt" aria-hidden="true"></span>
+                                        ورود
+                                    </a>
+                                </li>
+                                <li>
+
+                                    <a class="nav-item nav-link" asp-area="@AreaConstants.AdminArea" asp-controller="Register" asp-action="Index">
+                                        <span class="fas fa-plug" aria-hidden="true"></span>
+                                        ثبت نام
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    }
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#">Catalogue</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

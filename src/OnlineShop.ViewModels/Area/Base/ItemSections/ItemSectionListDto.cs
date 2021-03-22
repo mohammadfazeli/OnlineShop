@@ -15,8 +15,8 @@ namespace OnlineShop.ViewModels.Area.Base.ItemSections
         [Display(Name = nameof(Resource.Resource.Model),Prompt = nameof(Resource.Resource.ItemSectionType),ResourceType = typeof(Resource.Resource))]
         public string ModelName { get; set; }
 
-        [Display(Name = nameof(Resource.Resource.ItemSectionType),Prompt = nameof(Resource.Resource.ItemSectionType),ResourceType = typeof(Resource.Resource))]
-        public string ItemSectionType { get; set; }
+        [Display(Name = nameof(Resource.Resource.SectionName),Prompt = nameof(Resource.Resource.SectionName),ResourceType = typeof(Resource.Resource))]
+        public string SectionName { get; set; }
 
         [Display(Name = nameof(Resource.Resource.CurrentPrice),Prompt = nameof(Resource.Resource.CurrentPrice),ResourceType = typeof(Resource.Resource))]
         public string CurrentPrice { get; set; }

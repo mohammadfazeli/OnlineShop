@@ -1,0 +1,29 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Section.SectionDto
+
+<partial name="_CustomValidationSummary" />
+
+<form asp-action="Create" method="post">
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header ">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="SectionName"></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInputTextArea asp-for="Description"></CustomInputTextArea>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomCheckBox asp-for="InActive"
+                                    asp-IsChecked="Model?.InActive??false"
+                                    asp-Class="CheckBox">
+                    </CustomCheckBox>
+                </div>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>

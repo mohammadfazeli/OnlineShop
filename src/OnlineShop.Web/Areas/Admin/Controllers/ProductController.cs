@@ -55,14 +55,14 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [BreadCrumb(Title = "لیست محصولات",Order = 1)]
-        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-list",Name = nameof(Resource.Resource.ProductList),order = 1)]
+        [Menu(IconType = IconType.FontAwesome5,MenuGroup = MenuGroupEnum.BasicInfo,Icon = "fas fa-list",Name = nameof(Resource.Resource.ProductList),order = 1)]
         public IActionResult Index() => View();
 
         public JsonResult ReadData() => Json(new { Data = _productService.GetList() });
 
         public PartialViewResult GetInfo(Guid id) => PartialView("_Detail",_productService.GetGeneralInfo(id));
 
-        [Menu(IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductPreView),order = 2)]
+        [Menu(MenuGroup = MenuGroupEnum.BasicInfo,IconType = IconType.FontAwesome5,Icon = "fas fa-plus",Name = nameof(Resource.Resource.ProductPreView),order = 2)]
         public async Task<IActionResult> PreView(int page = 1)
         {
             return View(await PaginatedList<ProdcutListDto>.CreateAsync(_productService.GetList(),page));

@@ -35,7 +35,7 @@ namespace OnlineShop.Web.Classes.CustomTagHelper
         {
             using(var writer = new StringWriter())
             {
-                writer.Write($"<div class= {FormClass}  CheckBox form-group>");
+                writer.Write($"<div class={FormClass}  CheckBox form-group>");
 
                 var label = _generator.GenerateLabel(
                                 ViewContext,

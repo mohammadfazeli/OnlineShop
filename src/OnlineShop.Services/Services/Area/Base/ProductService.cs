@@ -6,11 +6,16 @@ using OnlineShop.DataLayer.Context;
 using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Entities.Area.Base;
 using OnlineShop.Services.Contracts.Area.Base;
+using OnlineShop.ViewModels.Area.Base.Colors;
 using OnlineShop.ViewModels.Area.Base.Products;
+using OnlineShop.ViewModels.Area.Base.ProductSpecification;
+using OnlineShop.ViewModels.Area.Base.ProductTag;
+using OnlineShop.ViewModels.Area.Base.Sizes;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Services.Services.Area.Base
 {
@@ -75,6 +80,54 @@ namespace OnlineShop.Services.Services.Area.Base
         {
             return GetAllNoTracking().Where(x => !x.InActive).OrderByDescending(x => x.CreateOn).Take(take)
                 .ProjectTo<ProdcutListDto>(_mapper.ConfigurationProvider);
+        }
+
+        public async Task<ProdcutGeneralInfoDto> GetProdcut(Guid Id)
+        {
+            var product = (await GetAsync(Id));
+            return CastToProductGeneralInfo(product);
+        }
+
+        public ProdcutGeneralInfoDto CastToProductGeneralInfo(Product product)
+        {
+            return new ProdcutGeneralInfoDto()
+            {
+                Id = product.Id,
+                ProductName = product.Name,
+                ProductGroupName = product?.ProductGroup?.Name ?? "",
+                UserCode = product?.UserCode ?? "",
+                ForeignName = product?.ForeignName ?? "",
+                Description = product?.Description ?? "",
+                Provider = product?.Provider == null ? "" : product?.Provider?.Name,
+                OldPrice = ((decimal)(product?.ProductSalePrices?.Where(p => !p.IsDeleted && !p.InActive).OrderByDescending(x => x.CreateOn).FirstOrDefault()?.OldPrice ?? 0)),
+                Price = (decimal)(product?.ProductSalePrices?.Where(p => !p.IsDeleted && !p.InActive).OrderByDescending(x => x.CreateOn).FirstOrDefault()?.NewPrice ?? 0),
+                ModelName = product?.Model?.Name ?? "",
+                ProductColors = (product?.ProductColors?.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new ColorstDto
+                {
+                    Id = c.ColorId.Value,
+                    UserCode = c.Color.UserCode,
+                    Name = c.Color.Name
+                }).ToList()),
+                ProductSizes = (product?.ProductSizes?.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new SizeDto
+                {
+                    Id = c.SizeId.Value,
+                    Name = c.Size.Name
+                }).ToList()),
+                ProductTags = (product?.ProductTags?.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new ProductTagListDto
+                {
+                    Id = c.Id,
+                    TagName = c.Name
+                }).ToList()),
+                ProductSpecifications = (product?.ProductSpecifications?.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new ProductSpecificationListDto
+                {
+                    SpecificationName = c.SpecificationName,
+                    SpecificationValue = c.SpecificationValue
+                }).OrderBy(o => o.SortOrder).ToList())
+            };
         }
 
         public IQueryable<ProdcutListFullInfoDto> SearchProduct(ProductSearch productSearch)

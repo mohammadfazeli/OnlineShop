@@ -8,10 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OnlineShop.Resource {
+namespace OnlineShop.Resource
+{
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,908 +20,1130 @@ namespace OnlineShop.Resource {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder","16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resource {
-        
+    public class Resource
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource() {
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance","CA1811:AvoidUncalledPrivateCode")]
+        internal Resource()
+        {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineShop.Resource.Resource", typeof(Resource).Assembly);
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if(object.ReferenceEquals(resourceMan,null))
+                {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineShop.Resource.Resource",typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to افزودن.
+        ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string Add {
-            get {
-                return ResourceManager.GetString("Add", resourceCulture);
+        public static string Add
+        {
+            get
+            {
+                return ResourceManager.GetString("Add",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to اطلاعات وارد شده تکراری است.
+        ///   Looks up a localized string similar to AddExists.
         /// </summary>
-        public static string AddExists {
-            get {
-                return ResourceManager.GetString("AddExists", resourceCulture);
+        public static string AddExists
+        {
+            get
+            {
+                return ResourceManager.GetString("AddExists",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to ثبت انجام نشد. خطایی رخ داده است.
+        ///   Looks up a localized string similar to AddFail.
         /// </summary>
-        public static string AddFail {
-            get {
-                return ResourceManager.GetString("AddFail", resourceCulture);
+        public static string AddFail
+        {
+            get
+            {
+                return ResourceManager.GetString("AddFail",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to افزودن قطعه.
+        ///   Looks up a localized string similar to AddPart.
         /// </summary>
-        public static string AddPart {
-            get {
-                return ResourceManager.GetString("AddPart", resourceCulture);
+        public static string AddPart
+        {
+            get
+            {
+                return ResourceManager.GetString("AddPart",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to آدرس.
         /// </summary>
-        public static string Addrss {
-            get {
-                return ResourceManager.GetString("Addrss", resourceCulture);
+        public static string Addrss
+        {
+            get
+            {
+                return ResourceManager.GetString("Addrss",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to ثبت با موفقیت انجام شد.
+        ///   Looks up a localized string similar to AddSuccessfully.
         /// </summary>
-        public static string AddSuccessfully {
-            get {
-                return ResourceManager.GetString("AddSuccessfully", resourceCulture);
+        public static string AddSuccessfully
+        {
+            get
+            {
+                return ResourceManager.GetString("AddSuccessfully",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to sfda.
         /// </summary>
-        public static string asdsadasd {
-            get {
-                return ResourceManager.GetString("asdsadasd", resourceCulture);
+        public static string asdsadasd
+        {
+            get
+            {
+                return ResourceManager.GetString("asdsadasd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ضمیمه.
         /// </summary>
-        public static string Attachment {
-            get {
-                return ResourceManager.GetString("Attachment", resourceCulture);
+        public static string Attachment
+        {
+            get
+            {
+                return ResourceManager.GetString("Attachment",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ضمائم.
         /// </summary>
-        public static string Attachments {
-            get {
-                return ResourceManager.GetString("Attachments", resourceCulture);
+        public static string Attachments
+        {
+            get
+            {
+                return ResourceManager.GetString("Attachments",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لغو.
         /// </summary>
-        public static string Cancel {
-            get {
-                return ResourceManager.GetString("Cancel", resourceCulture);
+        public static string Cancel
+        {
+            get
+            {
+                return ResourceManager.GetString("Cancel",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to رنگ.
+        ///   Looks up a localized string similar to Color.
         /// </summary>
-        public static string Color {
-            get {
-                return ResourceManager.GetString("Color", resourceCulture);
+        public static string Color
+        {
+            get
+            {
+                return ResourceManager.GetString("Color",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to افزودن رنگ جدید.
+        ///   Looks up a localized string similar to ColorAdd.
         /// </summary>
-        public static string ColorAdd {
-            get {
-                return ResourceManager.GetString("ColorAdd", resourceCulture);
+        public static string ColorAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ColorAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to ویرایش رنگ.
+        ///   Looks up a localized string similar to ColorEdit.
         /// </summary>
-        public static string ColorEdit {
-            get {
-                return ResourceManager.GetString("ColorEdit", resourceCulture);
+        public static string ColorEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ColorEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to لیست رنگ ها.
+        ///   Looks up a localized string similar to ColorList.
         /// </summary>
-        public static string ColorList {
-            get {
-                return ResourceManager.GetString("ColorList", resourceCulture);
+        public static string ColorList
+        {
+            get
+            {
+                return ResourceManager.GetString("ColorList",resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to تاریخ ایجاد.
+        ///   Looks up a localized string similar to CreateOn.
         /// </summary>
-        public static string CreateOn {
-            get {
-                return ResourceManager.GetString("CreateOn", resourceCulture);
+        public static string CreateOn
+        {
+            get
+            {
+                return ResourceManager.GetString("CreateOn",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to قیمت فعلی .
         /// </summary>
-        public static string CurrentPrice {
-            get {
-                return ResourceManager.GetString("CurrentPrice", resourceCulture);
+        public static string CurrentPrice
+        {
+            get
+            {
+                return ResourceManager.GetString("CurrentPrice",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to به دلیل وجود اطلاعات وابسته ، امکان حذف میسر نمی باشد.
         /// </summary>
-        public static string DeleteDependent {
-            get {
-                return ResourceManager.GetString("DeleteDependent", resourceCulture);
+        public static string DeleteDependent
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteDependent",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to حذف انجام نشد. خطایی رخ داده است.
         /// </summary>
-        public static string DeleteFail {
-            get {
-                return ResourceManager.GetString("DeleteFail", resourceCulture);
+        public static string DeleteFail
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteFail",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to موردی جهت حذف یافت نشد.
         /// </summary>
-        public static string DeleteNotExists {
-            get {
-                return ResourceManager.GetString("DeleteNotExists", resourceCulture);
+        public static string DeleteNotExists
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteNotExists",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to حذف با موفقیت انجام شد.
         /// </summary>
-        public static string DeleteSuccessfully {
-            get {
-                return ResourceManager.GetString("DeleteSuccessfully", resourceCulture);
+        public static string DeleteSuccessfully
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteSuccessfully",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to توضیحات.
         /// </summary>
-        public static string Description {
-            get {
-                return ResourceManager.GetString("Description", resourceCulture);
+        public static string Description
+        {
+            get
+            {
+                return ResourceManager.GetString("Description",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to مشاهده قطعات.
         /// </summary>
-        public static string DisplayParts {
-            get {
-                return ResourceManager.GetString("DisplayParts", resourceCulture);
+        public static string DisplayParts
+        {
+            get
+            {
+                return ResourceManager.GetString("DisplayParts",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش.
         /// </summary>
-        public static string Edit {
-            get {
-                return ResourceManager.GetString("Edit", resourceCulture);
+        public static string Edit
+        {
+            get
+            {
+                return ResourceManager.GetString("Edit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to فکس.
         /// </summary>
-        public static string Fax {
-            get {
-                return ResourceManager.GetString("Fax", resourceCulture);
+        public static string Fax
+        {
+            get
+            {
+                return ResourceManager.GetString("Fax",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to نام خارجی.
         /// </summary>
-        public static string ForeignName {
-            get {
-                return ResourceManager.GetString("ForeignName", resourceCulture);
+        public static string ForeignName
+        {
+            get
+            {
+                return ResourceManager.GetString("ForeignName",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to کلمه‌ی عبور خود را فراموش کرده‌اید؟.
         /// </summary>
-        public static string ForgetPassword {
-            get {
-                return ResourceManager.GetString("ForgetPassword", resourceCulture);
+        public static string ForgetPassword
+        {
+            get
+            {
+                return ResourceManager.GetString("ForgetPassword",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to از تاریخ .
         /// </summary>
-        public static string FromDate {
-            get {
-                return ResourceManager.GetString("FromDate", resourceCulture);
+        public static string FromDate
+        {
+            get
+            {
+                return ResourceManager.GetString("FromDate",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to اطلاعات کلی.
         /// </summary>
-        public static string FullInfo {
-            get {
-                return ResourceManager.GetString("FullInfo", resourceCulture);
+        public static string FullInfo
+        {
+            get
+            {
+                return ResourceManager.GetString("FullInfo",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to غیر فعال.
         /// </summary>
-        public static string InActive {
-            get {
-                return ResourceManager.GetString("InActive", resourceCulture);
+        public static string InActive
+        {
+            get
+            {
+                return ResourceManager.GetString("InActive",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to مبلغ {0} صحیح نمی باشد.
         /// </summary>
-        public static string InputMustBeNumber {
-            get {
-                return ResourceManager.GetString("InputMustBeNumber", resourceCulture);
+        public static string InputMustBeNumber
+        {
+            get
+            {
+                return ResourceManager.GetString("InputMustBeNumber",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to شماره موبایل وارد شده معتبر نمی باشد.
         /// </summary>
-        public static string InValidMobileNumber {
-            get {
-                return ResourceManager.GetString("InValidMobileNumber", resourceCulture);
+        public static string InValidMobileNumber
+        {
+            get
+            {
+                return ResourceManager.GetString("InValidMobileNumber",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to اجباری است.
         /// </summary>
-        public static string IsRequired {
-            get {
-                return ResourceManager.GetString("IsRequired", resourceCulture);
+        public static string IsRequired
+        {
+            get
+            {
+                return ResourceManager.GetString("IsRequired",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to  بخش های سایت.
         /// </summary>
-        public static string ItemSection {
-            get {
-                return ResourceManager.GetString("ItemSection", resourceCulture);
+        public static string ItemSection
+        {
+            get
+            {
+                return ResourceManager.GetString("ItemSection",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن بخش های سایت.
         /// </summary>
-        public static string ItemSectionAdd {
-            get {
-                return ResourceManager.GetString("ItemSectionAdd", resourceCulture);
+        public static string ItemSectionAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ItemSectionAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش بخش های سایت.
         /// </summary>
-        public static string ItemSectionEdit {
-            get {
-                return ResourceManager.GetString("ItemSectionEdit", resourceCulture);
+        public static string ItemSectionEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ItemSectionEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست بخش های سایت.
         /// </summary>
-        public static string ItemSectionList {
-            get {
-                return ResourceManager.GetString("ItemSectionList", resourceCulture);
+        public static string ItemSectionList
+        {
+            get
+            {
+                return ResourceManager.GetString("ItemSectionList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to نوع بخش مورد نظر.
         /// </summary>
-        public static string ItemSectionType {
-            get {
-                return ResourceManager.GetString("ItemSectionType", resourceCulture);
+        public static string ItemSectionType
+        {
+            get
+            {
+                return ResourceManager.GetString("ItemSectionType",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to نام مدیر.
         /// </summary>
-        public static string ManagerName {
-            get {
-                return ResourceManager.GetString("ManagerName", resourceCulture);
+        public static string ManagerName
+        {
+            get
+            {
+                return ResourceManager.GetString("ManagerName",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to مدیریت محصولات .
         /// </summary>
-        public static string MangmenetSugestProduct {
-            get {
-                return ResourceManager.GetString("MangmenetSugestProduct", resourceCulture);
+        public static string MangmenetSugestProduct
+        {
+            get
+            {
+                return ResourceManager.GetString("MangmenetSugestProduct",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to موبایل.
         /// </summary>
-        public static string Mobile {
-            get {
-                return ResourceManager.GetString("Mobile", resourceCulture);
+        public static string Mobile
+        {
+            get
+            {
+                return ResourceManager.GetString("Mobile",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to مدل.
         /// </summary>
-        public static string Model {
-            get {
-                return ResourceManager.GetString("Model", resourceCulture);
+        public static string Model
+        {
+            get
+            {
+                return ResourceManager.GetString("Model",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to نام.
         /// </summary>
-        public static string Name {
-            get {
-                return ResourceManager.GetString("Name", resourceCulture);
+        public static string Name
+        {
+            get
+            {
+                return ResourceManager.GetString("Name",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to قیمت جدید.
         /// </summary>
-        public static string NewPrice {
-            get {
-                return ResourceManager.GetString("NewPrice", resourceCulture);
+        public static string NewPrice
+        {
+            get
+            {
+                return ResourceManager.GetString("NewPrice",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to قیمت قدیم.
         /// </summary>
-        public static string OldPrice {
-            get {
-                return ResourceManager.GetString("OldPrice", resourceCulture);
+        public static string OldPrice
+        {
+            get
+            {
+                return ResourceManager.GetString("OldPrice",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to عملیات.
         /// </summary>
-        public static string Operation {
-            get {
-                return ResourceManager.GetString("Operation", resourceCulture);
+        public static string Operation
+        {
+            get
+            {
+                return ResourceManager.GetString("Operation",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to قطعات.
         /// </summary>
-        public static string Parts {
-            get {
-                return ResourceManager.GetString("Parts", resourceCulture);
+        public static string Parts
+        {
+            get
+            {
+                return ResourceManager.GetString("Parts",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to محصول.
         /// </summary>
-        public static string Product {
-            get {
-                return ResourceManager.GetString("Product", resourceCulture);
+        public static string Product
+        {
+            get
+            {
+                return ResourceManager.GetString("Product",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن محصول جدید.
         /// </summary>
-        public static string ProductAdd {
-            get {
-                return ResourceManager.GetString("ProductAdd", resourceCulture);
+        public static string ProductAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to جزئیات محصول.
         /// </summary>
-        public static string ProductDetail {
-            get {
-                return ResourceManager.GetString("ProductDetail", resourceCulture);
+        public static string ProductDetail
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductDetail",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن جزئیات محصول.
         /// </summary>
-        public static string ProductDetailAdd {
-            get {
-                return ResourceManager.GetString("ProductDetailAdd", resourceCulture);
+        public static string ProductDetailAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductDetailAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش جزئیات محصول.
         /// </summary>
-        public static string ProductDetailEdit {
-            get {
-                return ResourceManager.GetString("ProductDetailEdit", resourceCulture);
+        public static string ProductDetailEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductDetailEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to مشاهده جزئیات محصول.
         /// </summary>
-        public static string ProductDetailList {
-            get {
-                return ResourceManager.GetString("ProductDetailList", resourceCulture);
+        public static string ProductDetailList
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductDetailList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش محصول.
         /// </summary>
-        public static string ProductEdit {
-            get {
-                return ResourceManager.GetString("ProductEdit", resourceCulture);
+        public static string ProductEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to گروه محصول.
         /// </summary>
-        public static string ProductGroup {
-            get {
-                return ResourceManager.GetString("ProductGroup", resourceCulture);
+        public static string ProductGroup
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductGroup",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن گروه محصول جدید.
         /// </summary>
-        public static string ProductGroupAdd {
-            get {
-                return ResourceManager.GetString("ProductGroupAdd", resourceCulture);
+        public static string ProductGroupAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductGroupAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش گروه محصولات.
         /// </summary>
-        public static string ProductGroupEdit {
-            get {
-                return ResourceManager.GetString("ProductGroupEdit", resourceCulture);
+        public static string ProductGroupEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductGroupEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست گروه محصولات.
         /// </summary>
-        public static string ProductGroupList {
-            get {
-                return ResourceManager.GetString("ProductGroupList", resourceCulture);
+        public static string ProductGroupList
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductGroupList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست محصولات.
         /// </summary>
-        public static string ProductList {
-            get {
-                return ResourceManager.GetString("ProductList", resourceCulture);
+        public static string ProductList
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to پیش نمایش محصولات.
         /// </summary>
-        public static string ProductPreView {
-            get {
-                return ResourceManager.GetString("ProductPreView", resourceCulture);
+        public static string ProductPreView
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductPreView",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to قیمت گذازی.
         /// </summary>
-        public static string ProductPriceModificatin {
-            get {
-                return ResourceManager.GetString("ProductPriceModificatin", resourceCulture);
+        public static string ProductPriceModificatin
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductPriceModificatin",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to محصولات مرتبط.
         /// </summary>
-        public static string ProductRelated {
-            get {
-                return ResourceManager.GetString("ProductRelated", resourceCulture);
+        public static string ProductRelated
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductRelated",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to قیمت فروش محصول.
         /// </summary>
-        public static string ProductSalePrice {
-            get {
-                return ResourceManager.GetString("ProductSalePrice", resourceCulture);
+        public static string ProductSalePrice
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSalePrice",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن قیمت گذاری.
         /// </summary>
-        public static string ProductSalePriceAdd {
-            get {
-                return ResourceManager.GetString("ProductSalePriceAdd", resourceCulture);
+        public static string ProductSalePriceAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSalePriceAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش قیمت گذاری.
         /// </summary>
-        public static string ProductSalePriceEdit {
-            get {
-                return ResourceManager.GetString("ProductSalePriceEdit", resourceCulture);
+        public static string ProductSalePriceEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSalePriceEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست قیمت گذاری.
         /// </summary>
-        public static string ProductSalePriceList {
-            get {
-                return ResourceManager.GetString("ProductSalePriceList", resourceCulture);
+        public static string ProductSalePriceList
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSalePriceList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to مشخصات محصول.
         /// </summary>
-        public static string ProductSpecification {
-            get {
-                return ResourceManager.GetString("ProductSpecification", resourceCulture);
+        public static string ProductSpecification
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSpecification",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن مشخصات محصول.
         /// </summary>
-        public static string ProductSpecificationAdd {
-            get {
-                return ResourceManager.GetString("ProductSpecificationAdd", resourceCulture);
+        public static string ProductSpecificationAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSpecificationAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش مشخصات محصول.
         /// </summary>
-        public static string ProductSpecificationEdit {
-            get {
-                return ResourceManager.GetString("ProductSpecificationEdit", resourceCulture);
+        public static string ProductSpecificationEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSpecificationEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست مشخصات محصول.
         /// </summary>
-        public static string ProductSpecificationList {
-            get {
-                return ResourceManager.GetString("ProductSpecificationList", resourceCulture);
+        public static string ProductSpecificationList
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductSpecificationList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن برچسب های محصول.
         /// </summary>
-        public static string ProductTagAdd {
-            get {
-                return ResourceManager.GetString("ProductTagAdd", resourceCulture);
+        public static string ProductTagAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductTagAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش برچسب های محصول.
         /// </summary>
-        public static string ProductTagEdit {
-            get {
-                return ResourceManager.GetString("ProductTagEdit", resourceCulture);
+        public static string ProductTagEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductTagEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست برچسب های محصول.
         /// </summary>
-        public static string ProductTags {
-            get {
-                return ResourceManager.GetString("ProductTags", resourceCulture);
+        public static string ProductTags
+        {
+            get
+            {
+                return ResourceManager.GetString("ProductTags",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to تامین کننده.
         /// </summary>
-        public static string Provider {
-            get {
-                return ResourceManager.GetString("Provider", resourceCulture);
+        public static string Provider
+        {
+            get
+            {
+                return ResourceManager.GetString("Provider",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن تامین کننده.
         /// </summary>
-        public static string ProviderCreate {
-            get {
-                return ResourceManager.GetString("ProviderCreate", resourceCulture);
+        public static string ProviderCreate
+        {
+            get
+            {
+                return ResourceManager.GetString("ProviderCreate",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش تامین کننده.
         /// </summary>
-        public static string ProviderEdit {
-            get {
-                return ResourceManager.GetString("ProviderEdit", resourceCulture);
+        public static string ProviderEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("ProviderEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست تامین کنندگان.
         /// </summary>
-        public static string ProviderList {
-            get {
-                return ResourceManager.GetString("ProviderList", resourceCulture);
+        public static string ProviderList
+        {
+            get
+            {
+                return ResourceManager.GetString("ProviderList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to نام تامین کننده.
         /// </summary>
-        public static string ProviderName {
-            get {
-                return ResourceManager.GetString("ProviderName", resourceCulture);
+        public static string ProviderName
+        {
+            get
+            {
+                return ResourceManager.GetString("ProviderName",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to حذف.
         /// </summary>
-        public static string Remove {
-            get {
-                return ResourceManager.GetString("Remove", resourceCulture);
+        public static string Remove
+        {
+            get
+            {
+                return ResourceManager.GetString("Remove",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to حذف با موفقیت انجام شد.
         /// </summary>
-        public static string RemoveSuccess {
-            get {
-                return ResourceManager.GetString("RemoveSuccess", resourceCulture);
+        public static string RemoveSuccess
+        {
+            get
+            {
+                return ResourceManager.GetString("RemoveSuccess",resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to بخش.
+        /// </summary>
+        public static string Section
+        {
+            get
+            {
+                return ResourceManager.GetString("Section",resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to اسم بخش .
+        /// </summary>
+        public static string SectionName
+        {
+            get
+            {
+                return ResourceManager.GetString("SectionName",resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to یک گزینه انتخاب کنید.
         /// </summary>
-        public static string SelectedOneItem {
-            get {
-                return ResourceManager.GetString("SelectedOneItem", resourceCulture);
+        public static string SelectedOneItem
+        {
+            get
+            {
+                return ResourceManager.GetString("SelectedOneItem",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to سایز.
         /// </summary>
-        public static string Size {
-            get {
-                return ResourceManager.GetString("Size", resourceCulture);
+        public static string Size
+        {
+            get
+            {
+                return ResourceManager.GetString("Size",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن سایز.
         /// </summary>
-        public static string SizeAdd {
-            get {
-                return ResourceManager.GetString("SizeAdd", resourceCulture);
+        public static string SizeAdd
+        {
+            get
+            {
+                return ResourceManager.GetString("SizeAdd",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش سایز.
         /// </summary>
-        public static string SizeEdit {
-            get {
-                return ResourceManager.GetString("SizeEdit", resourceCulture);
+        public static string SizeEdit
+        {
+            get
+            {
+                return ResourceManager.GetString("SizeEdit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to لیست سایزها.
         /// </summary>
-        public static string SizeList {
-            get {
-                return ResourceManager.GetString("SizeList", resourceCulture);
+        public static string SizeList
+        {
+            get
+            {
+                return ResourceManager.GetString("SizeList",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ترتیب نمایش.
         /// </summary>
-        public static string SortOrder {
-            get {
-                return ResourceManager.GetString("SortOrder", resourceCulture);
+        public static string SortOrder
+        {
+            get
+            {
+                return ResourceManager.GetString("SortOrder",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to نام ویژگی.
         /// </summary>
-        public static string SpecificationName {
-            get {
-                return ResourceManager.GetString("SpecificationName", resourceCulture);
+        public static string SpecificationName
+        {
+            get
+            {
+                return ResourceManager.GetString("SpecificationName",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to نوع ویژگی.
         /// </summary>
-        public static string SpecificationType {
-            get {
-                return ResourceManager.GetString("SpecificationType", resourceCulture);
+        public static string SpecificationType
+        {
+            get
+            {
+                return ResourceManager.GetString("SpecificationType",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to مقدار وِیژگی.
         /// </summary>
-        public static string SpecificationValue {
-            get {
-                return ResourceManager.GetString("SpecificationValue", resourceCulture);
+        public static string SpecificationValue
+        {
+            get
+            {
+                return ResourceManager.GetString("SpecificationValue",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ثبت.
         /// </summary>
-        public static string submit {
-            get {
-                return ResourceManager.GetString("submit", resourceCulture);
+        public static string submit
+        {
+            get
+            {
+                return ResourceManager.GetString("submit",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to برچسب.
         /// </summary>
-        public static string Tag {
-            get {
-                return ResourceManager.GetString("Tag", resourceCulture);
+        public static string Tag
+        {
+            get
+            {
+                return ResourceManager.GetString("Tag",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to تلفن.
         /// </summary>
-        public static string Tel {
-            get {
-                return ResourceManager.GetString("Tel", resourceCulture);
+        public static string Tel
+        {
+            get
+            {
+                return ResourceManager.GetString("Tel",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to عنوان.
         /// </summary>
-        public static string Title {
-            get {
-                return ResourceManager.GetString("Title", resourceCulture);
+        public static string Title
+        {
+            get
+            {
+                return ResourceManager.GetString("Title",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش انجام نشد. خطایی رخ داده است.
         /// </summary>
-        public static string UpdateFail {
-            get {
-                return ResourceManager.GetString("UpdateFail", resourceCulture);
+        public static string UpdateFail
+        {
+            get
+            {
+                return ResourceManager.GetString("UpdateFail",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to موردی جهت ویرایش یافت نشد.
         /// </summary>
-        public static string UpdateNotExists {
-            get {
-                return ResourceManager.GetString("UpdateNotExists", resourceCulture);
+        public static string UpdateNotExists
+        {
+            get
+            {
+                return ResourceManager.GetString("UpdateNotExists",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ویرایش با موفقیت انجام شد.
         /// </summary>
-        public static string UpdateSuccess {
-            get {
-                return ResourceManager.GetString("UpdateSuccess", resourceCulture);
+        public static string UpdateSuccess
+        {
+            get
+            {
+                return ResourceManager.GetString("UpdateSuccess",resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to کد کاربری.
         /// </summary>
-        public static string UserCode {
-            get {
-                return ResourceManager.GetString("UserCode", resourceCulture);
+        public static string UserCode
+        {
+            get
+            {
+                return ResourceManager.GetString("UserCode",resourceCulture);
             }
         }
     }

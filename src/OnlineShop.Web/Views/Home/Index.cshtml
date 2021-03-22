@@ -1,563 +1,746 @@
-﻿@*@{ ViewData["Title"] = "خانه"; }
-
-    @Html.AjaxActionLink("افزون به سید", "SelectItem", "Product", new { productDetailId = new Guid() }, null, new { @class = "btn btn-white btn-block  text-green" })*@
-<!-- Hero Section Begin -->
-<section class="hero-section">
-    <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="/Layout/img/hero-1.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <span>Bag,kids</span>
-                        <h1>Black friday</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
-                        </p>
-                        <a href="#" class="primary-btn">Shop Now</a>
-                    </div>
-                </div>
-                <div class="off-card">
-                    <h2>Sale <span>50%</span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="single-hero-items set-bg" data-setbg="/Layout/img/hero-2.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <span>Bag,kids</span>
-                        <h1>Black friday</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
-                        </p>
-                        <a href="#" class="primary-btn">Shop Now</a>
-                    </div>
-                </div>
-                <div class="off-card">
-                    <h2>Sale <span>50%</span></h2>
-                </div>
-            </div>
-        </div>
+﻿<!-- START SECTION SHOP -->
+<div class="section small_pb">
+    <div class="container">
+        <h1>start home</h1>
+        @await Component.InvokeAsync("Sections")
+        <h1>end home</h1>
     </div>
-</section>
-<!-- Hero Section End -->
-<!-- Banner Section Begin -->
-<div class="banner-section spad">
-    <div class="container-fluid">
+</div>
+<!-- END SECTION SHOP -->
+<!-- START SECTION BANNER -->
+<div class="section pb_20 small_pt">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="/Layout/img/banner-1.jpg" alt="">
-                    <div class="inner-text">
-                        <h4>Men’s</h4>
+            <div class="col-md-6">
+                <div class="single_banner">
+                    <img src="/layout/assets/images/shop_banner_img1.jpg" alt="shop_banner_img1">
+                    <div class="single_banner_info">
+                        <h5 class="single_bn_title1">فروش فوق العاده</h5>
+                        <h3 class="single_bn_title">مجموعه جدید</h3>
+                        <a href="shop-left-sidebar.html" class="single_bn_link">اکنون خرید کنید</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="/Layout/img/banner-2.jpg" alt="">
-                    <div class="inner-text">
-                        <h4>Women’s</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="/Layout/img/banner-3.jpg" alt="">
-                    <div class="inner-text">
-                        <h4>Kid’s</h4>
+            <div class="col-md-6">
+                <div class="single_banner">
+                    <img src="/layout/assets/images/shop_banner_img2.jpg" alt="shop_banner_img2">
+                    <div class="single_banner_info">
+                        <h3 class="single_bn_title">فصل جدید</h3>
+                        <h4 class="single_bn_title1">٪40 تخفیف</h4>
+                        <a href="shop-left-sidebar.html" class="single_bn_link">اکنون خرید کنید</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Banner Section End -->
-<!-- Women Banner Section Begin -->
-<section class="">
-
-    <vc:item-section item-section-type="@ItemSectionType.Random"></vc:item-section>
-    <vc:item-section item-section-type="@ItemSectionType.Suggested"></vc:item-section>
-</section>
-<!-- Women Banner Section End -->
-<!-- Deal Of The Week Section Begin-->
-<section class="deal-of-week set-bg spad" data-setbg="/Layout/img/time-bg.jpg">
-    <div class="container">
-        <div class="col-lg-6 text-center">
-            <div class="section-title">
-                <h2>Deal Of The Week</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
-                    consectetur adipisicing elit
-                </p>
-                <div class="product-price">
-                    $35.00
-                    <span>/ HanBag</span>
-                </div>
-            </div>
-            <div class="countdown-timer" id="countdown">
-                <div class="cd-item">
-                    <span>56</span>
-                    <p>Days</p>
-                </div>
-                <div class="cd-item">
-                    <span>12</span>
-                    <p>Hrs</p>
-                </div>
-                <div class="cd-item">
-                    <span>40</span>
-                    <p>Mins</p>
-                </div>
-                <div class="cd-item">
-                    <span>52</span>
-                    <p>Secs</p>
-                </div>
-            </div>
-            <a href="#" class="primary-btn">Shop Now</a>
-        </div>
-    </div>
-</section>
-<!-- Deal Of The Week Section End -->
-<!-- Man Banner Section Begin -->
-<section class="man-banner spad">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="filter-control">
-                    <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
-                    </ul>
-                </div>
-                <div class="product-slider owl-carousel">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-1.jpg" alt="">
-                            <div class="sale">Sale</div>
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Coat</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-2.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
-                            <a href="#">
-                                <h5>Guangzhou sweater</h5>
-                            </a>
-                            <div class="product-price">
-                                $13.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-3.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-4.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Converse Shoes</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-
-                    @*asd*@
-
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-1.jpg" alt="">
-                            <div class="sale">Sale</div>
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Coat</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-2.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
-                            <a href="#">
-                                <h5>Guangzhou sweater</h5>
-                            </a>
-                            <div class="product-price">
-                                $13.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-3.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="/Layout/img/products/man-4.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Converse Shoes</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-
-                    @*asd*@
-                </div>
-            </div>
-            <div class="col-lg-3 offset-lg-1">
-                <div class="product-large set-bg m-large" data-setbg="/Layout/img/products/man-large.jpg">
-                    <h2>Men’s</h2>
-                    <a href="#">Discover More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Man Banner Section End -->
-<!-- Instagram Section Begin -->
-<div class="instagram-photo">
-    <div class="insta-item set-bg" data-setbg="/Layout/img/insta-1.jpg">
-        <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
-        </div>
-    </div>
-    <div class="insta-item set-bg" data-setbg="/Layout/img/insta-2.jpg">
-        <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
-        </div>
-    </div>
-    <div class="insta-item set-bg" data-setbg="/Layout/img/insta-3.jpg">
-        <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
-        </div>
-    </div>
-    <div class="insta-item set-bg" data-setbg="/Layout/img/insta-4.jpg">
-        <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
-        </div>
-    </div>
-    <div class="insta-item set-bg" data-setbg="/Layout/img/insta-5.jpg">
-        <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
-        </div>
-    </div>
-    <div class="insta-item set-bg" data-setbg="/Layout/img/insta-6.jpg">
-        <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
-        </div>
-    </div>
-</div>
-<!-- Instagram Section End -->
-<!-- Latest Blog Section Begin -->
-<section class="latest-blog spad">
+<!-- END SECTION BANNER -->
+<!-- START SECTION SHOP -->
+<div class="section small_pt small_pb">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>From The Blog</h2>
+            <div class="col-md-12">
+                <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>تخفیف ویژه های امروز</h2>
+                    </div>
+                    <div class="deal_timer">
+                        <div class="countdown_time countdown_style1" data-time="2020/09/28 13:22:15"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="/Layout/img/latest-1.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
+            <div class="col-md-12">
+                <div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="true" data-dots="false" data-nav="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img1.jpg" alt="product_img1">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>The Best Street Style From London Fashion Week</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="/Layout/img/latest-2.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="/Layout/img/latest-3.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس آبی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">45000 تومان</span>
+                                    <del>55000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪35 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#87554B"></span>
+                                        <span data-color="#333333"></span>
+                                        <span data-color="#DA323F"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="benefit-items">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="single-benefit">
-                        <div class="sb-icon">
-                            <img src="/Layout/img/icon-1.png" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <h6>Free Shipping</h6>
-                            <p>For all order over 99$</p>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img2.jpg" alt="product_img2">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">کت اسپرت خاکستری</a></h6>
+                                <div class="product_price">
+                                    <span class="price">55000 تومان</span>
+                                    <del>95000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪25 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#847764"></span>
+                                        <span data-color="#0393B5"></span>
+                                        <span data-color="#DA323F"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-benefit">
-                        <div class="sb-icon">
-                            <img src="/Layout/img/icon-2.png" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <h6>Delivery On Time</h6>
-                            <p>If good have prolems</p>
+                    <div class="item">
+                        <div class="product">
+                            <span class="pr_flash">جدید</span>
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img3.jpg" alt="product_img3">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس کامل زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">68000 تومان</span>
+                                    <del>99000 تومان</del>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:87%"></div>
+                                    </div>
+                                    <span class="rating_num">(25)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#333333"></span>
+                                        <span data-color="#7C502F"></span>
+                                        <span data-color="#2F366C"></span>
+                                        <span data-color="#874A3D"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-benefit">
-                        <div class="sb-icon">
-                            <img src="/Layout/img/icon-1.png" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <h6>Secure Payment</h6>
-                            <p>100% secure payment</p>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img4.jpg" alt="product_img4">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">پیراهن آبی روشن</a></h6>
+                                <div class="product_price">
+                                    <span class="price">69000 تومان</span>
+                                    <del>89000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪20 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:70%"></div>
+                                    </div>
+                                    <span class="rating_num">(22)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#333333"></span>
+                                        <span data-color="#A92534"></span>
+                                        <span data-color="#B9C2DF"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Latest Blog Section End -->
-<!-- Partner Logo Section Begin -->
-<div class="partner-logo">
-    <div class="container">
-        <div class="logo-carousel owl-carousel">
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="/Layout/img/logo-carousel/logo-1.png" alt="">
-                </div>
-            </div>
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="/Layout/img/logo-carousel/logo-2.png" alt="">
-                </div>
-            </div>
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="/Layout/img/logo-carousel/logo-3.png" alt="">
-                </div>
-            </div>
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="/Layout/img/logo-carousel/logo-4.png" alt="">
-                </div>
-            </div>
-            <div class="logo-item ">
-                <div class="tablecell-inner">
-                    <img src="/Layout/img/logo-carousel/logo-5.png" alt="">
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img5.jpg" alt="product_img5">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a></li>
+                                        <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس آبی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">45000 تومان</span>
+                                    <del>55000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪35 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#87554B"></span>
+                                        <span data-color="#333333"></span>
+                                        <span data-color="#5FB7D4"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Partner Logo Section End -->
-@*@using (Html.AjaxBeginForm("AjaxMethod", new AjaxOptions
-    {
-        HttpMethod = "post",
-        OnBegin = "OnBegin",
-        OnComplete = "OnComplete",
-        OnSuccess = "OnSuccess",
-        UpdateTargetId = "UpdateTargetId"
-    }))
-    {
-    <div class="input-group">
-        @Html.TextBox("name", null, new { placeholder = "Type your name", @class = "form-control mx-sm-2" })
-        <button class="btn btn-primary">Submit</button>
-    </div>}
-
-    <script>
-
-        function OnBegin() {
-            toastr.error('Hi! I am error OnBegin.');
-        }
-        function OnComplete() {
-            toastr.error('Hi! I am error OnComplete.');
-        }
-        function OnSuccess(data) {
-            debugger;
-
-            console.log(data);
-            toastr.error('شسحینشسیخج');
-        }
-    </script>*@
-
-<a class="nav-item nav-link" asp-controller="Product" asp-action="Index">
-    <span class="fas fa-plug" aria-hidden="true"></span>
-    محصولات
-</a>
-
-<br />
-<br />
-
-<p><strong>AjaxOnly</strong> Form</p>
+<!-- END SECTION SHOP -->
+<!-- START SECTION BANNER -->
+<div class="section pb_20 small_pt">
+    <div class="container-fluid px-2">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <div class="sale_banner">
+                    <a class="hover_effect1" href="#">
+                        <img src="/layout/assets/images/shop_banner_img3.jpg" alt="shop_banner_img3">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sale_banner">
+                    <a class="hover_effect1" href="#">
+                        <img src="/layout/assets/images/shop_banner_img4.jpg" alt="shop_banner_img4">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sale_banner">
+                    <a class="hover_effect1" href="#">
+                        <img src="/layout/assets/images/shop_banner_img5.jpg" alt="shop_banner_img5">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION BANNER -->
+<!-- START SECTION SHOP -->
+<div class="section small_pt pb_20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>محصولات برجسته</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product_slider product_list carousel_slider owl-carousel owl-theme nav_style5" data-loop="true" data-dots="false" data-nav="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "767":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "3"}}'>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img1.jpg" alt="product_img1">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس آبی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">45000 تومان</span>
+                                    <del>55000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪35 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img6.jpg" alt="product_img6">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">پیراهن چهارخونه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">55000 تومان</span>
+                                    <del>95000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪25 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img12.jpg" alt="product_img12">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">تی شرت مشکی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">69000 تومان</span>
+                                    <del>89000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪20 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:70%"></div>
+                                    </div>
+                                    <span class="rating_num">(22)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img2.jpg" alt="product_img2">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">کت اسپرت خاکستری</a></h6>
+                                <div class="product_price">
+                                    <span class="price">55000 تومان</span>
+                                    <del>95000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪25 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img7.jpg" alt="product_img7">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">68000 تومان</span>
+                                    <del>99000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪20 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:87%"></div>
+                                    </div>
+                                    <span class="rating_num">(25)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img10.jpg" alt="product_img10">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">پیراهن چهارخونه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">55000 تومان</span>
+                                    <del>95000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪25 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img3.jpg" alt="product_img3">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس کامل زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">68000 تومان</span>
+                                    <del>99000 تومان</del>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:87%"></div>
+                                    </div>
+                                    <span class="rating_num">(25)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img8.jpg" alt="product_img8">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">پیراهن جین آبی</a></h6>
+                                <div class="product_price">
+                                    <span class="price">69000 تومان</span>
+                                    <del>89000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪20 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:70%"></div>
+                                    </div>
+                                    <span class="rating_num">(22)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img13.jpg" alt="product_img13">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس صورتی</a></h6>
+                                <div class="product_price">
+                                    <span class="price">65000 تومان</span>
+                                    <del>80000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪30 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(28)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img4.jpg" alt="product_img4">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">پیراهن آبی روشن</a></h6>
+                                <div class="product_price">
+                                    <span class="price">69000 تومان</span>
+                                    <del>89000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪20 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:70%"></div>
+                                    </div>
+                                    <span class="rating_num">(22)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img9.jpg" alt="product_img9">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">تی شرت دخترانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">45000 تومان</span>
+                                    <del>55000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪35 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img14.jpg" alt="product_img14">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">تی شرت سفید مردانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">55000 تومان</span>
+                                    <del>60000 تومان</del>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img5.jpg" alt="product_img5">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس آبی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">45000 تومان</span>
+                                    <del>55000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪35 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img11.jpg" alt="product_img11">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">تی شرت مشکی زنانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">68000 تومان</span>
+                                    <del>99000 تومان</del>
+                                    <div class="on_sale">
+                                        <span>٪20 تخفیف</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:87%"></div>
+                                    </div>
+                                    <span class="rating_num">(25)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="/layout/assets/images/product_img15.jpg" alt="product_img15">
+                                </a>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">لباس صورتی بچه گانه</a></h6>
+                                <div class="product_price">
+                                    <span class="price">55000 تومان</span>
+                                    <del>60000 تومان</del>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION SHOP -->
+<!-- START SECTION CLIENT LOGO -->
+<div class="section small_pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>برندهای ما</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="client_logo carousel_slider owl-carousel owl-theme nav_style3" data-dots="false" data-nav="true" data-margin="30" data-loop="true" data-autoplay="true" data-responsive='{"0":{"items": "2"}, "480":{"items": "3"}, "767":{"items": "4"}, "991":{"items": "5"}}'>
+                    <div class="item">
+                        <div class="cl_logo">
+                            <img src="/layout/assets/images/cl_logo1.png" alt="cl_logo" />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="cl_logo">
+                            <img src="/layout/assets/images/cl_logo2.png" alt="cl_logo" />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="cl_logo">
+                            <img src="/layout/assets/images/cl_logo3.png" alt="cl_logo" />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="cl_logo">
+                            <img src="/layout/assets/images/cl_logo4.png" alt="cl_logo" />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="cl_logo">
+                            <img src="/layout/assets/images/cl_logo5.png" alt="cl_logo" />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="cl_logo">
+                            <img src="/layout/assets/images/cl_logo6.png" alt="cl_logo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION CLIENT LOGO -->
+<!-- START SECTION SUBSCRIBE NEWSLETTER -->
+<div class="section bg_dark small_pt small_pb">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="heading_s1 mb-md-0 heading_light">
+                    <h3>اشتراک در خبرنامه ما</h3>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="newsletter_form">
+                    <form>
+                        <input type="text" required="" class="form-control rounded-0" placeholder="آدرس ایمیل خود را وارد کنید">
+                        <button type="submit" class="btn btn-fill-out rounded-0" name="submit" value="Submit">اشتراک</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 @using(Html.AjaxBeginForm("AjaxMethod",new AjaxOptions
 {

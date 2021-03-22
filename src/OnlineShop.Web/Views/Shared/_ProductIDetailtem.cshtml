@@ -1,0 +1,117 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutGeneralInfoDto
+@using OnlineShop.Common.Utilities
+
+<div class="pr_detail">
+    <div class="product_description">
+        <h4 class="product_title"><a href="#">@Model.ProductName</a></h4>
+        <div class="product_price">
+            <span class="price">@Model.Price.ToCurrency().ToPersianNumbers() </span>
+            <del>@Model.OldPrice.ToCurrency().ToPersianNumbers() </del>
+            <div class="on_sale">
+                <span>@Model.ModelName</span>
+            </div>
+        </div>
+        <div class="rating_wrap">
+            <div class="rating">
+                <div class="product_rate" style="width:80%"></div>
+            </div>
+            <span class="rating_num">(21)</span>
+        </div>
+        <div class="pr_desc">
+            <p>@Model.Description</p>
+        </div>
+        <div class="product_sort_info">
+            <ul>
+                <li><i class="linearicons-shield-check"></i> 1 سال ضمانت برند الجزیره</li>
+                <li><i class="linearicons-sync"></i> 30 روز برگشت</li>
+                <li><i class="linearicons-bag-dollar"></i> پرداخت نقدی موجود است</li>
+            </ul>
+        </div>
+        <div class="pr_switch_wrap">
+            @{
+                if(Model.ProductColors != null && Model.ProductColors.Any())
+                {
+                    <span class="switch_lable">رنگ</span>
+                    <div class="product_color_switch">
+                        @{
+                            for(int sizeIndex = 0;sizeIndex < Model.ProductColors.Count;sizeIndex++)
+                            {
+                                <span class="@( sizeIndex==0?  "active" : "" )" data-color="@(Model.ProductColors.ElementAt(sizeIndex).UserCode)"></span>
+
+                            }
+                        }
+                    </div>
+                }
+            }
+        </div>
+        <div class="pr_switch_wrap">
+            @{
+                if(Model.ProductSizes != null && Model.ProductSizes.Any())
+                {
+                    <span class="switch_lable">سایز</span>
+                    <div class="product_size_switch">
+                        @{
+                            for(int sizeindex = 0;sizeindex < Model.ProductSizes.Count;sizeindex++)
+                            {
+                                <span> @Model.ProductSizes.ElementAt(sizeindex).Name</span>
+                            }
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="cart_extra">
+        <div class="cart-product-quantity">
+            <div class="quantity">
+                <input type="button" value="-" class="minus">
+                <input type="text" id="quantity" onchange="onchangeQuantity()" name="quantity" value="1" title="Qty" class="qty" size="4">
+                <input type="button" value="+" class="plus">
+            </div>
+        </div>
+        <div class="cart_btn">
+            @*<button class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</button>*@
+            <a class="btn btn-fill-out btn-addtocart" data-ajax="true" data-ajax-method="Post" href="@Url.Action("SelectItem","Card", new { productId = Model.Id}) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a>
+
+            <!--<a class="btn btn-fill-out btn-addtocart" data-ajax="true" data-ajax-method="Post" href="@Url.Action("SelectItem","Card", new { productId = Model.Id }) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems">-->
+            @*<a class="btn btn-fill-out btn-addtocart" onclick="Additem()" href="#CustomerCardItems">*@
+            <!--<i class="icon-basket-loaded">
+                </i> افزودن به سبد خرید
+            </a>-->
+            <a class="add_compare" href="#"><i class="icon-shuffle"></i></a>
+            <a class="add_wishlist" href="#"><i class="icon-heart"></i></a>
+        </div>
+    </div>
+    <hr />
+    <ul class="product-meta">
+        <li>کد: <a href="#">@Model.UserCode</a></li>
+        <li>دسته بندی: <a href="#">@Model.ProductGroupName</a></li>
+        @if(Model.ProductTags != null && Model.ProductTags.Any())
+        {
+            <li>
+                برچسب:
+                @{
+                    for(int Tagindex = 0;Tagindex < Model.ProductTags.Count;Tagindex++)
+                    {
+                        <a href="#" rel="tag"> @Model.ProductTags.ElementAt(Tagindex).TagName</a>
+                        if(Tagindex != Model.ProductTags.Count - 1)
+                        {
+                            <span>,</span>
+                        }
+                    }
+                }
+            </li>
+        }
+    </ul>
+    <div class="product_share">
+        <span>اشتراک:</span>
+        <ul class="social_icons">
+            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+        </ul>
+    </div>
+</div>

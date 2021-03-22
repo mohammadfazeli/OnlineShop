@@ -23,8 +23,8 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 {
     [Authorize]
     [Area(AreaConstants.AdminArea)]
-    [BreadCrumb(Title = "مشخصات کاربری", UseDefaultRouteUrl = true, Order = 0)]
-    public class UserProfileController : BaseController
+    [BreadCrumb(Title = "مشخصات کاربری",UseDefaultRouteUrl = true,Order = 0)]
+    public class UserProfileController:BaseController
     {
         private readonly IEmailSender _emailSender;
         private readonly IProtectionProviderService _protectionProviderService;
@@ -62,38 +62,38 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [Authorize(Roles = ConstantRoles.Admin)]
-        [BreadCrumb(Title = "ایندکس", Order = 1)]
+        [BreadCrumb(Title = "ایندکس",Order = 1)]
         public async Task<IActionResult> AdminEdit(int? id)
         {
-            if (!id.HasValue)
+            if(!id.HasValue)
             {
                 return View("Error");
             }
 
             var user = await _userManager.FindByIdAsync(id.ToString());
-            return await renderForm(user, isAdminEdit: true);
+            return await renderForm(user,isAdminEdit: true);
         }
 
-        [BreadCrumb(Title = "ایندکس", Order = 1)]
+        [BreadCrumb(Title = "ایندکس",Order = 1)]
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetCurrentUserAsync();
-            return await renderForm(user, isAdminEdit: false);
+            return await renderForm(user,isAdminEdit: false);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(UserProfileViewModel model)
         {
-            if (this.ModelState.IsValid)
+            if(this.ModelState.IsValid)
             {
                 var pid = _protectionProviderService.Decrypt(model.Pid);
-                if (string.IsNullOrWhiteSpace(pid))
+                if(string.IsNullOrWhiteSpace(pid))
                 {
                     return View("Error");
                 }
 
-                if (pid != _userManager.GetCurrentUserId() &&
+                if(pid != _userManager.GetCurrentUserId() &&
                     !_roleManager.IsCurrentUserInRole(ConstantRoles.Admin))
                 {
                     _logger.LogWarning($"سعی در دسترسی غیرمجاز به ویرایش اطلاعات کاربر {pid}");
@@ -101,7 +101,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                 }
 
                 var user = await _userManager.FindByIdAsync(pid);
-                if (user == null)
+                if(user == null)
                 {
                     return View("NotFound");
                 }
@@ -112,27 +112,27 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                 user.TwoFactorEnabled = model.TwoFactorEnabled;
                 user.Location = model.Location;
 
-                updateUserBirthDate(model, user);
+                updateUserBirthDate(model,user);
 
-                if (!await updateUserName(model, user))
+                if(!await updateUserName(model,user))
                 {
-                    return View(viewName: nameof(Index), model: model);
+                    return View(viewName: nameof(Index),model: model);
                 }
 
-                if (!await updateUserAvatarImage(model, user))
+                if(!await updateUserAvatarImage(model,user))
                 {
-                    return View(viewName: nameof(Index), model: model);
+                    return View(viewName: nameof(Index),model: model);
                 }
 
-                if (!await updateUserEmail(model, user))
+                if(!await updateUserEmail(model,user))
                 {
-                    return View(viewName: nameof(Index), model: model);
+                    return View(viewName: nameof(Index),model: model);
                 }
 
                 var updateResult = await _userManager.UpdateAsync(user);
-                if (updateResult.Succeeded)
+                if(updateResult.Succeeded)
                 {
-                    if (!model.IsAdminEdit)
+                    if(!model.IsAdminEdit)
                     {
                         // reflect the changes in the current user's Identity cookie
                         await _signInManager.RefreshSignInAsync(user);
@@ -149,23 +149,23 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                                MessageDateTime = DateTime.UtcNow.ToLongPersianDateTimeString()
                            });
 
-                    return RedirectToAction(nameof(Index), "UserCard", routeValues: new { id = user.Id });
+                    return RedirectToAction(nameof(Index),"UserCard",routeValues: new { id = user.Id });
                 }
 
-                ModelState.AddModelError("", updateResult.DumpErrors(useHtmlNewLine: true));
+                ModelState.AddModelError("",updateResult.DumpErrors(useHtmlNewLine: true));
             }
-            return View(viewName: nameof(Index), model: model);
+            return View(viewName: nameof(Index),model: model);
         }
 
         /// <summary>
         /// For [Remote] validation
         /// </summary>
         [AjaxOnly, HttpPost, ValidateAntiForgeryToken]
-        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
-        public async Task<IActionResult> ValidateUsername(string username, string email, string pid)
+        [ResponseCache(Location = ResponseCacheLocation.None,NoStore = true)]
+        public async Task<IActionResult> ValidateUsername(string username,string email,string pid)
         {
             pid = _protectionProviderService.Decrypt(pid);
-            if (string.IsNullOrWhiteSpace(pid))
+            if(string.IsNullOrWhiteSpace(pid))
             {
                 return Json("اطلاعات وارد شده معتبر نیست.");
             }
@@ -174,13 +174,13 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             user.UserName = username;
             user.Email = email;
 
-            var result = await _userValidator.ValidateAsync((UserManager<User>)_userManager, user);
+            var result = await _userValidator.ValidateAsync((UserManager<User>)_userManager,user);
             return Json(result.Succeeded ? "true" : result.DumpErrors(useHtmlNewLine: true));
         }
 
-        private static void updateUserBirthDate(UserProfileViewModel model, User user)
+        private static void updateUserBirthDate(UserProfileViewModel model,User user)
         {
-            if (model.DateOfBirthYear.HasValue &&
+            if(model.DateOfBirthYear.HasValue &&
                 model.DateOfBirthMonth.HasValue &&
                 model.DateOfBirthDay.HasValue)
             {
@@ -194,7 +194,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             }
         }
 
-        private async Task<IActionResult> renderForm(User user, bool isAdminEdit)
+        private async Task<IActionResult> renderForm(User user,bool isAdminEdit)
         {
             _usersPhotoService.SetUserDefaultPhoto(user);
 
@@ -213,7 +213,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                 IsPasswordTooOld = await _usedPasswordsService.IsLastUserPasswordTooOldAsync(user.Id)
             };
 
-            if (user.BirthDate.HasValue)
+            if(user.BirthDate.HasValue)
             {
                 var pDateParts = user.BirthDate.Value.ToPersianYearMonthDay();
                 userProfile.DateOfBirthYear = pDateParts.Year;
@@ -221,18 +221,18 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                 userProfile.DateOfBirthDay = pDateParts.Day;
             }
 
-            return View(viewName: nameof(Index), model: userProfile);
+            return View(viewName: nameof(Index),model: userProfile);
         }
 
-        private async Task<bool> updateUserAvatarImage(UserProfileViewModel model, User user)
+        private async Task<bool> updateUserAvatarImage(UserProfileViewModel model,User user)
         {
             _usersPhotoService.SetUserDefaultPhoto(user);
 
             var photoFile = model.Photo;
-            if (photoFile?.Length > 0)
+            if(photoFile?.Length > 0)
             {
                 var imageOptions = _siteOptions.Value.UserAvatarImageOptions;
-                if (!photoFile.IsValidImageFile(maxWidth: imageOptions.MaxWidth, maxHeight: imageOptions.MaxHeight))
+                if(!photoFile.IsValidImageFile(maxWidth: imageOptions.MaxWidth,maxHeight: imageOptions.MaxHeight))
                 {
                     this.ModelState.AddModelError("",
                         $"حداکثر اندازه تصویر قابل ارسال {imageOptions.MaxHeight} در {imageOptions.MaxWidth} پیکسل است");
@@ -242,8 +242,8 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 
                 var uploadsRootFolder = _usersPhotoService.GetUsersAvatarsFolderPath();
                 var photoFileName = $"{user.Id}{Path.GetExtension(photoFile.FileName)}";
-                var filePath = Path.Combine(uploadsRootFolder, photoFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                var filePath = Path.Combine(uploadsRootFolder,photoFileName);
+                using(FileStream fileStream = new FileStream(filePath,FileMode.Create))
                 {
                     await photoFile.CopyToAsync(fileStream);
                 }
@@ -252,16 +252,16 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             return true;
         }
 
-        private async Task<bool> updateUserEmail(UserProfileViewModel model, User user)
+        private async Task<bool> updateUserEmail(UserProfileViewModel model,User user)
         {
-            if (user.Email != model.Email)
+            if(user.Email != model.Email)
             {
                 user.Email = model.Email;
                 var userValidator =
-                    await _userValidator.ValidateAsync((UserManager<User>)_userManager, user);
-                if (!userValidator.Succeeded)
+                    await _userValidator.ValidateAsync((UserManager<User>)_userManager,user);
+                if(!userValidator.Succeeded)
                 {
-                    ModelState.AddModelError("", userValidator.DumpErrors(useHtmlNewLine: true));
+                    ModelState.AddModelError("",userValidator.DumpErrors(useHtmlNewLine: true));
                     return false;
                 }
 
@@ -284,16 +284,16 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             return true;
         }
 
-        private async Task<bool> updateUserName(UserProfileViewModel model, User user)
+        private async Task<bool> updateUserName(UserProfileViewModel model,User user)
         {
-            if (user.UserName != model.UserName)
+            if(user.UserName != model.UserName)
             {
                 user.UserName = model.UserName;
                 var userValidator =
-                    await _userValidator.ValidateAsync((UserManager<User>)_userManager, user);
-                if (!userValidator.Succeeded)
+                    await _userValidator.ValidateAsync((UserManager<User>)_userManager,user);
+                if(!userValidator.Succeeded)
                 {
-                    ModelState.AddModelError("", userValidator.DumpErrors(useHtmlNewLine: true));
+                    ModelState.AddModelError("",userValidator.DumpErrors(useHtmlNewLine: true));
                     return false;
                 }
             }

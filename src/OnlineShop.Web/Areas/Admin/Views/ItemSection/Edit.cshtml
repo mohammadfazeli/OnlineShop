@@ -1,6 +1,6 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionDto
 
-<form asp-action="Create" method="post">
+<form asp-action="Edit" method="post">
     <partial name="_CustomValidationSummary" />
     @Html.HiddenFor(x => x.Id)
     <div class="card _borderTop  _shadow ">
@@ -23,19 +23,17 @@
                 </div>
 
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <div class="form-group">
-                        <CustomSelect asp-for="ItemSectionType"
-                                      asp-expression="ItemSectionType"
-                                      asp-optionLabel="@Resource.SelectedOneItem"
-                                      asp-currentValues="new List<string>() { Model.ItemSectionType.ToString() } "
-                                      asp-selectList="@Html.GetEnumSelectList<ItemSectionType>()"
-                                      asp-Class=" select2bs4 ">
-                        </CustomSelect>
-                    </div>
+                    <CustomSelect asp-for="SectionId"
+                                  asp-expression="SectionId"
+                                  asp-optionLabel="@Resource.SelectedOneItem"
+                                  asp-currentValues="@Model.SectionDropDown.CurrentValues"
+                                  asp-selectList="@Model.SectionDropDown.SelectList"
+                                  asp-FormClass="@( Model.SectionId)"
+                                  asp-Class=" select2 ">
+                    </CustomSelect>
                 </div>
             </div>
         </div>
-
         <partial name="_CardFooter">
     </div>
 </form>

@@ -4,499 +4,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Meta -->
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="Anil z" name="author">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
+    <meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
+
+    <!-- SITE TITLE -->
+    <title>Shopwise - eCommerce Bootstrap 4 HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/layout//layout/assets/images/favicon.png">
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="/layout/assets/css/animate.css">
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/layout/assets/bootstrap/css/bootstrap.min.css">
+    <!-- Google Font -->
+    @*<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">*@
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/layout/assets/css/all.min.css">
+    <link rel="stylesheet" href="/layout/assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="/layout/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/layout/assets/css/linearicons.css">
+    <link rel="stylesheet" href="/layout/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/layout/assets/css/simple-line-icons.css">
+    <!--- owl carousel CSS-->
+    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.theme.css">
+    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.theme.default.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="/layout/assets/css/magnific-popup.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="/layout/assets/css/slick.css">
+    <link rel="stylesheet" href="/layout/assets/css/slick-theme.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/layout/assets/css/style.css">
+    <link rel="stylesheet" href="/layout/assets/css/responsive.css">
+    <!-- RTL CSS -->
+    <link rel="stylesheet" href="/layout/assets/css/rtl-style.css">
+
     <title>@pageTitle</title>
     <link rel="icon" href="/grow-shop.png" />
-
-    <link rel="stylesheet" type="text/css" href="~/plugins/slick/slick.css" />
-    @*// Add the new slick-theme.css if you want the default styling*@
-    <link rel="stylesheet" type="text/css" href="~/plugins/slick/slick-theme.css" />
-
-    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
-    @*<link rel="stylesheet" href="~/dist/css/uikit.css">
-        <link rel="stylesheet" href="/dist/css/mdb.min.css">
-        <link rel="stylesheet" href="/dist/css/custom.css">*@
-    @*<link rel="stylesheet" href="/dist/css/mdb.min.css">
-        <link rel="stylesheet" href="~/dist/css/uikit.css">*@
-    @*<link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">*@
-
-    <!-- Google Font -->
-    <!--<link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">-->
-    <!-- Css Styles -->
-    @*<link rel="stylesheet" href="~/Layout/css/bootstrap.min.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/font-awesome.min.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/themify-icons.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/elegant-icons.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/owl.carousel.min.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/nice-select.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/jquery-ui.min.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/slicknav.min.css" type="text/css" asp-append-version="true">
-        <link rel="stylesheet" href="~/Layout/css/style.css" type="text/css" asp-append-version="true">*@
-    <link rel="stylesheet" href="~/dist/css/uikit.css">
-    <link rel="stylesheet" href="~/css/site.min.css" type="text/css" asp-append-version="true">
-    <!-- Select2 -->
-
     <link rel="stylesheet" href="~/plugins/select2/select2.min.css" type="text/css" asp-append-version="true">
-
-    @*<link rel="stylesheet" href="/dist/css/mdb.min.css">*@
     <link rel="stylesheet" href="/plugins/toastr/toastr.min.css" asp-append-version="true">
-
-    <link rel="stylesheet" href="/plugins/NouiSlider/nouislider.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="/plugins/Flickity/flickity.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="/plugins/Flickity/fullscreen.css" asp-append-version="true">
-    @*<link rel="stylesheet" href="~/dist/css/uikit.css">*@
-    @*<link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">*@
-    @*<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />*@
-
-    <!-- Google Font: Source Sans Pro -->
-    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
-    <!-- Font Awesome Icons -->
-    @*<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">*@
-    <!-- overlayScrollbars -->
-    <!--<link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">-->
-    <!-- Theme style -->
-    <!--<link rel="stylesheet" href="/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="/dist/css/bootstrap-rtl.css">
-    <link rel="stylesheet" href="/dist/css/CsutomRTL.css">
-    <link rel="stylesheet" href="/dist/css/custom.css">
-    <link rel="stylesheet" href="/dist/css/uikit.css">
-
-    <link rel="stylesheet" href="/plugins/lightslider-master/css/lightslider.css">-->
-    @*<link rel="stylesheet" href="/dist/css/bootstrap-rtl.css">*@
-    <script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
-    <script src="/plugins/jquery/jquery.min.js" asp-append-version="true"></script>
-    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+    @*<script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+        <script src="/plugins/jquery/jquery.min.js" asp-append-version="true"></script>*@
+    <script src="/layout/assets/js/jquery-1.12.4.min.js" asp-append-version="true"></script>
 </head>
-<body>
 
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+<body dir="rtl">
 
-    <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
-        <div class="uk-offcanvas-bar">
-            <button class="uk-offcanvas-close" type="button" uk-close></button>
-            <h3>Title</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <ul class="uk-nav uk-nav-default">
-                <li class="active text-right"><a asp-controller="Home" asp-action="Index">صفحه اصلی</a></li>
-                <li class=" text-right"><a asp-controller="Product" asp-action="Shop">Shop</a></li>
-                <li class=" text-right">
-                    <a class=" text-right" href="#">Collection</a>
-                    <ul class="dropdown">
-                        <li class=" text-right"><a href="#">Men's</a></li>
-                        <li class=" text-right"><a href="#">Women's</a></li>
-                        <li class=" text-right"><a href="#">Kid's</a></li>
-                    </ul>
-                </li>
-                <li class=" text-right"><a href="./blog.html">Blog</a></li>
-                <li class=" text-right"><a href="./contact.html">Contact</a></li>
-                <li class=" text-right">
-                    <a href="#">Pages</a>
-                    <ul class="dropdown">
-                        <li class=" text-right"><a href="./blog-details.html">Blog Details</a></li>
-                        <li class=" text-right"><a href="./shopping-cart.html">Shopping Cart</a></li>
-                        <li class=" text-right"><a href="./check-out.html">Checkout</a></li>
-                        <li class=" text-right"><a href="./faq.html">Faq</a></li>
-                        <li class=" text-right"><a href="./register.html">Register</a></li>
-                        <li class=" text-right"><a href="./login.html">Login</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="uk-width-1-2@s">
-                <ul class="uk-nav-primary uk-nav-parent-icon" uk-nav>
-                    <li class="uk-active"><a href="#">Active</a></li>
-                    <li class="uk-parent">
-                        <a href="#">Parent</a>
-                        <ul class="uk-nav-sub">
-                            <li><a href="#">Sub item</a></li>
-                            <li><a href="#">Sub item</a></li>
-                        </ul>
-                    </li>
-                    <li class="uk-parent">
-                        <a href="#">Parent</a>
-                        <ul class="uk-nav-sub">
-                            <li><a href="#">Sub item</a></li>
-                            <li><a href="#">Sub item</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Item</a></li>
-                </ul>
-            </div>
+    <!-- LOADER -->
+    <div class="preloader">
+        <div class="lds-ellipsis">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="header-top">
-            <div class="container">
-                <div class="ht-left">
-                    <div class="mail-service">
-                        <i class=" fa fa-envelope"></i>
-                        hello.colorlib@gmail.com
-                    </div>
-                    <div class="phone-service">
-                        <i class=" fa fa-phone"></i>
-                        +65 11.188.888
-                    </div>
-                </div>
-                <div class="ht-right">
-                    <a asp-area="Admin" asp-controller="Login" asp-action="Index" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                    <div class="lan-selector">
-                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="/Layout/img/flag-1.jpg" data-imagecss="flag yt"
-                                    data-title="English">
-                                English
-                            </option>
-
-                            <option value='yu' data-image="/Layout/img/flag-2.jpg" data-imagecss="flag yu"
-                                    data-title="Bangladesh">
-                                German
-                            </option>
-                        </select>
-                    </div>
-                    <div class="top-social">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                        <a href="#"><i class="ti-linkedin"></i></a>
-                        <a href="#"><i class="ti-pinterest"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="">
-            <div class="d-block d-sm-block  d-md-none">
-                <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-                    <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
-                        <div class="uk-navbar-left">
-                            <ul class="uk-navbar-nav">
-                                <li> <a uk-navbar-toggle-icon uk-toggle="target: #offcanvas-flip"></a> </li>
-                            </ul>
+    <!-- END LOADER -->
+    <!-- Home Popup Section -->
+    <div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>
+                    </button>
+                    <div class="row no-gutters">
+                        <div class="col-sm-5">
+                            <div class="background_bg h-100" data-img-src="/layout/assets/images/popup_img.jpg"></div>
                         </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="inner-header">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2">
-                        <div class="logo">
-                            <a href="./index.html">
-                                @*<img src="img/logo.png" alt="">*@
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-md-7">
-                        <div class="advanced-search">
-                            <button type="button" class="category-btn">تمام محصولات</button>
-                            <div class="input-group">
-                                <input type="text" class="float-right mr-5 text-right" placeholder="دنبال چی میگردی؟">
-                                <button type="button"><i class="ti-search"></i></button>
+                        <div class="col-sm-7">
+                            <div class="popup_content">
+                                <div class="popup-text">
+                                    <div class="heading_s4">
+                                        <h4>اشتراک در خبرنامه ما و دریافت 25٪ تخفیف!</h4>
+                                    </div>
+                                    <p>برای دریافت به روزرسانی ها و اخبار در مورد محصولات جدید ، در خبرنامه مشترک شوید.</p>
+                                </div>
+                                <form method="post">
+                                    <div class="form-group">
+                                        <input name="email" required type="email" class="form-control rounded-0" placeholder="ایمیل خود را وارد کنید">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-fill-line btn-block text-uppercase rounded-0" title="اشتراک" type="submit">اشتراک</button>
+                                    </div>
+                                </form>
+                                <div class="chek-form">
+                                    <div class="custome-checkbox">
+                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                        <label class="form-check-label" for="exampleCheckbox3"><span>این پنجره را دوباره نشان ندهید!</span></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 text-right col-md-3">
-                        <vc:customer-card-item></vc:customer-card-item>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="d-none d-md-block d-lg-block d-xl-block">
-            <div class="nav-item " uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-                <div class="container">
-                    <div class="nav-depart">
-                        <div class="depart-btn">
-                            <i class="ti-menu"></i>
-                            <span>انواع محصولات</span>
-                            <ul class="depart-hover">
-                                <li class="active"><a href="#">Women’s Clothing</a></li>
-                                <li><a href="#">Men’s Clothing</a></li>
-                                <li><a href="#">Underwear</a></li>
-                                <li><a href="#">Kid's Clothing</a></li>
-                                <li><a href="#">Brand Fashion</a></li>
-                                <li><a href="#">Accessories/Shoes</a></li>
-                                <li><a href="#">Luxury Brands</a></li>
-                                <li><a href="#">Brand Outdoor Apparel</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div>
-                        <nav class="nav-menu mobile-menu text-right" style="        direction: rtl;position: relative;">
-                            <ul>
-                                <li class="active text-right"><a asp-controller="Home" asp-action="Index">صفحه اصلی</a></li>
-                                <li class=" text-right"><a asp-controller="Product" asp-action="Shop">Shop</a></li>
-                                <li class=" text-right">
-                                    <a class=" text-right" href="#">Collection</a>
-                                    <ul class="dropdown">
-                                        <li class=" text-right"><a href="#">Men's</a></li>
-                                        <li class=" text-right"><a href="#">Women's</a></li>
-                                        <li class=" text-right"><a href="#">Kid's</a></li>
-                                    </ul>
-                                </li>
-                                <li class=" text-right"><a href="./blog.html">Blog</a></li>
-                                <li class=" text-right"><a href="./contact.html">Contact</a></li>
-                                <li class=" text-right">
-                                    <a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li class=" text-right"><a href="./blog-details.html">Blog Details</a></li>
-                                        <li class=" text-right"><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                        <li class=" text-right"><a href="./check-out.html">Checkout</a></li>
-                                        <li class=" text-right"><a href="./faq.html">Faq</a></li>
-                                        <li class=" text-right"><a href="./register.html">Register</a></li>
-                                        <li class=" text-right"><a href="./login.html">Login</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-
-                        @*<div id="mobile-menu-wrap"></div>*@
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    <!-- End Screen Load Popup Section -->
+    <!-- START HEADER -->
+    <header class="header_wrap">
+        <partial name="_HeaderWrap" />
     </header>
-    <!-- Header End -->
-
-    <section>
-
-        <div class="jumbotron">
-            <div class="main-carousel">
-                <div class="carousel-cell">1</div>
-                <div class="carousel-cell">2</div>
-                <div class="carousel-cell">3</div>
-            </div>
-        </div>
-
-        @RenderBody()
-    </section>
-
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
+    <!-- END HEADER -->
+    <!-- START SECTION BANNER -->
+    <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-left">
-                        <div class="footer-logo">
-                            <a href="#"><img src="/Layout/img/footer-logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello.colorlib@gmail.com</li>
-                        </ul>
-                        <div class="footer-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1">
-                    <div class="footer-widget">
-                        <h5>Information</h5>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2  ">
-                    <div class="footer-widget">
-                        <h5>My Account</h5>
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newslatter-item">
-                        <h5>Join Our Newsletter Now</h5>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#" class="subscribe-form">
-                            <input type="text" placeholder="Enter Your Mail">
-                            <button type="button">Subscribe</button>
-                        </form>
-                    </div>
+                <div class="col-lg-9 offset-lg-3">
+                    <partial name="_Carousel" />
                 </div>
             </div>
         </div>
-        <div class="copyright-reserved">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="copyright-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </div>
-                        <div class="payment-pic">
-                            <img src="/Layout/img/payment-method.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    <!-- END SECTION BANNER -->
+    <!-- END MAIN CONTENT -->
+
+    <div class="main_content">
+        @RenderBody()
+    </div>
+    <!-- END MAIN CONTENT -->
+    <!-- START FOOTER -->
+    <footer class="bg_gray">
+        <partial name="_Footer" />
     </footer>
-    <!-- Footer Section End -->
-    <!-- Js Plugins -->
-    @*<script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/bootstrap.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery-ui.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.countdown.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.nice-select.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.zoom.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.dd.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/jquery.slicknav.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/owl.carousel.min.js" asp-append-version="true"></script>
-        <script src="~/Layout/js/main.js" asp-append-version="true"></script>*@
+    <!-- END FOOTER -->
 
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
 
-    <!-- Js Plugins -->
-    <script src="/dist/js/uikit.js" asp-append-version="true"></script>
+ 
+    <script src="/layout/assets/js/popper.min.js"></script>
+    <script src="/layout/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/layout/assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="/layout/assets/js/magnific-popup.min.js"></script>
+    <script src="/layout/assets/js/waypoints.min.js"></script>
+    <script src="/layout/assets/js/parallax.js"></script>
+    <script src="/layout/assets/js/jquery.countdown.min.js"></script>
+    <script src="/layout/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/layout/assets/js/isotope.min.js"></script>
+    <script src="/layout/assets/js/jquery.dd.min.js"></script>
+    <script src="/layout/assets/js/slick.min.js"></script>
+    <script src="/layout/assets/js/jquery.elevatezoom.js"></script>
+    <script src="/layout/assets/js/scripts.js"></script>
+
+    @*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
     <script src="/plugins/toastr/toastr.min.js" asp-append-version="true"></script>
-    @*<script src="../Scripts/noty.min.js" asp-append-version="true"></script>*@
-    <!--Place it at the end of body and after jquery-->
-    <!-- Select2 -->
-    <!-- Select2 -->
-
     <script src="/plugins/select2/select2.full.min.js" asp-append-version="true"></script>
 
-    <script type="text/javascript" src="~/plugins/slick/slick.min.js"></script>
-    <script type="text/javascript" src="~/plugins/NouiSlider/nouislider.js"></script>
-    <script>
-        var handlesSlider = document.getElementById('slider-handles');
-
-        noUiSlider.create(handlesSlider, {
-            start: [100000, 500000],
-            tooltips: [true, true],
-            connect: true,
-            direction: 'rtl',
-            step: 100,
-            //format: {
-            //    // 'to' the formatted value. Receives a number.
-            //    to: function (value) {
-            //        return value + 'ريال';
-            //    },
-            //    // 'from' the formatted value.
-            //    // Receives a string, should return a number.
-            //    from: function (value) {
-            //        return Number(value.replace('ريال', ''));
-            //    }
-            //},
-            range: {
-                'min': [0],
-                'max': [1000000]
-            }
-        });
-        function wNumb(x) {
-            return x;
-        }
-    </script>
-    <script>
-        $(function () {
-            //Initialize Select2 Elements
-            $('.select2').select2({
-                dir: "rtl",
-                dropdownAutoWidth: true,
-                placeholder: 'لطفا یک گزینه انتخاب کنید',
-
-            });
-
-            $('.responsive').slick({
-                dots: true,
-                infinite: false,
-                speed: 300,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
-                ]
-            });
-        });
-
-        function onKeyUpCheckboxSearch(e) {
-            debugger;
-            var keyWord = $(e).val().toLowerCase();
-            if (keyWord !== "") {
-                $(e).closest(".checkbox-frame").find(".checkBoxRow").removeClass("d-none");
-                var checkBoxlbl = $(e).closest(".checkbox-frame").find(".checkBoxRow").find("label");
-                $(checkBoxlbl).each(function () {
-                    var x = $(this).text().toLowerCase();
-                    var y = $(this).text().toLowerCase().indexOf(keyWord);
-                    if ($(this).text().toLowerCase().indexOf(keyWord) <= -1) {
-                        $(this).closest(".checkBoxRow").addClass("d-none");
-                    }
-                });
-
-            } else {
-                $(e).closest(".checkbox-frame").find(".checkBoxRow").removeClass("d-none");
-            }
-        }
-
-        function GetSelectedItems(name) {
-            return $('input[type="checkbox"][name="' + name + '"]:checked').each(function () { $(this).val(); }).map(function () { return this.value; }).get();
-        }
-    </script>
-    <script src="/plugins/Flickity/flickity.pkgd.min.js"></script>
-    <script src="/plugins/Flickity/fullscreen.js"></script>
-    <script src="/plugins/Flickity/as-nav-for.js"></script>
-
-    <script>
-
-        $('.main-carousel').flickity({
-            // options
-            cellAlign: 'right',
-            imagesLoaded: true,
-            percentPosition: false
-        });
-
-        $('.carousel-nav').flickity({
-            asNavFor: '.main-carousel',
-            contain: true,
-            pageDots: false
-        });
-    </script>
     @Html.RenderUnobtrusiveAjaxScript()
-    @await RenderSectionAsync("Scripts",required: false)
     @await Component.InvokeAsync("NToastNotify")
+    @await RenderSectionAsync("Scripts",required: false)
 </body>
 </html>

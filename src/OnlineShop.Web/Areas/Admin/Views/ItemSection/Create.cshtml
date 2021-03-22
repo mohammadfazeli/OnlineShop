@@ -1,6 +1,5 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.ItemSections.ItemSectionDto
-
-<partial name="~/Areas/Admin/Views/Product/_SearchProduct.cshtml" />
+<partial name="~/Areas/Admin/Views/Product/_SearchProduct.cshtml" model="null" />
 
 <form asp-action="Create" method="post">
     <partial name="_CustomValidationSummary" />
@@ -31,14 +30,15 @@
                 </div>
 
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
-                    <div class="form-group">
-                        <CustomSelect asp-for="ItemSectionType"
-                                      asp-expression="ItemSectionType"
+                    
+                        <CustomSelect asp-for="SectionId"
+                                      asp-expression="SectionId"
                                       asp-optionLabel="@Resource.SelectedOneItem"
-                                      asp-selectList="@Html.GetEnumSelectList<ItemSectionType>()"
-                                      asp-Class=" select2bs4 ">
-                        </CustomSelect>
-                    </div>
+                                      asp-currentValues="@Model.SectionDropDown.CurrentValues"
+                                      asp-selectList="@Model.SectionDropDown.SelectList"
+                                      asp-FormClass="form-group"
+                                      asp-Class=" select2 ">
+                        </CustomSelect>                    
                 </div>
             </div>
         </div>

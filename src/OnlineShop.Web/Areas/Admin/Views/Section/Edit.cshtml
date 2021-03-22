@@ -1,0 +1,27 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Section.SectionDto
+
+<form asp-action="Edit" method="post">
+    @Html.HiddenFor(r => r.Id)
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header ">
+            <partial name="_CardHeader" model="CardHeaderTye.Edit" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="SectionName"></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInputTextArea asp-for="Description"></CustomInputTextArea>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomCheckBox asp-for="InActive"
+                                    asp-IsChecked="Model.InActive"
+                                    asp-Class="CheckBox">
+                    </CustomCheckBox>
+                </div>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>

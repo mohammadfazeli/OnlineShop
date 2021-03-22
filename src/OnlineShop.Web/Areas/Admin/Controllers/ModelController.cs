@@ -30,7 +30,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         }
 
         [BreadCrumb(Title = "مشاهده مدل ها",TitleResourceType = typeof(Resource.Resource),Order = 1)]
-        [Menu(IconType = IconType.UiKit,Icon = "list",Name = nameof(Resource.Resource.Model),order = 1)]
+        [Menu(IconType = IconType.FontAwesome5,MenuGroup = MenuGroupEnum.BasicInfo,Icon = "fas fa-list",Name = nameof(Resource.Resource.Model),order = 1)]
         public IActionResult Index()
         {
             return View();

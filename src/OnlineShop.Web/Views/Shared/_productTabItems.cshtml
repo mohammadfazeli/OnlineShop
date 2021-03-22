@@ -1,152 +1,114 @@
-﻿@model Guid
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutGeneralInfoDto
 
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#tab-1" role="tab">DESCRIPTION</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link " data-toggle="tab" href="#tab-2" role="tab">مشخصات محصول</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link " data-toggle="tab" href="#tab-3" role="tab">Customer Reviews (02)</a>
-    </li>
-</ul>
-<div class="tab-content">
-    <div class="container tab-pane  active" id="tab-1" role="tabpanel">
-
-        <div class="row">
-            <div class="col-lg-7">
-                <h5>Introduction</h5>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                </p>
-                <h5>Features</h5>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                </p>
-            </div>
-            <div class="col-lg-5">
-                @*<img src="img/product-single/tab-desc.jpg" alt="">*@
-            </div>
+<div class="tab-style3">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="Description-tab" data-toggle="tab" href="#Description" role="tab" aria-controls="Description" aria-selected="true">توضیحات</a>
+        </li>
+        @{
+            if(Model.ProductSpecifications.Any() && Model.ProductSpecifications != null)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" id="Additional-info-tab" data-toggle="tab" href="#Additional-info" role="tab" aria-controls="Additional-info" aria-selected="false">اطلاعات اضافی</a>
+                </li>
+            }
+        }
+        <li class="nav-item">
+            <a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">نظرات (2)</a>
+        </li>
+    </ul>
+    <div class="tab-content shop_info_tab">
+        <div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت.</p>
+            <p>بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
         </div>
-    </div>
-    <div class="container tab-pane fade" id="tab-2" role="tabpanel">
-        @await Component.InvokeAsync("ProductSpecification",new { productId = Model })
-    </div>
-    <div class="container tab-pane fade" id="tab-3" role="tabpanel">
-        <div class="customer-review-option">
-            <h4>2 Comments</h4>
-            <div class="comment-option">
-                <div class="co-item">
-                    <div class="avatar-pic">
-                        @*<img src="img/product-single/avatar-1.png" alt="">*@
-                    </div>
-                    <div class="avatar-text">
-                        <div class="at-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>Brandon Kelley <span>27 Aug 2019</span></h5>
-                        <div class="at-reply">Nice !</div>
-                    </div>
+        @{
+            if(Model.ProductSpecifications.Any() && Model.ProductSpecifications != null)
+            {
+                <div class="tab-pane fade" id="Additional-info" role="tabpanel" aria-labelledby="Additional-info-tab">
+                    <table class="table table-bordered">
+                        @foreach(var item in Model.ProductSpecifications)
+                        {
+                            <tr>
+                                <td>@item.SpecificationName</td>
+                                <td>@item.SpecificationValue</td>
+                            </tr>
+                        }
+                    </table>
                 </div>
-                <div class="co-item">
-                    <div class="avatar-pic">
-                        @*<img src="img/product-single/avatar-2.png" alt="">*@
-                    </div>
-                    <div class="avatar-text">
-                        <div class="at-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
+            }
+        }
+        <div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
+            <div class="comments">
+                <h5 class="product_tab_title">2 نظر برای <span>لباس آبی زنانه</span></h5>
+                <ul class="list_none comment_list mt-4">
+                    <li>
+                        <div class="comment_img">
+                            <img src="assets/images/user1.jpg" alt="user1" />
                         </div>
-                        <h5>Roy Banks <span>27 Aug 2019</span></h5>
-                        <div class="at-reply">Nice !</div>
-                    </div>
-                </div>
+                        <div class="comment_block">
+                            <div class="rating_wrap">
+                                <div class="rating">
+                                    <div class="product_rate" style="width:80%"></div>
+                                </div>
+                            </div>
+                            <p class="customer_meta">
+                                <span class="review_author">ستاره جمشیدی</span>
+                                <span class="comment-date">5 اسفند 1399</span>
+                            </p>
+                            <div class="description">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="comment_img">
+                            <img src="assets/images/user2.jpg" alt="user2" />
+                        </div>
+                        <div class="comment_block">
+                            <div class="rating_wrap">
+                                <div class="rating">
+                                    <div class="product_rate" style="width:60%"></div>
+                                </div>
+                            </div>
+                            <p class="customer_meta">
+                                <span class="review_author">وحید سعیدی</span>
+                                <span class="comment-date">5 اسفند 1399</span>
+                            </p>
+                            <div class="description">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="personal-rating">
-                <h6>Your Ratind</h6>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-            </div>
-            <div class="leave-comment">
-                <h4>Leave A Comment</h4>
-                <form action="#" class="comment-form">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Name">
+            <div class="review_form field_form">
+                <h5>ارسال نظرات</h5>
+                <form class="row mt-3">
+                    <div class="form-group col-12">
+                        <div class="star_rating">
+                            <span data-value="1"><i class="far fa-star"></i></span>
+                            <span data-value="2"><i class="far fa-star"></i></span>
+                            <span data-value="3"><i class="far fa-star"></i></span>
+                            <span data-value="4"><i class="far fa-star"></i></span>
+                            <span data-value="5"><i class="far fa-star"></i></span>
                         </div>
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Email">
-                        </div>
-                        <div class="col-lg-12">
-                            <textarea placeholder="Messages"></textarea>
-                            <button type="submit" class="site-btn">Send message</button>
-                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <textarea required="required" placeholder="نظر شما *" class="form-control" name="message" rows="4"></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input required="required" placeholder="نام خود را وارد کنید *" class="form-control" name="name" type="text">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input required="required" placeholder="ایمیل خود را وارد کنید *" class="form-control" name="email" type="email">
+                    </div>
+
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">ارسال نظر</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-@*<ul class="nav nav-tabs rtl" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#productSpecial" role="tab" aria-controls="home" aria-selected="true">
-                ویژگی ها  محصول
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-        </li>
-    </ul>
-
-    <div class="tab-content rtl" id="myTabContent">
-        <div class="tab-pane fade show active rtl" id="productSpecial" role="tabpanel" aria-labelledby="home-tab">
-            @await Component.InvokeAsync("ProductSpecification", new { productId = Model })
-        </div>
-        <div class="tab-pane fade text-right" id="profile" role="tabpanel" aria-labelledby="profile-tab">فرهاد سلام خسته نباشی </div>
-        <div class="tab-pane fade rtl" id="contact" role="tabpanel" aria-labelledby="contact-tab">asdadadsadadasdadasd.</div>
-    </div>*@
-
-@*<ul class="nav nav-tabs rtl" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#productSpecial" role="tab" aria-controls="home" aria-selected="true">
-                ویژگی ها  محصول
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-        </li>
-    </ul>
-
-    <div class="tab-content rtl" id="myTabContent">
-        <div class="tab-pane fade show active rtl" id="productSpecial" role="tabpanel" aria-labelledby="home-tab">
-            @await Component.InvokeAsync("ProductSpecification", new { productId = Model })
-        </div>
-        <div class="tab-pane fade text-right" id="profile" role="tabpanel" aria-labelledby="profile-tab">فرهاد سلام خسته نباشی </div>
-        <div class="tab-pane fade rtl" id="contact" role="tabpanel" aria-labelledby="contact-tab">asdadadsadadasdadasd.</div>
-    </div>*@

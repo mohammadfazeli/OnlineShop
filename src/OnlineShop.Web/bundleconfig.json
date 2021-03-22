@@ -3,17 +3,23 @@
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
-      "Content/Layout/Css/bootstrap.min.css",
-      "Content/Layout/Css/font-awesome.min.css",
-      "Content/Layout/Css/themify-icons.css",
-      "Content/Layout/Css/elegant-icons.css",
-      "Content/Layout/Css/owl.carousel.min.css",
-      "Content/Layout/Css/nice-select.css",
-      "Content/Layout/Css/jquery-ui.min.css",
-      "Content/Layout/Css/slicknav.min.css",
-      "Content/Layout/Css/style.css",
-      "Content/Layout/Css/bsnav.min.css",
-      "Content/custom.css"
+      "wwwroot/layout/assets/css/animate.css",
+      "wwwroot/layout/assets/bootstrap/css/bootstrap.min.css",
+      "wwwroot/layout/assets/css/all.min.css",
+      "wwwroot/layout/assets/css/ionicons.min.css",
+      "wwwroot/layout/assets/css/themify-icons.css",
+      "wwwroot/layout/assets/css/linearicons.css",
+      "wwwroot/layout/assets/css/flaticon.css",
+      "wwwroot/layout/assets/css/simple-line-icons.css",
+      "wwwroot/layout/assets/owlcarousel/css/owl.carousel.min.css",
+      "wwwroot/layout/assets/owlcarousel/css/owl.theme.css",
+      "wwwroot/layout/assets/owlcarousel/css/owl.theme.default.min.css",
+      "wwwroot/layout/assets/css/magnific-popup.css",
+      "wwwroot/layout/assets/css/slick.css",
+      "wwwroot/layout/assets/css/slick-theme.css",
+      "wwwroot/layout/assets/css/style.css",
+      "wwwroot/layout/assets/css/responsive.css",
+      "wwwroot/layout/assets/css/rtl-style.css"
     ],
     "minify": {
       "enabled": true,
@@ -23,46 +29,50 @@
     "sourceMap": false
   },
 
-  {
-    "outputFileName": "wwwroot/css/Adminsite.min.css",
-    "inputFiles": [
-      "wwwroot/plugins/font-awesome/css/font-awesome.min.css",
-      "wwwroot/dist/css/adminlte.min.css",
-      "wwwroot/dist/css/bootstrap-rtl.min.css",
-      "wwwroot/dist/css/custom-style.css",
-      "wwwroot/dist/css/persianDatepicker-default.css",
-      "wwwroot/plugins/fontawesome-free/css/all.min.css",
-      "wwwroot/plugins/toastr/toastr.min.css",
-      "wwwroot/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
-      "wwwroot/plugins/lightgallery/css/lightgallery.min.css",
-      "wwwroot/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",
-      "wwwroot/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
-      "wwwroot/plugins/datatables-select/css/select.bootstrap4.css",
-      "wwwroot/plugins/select2/css/select2.min.css",
-      "wwwroot/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
-      "wwwroot/plugins/dropzone/min/dropzone.min.css"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": false,
-      "adjustRelativePaths": false
-    },
-    "sourceMap": false
-  },
+  //{
+  //  "outputFileName": "wwwroot/css/Adminsite.min.css",
+  //  "inputFiles": [
+  //    "wwwroot/plugins/font-awesome/css/font-awesome.min.css",
+  //    "wwwroot/dist/css/adminlte.min.css",
+  //    "wwwroot/dist/css/bootstrap-rtl.min.css",
+  //    "wwwroot/dist/css/custom-style.css",
+  //    "wwwroot/dist/css/persianDatepicker-default.css",
+  //    "wwwroot/plugins/fontawesome-free/css/all.min.css",
+  //    "wwwroot/plugins/toastr/toastr.min.css",
+  //    "wwwroot/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+  //    "wwwroot/plugins/lightgallery/css/lightgallery.min.css",
+  //    "wwwroot/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",
+  //    "wwwroot/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
+  //    "wwwroot/plugins/datatables-select/css/select.bootstrap4.css",
+  //    "wwwroot/plugins/select2/css/select2.min.css",
+  //    "wwwroot/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
+  //    "wwwroot/plugins/dropzone/min/dropzone.min.css"
+  //  ],
+  //  "minify": {
+  //    "enabled": true,
+  //    "renameLocals": false,
+  //    "adjustRelativePaths": false
+  //  },
+  //  "sourceMap": false
+  //},
 
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
-      "scripts/Layout/js/jquery-3.3.1.min.js",
-      "scripts/Layout/js/bootstrap.min.js",
-      "scripts/Layout/js/jquery-ui.min.js",
-      "scripts/Layout/js/jquery.countdown.min.js",
-      "scripts/Layout/js/jquery.nice-select.min.js",
-      "scripts/Layout/js/jquery.zoom.min.js",
-      "scripts/Layout/js/jquery.dd.min.js",
-      "scripts/Layout/js/jquery.slicknav.js",
-      "scripts/Layout/js/owl.carousel.min.js",
-      "scripts/Layout/js/main.js"
+      "wwwroot/layout/assets/js/jquery-1.12.4.min.js",
+      "wwwroot/layout/assets/js/popper.min.js",
+      "wwwroot/layout/assets/bootstrap/js/bootstrap.min.js",
+      "wwwroot/layout/assets/owlcarousel/js/owl.carousel.min.js",
+      "wwwroot/layout/assets/js/magnific-popup.min.js",
+      "wwwroot/layout/assets/js/waypoints.min.js",
+      "wwwroot/layout/assets/js/parallax.js",
+      "wwwroot/layout/assets/js/jquery.countdown.min.js",
+      "wwwroot/layout/assets/js/imagesloaded.pkgd.min.js",
+      "wwwroot/layout/assets/js/isotope.min.js",
+      "wwwroot/layout/assets/js/jquery.dd.min.js",
+      "wwwroot/layout/assets/js/slick.min.js",
+      "wwwroot/layout/assets/js/jquery.elevatezoom.js",
+      "wwwroot/layout/assets/js/scripts.js"
     ],
     "minify": {
       "enabled": true,

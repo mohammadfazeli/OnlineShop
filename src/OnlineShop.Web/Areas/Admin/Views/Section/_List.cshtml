@@ -1,0 +1,74 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Section.SectionListDto
+<div class="card _borderTop  _shadow ">
+    <div class="card-header ">
+        <partial name="_CardHeader" model="CardHeaderTye.Index" />
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover  table-sm  pb-5 mt-5 pt-5">
+                <thead>
+                    <tr>
+                        <td style="width:15px;">#</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.Id)</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.SectionName)</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.Description)</td>
+                        <td class="text-center">@Html.DisplayNameFor(r => r.InActive)</td>
+                        <td class="text-center " style="width:80px">@Resource.Operation</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+
+       $(function () {
+
+            $('.CustomDataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": false,
+                "responsive": false,
+
+                "language": {
+                    "url": "../js/Persian.json",
+                },
+                 "ajax": {
+                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        dataType: "json",
+                    },
+
+                "columns": [
+                        { "data": null, className: "text-center ", "render": function (data, type, row, meta) {return meta.row + meta.settings._iDisplayStart + 1;}},
+                        { "data": "id", className: "text-center", visible: false },
+                        { "data": "sectionName", className: "text-center"},
+                        { "data": "description", className: "text-center"},
+                        {
+                            "data": "inActive", className: "text-center", type: "checkbox", dataType: Boolean,
+                            render: function (data) {
+                                if (data == true) {
+                                    return '<input  type="checkbox" checked="checked" />'
+                                } else {
+                                    return '<input  type="checkbox" />'
+                                }
+
+                            }
+                        },
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+                                );
+                            }
+                        }
+                    ]
+            });
+        });
+</script>

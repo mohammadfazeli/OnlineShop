@@ -37,8 +37,7 @@ namespace OnlineShop.Areas.Admin.ViewComponents
 
             var menu = asm.GetTypes()
                 .Where(type => typeof(BaseController).IsAssignableFrom(type))
-                .SelectMany(type =>
-                    type.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public))
+                .SelectMany(type => type.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public))
                 .Where(m => m.GetCustomAttributes(typeof(MenuAttribute),true).Any())
                 .Select(x => new Menu()
                 {
