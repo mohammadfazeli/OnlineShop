@@ -1,11 +1,12 @@
-﻿using OnlineShop.ViewModels.Base;
+﻿using OnlineShop.Common.Enums;
+using OnlineShop.ViewModels.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.ViewModels.Area.Base.Products
 {
     public class ShopDto:BaseDto
     {
-        public PaginatedList<ProdcutItemDto> ProdcutItems { get; set; }
+        public PaginatedList<ProdcutGeneralInfoDto> ProdcutItems { get; set; }
 
         [Display(Name = nameof(Resource.Resource.Color),Prompt = nameof(Resource.Resource.Color),ResourceType = typeof(Resource.Resource))]
         public CheckBoxListViewModel ColorCheckBoxList { get; set; }
@@ -22,5 +23,7 @@ namespace OnlineShop.ViewModels.Area.Base.Products
         public bool IsFilterPrice { get; set; }
         public string MinPrice { get; set; }
         public string MaxPrice { get; set; }
+
+        public OrderTypeEnum OrderType { get; set; }
     }
 }

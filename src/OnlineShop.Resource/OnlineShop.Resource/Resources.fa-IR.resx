@@ -121,19 +121,19 @@
     <value>افزودن</value>
   </data>
   <data name="AddExists" xml:space="preserve">
-    <value>AddExists</value>
+    <value>اطلاعات در دیتابیس وجود دارد</value>
   </data>
   <data name="AddFail" xml:space="preserve">
-    <value>AddFail</value>
+    <value>لطفا مجدد تلاش کنید</value>
   </data>
   <data name="AddPart" xml:space="preserve">
-    <value>AddPart</value>
+    <value>افزودن قطعه</value>
   </data>
   <data name="Addrss" xml:space="preserve">
     <value>آدرس</value>
   </data>
   <data name="AddSuccessfully" xml:space="preserve">
-    <value>AddSuccessfully</value>
+    <value>ثبت با موفقیت انجام شد</value>
   </data>
   <data name="asdsadasd" xml:space="preserve">
     <value>sfda</value>
@@ -160,7 +160,7 @@
     <value>لیست رنگ</value>
   </data>
   <data name="CreateOn" xml:space="preserve">
-    <value>CreateOn</value>
+    <value>تاریخ ثبت</value>
   </data>
   <data name="CurrentPrice" xml:space="preserve">
     <value>قیمت فعلی </value>

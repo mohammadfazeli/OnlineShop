@@ -41,6 +41,8 @@ namespace OnlineShop.IocConfig
 
             #endregion Products
 
+            #region Base
+
             services.AddScoped<IColorService,ColorService>();
             services.AddScoped<ISizeService,SizeService>();
             services.AddScoped<IModelService,ModelService>();
@@ -48,6 +50,9 @@ namespace OnlineShop.IocConfig
             services.AddScoped<IProviderService,ProviderService>();
             services.AddScoped<IItemSectionService,ItemSectionService>();
             services.AddScoped<ISectionService,SectionService>();
+            services.AddScoped<ICouponService,CouponService>();
+
+            #endregion Base
 
             #endregion Service
 

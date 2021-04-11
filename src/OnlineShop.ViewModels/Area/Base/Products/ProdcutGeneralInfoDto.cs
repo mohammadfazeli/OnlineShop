@@ -9,11 +9,11 @@ namespace OnlineShop.ViewModels.Area.Base.Products
 {
     public class ProdcutGeneralInfoDto:BaseDto
     {
-        [Display(Name = nameof(Resource.Resource.ProductGroup),ResourceType = typeof(Resource.Resource))]
-        public string ProductGroupName { get; set; }
-
         [Display(Name = nameof(Resource.Resource.Product),ResourceType = typeof(Resource.Resource))]
         public string ProductName { get; set; }
+
+        [Display(Name = nameof(Resource.Resource.ProductGroup),ResourceType = typeof(Resource.Resource))]
+        public string ProductGroupName { get; set; }
 
         [Display(Name = nameof(Resource.Resource.ForeignName),ResourceType = typeof(Resource.Resource))]
         public string ForeignName { get; set; }

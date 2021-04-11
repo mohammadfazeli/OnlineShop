@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using OnlineShop.Common.AdminToolkit;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
+using System;
 
 namespace OnlineShop.Web.Controllers
 {
@@ -69,6 +72,15 @@ namespace OnlineShop.Web.Controllers
         private IActionResult SweetAlert(string title,string message,string type)
         {
             return Content($"swal ('{title}',  '{message}',  '{type}')","text/javascript");
+        }
+
+        public IActionResult ChangeLanguage(string culture)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions() { Expires = DateTimeOffset.UtcNow.AddYears(1) });
+
+            return Redirect(Request.Headers["Referer"].ToString());
         }
     }
 }

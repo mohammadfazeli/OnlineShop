@@ -6,6 +6,10 @@ namespace OnlineShop.Entities.Entities.Area.WareHouse
 {
     public class BuyDetail:BaseEntity
     {
+        public BuyDetail()
+        {
+        }
+
         public Guid? BuyId { get; set; }
 
         [ForeignKey(nameof(BuyId))]

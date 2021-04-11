@@ -54,26 +54,37 @@ namespace OnlineShop.Services.Services.Area.Base
             return _mapper.Map(Get(id),new ProdcutGeneralInfoDto());
         }
 
-        public IQueryable<ProdcutItemDto> GetShopItems(ShopDto search)
+        public DisplayProdcutDto GetDisplayProduct(Guid id)
+        {
+            var product = Get(id);
+            var items = new DisplayProdcutDto()
+            {
+                Product = _mapper.Map(product,new ProdcutGeneralInfoDto()),
+                RelatedProducts = _mapper.Map(product.RelatedProducts.Select(s => s.RelatedProduct),new List<ProdcutGeneralInfoDto>()),
+            };
+
+            return items;
+        }
+
+        public IQueryable<ProdcutGeneralInfoDto> GetShopItems(ShopDto search)
         {
             var minPrice = Convert.ToDecimal(search.MinPrice,new CultureInfo("en-US"));
             var maxPrice = Convert.ToDecimal(search.MaxPrice,new CultureInfo("en-US"));
 
-            var items = (from p in GetAllNoTracking()
-                         join pc in _productColors.AsNoTracking() on p.Id equals pc.ProductId into result_pc
-                         from pc in result_pc.DefaultIfEmpty()
-                         join ps in _productSizes.AsNoTracking() on p.Id equals ps.ProductId into result_ps
-                         from ps in result_ps.DefaultIfEmpty()
-                         where
-                         (search.ProductGroupCheckBoxList == null || search.ProductGroupCheckBoxList.SelectedIds == null || search.ProductGroupCheckBoxList.SelectedIds.Contains(pc.ProductId.Value)) &&
-                          (search.ColorCheckBoxList == null || search.ColorCheckBoxList.SelectedIds == null || search.ColorCheckBoxList.SelectedIds.Contains(pc.ColorId.Value)) &&
-                          (search.ModelCheckBoxList == null || search.ModelCheckBoxList.SelectedIds == null || search.ModelCheckBoxList.SelectedIds.Contains(p.ModelId.Value)) &&
-                          (search.SizeCheckBoxList == null || search.SizeCheckBoxList.SelectedIds == null || search.SizeCheckBoxList.SelectedIds.Contains(ps.SizeId.Value))
-                         select p
-                        )
-            .ProjectTo<ProdcutItemDto>(_mapper.ConfigurationProvider)
-            .Where(row => search.IsFilterPrice ? minPrice <= row.Price && row.Price <= maxPrice : true);
-            return items;
+            var x = CastToProductGeneralInfoList(from p in GetAllNoTracking()
+                                                 join pc in _productColors.AsNoTracking() on p.Id equals pc.ProductId into result_pc
+                                                 from pc in result_pc.DefaultIfEmpty()
+                                                 join ps in _productSizes.AsNoTracking() on p.Id equals ps.ProductId into result_ps
+                                                 from ps in result_ps.DefaultIfEmpty()
+                                                 where
+                                                 (search.ProductGroupCheckBoxList == null || search.ProductGroupCheckBoxList.SelectedIds == null || search.ProductGroupCheckBoxList.SelectedIds.Contains(pc.ProductId.Value)) &&
+                                                  (search.ColorCheckBoxList == null || search.ColorCheckBoxList.SelectedIds == null || search.ColorCheckBoxList.SelectedIds.Contains(pc.ColorId.Value)) &&
+                                                  (search.ModelCheckBoxList == null || search.ModelCheckBoxList.SelectedIds == null || search.ModelCheckBoxList.SelectedIds.Contains(p.ModelId.Value)) &&
+                                                  (search.SizeCheckBoxList == null || search.SizeCheckBoxList.SelectedIds == null || search.SizeCheckBoxList.SelectedIds.Contains(ps.SizeId.Value))
+                                                 select p)
+            .Where(row => !search.IsFilterPrice || (minPrice <= row.Price && row.Price <= maxPrice));
+            //var items = x.ProjectTo<ProdcutGeneralInfoDto>(_mapper.ConfigurationProvider);
+            return x;
         }
 
         public IQueryable<ProdcutListDto> GetLastProduct(int take = 7)
@@ -86,6 +97,49 @@ namespace OnlineShop.Services.Services.Area.Base
         {
             var product = (await GetAsync(Id));
             return CastToProductGeneralInfo(product);
+        }
+
+        public IQueryable<ProdcutGeneralInfoDto> CastToProductGeneralInfoList(IQueryable<Product> products)
+        {
+            return products.Select(product => new ProdcutGeneralInfoDto()
+            {
+                Id = product.Id,
+                ProductName = product.Name,
+                CreateOn = product.CreateOn,
+                ProductGroupName = product.ProductGroup.Name ?? "",
+                UserCode = product.UserCode ?? "",
+                ForeignName = product.ForeignName ?? "",
+                Description = product.Description ?? "",
+                Provider = product.Provider == null ? "" : product.Provider.Name,
+                OldPrice = !product.ProductSalePrices.Any(p => !p.IsDeleted && !p.InActive) ? (decimal)0 : ((decimal)(product.ProductSalePrices.Where(p => !p.IsDeleted && !p.InActive).OrderByDescending(x => x.CreateOn).FirstOrDefault().OldPrice)),
+                Price = !product.ProductSalePrices.Any(p => !p.IsDeleted && !p.InActive) ? (decimal)0 : (decimal)(product.ProductSalePrices.Where(p => !p.IsDeleted && !p.InActive).OrderByDescending(x => x.CreateOn).FirstOrDefault().NewPrice),
+                ModelName = product.Model.Name ?? "",
+                ProductColors = (product.ProductColors.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new ColorstDto
+                {
+                    Id = c.ColorId.Value,
+                    UserCode = c.Color.UserCode,
+                    Name = c.Color.Name
+                }).ToList()),
+                ProductSizes = (product.ProductSizes.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new SizeDto
+                {
+                    Id = c.SizeId.Value,
+                    Name = c.Size.Name
+                }).ToList()),
+                ProductTags = (product.ProductTags.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new ProductTagListDto
+                {
+                    Id = c.Id,
+                    TagName = c.Name
+                }).ToList()),
+                ProductSpecifications = (product.ProductSpecifications.Where(p => !p.IsDeleted && !p.InActive)
+                .Select(c => new ProductSpecificationListDto
+                {
+                    SpecificationName = c.SpecificationName,
+                    SpecificationValue = c.SpecificationValue
+                }).ToList())
+            });
         }
 
         public ProdcutGeneralInfoDto CastToProductGeneralInfo(Product product)

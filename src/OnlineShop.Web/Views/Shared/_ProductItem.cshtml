@@ -1,30 +1,32 @@
 ﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutGeneralInfoDto
 @using OnlineShop.Common.Utilities
-@using OnlineShop.ViewModels.Area
 
 <div class="product">
     <div class="product_img">
         <a href="shop-product-detail.html">
-            <img src="/layout/assets/images/product_img4.jpg" alt="product_img4">
+            <img src="/layout/assets/images/product_img6.jpg" alt="product_img4">
         </a>
         <div class="product_action_box">
             <ul class="list_none pr_action_btn">
-                <li class="add-to-cart">  <a class="" data-ajax="true" data-ajax-method="Post" href="@Url.Action("AddCardItem","Card", new { productId = Model.Id , productName=Model.ProductName, price=Model.Price  }) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a> </li>
+
+                @*<li class="add-to-cart">  <a class="" data-ajax="true" data-ajax-method="Post" href="@Url.Action("AddCardItem","Card", new { productId = Model.Id , productName=Model.ProductName, price=Model.Price  }) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a> </li>
                 <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                <li><a href="@Url.Action("Index","Product", new { id = Model.Id})" class=""><i class="icon-magnifier-add"></i></a></li>
-                <li><a href="#"><i class="icon-heart"></i></a></li>
+                <li><a href="@Url.Action("Index","Product", new { id = Model.Id , productName=Model.ProductName.Replace(" ","_") , modelName=Model.ModelName  })" class=""><i class="icon-magnifier-add"></i></a></li>
+                <li><a href="#"><i class="icon-heart"></i></a></li>*@
+                <partial name="_ProductItemActions" model="Model" />
             </ul>
         </div>
     </div>
     <div class="product_info">
         @*<h6 class="product_title"><a href="shop-product-detail.html">پیراهن آبی روشن</a></h6>*@
-        <h6 class="product_title"><a href="shop-product-detail.html">@Model.ProductName</a></h6>
+        <p class="product_title"><a href="shop-product-detail.html">@Model.ProductName</a></p>
         <div class="product_price">
             @*<span class="price">69000 تومان</span>*@
             <span class="price">@Model.Price.ToCurrency().ToPersianNumbers() </span>
             @*<del>89000 تومان</del>*@
             <del>@Model.OldPrice.ToCurrency().ToPersianNumbers() </del>
             <div class="on_sale">
+                مدل
                 @*<span>%20 تخفیف</span>*@
                 <span>@Model.ModelName</span>
             </div>
@@ -39,19 +41,13 @@
             @*<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه.</p>*@
             <p>@Model.Description</p>
         </div>
-        <div class="pr_switch_wrap">
-            <div class="product_color_switch">
-                @{
-                    for(int i = 0;i < Model.ProductColors.Count;i++)
-                    {
-                        <span class="@( i==0?  "active" : "" )" data-color="@(Model.ProductColors.ElementAt(i).UserCode)"></span>
-
-                    }
-                }
-                @*<span class="active" data-color="#333333"></span>
-                    <span data-color="#A92534"></span>
-                    <span data-color="#B9C2DF"></span>*@
-            </div>
+        <div class="pr_switch_wrap mb-1">
+            <partial name="_ProductItemColors" model="Model.ProductColors" />
+        </div>
+        <div class="list_product_action_box">
+            <ul class="list_none pr_action_btn">
+                <partial name="_ProductItemActions" model="Model" />
+            </ul>
         </div>
     </div>
 </div>

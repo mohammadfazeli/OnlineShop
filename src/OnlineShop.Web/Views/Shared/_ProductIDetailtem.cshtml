@@ -72,9 +72,7 @@
         </div>
         <div class="cart_btn">
             @*<button class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</button>*@
-            <a class="btn btn-fill-out btn-addtocart" data-ajax="true" data-ajax-method="Post" href="@Url.Action("SelectItem","Card", new { productId = Model.Id}) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a>
-
-            <!--<a class="btn btn-fill-out btn-addtocart" data-ajax="true" data-ajax-method="Post" href="@Url.Action("SelectItem","Card", new { productId = Model.Id }) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems">-->
+            <a class="btn btn-fill-out btn-addtocart" data-ajax="true" data-ajax-method="Post" href="@Url.Action("AddCardItem","Card", new { productId = Model.Id , productName=Model.ProductName, price=Model.Price  }) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a>
             @*<a class="btn btn-fill-out btn-addtocart" onclick="Additem()" href="#CustomerCardItems">*@
             <!--<i class="icon-basket-loaded">
                 </i> افزودن به سبد خرید

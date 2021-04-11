@@ -1,0 +1,131 @@
+﻿@using OnlineShop.ViewModels.Area
+
+@model OnlineShop.ViewModels.Area.Base.Products.ShopDto
+
+@{ Layout = "_Layout"; }
+
+<div id="offcanvas-Search" uk-offcanvas="flip: true; overlay: true">
+    <div class="uk-offcanvas-bar" style=" background-color:white !important; color:black !important;">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <div class=" text-right ">
+            <p class="text-right">فیلتر جستجو</p>
+            <vc:check-box-list check-box-list="Model.ModelCheckBoxList"></vc:check-box-list>
+            <vc:check-box-list check-box-list="Model.ProductGroupCheckBoxList"></vc:check-box-list>
+            <vc:check-box-list check-box-list="Model.ColorCheckBoxList"></vc:check-box-list>
+            <vc:check-box-list check-box-list="Model.SizeCheckBoxList"></vc:check-box-list>
+            <button type="button" onclick="ShopSearch()" class=" btn  btn-primary  filter-btn">@Resource.submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Product Shop Section Begin -->
+<div class="mt-5">
+    <section class="container-fluid">
+        <div class="row">
+
+            <div class=" col-md-10 col-lg-10 card ">
+                <div class="d-block d-sm-block  d-md-none">
+                    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+                        <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
+                            <div class="uk-navbar-left">
+                                <ul class="uk-navbar-nav">
+                                    <li> <a uk-navbar-toggle-icon uk-toggle="target: #offcanvas-Search"></a> </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                @*<div class="product-show-option">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7">
+                                <div class="select-option">
+                                    <select class="sorting">
+                                        <option value="">Default Sorting</option>
+                                    </select>
+                                    <select class="p-show">
+                                        <option value="">Show:</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 text-right">
+                                <p>Show 01- 09 Of 36 Product</p>
+                            </div>
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>*@
+                <div id="ShopItems" class="mt-4">
+                    <partial name="_ShopDisplayItems" model="Model.ProdcutItems" />
+                </div>
+            </div>
+            <div class=" col-md-2  col-lg-2 text-right ">
+                <div class="mt-2">
+                    <div class="d-none d-md-block d-lg-block d-xl-block  ">
+                        <vc:check-box-list check-box-list="Model.ModelCheckBoxList"></vc:check-box-list>
+                        <vc:check-box-list check-box-list="Model.ProductGroupCheckBoxList"></vc:check-box-list>
+                        <vc:check-box-list check-box-list="Model.ColorCheckBoxList"></vc:check-box-list>
+                        <vc:check-box-list check-box-list="Model.SizeCheckBoxList"></vc:check-box-list>
+
+                        <div class="CheckBox form-group text-right">
+                            <div class="card shadow">
+                                <div class="  p-2 ">
+                                    <div class="pointer text-capitalize text-center  " data-toggle="collapse" data-target="#collapse">
+                                        <span class=" ">فیلتر قیمت  </span>
+                                    </div>
+                                    <div id="collapse" class="collapse checkbox-frame">
+                                        <input type="checkbox" id="RangePrice" name="RangePrice" />
+                                        <label class="col-form-label control-label text-center mr-2  " for="RangePrice">فیلتر قیمت اعمال شود </label>
+
+                                        <div class="card-body  custom-control  " style=" max-height:333px; overflow:auto">
+
+                                            <div class="mt-5 mb-5 ">
+                                                <div id="slider-handles"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="ShopSearch()" class=" btn  btn-primary  filter-btn">@Resource.submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Product Shop Section End -->
+
+<script>
+
+    function getItems() {
+        debugger;
+      var priceRange=  handlesSlider.noUiSlider.get();
+        var productSearchShop = {
+        ProductCheckBoxList: { SelectedIds: GetSelectedItems('@Model.ProductGroupCheckBoxList.CheckBoxName') } ,
+        ColorCheckBoxList: { SelectedIds: GetSelectedItems('@Model.ColorCheckBoxList.CheckBoxName') },
+        SizeCheckBoxList: { SelectedIds: GetSelectedItems('@Model.SizeCheckBoxList.CheckBoxName') },
+            ModelCheckBoxList: { SelectedIds: GetSelectedItems('@Model.ModelCheckBoxList.CheckBoxName') },
+            IsFilterPrice: $("#RangePrice").prop("checked"),
+            MinPrice: priceRange[0] ,
+            MaxPrice: priceRange[1] ,
+    };
+           console.log(productSearchShop);
+           return productSearchShop;
+    };
+
+    function ShopSearch(page) {
+        debugger;
+
+        $.ajax({
+            url: '@Url.Action("GetShopItems","Product")',
+            type: "Post",
+            data: { productSearchShop: getItems(), page:page },
+            success: function (result) {
+                debugger;
+
+                $('#ShopItems').html(result);
+            }
+        });
+    }
+</script>

@@ -85,4 +85,19 @@ namespace OnlineShop.Common.Enums
         [Display(Name = "پیشنهادی")]
         Suggested,
     }
+
+    public enum OrderTypeEnum
+    {
+        [Display(Name = "پیش فرض")]
+        Default = 1,
+
+        [Display(Name = "بر اساس قیمت : ارزان ترین")]
+        Price_Asc = 2,
+
+        [Display(Name = "بر اساس قیمت : گران ترین")]
+        Price_Desc = 3,
+
+        [Display(Name = "جدیدترین ")]
+        Last = 4,
+    }
 }

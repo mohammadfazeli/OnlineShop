@@ -23,7 +23,9 @@
                     <tr>
                         <td class="product-thumbnail"><a href="#"><img src="/layout/assets/images/product_img1.jpg" alt="product1"></a></td>
 
-                        <td class="product-name" id="ProductName_@item.productId" data-title="محصول"><a href="#">@item.ProductName</a></td>
+                        <td class="product-name" id="ProductName_@item.productId" data-title="محصول">
+                            <a href="@Url.Action("Index","Product", new { id = item.productId , productName=item.ProductName.Replace(" ","_") , modelName=""})" class="">@item.ProductName</a>
+                        </td>
 
                         <td class="product-price" id="Price_@item.productId" data-title="قیمت">@item.Price.ToNumeric() تومان</td>
 

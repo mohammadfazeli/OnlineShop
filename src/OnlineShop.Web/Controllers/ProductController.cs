@@ -2,20 +2,25 @@
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NToastNotify;
 using OnlineShop.Common.AdminToolkit;
+using OnlineShop.Common.Enums;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area;
 using OnlineShop.ViewModels.Area.Base.Products;
 using OnlineShop.ViewModels.Base;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Controllers
 {
     [BreadCrumb(Title = "خانه",UseDefaultRouteUrl = true,Order = 0)]
-    public class ProductController:Controller
+    public class ProductController:SiteController
     {
         private readonly IProductService _productService;
         private readonly IToastNotification _toastNotification;
@@ -37,19 +42,22 @@ namespace OnlineShop.Web.Controllers
         }
 
         [BreadCrumb(Title = "ایندکس",Order = 1)]
-        public IActionResult Index(Guid? Id = null)
+        [Route("Products/{id}/{productName}/{modelName}")]
+        public IActionResult Index(Guid id,string productName = "",string modelName = "")
         {
-            var model = _productService.GetGeneralInfo(id: Id.Value);
-            return View(model);
+            GeneratePageTitle($"{productName}  - {modelName}");
+            return View(_productService.GetDisplayProduct(id: id));
         }
 
         [BreadCrumb(Title = "فروشگاه",Order = 1)]
         public async Task<IActionResult> Shop(ShopDto productSearchShop,int page = 1)
         {
+            GeneratePageTitle($"فروشگاه");
             var items = _productService.GetShopItems(productSearchShop);
+            var x = items.ToList();
             var prodcutDto = new ShopDto()
             {
-                ProdcutItems = await PaginatedList<ProdcutItemDto>.CreateAsync(items,page,6),
+                ProdcutItems = await PaginatedList<ProdcutGeneralInfoDto>.CreateAsync(items,page,6),
                 ProductGroupCheckBoxList = _productGroupService.GetCheckBoxList("ProductGroupCheckBoxList",Resource.Resource.ProductGroup),
                 ModelCheckBoxList = _modelService.GetCheckBoxList("ModelCheckBoxList",Resource.Resource.Model),
                 SizeCheckBoxList = _sizeService.GetCheckBoxList("SizeCheckBoxList",Resource.Resource.Size),
@@ -61,15 +69,30 @@ namespace OnlineShop.Web.Controllers
 
         [HttpPost]
         [AjaxOnly]
-        public async Task<IActionResult> GetShopItems(ShopDto productSearchShop,int page = 1)
+        public async Task<IActionResult> GetShopItems(ShopDto productSearchShop,int page = 1,int orderType = (int)OrderTypeEnum.Default)
         {
             var items = _productService.GetShopItems(productSearchShop);
+            switch(orderType)
+            {
+                case (int)OrderTypeEnum.Price_Asc:
+                    items = items.OrderBy(o => o.Price);
+                    break;
+
+                case (int)OrderTypeEnum.Price_Desc:
+                    items = items.OrderByDescending(o => o.Price);
+                    break;
+
+                case (int)OrderTypeEnum.Last:
+                    items = items.OrderByDescending(o => o.CreateOn);
+                    break;
+            }
+
             var prodcutDto = new ShopDto()
             {
-                ProdcutItems = await PaginatedList<ProdcutItemDto>.CreateAsync(items,page,6),
+                ProdcutItems = await PaginatedList<ProdcutGeneralInfoDto>.CreateAsync(items,page,6),
             };
 
-            return PartialView("_ShopDisplayItems",prodcutDto.ProdcutItems);
+            return PartialView("~/Views/Product/_Shoptems.cshtml",prodcutDto.ProdcutItems);
         }
 
         [BreadCrumb(Title = "خطا",Order = 1)]

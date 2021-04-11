@@ -1,0 +1,23 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.Area.Base.Products.ProdcutGeneralInfoDto>
+
+<div class="row shop_container Grid">
+    @{
+
+        if(Model.Count() == 0)
+        {
+            <div class="alert alert-success  ">
+                <p class="text-right   ">   هیچ ایتمی وجود نداره :)</p>
+            </div>
+        }
+        else
+        {
+            @foreach(var item in Model)
+            {
+                <div class="col-md-4 col-6">
+                    <partial name="_ProductItem" model="item" />
+                </div>
+            }
+        }
+
+    }
+</div>

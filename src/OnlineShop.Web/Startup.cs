@@ -2,9 +2,9 @@
 using AutoMapper;
 using DNTCaptcha.Core;
 using DNTCommon.Web.Core;
-using KhabarTech.UI.Classes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +15,10 @@ using OnlineShop.IocConfig;
 using OnlineShop.IocConfig.CustomMapping;
 using OnlineShop.ViewModels.Admin.Settings;
 using OnlineShop.Web.Classes;
+using OnlineShop.Web.Classes.Filters;
 using OnlineShop.Web.Hubs;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Threading;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
@@ -38,12 +41,13 @@ namespace OnlineShop
             services.AddEntityFrameworkProxies();
             services.AddCustomIdentityServices();
             services.AddAutoMapper(config => { config.AddCustomMappingProfile(); });
-
+            services.AddLocalization(options => options.ResourcesPath = nameof(OnlineShop.Resource.Resource));
             services.AddMvc(options =>
             {
                 options.UseYeKeModelBinder(); options.Filters.Add(typeof(TitleAndIconFilter));
-            }).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
-                    options => { options.ResourcesPath = "Resources"; })
+            })
+            .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
+                    options => { options.ResourcesPath = nameof(OnlineShop.Resource.Resource); })
 
                 .AddDataAnnotationsLocalization(options =>
                 {
@@ -79,25 +83,27 @@ namespace OnlineShop
             }
             //app.UseHttpsRedirection();
 
-            Thread.CurrentThread.CurrentUICulture = PersianDateExtensionMethods.GetPersianCulture();
-            Thread.CurrentThread.CurrentCulture = PersianDateExtensionMethods.GetPersianCulture();
+            //Thread.CurrentThread.CurrentUICulture = PersianDateExtensionMethods.GetPersianCulture();
+            //Thread.CurrentThread.CurrentCulture = PersianDateExtensionMethods.GetPersianCulture();
 
-            // var supportedCultures = new List<CultureInfo>()
-            // {
-            //     new CustomPersianCulture(),
-            //     new CultureInfo("en-US")
-            // };
-            // var options = new RequestLocalizationOptions()
-            // {
-            //     DefaultRequestCulture = new RequestCulture("fa-IR"),
-            //     SupportedCultures = supportedCultures,
-            //     SupportedUICultures = supportedCultures,
-            //     RequestCultureProviders = new List<IRequestCultureProvider>()
-            //     {
-            //         new QueryStringRequestCultureProvider(),
-            //         new CookieRequestCultureProvider()
-            //     }
-            // };
+            var supportedCultures = new List<CultureInfo>()
+            {
+                PersianDateExtensionMethods.GetPersianCulture(),
+                new CultureInfo("en-US")
+            };
+            var options = new RequestLocalizationOptions()
+            {
+                DefaultRequestCulture = new RequestCulture(PersianDateExtensionMethods.GetPersianCulture()),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures,
+                RequestCultureProviders = new List<IRequestCultureProvider>()
+                {
+                    new QueryStringRequestCultureProvider(),
+                    new CookieRequestCultureProvider()
+                }
+            };
+            app.UseRequestLocalization(options);
+
             app.UseNToastNotify();
             // app.UseRequestLocalization(options);
 

@@ -1,5 +1,5 @@
 ﻿@{
-    var pageTitle = ViewData["Title"] ?? "ASP.NET Core Identity Sample";
+    var pageTitle = ViewData["Title"] ?? "فروشگاه آنلاین";
 }
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
     <meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
 
     <!-- SITE TITLE -->
-    <title>Shopwise - eCommerce Bootstrap 4 HTML Template</title>
+    <title>@pageTitle</title>
     <!-- Favicon Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="/layout//layout/assets/images/favicon.png">
     <!-- Animation CSS -->
@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.theme.default.min.css">
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="/layout/assets/css/magnific-popup.css">
+    <!-- jquery-ui CSS -->
+    <link rel="stylesheet" href="/layout/assets/css/jquery-ui.css">
     <!-- Slick CSS -->
     <link rel="stylesheet" href="/layout/assets/css/slick.css">
     <link rel="stylesheet" href="/layout/assets/css/slick-theme.css">
@@ -45,7 +47,6 @@
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/layout/assets/css/rtl-style.css">
 
-    <title>@pageTitle</title>
     <link rel="icon" href="/grow-shop.png" />
     <link rel="stylesheet" href="~/plugins/select2/select2.min.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="/plugins/toastr/toastr.min.css" asp-append-version="true">
@@ -66,37 +67,38 @@
     </div>
     <!-- END LOADER -->
     <!-- Home Popup Section -->
-    <div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>
-                    </button>
-                    <div class="row no-gutters">
-                        <div class="col-sm-5">
-                            <div class="background_bg h-100" data-img-src="/layout/assets/images/popup_img.jpg"></div>
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="popup_content">
-                                <div class="popup-text">
-                                    <div class="heading_s4">
-                                        <h4>اشتراک در خبرنامه ما و دریافت 25٪ تخفیف!</h4>
+    @*<div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>
+                        </button>
+                        <div class="row no-gutters">
+                            <div class="col-sm-5">
+                                <div class="background_bg h-100" data-img-src="/layout/assets/images/popup_img.jpg"></div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="popup_content">
+                                    <div class="popup-text">
+                                        <div class="heading_s4">
+                                            <h4>اشتراک در خبرنامه ما و دریافت 25٪ تخفیف!</h4>
+                                        </div>
+                                        <p>برای دریافت به روزرسانی ها و اخبار در مورد محصولات جدید ، در خبرنامه مشترک شوید.</p>
                                     </div>
-                                    <p>برای دریافت به روزرسانی ها و اخبار در مورد محصولات جدید ، در خبرنامه مشترک شوید.</p>
-                                </div>
-                                <form method="post">
-                                    <div class="form-group">
-                                        <input name="email" required type="email" class="form-control rounded-0" placeholder="ایمیل خود را وارد کنید">
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-fill-line btn-block text-uppercase rounded-0" title="اشتراک" type="submit">اشتراک</button>
-                                    </div>
-                                </form>
-                                <div class="chek-form">
-                                    <div class="custome-checkbox">
-                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
-                                        <label class="form-check-label" for="exampleCheckbox3"><span>این پنجره را دوباره نشان ندهید!</span></label>
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <input name="email" required type="email" class="form-control rounded-0" placeholder="ایمیل خود را وارد کنید">
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-fill-line btn-block text-uppercase rounded-0" title="اشتراک" type="submit">اشتراک</button>
+                                        </div>
+                                    </form>
+                                    <div class="chek-form">
+                                        <div class="custome-checkbox">
+                                            <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                            <label class="form-check-label" for="exampleCheckbox3"><span>این پنجره را دوباره نشان ندهید!</span></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -104,25 +106,74 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>*@
     <!-- End Screen Load Popup Section -->
     <!-- START HEADER -->
-    <header class="header_wrap">
-        <partial name="_HeaderWrap" />
-    </header>
-    <!-- END HEADER -->
-    <!-- START SECTION BANNER -->
-    <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 offset-lg-3">
-                    <partial name="_Carousel" />
+    <header class="header_wrap fixed-top header_with_topbar shadow">
+        <div class="top-header d-none d-md-block">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 col-md-9">
+                        <div class="header_topbar_info">
+                            <div class="header_offer">
+                                <span>ارسال رایگان خرید بیشتر از 100 هزار تومان</span>
+                            </div>
+
+                            <div class="download_wrap header_offer">
+                                <span class="mr-3">دانلود برنامه</span>
+                                <ul class="icon_list text-center text-lg-left">
+                                    <li><a href="#"><i class="fab fa-apple"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-android"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-windows"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="contact_phone order-md-last header_offer">
+                                <i class="linearicons-phone-wave"></i>
+                                <span>021-1234567</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+                            <div class="lng_dropdown">
+                                <ul class="icon_list text-center text-lg-left">
+                                    <li> <a href="/Home/ChangeLanguage?culture='fa-IR'">فارسی</a></li>
+                                    <li> <a href="/Home/ChangeLanguage?culture='en-US'">English</a></li>
+                                </ul>
+                                @*<select name="countries" class="custome_select">
+                                        <option value='fa-IR' data-image="/layout/assets/images/ir.png" data-title="Farsi">
+                                            <a href="/Home/ChangeLanguage?culture=fa-IR">فارسی</a>
+                                        </option>
+                                        <option value='en' data-image="/layout/assets/images/eng.png" data-title="English">انگلیسی</option>
+                                        <option value='fn' data-image="/layout/assets/images/fn.png" data-title="France">فرانسوی</option>
+                                    </select>*@
+                            </div>
+                            <div class="ml-3">
+                                <select name="countries" class="custome_select">
+                                    <option value='GBR' data-title="GBR">تومان</option>
+                                    <option value='USD' data-title="USD">دلار </option>
+                                    <option value='EUR' data-title="EUR">یورو</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- END SECTION BANNER -->
+
+        @*<div class="middle-header  light_skin">
+                <div class="container">
+                    <div class="nav_block">
+                        <a class="navbar-brand" href="index.html">
+                            <img class="logo_light" src="/layout/assets/images/logo_light.png" alt="logo" />
+                            <img class="logo_dark" src="/layout/assets/images/logo_dark.png" alt="logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>*@
+        <partial name="_HeaderWrap" />
+    </header>
+    <!-- END HEADER -->
     <!-- END MAIN CONTENT -->
 
     <div class="main_content">
@@ -137,7 +188,8 @@
 
     <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
 
- 
+    <script src="/layout/assets/js/jquery-ui.js"></script>
+    <script src="/layout/assets/js/jquery.ui.slider-rtl.min.js"></script>
     <script src="/layout/assets/js/popper.min.js"></script>
     <script src="/layout/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/layout/assets/owlcarousel/js/owl.carousel.min.js"></script>

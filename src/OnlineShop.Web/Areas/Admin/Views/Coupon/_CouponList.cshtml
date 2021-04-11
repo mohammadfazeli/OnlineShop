@@ -1,0 +1,80 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Coupon.CouponDto
+<div class="card _borderTop  _shadow ">
+    <div class="card-header bg-light">
+        <partial name="_CardHeader" model="CardHeaderTye.Index" />
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example2" class=" CustomDataTable  table table-bordered  table-hover  table-sm">
+                <thead>
+                    <tr>
+                        <td style="width:15px;">#</td>
+                        <th>@Html.DisplayNameFor(r => r.Id)</th>
+                        <th>@Html.DisplayNameFor(r => r.Name)</th>
+                        <th>@Html.DisplayNameFor(r => r.strFromDate)</th>
+                        <th>@Html.DisplayNameFor(r => r.strToDate)</th>
+                        <th>@Html.DisplayNameFor(r => r.PercentDiscount)</th>
+                        <th>@Html.DisplayNameFor(r => r.Description)</th>
+                        <th>@Html.DisplayNameFor(r => r.InActive)</th>
+                        <th style="width:50px;">@Resource.Operation</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<script>
+
+    $(function () {
+        debugger;
+            $('.CustomDataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "language": {
+                    "url": "../js/Persian.json",
+                },
+                 "ajax": {
+                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                        type: "GEt",
+                        dataType: "json",
+                    },
+
+                "columns": [
+                        { "data": null, className: "text-center ", "render": function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
+                        { "data": "id", className: "text-center", visible: false },
+                        { "data": "name", className: "text-center"},
+                        { "data": "strFromDate", className: "text-center"},
+                        { "data": "strToDate", className: "text-center"},
+                        { "data": "percentDiscount", className: "text-center"},
+                        { "data": "description", className: "text-center"},
+                        {
+                            "data": "inActive" , className: "text-center", type: "checkbox", dataType: Boolean,
+                            render: function (data) {
+                                if (data == true) {
+                                    return '<input  type="checkbox" checked="checked" />'
+                                } else {
+                                    return '<input  type="checkbox" />'
+                                }
+
+                            }
+                        },
+                        {
+                            "data": null,
+                            "render": function (data, type, row, meta) {
+                                return TableOperation(data['id'], '@ViewContext.RouteData.Values["area"]', '@ViewContext.RouteData.Values["controller"]'
+
+                                );
+                            }
+                        }
+                    ]
+            });
+        });
+</script>

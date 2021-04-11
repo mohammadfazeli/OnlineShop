@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
 using OnlineShop.Entities.Entities.Area.WareHouse;
+using OnlineShop.Entities.Entities.Orders;
 
 namespace OnlineShop.Entities.Identity
 {
@@ -13,7 +14,7 @@ namespace OnlineShop.Entities.Identity
     /// and http://www.dotnettips.info/post/2578
     /// plus http://www.dotnettips.info/post/2559
     /// </summary>
-    public class User : IdentityUser<int>, IAuditableEntity
+    public class User:IdentityUser<int>, IAuditableEntity
     {
         public User()
         {
@@ -21,6 +22,7 @@ namespace OnlineShop.Entities.Identity
             UserTokens = new HashSet<UserToken>();
             Exits = new HashSet<Exit>();
             Buys = new HashSet<Buy>();
+            Orders = new HashSet<Order>();
             RegisterProductRequests = new HashSet<ProductRequest>();
             ApprovedProductRequests = new HashSet<ProductRequest>();
         }
@@ -67,12 +69,12 @@ namespace OnlineShop.Entities.Identity
         public virtual ICollection<UserClaim> Claims { get; set; }
         public virtual ICollection<Exit> Exits { get; set; }
         public virtual ICollection<Buy> Buys { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
         [InverseProperty(nameof(ProductRequest.RegisterUser))]
         public virtual ICollection<ProductRequest> RegisterProductRequests { get; set; }
 
         [InverseProperty(nameof(ProductRequest.ApproveUser))]
         public virtual ICollection<ProductRequest> ApprovedProductRequests { get; set; }
-
     }
 }

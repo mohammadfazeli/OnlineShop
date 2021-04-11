@@ -1,0 +1,6 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ProdcutGeneralInfoDto
+
+<li class="add-to-cart">  <a class="" data-ajax="true" data-ajax-method="Post" href="@Url.Action("AddCardItem","Card", new { productId = Model.Id , productName=Model.ProductName, price=Model.Price  }) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a> </li>
+<li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+<li><a href="@Url.Action("Index","Product", new { id = Model.Id , productName=Model.ProductName.Replace(" ","_") , modelName=Model.ModelName  })" class=""><i class="icon-magnifier-add"></i></a></li>
+<li><a href="#"><i class="icon-heart"></i></a></li>

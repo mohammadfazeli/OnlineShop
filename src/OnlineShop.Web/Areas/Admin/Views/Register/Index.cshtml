@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "ثبت نام";
 
-    Layout = "_MainLayout";
+    Layout = "_Layout";
 }
 
 <div class="card mt-5">
@@ -76,7 +76,7 @@
                         asp-text-box-template="<div class='input-group'><span class='input-group-prepend'><span class='input-group-text'><i class='fas fa-lock'></i></span></span>{0}</div>"
                         asp-validation-message-class="text-danger"
                         />-->
-            @*<partial name="_captcha" />*@
+            <partial name="_captcha" />
             <!--</div>
             </div>-->
             <div class="form-group row">

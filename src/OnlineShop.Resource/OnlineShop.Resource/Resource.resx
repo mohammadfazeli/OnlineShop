@@ -159,6 +159,9 @@
   <data name="ColorList" xml:space="preserve">
     <value>ColorList</value>
   </data>
+  <data name="Coupon" xml:space="preserve">
+    <value>کوپن</value>
+  </data>
   <data name="CreateOn" xml:space="preserve">
     <value>CreateOn</value>
   </data>
@@ -180,11 +183,17 @@
   <data name="Description" xml:space="preserve">
     <value>توضیحات</value>
   </data>
+  <data name="Discount" xml:space="preserve">
+    <value>تخفیف</value>
+  </data>
   <data name="DisplayParts" xml:space="preserve">
     <value>مشاهده قطعات</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>ویرایش</value>
+  </data>
+  <data name="EndFee" xml:space="preserve">
+    <value>مبلغ نهایی</value>
   </data>
   <data name="Fax" xml:space="preserve">
     <value>فکس</value>
@@ -228,6 +237,9 @@
   <data name="ItemSectionType" xml:space="preserve">
     <value>نوع بخش مورد نظر</value>
   </data>
+  <data name="List" xml:space="preserve">
+    <value>لیست</value>
+  </data>
   <data name="ManagerName" xml:space="preserve">
     <value>نام مدیر</value>
   </data>
@@ -254,6 +266,9 @@
   </data>
   <data name="Parts" xml:space="preserve">
     <value>قطعات</value>
+  </data>
+  <data name="PercentDiscount" xml:space="preserve">
+    <value>درصد تخفیف</value>
   </data>
   <data name="Product" xml:space="preserve">
     <value>محصول</value>
@@ -390,6 +405,9 @@
   <data name="submit" xml:space="preserve">
     <value>ثبت</value>
   </data>
+  <data name="Sum" xml:space="preserve">
+    <value>مجموع</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>برچسب</value>
   </data>
@@ -398,6 +416,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>عنوان</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>تا تاریخ</value>
   </data>
   <data name="UpdateFail" xml:space="preserve">
     <value>ویرایش انجام نشد. خطایی رخ داده است</value>
