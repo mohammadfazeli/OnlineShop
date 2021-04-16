@@ -1754,6 +1754,8 @@
     <None Include="wwwroot\plugins\moment\moment-with-locales.min.js.map" />
     <None Include="wwwroot\plugins\moment\moment.min.js" />
     <None Include="wwwroot\plugins\moment\moment.min.js.map" />
+    <None Include="wwwroot\plugins\Nice-Tree-View\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\plugins\Nice-Tree-View\src\easyTree.js" />
     <None Include="wwwroot\plugins\overlayScrollbars\css\OverlayScrollbars.css" />
     <None Include="wwwroot\plugins\overlayScrollbars\css\OverlayScrollbars.min.css" />
     <None Include="wwwroot\plugins\overlayScrollbars\js\jquery.overlayScrollbars.js" />

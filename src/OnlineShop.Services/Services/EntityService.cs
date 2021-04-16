@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Common.Enums;
@@ -13,6 +14,7 @@ using OnlineShop.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Services.Services
@@ -60,22 +62,45 @@ namespace OnlineShop.Services.Services
             return _repository.GetAll();
         }
 
+        public virtual IQueryable<TEntity> GetAll(Expression<Func<TEntity,bool>> predicate = null)
+        {
+            return predicate == null ? _repository.GetAll() : _repository.GetAll().Where(predicate);
+        }
+
+        public IQueryable<TListDto> GetListDto<TListDto>(Expression<Func<TEntity,bool>> predicate = null)
+        {
+            return predicate == null ?
+                 GetAllNoTracking().OrderByDescending(x => x.CreateOn).ProjectTo<TListDto>(_mapper.ConfigurationProvider) :
+                 GetAllNoTracking().Where(predicate).OrderByDescending(x => x.CreateOn).ProjectTo<TListDto>(_mapper.ConfigurationProvider);
+        }
+
+        public IQueryable<TListDto> CastToListDto<TListDto>(IQueryable<TEntity> items)
+        {
+            return items.OrderByDescending(x => x.CreateOn)
+              .ProjectTo<TListDto>(_mapper.ConfigurationProvider);
+        }
+
         public virtual IQueryable<TEntity> GetAllNoTracking()
         {
             return _repository.GetAllNoTracking();
         }
 
-        public virtual SelectList GetSelectList(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name")
+        public virtual IQueryable<TEntity> GetAllNoTracking(Expression<Func<TEntity,bool>> predicate = null)
         {
-            return new SelectList(GetAllNoTracking().Where(x => !x.InActive),dataValueField,dataTextField,selectedValue: id.GuidIsValid() ? id.ToString() : null);
+            return predicate == null ? _repository.GetAllNoTracking() : _repository.GetAllNoTracking().Where(predicate);
         }
 
-        public virtual DropDownViewModel GetDropDown(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name")
+        public virtual SelectList GetSelectList(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name",Expression<Func<TEntity,bool>> predicate = null)
+        {
+            return new SelectList(GetAllNoTracking(predicate).Where(x => !x.InActive),dataValueField,dataTextField,selectedValue: id.GuidIsValid() ? id.ToString() : null);
+        }
+
+        public virtual DropDownViewModel GetDropDown(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name",Expression<Func<TEntity,bool>> predicate = null)
         {
             var dd = new DropDownViewModel()
             {
                 id = id,
-                SelectList = GetSelectList(id,dataValueField,dataTextField),
+                SelectList = GetSelectList(id,dataValueField,dataTextField,predicate),
                 CurrentValues = id == null ? null : new List<string>() { id.ToString() },
             };
             return dd;

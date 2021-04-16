@@ -45,26 +45,48 @@
 @foreach(var menuItem in Model)
 {
 
-    <li class="nav-item has-treeview    @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"menu-open ":"")">
-
-        <a href="#" class="nav-link @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"active ":"")">
+    <li class="nav-item    @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?" menu-open ":" ") ">
+        <a href="#" class="nav-link @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?" active ":" ")">
+            @*<i class="nav-icon fas fa-tachometer-alt"></i>*@
+            <i class="nav-icon @menuItem.ControllerIcon"></i>
             <p>
                 @menuItem.ControllerName
                 <i class="right fas fa-angle-left"></i>
             </p>
-            <i class="nav-icon @menuItem.ControllerIcon"></i>
         </a>
-        <ul class="nav nav-treeview ">
+        <ul class="nav nav-treeview">
             @foreach(var item in menuItem.menuItems)
             {
-
-                <li class="nav-item  ">
-                    <a asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action" class="nav-link   @(ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller  && ViewContext.RouteData.Values["action"].ToString()==item.Action? "active":"")">
-                        <p class=" ">@item.ActionName</p>
-                        <i class="  fa fa-minus nav-icon"></i>
+                <li class="nav-item">
+                    <a asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>@item.ActionName</p>
                     </a>
                 </li>
             }
         </ul>
     </li>
+
+    @*<li class="nav-item has-treeview    @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"menu-open ":"")">
+
+            <a href="#" class="nav-link @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"active ":"")">
+                <p>
+                    @menuItem.ControllerName
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                <i class="nav-icon @menuItem.ControllerIcon"></i>
+            </a>
+            <ul class="nav nav-treeview ">
+                @foreach(var item in menuItem.menuItems)
+                {
+
+                    <li class="nav-item  ">
+                        <a asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action" class="nav-link   @(ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller  && ViewContext.RouteData.Values["action"].ToString()==item.Action? "active":"")">
+                            <p class=" ">@item.ActionName</p>
+                            <i class="  fa fa-minus nav-icon"></i>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>*@
 }

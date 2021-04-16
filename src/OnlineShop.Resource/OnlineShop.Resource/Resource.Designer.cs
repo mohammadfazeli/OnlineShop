@@ -151,6 +151,24 @@ namespace OnlineShop.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to دسته بندی.
+        /// </summary>
+        public static string Category {
+            get {
+                return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to گزوه دسته بندی.
+        /// </summary>
+        public static string CategoryGroup {
+            get {
+                return ResourceManager.GetString("CategoryGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color.
         /// </summary>
         public static string Color {
@@ -498,6 +516,15 @@ namespace OnlineShop.Resource {
         public static string Operation {
             get {
                 return ResourceManager.GetString("Operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to سطح بالایی دسته بندی.
+        /// </summary>
+        public static string ParentCategory {
+            get {
+                return ResourceManager.GetString("ParentCategory", resourceCulture);
             }
         }
         

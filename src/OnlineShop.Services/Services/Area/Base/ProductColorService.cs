@@ -17,13 +17,13 @@ namespace OnlineShop.Services.Services.Area.Base
         {
         }
 
-        public List<ProductColorsListDto> GetList(Guid productId)
-        {
-            var list = GetAllNoTracking()
-                .Where(x => x.ProductId == productId)
-                .OrderByDescending(x => x.CreateOn)
-             .ProjectTo<ProductColorsListDto>(_mapper.ConfigurationProvider).ToList();
-            return list;
-        }
+        //public List<ProductColorsListDto> GetList(Guid productId)
+        //{
+        //    var list = GetAllNoTracking()
+        //        .Where(x => x.ProductId == productId)
+        //        .OrderByDescending(x => x.CreateOn)
+        //     .ProjectTo<ProductColorsListDto>(_mapper.ConfigurationProvider).ToList();
+        //    return list;
+        //}
     }
 }

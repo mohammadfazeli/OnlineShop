@@ -51,6 +51,8 @@ namespace OnlineShop.IocConfig
             services.AddScoped<IItemSectionService,ItemSectionService>();
             services.AddScoped<ISectionService,SectionService>();
             services.AddScoped<ICouponService,CouponService>();
+            services.AddScoped<ICategoryService,CategoryService>();
+            services.AddScoped<ICategoryGroupService,CategoryGroupService>();
 
             #endregion Base
 

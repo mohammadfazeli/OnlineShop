@@ -13,6 +13,7 @@ using OnlineShop.ViewModels.Area.Base.ProductColors;
 using OnlineShop.Web.Classes;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Areas.Admin.Controllers
@@ -52,7 +53,8 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 
         public JsonResult ReadData(Guid productId)
         {
-            return Json(new { Data = _productColorService.GetList(productId) });
+            Expression<Func<ProductColor,bool>> filter = x => x.ProductId == productId;
+            return Json(new { Data = _productColorService.GetListDto<ProductColorsListDto>(filter) });
         }
 
         [HttpGet]

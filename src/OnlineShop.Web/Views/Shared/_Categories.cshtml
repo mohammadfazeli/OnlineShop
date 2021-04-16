@@ -1,188 +1,69 @@
-﻿<div class="categories_wrap">
+﻿@model List<OnlineShop.ViewModels.Area.Base.categories.CategoryGeneralDto>
+
+<div class="categories_wrap">
     <button type="button" data-toggle="collapse" data-target="#navCatContent" aria-expanded="false" class="categories_btn">
         <i class="linearicons-menu"></i><span>همه دسته بندی ها </span>
     </button>
     <div id="navCatContent" class="navbar collapse">
         <ul>
-            <li class="dropdown dropdown-mega-menu">
-                <a class="dropdown-item nav-link dropdown-toggler" href="#" data-toggle="dropdown"><i class="flaticon-woman"></i> <span>زنانه</span></a>
-                <div class="dropdown-menu shadow bg-light">
-                    <ul class="mega-menu d-lg-flex">
-                        <li class="mega-menu-col col-lg-7">
-                            <ul class="d-lg-flex">
-                                <li class="mega-menu-col col-lg-6">
-                                    <ul>
-                                        <li class="dropdown-header">لباس زنانه</li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">پوشش اسلامی و مانتو</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">بلوز و شومیز</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">تی شرت و پولوشرت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">شلوار و سرهمی</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">لباس زیر</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش زنانه</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش روزمره</a></li>
+            @{
+                foreach(var categories in Model.Where(x => x.SubCategories.Any()))
+                {
+                    <li class="dropdown dropdown-mega-menu">
+                        <a class="dropdown-item nav-link dropdown-toggler" href="#" data-toggle="dropdown"><i class="flaticon-woman"></i> <span>@categories.Name</span></a>
+                        <div class="dropdown-menu shadow bg-light">
+                            <ul class="mega-menu d-lg-flex">
+                                <li class="mega-menu-col col-lg-7">
+                                    <ul class="d-lg-flex">
+                                        @{
+                                            foreach(var parentCategories in categories.SubCategories)
+                                            {
+                                                <li class="mega-menu-col col-lg-6">
+                                                    <ul>
+                                                        <li class="dropdown-header">@parentCategories.Name</li>
+                                                        @foreach(var subCategory in parentCategories.SubCategories)
+                                                        {
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">@subCategory.Name</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                                <li class="mega-menu-col col-lg-5">
+                                    <div class="header-banner2">
+                                        <img src="/layout/assets/images/menu_banner1.jpg" alt="menu_banner1">
+                                        <div class="banne_info">
+                                            <h6>%10 تخفیف</h6>
+                                            <h4>محصولات جدید</h4>
+                                            <a href="#">اکنون خرید کنید</a>
+                                        </div>
+                                    </div>
+                                    <div class="header-banner2">
+                                        <img src="/layout/assets/images/menu_banner2.jpg" alt="menu_banner2">
+                                        <div class="banne_info">
+                                            <h6>%15 تخفیف</h6>
+                                            <h4>مد مردانه</h4>
+                                            <a href="#">اکنون خرید کنید</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">عینک آفتابی</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mega-menu-col col-lg-6">
-                                    <ul>
-                                        <li class="dropdown-header">اکسسوری زنانه</li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">ساعت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">دستبند</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">شال و روسری</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">گوشواره</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">آویز</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">گردنبند</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کیف</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">عینک آفتابی</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="mega-menu-col col-lg-5">
-                            <div class="header-banner2">
-                                <img src="/layout/assets/images/menu_banner1.jpg" alt="menu_banner1">
-                                <div class="banne_info">
-                                    <h6>%10 تخفیف</h6>
-                                    <h4>محصولات جدید</h4>
-                                    <a href="#">اکنون خرید کنید</a>
-                                </div>
-                            </div>
-                            <div class="header-banner2">
-                                <img src="/layout/assets/images/menu_banner2.jpg" alt="menu_banner2">
-                                <div class="banne_info">
-                                    <h6>%15 تخفیف</h6>
-                                    <h4>مد مردانه</h4>
-                                    <a href="#">اکنون خرید کنید</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="dropdown dropdown-mega-menu">
-                <a class="dropdown-item nav-link dropdown-toggler" href="#" data-toggle="dropdown"><i class="flaticon-boss"></i> <span>مردانه</span></a>
-                <div class="dropdown-menu">
-                    <ul class="mega-menu d-lg-flex">
-                        <li class="mega-menu-col col-lg-7">
-                            <ul class="d-lg-flex">
-                                <li class="mega-menu-col col-lg-6">
-                                    <ul>
-                                        <li class="dropdown-header">لباس مردانه</li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">تی شرت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">پولو شرت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">پیراهن</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">شلوار</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">لباس زیر</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش مردانه</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش روزمره</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mega-menu-col col-lg-6">
-                                    <ul>
-                                        <li class="dropdown-header">اکسسوری مردانه</li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">ساعت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کیف</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کمربند</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش رسمی</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">عینک آفتابی</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">لباس زیر</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">تی شرت</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="mega-menu-col col-lg-5">
-                            <div class="header-banner2">
-                                <a href="#"><img src="/layout/assets/images/menu_banner4.jpg" alt="menu_banner4"></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="dropdown dropdown-mega-menu">
-                <a class="dropdown-item nav-link dropdown-toggler" href="#" data-toggle="dropdown"><i class="flaticon-friendship"></i> <span>بچه گانه</span></a>
-                <div class="dropdown-menu">
-                    <ul class="mega-menu d-lg-flex">
-                        <li class="mega-menu-col col-lg-7">
-                            <ul class="d-lg-flex">
-                                <li class="mega-menu-col col-lg-6">
-                                    <ul>
-                                        <li class="dropdown-header">لباس مردانه</li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">تی شرت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">پولو شرت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">پیراهن</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">شلوار</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">لباس زیر</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش مردانه</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش روزمره</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mega-menu-col col-lg-6">
-                                    <ul>
-                                        <li class="dropdown-header">اکسسوری مردانه</li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">ساعت</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کیف</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کمربند</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">کفش رسمی</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">عینک آفتابی</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">لباس زیر</a></li>
-                                        <li><a class="dropdown-item nav-link nav_item" href="#">تی شرت</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="mega-menu-col col-lg-5">
-                            <div class="header-banner2">
-                                <a href="#"><img src="/layout/assets/images/menu_banner5.jpg" alt="menu_banner5"></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="dropdown dropdown-mega-menu">
-                <a class="dropdown-item nav-link dropdown-toggler" href="#" data-toggle="dropdown"><i class="flaticon-sunglasses"></i> <span>تجهیزات جانبی</span></a>
-                <div class="dropdown-menu">
-                    <ul class="mega-menu d-lg-flex">
-                        <li class="mega-menu-col col-lg-4">
-                            <ul>
-                                <li class="dropdown-header">زنانه</li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-list-left-sidebar.html">دستبند</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-left-sidebar.html">گردنبند</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-right-sidebar.html">گوشواره</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-list.html">حلقه و انگشتر</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-load-more.html">عینک آفتابی</a></li>
-                            </ul>
-                        </li>
-                        <li class="mega-menu-col col-lg-4">
-                            <ul>
-                                <li class="dropdown-header">مردانه</li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-cart.html">کفش رسمی</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="checkout.html">ساعت</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="wishlist.html">کیف</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="compare.html">کمربند</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="order-completed.html">عینک آفتابی</a></li>
-                            </ul>
-                        </li>
-                        <li class="mega-menu-col col-lg-4">
-                            <ul>
-                                <li class="dropdown-header">بچه گانه</li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">نوزاد</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-left-sidebar.html">پسرانه</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-right-sidebar.html">دخترانه</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-thumbnails-left.html">پیراهن</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-thumbnails-left.html">شلوار</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li><a class="dropdown-item nav-link nav_item" href="coming-soon.html"><i class="flaticon-jacket"></i> <span>پوشاک</span></a></li>
-            <li><a class="dropdown-item nav-link nav_item" href="404.html"><i class="flaticon-sneakers"></i> <span>کفش</span></a></li>
-            <li><a class="dropdown-item nav-link nav_item" href="login.html"><i class="flaticon-watch"></i> <span>ساعت</span></a></li>
-            <li><a class="dropdown-item nav-link nav_item" href="register.html"><i class="flaticon-necklace"></i> <span>جواهرات</span></a></li>
-            <li><a class="dropdown-item nav-link nav_item" href="coming-soon.html"><i class="flaticon-herbal"></i> <span>سلامت و زیبایی</span></a></li>
-            <li><a class="dropdown-item nav-link nav_item" href="404.html"><i class="flaticon-ball"></i> <span>ورزشی</span></a></li>
+                }
+            }
+            @{
+                foreach(var categories in Model.Where(x => x.SubCategories.Any()))
+                {
+                    <li><a class="dropdown-item nav-link nav_item" href="coming-soon.html"><i class="flaticon-jacket"></i> <span>@categories.Name</span></a></li>
+
+                }
+
+            }
+
             <li>
                 <ul class="more_slide_open">
                     <li><a class="dropdown-item nav-link nav_item" href="login.html"><i class="flaticon-pijamas"></i> <span>لباس خواب</span></a></li>

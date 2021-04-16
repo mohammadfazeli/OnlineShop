@@ -3,6 +3,7 @@ using OnlineShop.Common.ViewModel;
 using OnlineShop.ViewModels.Base;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Services.Contracts
@@ -19,11 +20,17 @@ namespace OnlineShop.Services.Contracts
 
         IQueryable<TEntity> GetAll();
 
+        IQueryable<TListDto> GetListDto<TListDto>(Expression<Func<TEntity,bool>> predicate = null);
+
+        IQueryable<TListDto> CastToListDto<TListDto>(IQueryable<TEntity> items);
+
         IQueryable<TEntity> GetAllNoTracking();
 
-        SelectList GetSelectList(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name");
+        IQueryable<TEntity> GetAllNoTracking(Expression<Func<TEntity,bool>> predicate = null);
 
-        DropDownViewModel GetDropDown(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name");
+        SelectList GetSelectList(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name",Expression<Func<TEntity,bool>> predicate = null);
+
+        DropDownViewModel GetDropDown(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name",Expression<Func<TEntity,bool>> predicate = null);
 
         CheckBoxListViewModel GetCheckBoxList(string CheckBoxName,string name);
 

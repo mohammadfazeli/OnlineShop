@@ -147,6 +147,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>لغو</value>
   </data>
+  <data name="Category" xml:space="preserve">
+    <value>دسته بندی</value>
+  </data>
+  <data name="CategoryGroup" xml:space="preserve">
+    <value>گزوه دسته بندی</value>
+  </data>
   <data name="Color" xml:space="preserve">
     <value>Color</value>
   </data>
@@ -263,6 +269,9 @@
   </data>
   <data name="Operation" xml:space="preserve">
     <value>عملیات</value>
+  </data>
+  <data name="ParentCategory" xml:space="preserve">
+    <value>سطح بالایی دسته بندی</value>
   </data>
   <data name="Parts" xml:space="preserve">
     <value>قطعات</value>

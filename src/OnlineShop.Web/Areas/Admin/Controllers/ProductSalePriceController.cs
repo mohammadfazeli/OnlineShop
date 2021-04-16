@@ -58,7 +58,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ProductSalePriceDto dto,IFormFileCollection Photo)
+        public async Task<ActionResult> Create(ProductSalePriceDto dto)
         {
             if(!ModelState.IsValid)
             {

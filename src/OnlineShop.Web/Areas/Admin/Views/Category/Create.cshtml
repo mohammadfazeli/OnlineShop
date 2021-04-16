@@ -1,0 +1,54 @@
+﻿@model OnlineShop.ViewModels.Area.Base.categories.Category.CategoryDto
+<partial name="_CustomValidationSummary" />
+
+<form asp-action="Create" method="post">
+    <div class="card _borderTop  _shadow ">
+        <div class="card-header ">
+            <partial name="_CardHeader" model="CardHeaderTye.Create" />
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="CategoryGroupId"
+                                  asp-expression="CategoryGroupId"
+                                  asp-optionLabel="@Resource.SelectedOneItem"
+                                  asp-currentValues="@Model.CategoryGroupDropDown.CurrentValues"
+                                  asp-selectList="@Model.CategoryGroupDropDown.SelectList"
+                                  asp-FormClass="@( Model.CategoryGroupId)"
+                                  asp-Class="select2">
+                    </CustomSelect>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="Name"></CustomInput>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="ParentCategoryId"
+                                  asp-expression="ParentCategoryId"
+                                  asp-optionLabel="@Resource.SelectedOneItem"
+                                  asp-currentValues="@Model.ParentCategoryDropDown.CurrentValues"
+                                  asp-selectList="@Model.ParentCategoryDropDown.SelectList"
+                                  asp-FormClass="@( Model.ParentCategoryId)"
+                                  asp-Class="select2">
+                    </CustomSelect>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="Description"></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomInput asp-for="ForeignName"></CustomInput>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <div class="form-group ">
+                        <CustomCheckBox asp-for="InActive"></CustomCheckBox>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <partial name="_CardFooter">
+    </div>
+</form>

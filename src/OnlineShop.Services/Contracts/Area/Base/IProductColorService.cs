@@ -7,6 +7,6 @@ namespace OnlineShop.Services.Contracts.Area.Base
 {
     public interface IProductColorService:IEntityService<ProductColor,ProductColorsDto>
     {
-        List<ProductColorsListDto> GetList(Guid productId);
+        //List<ProductColorsListDto> GetList(Guid productId);
     }
 }
