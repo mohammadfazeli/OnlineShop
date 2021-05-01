@@ -50,7 +50,7 @@
                     "url": "/js/Persian.json",
                 },
                  "ajax": {
-                        url: '/@ViewContext.RouteData.Values["Area"]/@ViewContext.RouteData.Values["controller"]/ReadData',
+                         url: '@Url.Action("ReadData",ViewContext.RouteData.Values["controller"])',
                         type: "GEt",
                         data: { relatedId:'@Model.RelateId' },
                         dataType: "json",

@@ -66,6 +66,8 @@
             display: none;
         }
     </style>
+
+    <link rel="stylesheet" href="~/plugins/select2/select2.min.css" type="text/css" asp-append-version="true">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
@@ -76,7 +78,6 @@
 
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
 
-    <link rel="stylesheet" href="~/plugins/select2/select2.min.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="/plugins/Nice-Tree-View/css/easyTree.css">
 
     <script src="/plugins/jquery/jquery.min.js"></script>
@@ -124,154 +125,154 @@
             </div>
 
             @*<div class="tree ">
-                <ul>
+                    <ul>
 
-                    <li>
-                        <span>
-                            <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Web" aria-expanded="true" aria-controls="Web">
-                                <i class="collapsed"><i class="fas fa-folder"></i></i>
-                                <i class="expanded"><i class="far fa-folder-open"></i></i> Web
-                            </a>
-                        </span>
-                        <div id="Web" class="collapse show">
-                            <ul>
-                                <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
-                                <li>
-                                    <span>
-                                        <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#page1" aria-expanded="false" aria-controls="page1">
-                                            <i class="collapsed"><i class="fas fa-folder"></i></i>
-                                            <i class="expanded"><i class="far fa-folder-open"></i></i> Page 1
+                        <li>
+                            <span>
+                                <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Web" aria-expanded="true" aria-controls="Web">
+                                    <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                    <i class="expanded"><i class="far fa-folder-open"></i></i> Web
+                                </a>
+                            </span>
+                            <div id="Web" class="collapse show">
+                                <ul>
+                                    <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
+                                    <li>
+                                        <span>
+                                            <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#page1" aria-expanded="false" aria-controls="page1">
+                                                <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                                <i class="expanded"><i class="far fa-folder-open"></i></i> Page 1
+                                            </a>
+                                        </span>
+                                        <ul>
+                                            <div id="page1" class="collapse">
+                                                <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
+                                                <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
+                                                <li><span><i class="far fa-file"></i><a href="#!"> Link 3</a></span></li>
+                                                <li><span><i class="far fa-file"></i><a href="#!"> Link 4</a></span></li>
+                                            </div>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <span>
+                                            <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Page2" aria-expanded="false" aria-controls="Page2">
+                                                <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                                <i class="expanded"><i class="far fa-folder-open"></i></i> Page 2
+                                            </a>
+                                        </span>
+                                        <ul>
+                                            <div id="Page2" class="collapse">
+                                                <li>
+                                                    <span>
+                                                        <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#folder1" aria-expanded="false" aria-controls="folder1">
+                                                            <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                                            <i class="expanded"><i class="far fa-folder-open"></i></i> Folder 1
+                                                        </a>
+                                                    </span>
+                                                    <ul>
+                                                        <div id="folder1" class="collapse">
+                                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
+                                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
+                                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 3</a></span> <a href="#!">& More Link</a></li>
+                                                        </div>
+                                                    </ul>
+                                                </li>
+
+                                                <li>
+                                                    <span>
+                                                        <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#folder2" aria-expanded="false" aria-controls="folder2">
+                                                            <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                                            <i class="expanded"><i class="far fa-folder-open"></i></i> Folder 2
+                                                        </a>
+                                                    </span>
+                                                    <ul>
+                                                        <div id="folder2" class="collapse">
+                                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
+                                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
+                                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 3</a></span> <a href="#!">& More Link</a></li>
+                                                        </div>
+                                                    </ul>
+                                                </li>
+
+                                                <li>
+                                                    <span>
+                                                        <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#folder3" aria-expanded="false" aria-controls="folder3">
+                                                            <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                                            <i class="expanded"><i class="far fa-folder-open"></i></i> Folder 3
+                                                        </a>
+                                                    </span>
+                                                    <ul>
+                                                        <div id="folder3" class="collapse">
+                                                            <li><span><i class="far fa-file"></i><a href="#!"> Link</a></span> <a href="#!">& More Link</a></li>
+                                                        </div>
+                                                    </ul>
+                                                </li>
+
+                                                <li><span><i class="far fa-file"></i><a href="#!"> Link</a></span></li>
+                                            </div>
+                                        </ul>
+                                    </li>
+
+                                    <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="easy-tree">
+                    <ul>
+                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
+                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
+                        <li class="parent_li">
+                            <span title="collapse">
+                                <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
+                                    Example 3
+                                </a>
+                            </span><ul>
+                                <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
+                                <li class="parent_li">
+                                    <span title="collapse">
+                                        <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
+                                            Example 2
                                         </a>
-                                    </span>
-                                    <ul>
-                                        <div id="page1" class="collapse">
-                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
-                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
-                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 3</a></span></li>
-                                            <li><span><i class="far fa-file"></i><a href="#!"> Link 4</a></span></li>
-                                        </div>
+                                    </span><ul>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 4</a> </span></li>
                                     </ul>
                                 </li>
-
-                                <li>
-                                    <span>
-                                        <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Page2" aria-expanded="false" aria-controls="Page2">
-                                            <i class="collapsed"><i class="fas fa-folder"></i></i>
-                                            <i class="expanded"><i class="far fa-folder-open"></i></i> Page 2
-                                        </a>
-                                    </span>
-                                    <ul>
-                                        <div id="Page2" class="collapse">
-                                            <li>
-                                                <span>
-                                                    <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#folder1" aria-expanded="false" aria-controls="folder1">
-                                                        <i class="collapsed"><i class="fas fa-folder"></i></i>
-                                                        <i class="expanded"><i class="far fa-folder-open"></i></i> Folder 1
-                                                    </a>
-                                                </span>
-                                                <ul>
-                                                    <div id="folder1" class="collapse">
-                                                        <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
-                                                        <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
-                                                        <li><span><i class="far fa-file"></i><a href="#!"> Link 3</a></span> <a href="#!">& More Link</a></li>
-                                                    </div>
-                                                </ul>
-                                            </li>
-
-                                            <li>
-                                                <span>
-                                                    <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#folder2" aria-expanded="false" aria-controls="folder2">
-                                                        <i class="collapsed"><i class="fas fa-folder"></i></i>
-                                                        <i class="expanded"><i class="far fa-folder-open"></i></i> Folder 2
-                                                    </a>
-                                                </span>
-                                                <ul>
-                                                    <div id="folder2" class="collapse">
-                                                        <li><span><i class="far fa-file"></i><a href="#!"> Link 1</a></span></li>
-                                                        <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
-                                                        <li><span><i class="far fa-file"></i><a href="#!"> Link 3</a></span> <a href="#!">& More Link</a></li>
-                                                    </div>
-                                                </ul>
-                                            </li>
-
-                                            <li>
-                                                <span>
-                                                    <a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#folder3" aria-expanded="false" aria-controls="folder3">
-                                                        <i class="collapsed"><i class="fas fa-folder"></i></i>
-                                                        <i class="expanded"><i class="far fa-folder-open"></i></i> Folder 3
-                                                    </a>
-                                                </span>
-                                                <ul>
-                                                    <div id="folder3" class="collapse">
-                                                        <li><span><i class="far fa-file"></i><a href="#!"> Link</a></span> <a href="#!">& More Link</a></li>
-                                                    </div>
-                                                </ul>
-                                            </li>
-
-                                            <li><span><i class="far fa-file"></i><a href="#!"> Link</a></span></li>
-                                        </div>
-                                    </ul>
-                                </li>
-
-                                <li><span><i class="far fa-file"></i><a href="#!"> Link 2</a></span></li>
+                                <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
+                                <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 4</a> </span></li>
                             </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="easy-tree">
-                <ul>
-                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
-                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
-                    <li class="parent_li">
-                        <span title="collapse">
-                            <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
-                                Example 3
-                            </a>
-                        </span><ul>
-                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
-                            <li class="parent_li">
-                                <span title="collapse">
-                                    <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
-                                        Example 2
-                                    </a>
-                                </span><ul>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 4</a> </span></li>
-                                </ul>
-                            </li>
-                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
-                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 4</a> </span></li>
-                        </ul>
-                    </li>
-                    <li class="parent_li">
-                        <span title="collapse">
-                            <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
-                                Example 0
-                            </a>
-                        </span><ul>
-                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
-                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
-                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
-                            <li class="parent_li">
-                                <span title="collapse">
-                                    <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
-                                        Example 4
-                                    </a>
-                                </span><ul>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
-                                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 4</a> </span></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>*@
+                        </li>
+                        <li class="parent_li">
+                            <span title="collapse">
+                                <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
+                                    Example 0
+                                </a>
+                            </span><ul>
+                                <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
+                                <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
+                                <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
+                                <li class="parent_li">
+                                    <span title="collapse">
+                                        <span class="glyphicon glyphicon-folder-open"></span><a href="javascript: void(0);" title="select">
+                                            Example 4
+                                        </a>
+                                    </span><ul>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 1</a> </span></li>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 2</a> </span></li>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 3</a> </span></li>
+                                        <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript: void(0);" title="select">Example 4</a> </span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>*@
 
             <!-- /.content-header -->
             <!-- Main content -->
@@ -343,7 +344,9 @@
                 </div>
                 <partial name="_Breadcrumb" />
 
-                @RenderBody()
+                <div id="RenderBody">
+                    @RenderBody()
+                </div>
             </section>
             <!-- /.content -->
         </div>
@@ -369,7 +372,8 @@
 
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.js"></script>
-
+    <!-- Select2 -->
+    <script src="~/plugins/select2/select2.full.min.js" asp-append-version="true"></script>
     <!-- overlayScrollbars -->
     <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
@@ -405,6 +409,22 @@
     <script src="/plugins/Nice-Tree-View/src/easyTree.js"></script>
 
     <script>
+
+        function RefreshRenderBody(area, controller, action) {
+
+            debugger;
+            $.ajax({
+                type: "GET",
+                url: "/" + area + "/" + controller + "/" + action,
+                success: function (viewHTML) {
+                    debugger;
+                    $("#RenderBody").html(viewHTML);
+                },
+                error: function (errorData) {
+                    debugger; onError(errorData);
+                }
+            });
+        }
 
         $(document).ready(function () {
 

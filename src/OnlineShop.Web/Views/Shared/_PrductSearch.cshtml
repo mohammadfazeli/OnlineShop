@@ -1,18 +1,18 @@
-﻿<form>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <div class="custom_select">
-                <select class="first_null">
-                    <option value="">همه دسته ها</option>
-                    <option value="Dresses">لباس</option>
-                    <option value="Shirt-Tops">پیراهن</option>
-                    <option value="T-Shirt">تی شرت</option>
-                    <option value="Pents">چادر</option>
-                    <option value="Jeans">شلوار جین</option>
-                </select>
-            </div>
-        </div>
-        <input class="form-control" placeholder="جستجوی محصول ..." required="" type="text">
+﻿<form asp-controller="Product" asp-action="Shop" method="post">
+    <div class="">
+        @*<div class="input-group-prepend">
+                <div class="custom_select">
+                    <select class="first_null">
+                        <option value="">همه دسته ها</option>
+                        <option value="Dresses">لباس</option>
+                        <option value="Shirt-Tops">پیراهن</option>
+                        <option value="T-Shirt">تی شرت</option>
+                        <option value="Pents">چادر</option>
+                        <option value="Jeans">شلوار جین</option>
+                    </select>
+                </div>
+            </div>*@
+        <input class="form-control" id="productNameSearch" placeholder="جستجوی محصول ..." required="" type="text">
         <button type="submit" class="search_btn"><i class="linearicons-magnifier"></i></button>
     </div>
 </form>

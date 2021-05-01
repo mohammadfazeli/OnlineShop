@@ -2,7 +2,6 @@
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NToastNotify;
 using OnlineShop.Common.AdminToolkit;
 using OnlineShop.Common.Enums;
@@ -10,10 +9,8 @@ using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.ViewModels.Area;
 using OnlineShop.ViewModels.Area.Base.Products;
 using OnlineShop.ViewModels.Base;
-using Org.BouncyCastle.Math.EC.Rfc7748;
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,7 +28,8 @@ namespace OnlineShop.Web.Controllers
 
         public ProductController(IProductService productService,
             IToastNotification toastNotification,
-            IModelService modelService,IProductGroupService productGroupService,ISizeService sizeService,IColorService colorService)
+            IModelService modelService,IProductGroupService productGroupService,
+            ISizeService sizeService,IColorService colorService)
         {
             _productService = productService;
             _toastNotification = toastNotification;
@@ -49,12 +47,27 @@ namespace OnlineShop.Web.Controllers
             return View(_productService.GetDisplayProduct(id: id));
         }
 
+        [HttpGet("searchAutoComplete")]
+        [Produces("application/json")]
+        public async Task<IActionResult> searchAutoComplete()
+        {
+            try
+            {
+                string term = HttpContext.Request.Query["term"].ToString();
+                var names = _productService.GetAllNoTracking().Where(p => p.Name.Contains(term)).Select(p => p.Name).ToList();
+                return Ok(names);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         [BreadCrumb(Title = "فروشگاه",Order = 1)]
         public async Task<IActionResult> Shop(ShopDto productSearchShop,int page = 1)
         {
             GeneratePageTitle($"فروشگاه");
             var items = _productService.GetShopItems(productSearchShop);
-            var x = items.ToList();
             var prodcutDto = new ShopDto()
             {
                 ProdcutItems = await PaginatedList<ProdcutGeneralInfoDto>.CreateAsync(items,page,6),

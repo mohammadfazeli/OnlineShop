@@ -27,6 +27,9 @@ namespace OnlineShop.ViewModels.Area.Base.Products
         [Display(Name = nameof(Resource.Resource.Provider),ResourceType = typeof(Resource.Resource))]
         public string Provider { get; set; }
 
+        [Display(Name = nameof(Resource.Resource.Category),ResourceType = typeof(Resource.Resource))]
+        public string CategoryName { get; set; }
+
         public decimal OldPrice { get; set; }
         public decimal Price { get; set; }
         public List<ColorstDto> ProductColors { get; set; }

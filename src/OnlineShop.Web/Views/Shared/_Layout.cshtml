@@ -24,47 +24,48 @@
     @*<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">*@
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="/layout/assets/css/all.min.css">
-    <link rel="stylesheet" href="/layout/assets/css/ionicons.min.css">
-    <link rel="stylesheet" href="/layout/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="/layout/assets/css/linearicons.css">
-    <link rel="stylesheet" href="/layout/assets/css/flaticon.css">
-    <link rel="stylesheet" href="/layout/assets/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/layout/assets/css/all.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/css/ionicons.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/css/themify-icons.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/css/linearicons.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/css/flaticon.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/css/simple-line-icons.css" asp-append-version="true">
     <!--- owl carousel CSS-->
-    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.theme.css">
-    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.carousel.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.theme.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/owlcarousel/css/owl.theme.default.min.css" asp-append-version="true">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="/layout/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/layout/assets/css/magnific-popup.css" asp-append-version="true">
     <!-- jquery-ui CSS -->
-    <link rel="stylesheet" href="/layout/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/layout/assets/css/jquery-ui.css" asp-append-version="true">
     <!-- Slick CSS -->
-    <link rel="stylesheet" href="/layout/assets/css/slick.css">
-    <link rel="stylesheet" href="/layout/assets/css/slick-theme.css">
+    <link rel="stylesheet" href="/layout/assets/css/slick.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/css/slick-theme.css" asp-append-version="true">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="/layout/assets/css/style.css">
-    <link rel="stylesheet" href="/layout/assets/css/responsive.css">
+    <link rel="stylesheet" href="/layout/assets/css/style.css" asp-append-version="true">
+    <link rel="stylesheet" href="/layout/assets/css/responsive.css" asp-append-version="true">
     <!-- RTL CSS -->
-    <link rel="stylesheet" href="/layout/assets/css/rtl-style.css">
+    <link rel="stylesheet" href="/layout/assets/css/rtl-style.css" asp-append-version="true">
 
     <link rel="icon" href="/grow-shop.png" />
     <link rel="stylesheet" href="~/plugins/select2/select2.min.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="/plugins/toastr/toastr.min.css" asp-append-version="true">
-    @*<script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
-        <script src="/plugins/jquery/jquery.min.js" asp-append-version="true"></script>*@
+    @*<script src="~/Layout/js/jquery-3.3.1.min.js" asp-append-version="true"  asp-append-version="true"></script>
+        <script src="/plugins/jquery/jquery.min.js" asp-append-version="true"  asp-append-version="true"></script>*@
     <script src="/layout/assets/js/jquery-1.12.4.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/jquery-ui.js" asp-append-version="true"></script>
 </head>
 
 <body dir="rtl">
 
     <!-- LOADER -->
-    <div class="preloader">
-        <div class="lds-ellipsis">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
+    @*<div class="preloader">
+            <div class="lds-ellipsis">
+                <span asp-append-version="true"></span>
+                <span asp-append-version="true"></span>
+                <span asp-append-version="true"></span>
+            </div>
+        </div>*@
     <!-- END LOADER -->
     <!-- Home Popup Section -->
     @*<div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">
@@ -72,11 +73,11 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>
+                            <span aria-hidden="true"  asp-append-version="true"><i class="ion-ios-close-empty"  asp-append-version="true"></i  asp-append-version="true"></span>
                         </button>
                         <div class="row no-gutters">
                             <div class="col-sm-5">
-                                <div class="background_bg h-100" data-img-src="/layout/assets/images/popup_img.jpg"></div>
+                                <div class="background_bg h-100" data-img-src="/layout/assets/images/popup_img.jpg"  asp-append-version="true"></div>
                             </div>
                             <div class="col-sm-7">
                                 <div class="popup_content">
@@ -97,7 +98,7 @@
                                     <div class="chek-form">
                                         <div class="custome-checkbox">
                                             <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
-                                            <label class="form-check-label" for="exampleCheckbox3"><span>این پنجره را دوباره نشان ندهید!</span></label>
+                                            <label class="form-check-label" for="exampleCheckbox3"  asp-append-version="true"><span>این پنجره را دوباره نشان ندهید!</span  asp-append-version="true"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -122,13 +123,13 @@
                             <div class="download_wrap header_offer">
                                 <span class="mr-3">دانلود برنامه</span>
                                 <ul class="icon_list text-center text-lg-left">
-                                    <li><a href="#"><i class="fab fa-apple"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-android"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-windows"></i></a></li>
+                                    <li asp-append-version="true"><a href="#" asp-append-version="true"><i class="fab fa-apple" asp-append-version="true"></i></a></li>
+                                    <li asp-append-version="true"><a href="#" asp-append-version="true"><i class="fab fa-android" asp-append-version="true"></i></a></li>
+                                    <li asp-append-version="true"><a href="#" asp-append-version="true"><i class="fab fa-windows" asp-append-version="true"></i></a></li>
                                 </ul>
                             </div>
                             <div class="contact_phone order-md-last header_offer">
-                                <i class="linearicons-phone-wave"></i>
+                                <i class="linearicons-phone-wave" asp-append-version="true"></i>
                                 <span>021-1234567</span>
                             </div>
                         </div>
@@ -186,25 +187,25 @@
     </footer>
     <!-- END FOOTER -->
 
-    <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
+    <a href="#" class="scrollup" style="display: none;" asp-append-version="true"><i class="ion-ios-arrow-up" asp-append-version="true"></i></a>
 
-    <script src="/layout/assets/js/jquery-ui.js"></script>
-    <script src="/layout/assets/js/jquery.ui.slider-rtl.min.js"></script>
-    <script src="/layout/assets/js/popper.min.js"></script>
-    <script src="/layout/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/layout/assets/owlcarousel/js/owl.carousel.min.js"></script>
-    <script src="/layout/assets/js/magnific-popup.min.js"></script>
-    <script src="/layout/assets/js/waypoints.min.js"></script>
-    <script src="/layout/assets/js/parallax.js"></script>
-    <script src="/layout/assets/js/jquery.countdown.min.js"></script>
-    <script src="/layout/assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="/layout/assets/js/isotope.min.js"></script>
-    <script src="/layout/assets/js/jquery.dd.min.js"></script>
-    <script src="/layout/assets/js/slick.min.js"></script>
-    <script src="/layout/assets/js/jquery.elevatezoom.js"></script>
-    <script src="/layout/assets/js/scripts.js"></script>
+    <script src="/layout/assets/js/jquery-ui.js" asp-append-version="true"></script>
+    @*<script src="/layout/assets/js/jquery.ui.slider-rtl.min.js"  asp-append-version="true"></script>*@
+    <script src="/layout/assets/js/popper.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/owlcarousel/js/owl.carousel.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/magnific-popup.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/waypoints.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/parallax.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/jquery.countdown.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/imagesloaded.pkgd.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/isotope.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/jquery.dd.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/slick.min.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/jquery.elevatezoom.js" asp-append-version="true"></script>
+    <script src="/layout/assets/js/scripts.js" asp-append-version="true"></script>
 
-    @*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
+    @*<script src="~/js/site.min.js" asp-append-version="true"  asp-append-version="true"></script>*@
     <script src="/plugins/toastr/toastr.min.js" asp-append-version="true"></script>
     <script src="/plugins/select2/select2.full.min.js" asp-append-version="true"></script>
 

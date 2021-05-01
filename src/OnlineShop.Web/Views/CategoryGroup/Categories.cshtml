@@ -1,0 +1,142 @@
+﻿@model OnlineShop.ViewModels.Area.Base.Products.ShopDto
+
+@{ Layout = "_Layout"; }
+
+@Html.HiddenFor(x => Model.CategoryId)
+@Html.HiddenFor(x => Model.CategoryGroupId)
+
+<!-- START SECTION SHOP -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row align-items-center mb-4 pb-1">
+                    <div class="col-12">
+                        <div class="product_header">
+                            <div class="product_header_left">
+                                <div class="custom_select">
+                                    <select asp-for="OrderType"
+                                            id="OrderItems"
+                                            class="form-control form-control-sm"
+                                            onchange="ChangeOrderType()"
+                                            asp-items="Html.GetEnumSelectList<OrderTypeEnum>()">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="product_header_right">
+                                <div class="products_view">
+                                    <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
+                                    <a href="javascript:Void(0);" class="shorting_icon list "><i class="ti-layout-list-thumb"></i></a>
+                                </div>
+                                <div class="custom_select">
+                                    <select class="form-control form-control-sm">
+                                        <option value="">نمایش</option>
+                                        <option value="9">9</option>
+                                        <option value="12">12</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ShopItems">
+                    <partial name="~/Views/Product/_Shoptems.cshtml" model="Model.ProdcutItems">
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="pagination mt-3 justify-content-center pagination_style1">
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="linearicons-arrow-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0">
+                <div class="sidebar">
+                    @*<div class="widget">
+                            <h5 class="widget_title">دسته بندی ها</h5>
+                            <ul class="widget_categories">
+                                <li><a href="#"><span class="categories_name">زنانه</span><span class="categories_num">(9)</span></a></li>
+                                <li><a href="#"><span class="categories_name">شلوار</span><span class="categories_num">(6)</span></a></li>
+                                <li><a href="#"><span class="categories_name">تی شرت</span><span class="categories_num">(4)</span></a></li>
+                                <li><a href="#"><span class="categories_name">مردانه</span><span class="categories_num">(7)</span></a></li>
+                                <li><a href="#"><span class="categories_name">کفش</span><span class="categories_num">(12)</span></a></li>
+                            </ul>
+                        </div>*@
+                    <div class="widget">
+                        <h5 class="widget_title">فیلتر</h5>
+                        <div class="filter_price">
+                            فیلتر قیمت اعمال شود ؟
+                            <input type="checkbox" name="IsFilterPrice" id="IsFilterPrice" value="false" />
+                            <div id="price_filter" data-min="0" data-max="10000000" data-min-value="50" data-max-value="10000000" data-price-sign="تومان"></div>
+                            <div class="price_range">
+                                <span>قیمت: <span id="flt_price"></span></span>
+                                <input type="hidden" id="price_first">
+                                <input type="hidden" id="price_second">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <vc:check-box-list check-box-list="Model.SizeCheckBoxList"></vc:check-box-list>
+                    </div>
+                    <div class="widget">
+                        <vc:check-box-list check-box-list="Model.ProductGroupCheckBoxList"></vc:check-box-list>
+                    </div>
+                    <div class="widget">
+                        <vc:check-box-list check-box-list="Model.ModelCheckBoxList"></vc:check-box-list>
+                    </div>
+                    <div class="widget">
+                        <vc:check-box-list check-box-list="Model.ColorCheckBoxList"></vc:check-box-list>
+                    </div>
+                </div>
+                <button type="button" onclick="ShopSearch(1)" class=" btn  btn-primary  filter-btn">@Resource.submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION SHOP -->
+
+<script>
+
+    function ChangeOrderType() {
+        ShopSearch(1, $("#OrderItems option:selected").val());
+    }
+    function GetSelectedItems(name) {
+        return $('input[type="checkbox"][name="' + name + '"]:checked').each(function () { $(this).val(); }).map(function () { return this.value; }).get();
+    }
+
+    function getItems() {
+        debugger;
+        var productSearchShop = {
+            ProductGroupCheckBoxList: { SelectedIds: GetSelectedItems('@Model.ProductGroupCheckBoxList.CheckBoxName') } ,
+            ColorCheckBoxList: { SelectedIds: GetSelectedItems('@Model.ColorCheckBoxList.CheckBoxName') },
+            SizeCheckBoxList: { SelectedIds: GetSelectedItems('@Model.SizeCheckBoxList.CheckBoxName') },
+            ModelCheckBoxList: { SelectedIds: GetSelectedItems('@Model.ModelCheckBoxList.CheckBoxName') },
+            IsFilterPrice: $("#IsFilterPrice").prop("checked"),
+            MinPrice: $("#price_first").val() ,
+            MaxPrice: $("#price_second").val(),
+            CategoryGroypId: $("#CategoryGroypId").val()
+         };
+           return productSearchShop;
+    };
+
+    function ShopSearch(page , orderType) {
+        $(".preloader").show();
+        var search = getItems();
+        debugger;
+        $.ajax({
+            url: '@Url.Action("GetShopItems","Product")',
+            type: "Post",
+            data: { productSearchShop: search, page: page, orderType: orderType },
+            success: function (result) {
+                $(".preloader").hide();
+                debugger;
+                $('#ShopItems').html(result);
+            }
+        });
+    }
+</script>

@@ -16,7 +16,7 @@
                         <th>@Html.DisplayNameFor(r => r.ForeignName)</th>
                         <th>@Html.DisplayNameFor(r => r.UserCode)</th>
                         <th>@Html.DisplayNameFor(r => r.Description)</th>
-                        <th   >@Html.DisplayNameFor(r => r.InActive)</th>
+                        <th>@Html.DisplayNameFor(r => r.InActive)</th>
                         <th style="width:50px;">@Resource.Operation</th>
                     </tr>
                 </thead>
@@ -40,8 +40,8 @@
                 "language": {
                     "url": "../js/Persian.json",
                 },
-                 "ajax": {
-                        url: '@ViewContext.RouteData.Values["controller"]/ReadData',
+                "ajax": {
+                        url: '@Url.Action("ReadData",ViewContext.RouteData.Values["controller"])',
                         type: "GEt",
                         dataType: "json",
                     },

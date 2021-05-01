@@ -1,0 +1,15 @@
+﻿@model List<OnlineShop.ViewModels.Area.Base.Colors.ColorstDto>
+
+@{
+
+    Layout = null;
+}
+
+<form asp-action="Index" method="post" enctype="multipart/form-data">
+
+    @Html.ValidationSummary();
+    <input type="file" name="file" />
+    <div>
+        <input type="submit" button id="upload" value="Import" class="btn-success" />
+    </div>
+</form>

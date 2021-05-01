@@ -1,4 +1,5 @@
-﻿using OnlineShop.ViewModels;
+﻿using Microsoft.AspNetCore.Mvc;
+using OnlineShop.ViewModels;
 using System;
 
 namespace OnlineShop.Web.Classes
@@ -17,6 +18,11 @@ namespace OnlineShop.Web.Classes
             char[] arr = s.ToCharArray();
             Array.Reverse(arr);
             return new string(arr);
+        }
+
+        public static string RemoveControllerName<T>(this T controller) where T : Controller
+        {
+            return nameof(controller).Replace("controller","");
         }
     }
 }

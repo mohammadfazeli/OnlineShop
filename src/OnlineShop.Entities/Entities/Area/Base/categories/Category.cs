@@ -9,6 +9,7 @@ namespace OnlineShop.Entities.Entities.Area.Base
         public Category()
         {
             SubCategories = new HashSet<Category>();
+            Products = new HashSet<Product>();
         }
 
         [ForeignKey(nameof(CategoryGroupId))]
@@ -23,5 +24,6 @@ namespace OnlineShop.Entities.Entities.Area.Base
 
         public Guid? ParentCategoryId { get; set; }
         public virtual ICollection<Category> SubCategories { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace OnlineShop
 
                 .AddDataAnnotationsLocalization(options =>
                 {
-                    options.DataAnnotationLocalizerProvider = (type,factory) =>
+                    options.DataAnnotationLocalizerProvider = (type, factory) =>
                         factory.Create(typeof(Resource.Resource));
                 })
             .AddNToastNotifyToastr(new ToastrOptions()
@@ -70,14 +70,14 @@ namespace OnlineShop
             services.AddSignalR();
         }
 
-        public void Configure(IApplicationBuilder app,IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if(!env.IsDevelopment())
+            if (!env.IsDevelopment())
             {
                 app.UseExceptionHandler("/error/index/500");
                 app.UseStatusCodePagesWithReExecute("/error/index/{0}");
             }
-            if(!env.IsDevelopment())
+            if (!env.IsDevelopment())
             {
                 app.UseHsts();
             }

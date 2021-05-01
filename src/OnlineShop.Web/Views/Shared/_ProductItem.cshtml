@@ -8,18 +8,13 @@
         </a>
         <div class="product_action_box">
             <ul class="list_none pr_action_btn">
-
-                @*<li class="add-to-cart">  <a class="" data-ajax="true" data-ajax-method="Post" href="@Url.Action("AddCardItem","Card", new { productId = Model.Id , productName=Model.ProductName, price=Model.Price  }) " data-ajax-mode="replace" data-ajax-update="#CustomerCardItems"><i class="icon-basket-loaded"></i> افزودن به سبد خرید</a> </li>
-                <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                <li><a href="@Url.Action("Index","Product", new { id = Model.Id , productName=Model.ProductName.Replace(" ","_") , modelName=Model.ModelName  })" class=""><i class="icon-magnifier-add"></i></a></li>
-                <li><a href="#"><i class="icon-heart"></i></a></li>*@
                 <partial name="_ProductItemActions" model="Model" />
             </ul>
         </div>
     </div>
     <div class="product_info">
         @*<h6 class="product_title"><a href="shop-product-detail.html">پیراهن آبی روشن</a></h6>*@
-        <p class="product_title"><a href="shop-product-detail.html">@Model.ProductName</a></p>
+        <h6 class="product_title"><a href="shop-product-detail.html">@Model.ProductName</a></h6>
         <div class="product_price">
             @*<span class="price">69000 تومان</span>*@
             <span class="price">@Model.Price.ToCurrency().ToPersianNumbers() </span>
@@ -29,6 +24,7 @@
                 مدل
                 @*<span>%20 تخفیف</span>*@
                 <span>@Model.ModelName</span>
+                <span> <a asp-controller="Category" asp-action="هدیث"></a>      @Model.CategoryName</span>
             </div>
         </div>
         <div class="rating_wrap">

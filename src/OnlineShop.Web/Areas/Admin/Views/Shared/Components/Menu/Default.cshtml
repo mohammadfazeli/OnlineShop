@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Menu>
 
-@if(User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated)
 {
 
     <li class="nav-item has-treeview">
@@ -42,7 +42,7 @@
     </li>
 }
 
-@foreach(var menuItem in Model)
+@foreach (var menuItem in Model)
 {
 
     <li class="nav-item    @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?" menu-open ":" ") ">
@@ -55,10 +55,11 @@
             </p>
         </a>
         <ul class="nav nav-treeview">
-            @foreach(var item in menuItem.menuItems)
+            @foreach (var item in menuItem.menuItems)
             {
                 <li class="nav-item">
-                    <a asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action" class="nav-link">
+                    @*asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action"*@
+                    <a onclick="RefreshRenderBody('@menuItem.Area' ,'@menuItem.Controller','@item.Action')" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>@item.ActionName</p>
                     </a>
@@ -66,27 +67,4 @@
             }
         </ul>
     </li>
-
-    @*<li class="nav-item has-treeview    @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"menu-open ":"")">
-
-            <a href="#" class="nav-link @( ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller?"active ":"")">
-                <p>
-                    @menuItem.ControllerName
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-                <i class="nav-icon @menuItem.ControllerIcon"></i>
-            </a>
-            <ul class="nav nav-treeview ">
-                @foreach(var item in menuItem.menuItems)
-                {
-
-                    <li class="nav-item  ">
-                        <a asp-area="@menuItem.Area" asp-controller="@menuItem.Controller" asp-action="@item.Action" class="nav-link   @(ViewContext.RouteData.Values["controller"].ToString()==menuItem.Controller  && ViewContext.RouteData.Values["action"].ToString()==item.Action? "active":"")">
-                            <p class=" ">@item.ActionName</p>
-                            <i class="  fa fa-minus nav-icon"></i>
-                        </a>
-                    </li>
-                }
-            </ul>
-        </li>*@
 }

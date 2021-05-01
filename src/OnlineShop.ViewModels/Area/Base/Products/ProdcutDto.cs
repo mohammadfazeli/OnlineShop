@@ -33,6 +33,12 @@ namespace OnlineShop.ViewModels.Area.Base.Products
         public DropDownViewModel ProviderDropDown { get; set; }
 
         [Required(ErrorMessage = "(*)")]
+        [Display(Name = nameof(Resource.Resource.Category),Prompt = nameof(Resource.Resource.Provider),ResourceType = typeof(Resource.Resource))]
+        public Guid? CategoryrId { get; set; }
+
+        public DropDownViewModel CategoryDropDown { get; set; }
+
+        [Required(ErrorMessage = "(*)")]
         [Display(Name = nameof(Resource.Resource.Model),Prompt = nameof(Resource.Resource.Model),ResourceType = typeof(Resource.Resource))]
         public Guid? ModelId { get; set; }
 

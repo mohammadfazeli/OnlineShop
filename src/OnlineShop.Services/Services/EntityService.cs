@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Services.Services
 {
-    public class EntityService<TEntity, TDto>:IEntityService<TEntity,TDto>
+    public class EntityService<TEntity, TDto> : IEntityService<TEntity, TDto>
           where TEntity : BaseEntity
           where TDto : BaseDto
 
@@ -28,7 +28,7 @@ namespace OnlineShop.Services.Services
         protected readonly IMapper _mapper;
         protected readonly IRepository<TEntity> _repository;
 
-        public EntityService(IUnitOfWork unitOfWork,IMapper mapper,IRepository<TEntity> repository)
+        public EntityService(IUnitOfWork unitOfWork, IMapper mapper, IRepository<TEntity> repository)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -62,12 +62,12 @@ namespace OnlineShop.Services.Services
             return _repository.GetAll();
         }
 
-        public virtual IQueryable<TEntity> GetAll(Expression<Func<TEntity,bool>> predicate = null)
+        public virtual IQueryable<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate = null)
         {
             return predicate == null ? _repository.GetAll() : _repository.GetAll().Where(predicate);
         }
 
-        public IQueryable<TListDto> GetListDto<TListDto>(Expression<Func<TEntity,bool>> predicate = null)
+        public IQueryable<TListDto> GetListDto<TListDto>(Expression<Func<TEntity, bool>> predicate = null)
         {
             return predicate == null ?
                  GetAllNoTracking().OrderByDescending(x => x.CreateOn).ProjectTo<TListDto>(_mapper.ConfigurationProvider) :
@@ -85,28 +85,28 @@ namespace OnlineShop.Services.Services
             return _repository.GetAllNoTracking();
         }
 
-        public virtual IQueryable<TEntity> GetAllNoTracking(Expression<Func<TEntity,bool>> predicate = null)
+        public virtual IQueryable<TEntity> GetAllNoTracking(Expression<Func<TEntity, bool>> predicate = null)
         {
             return predicate == null ? _repository.GetAllNoTracking() : _repository.GetAllNoTracking().Where(predicate);
         }
 
-        public virtual SelectList GetSelectList(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name",Expression<Func<TEntity,bool>> predicate = null)
+        public virtual SelectList GetSelectList(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name", Expression<Func<TEntity, bool>> predicate = null)
         {
-            return new SelectList(GetAllNoTracking(predicate).Where(x => !x.InActive),dataValueField,dataTextField,selectedValue: id.GuidIsValid() ? id.ToString() : null);
+            return new SelectList(GetAllNoTracking(predicate).Where(x => !x.InActive), dataValueField, dataTextField, selectedValue: id.GuidIsValid() ? id.ToString() : null);
         }
 
-        public virtual DropDownViewModel GetDropDown(Guid? id = null,string dataValueField = "Id",string dataTextField = "Name",Expression<Func<TEntity,bool>> predicate = null)
+        public virtual DropDownViewModel GetDropDown(Guid? id = null, string dataValueField = "Id", string dataTextField = "Name", Expression<Func<TEntity, bool>> predicate = null)
         {
             var dd = new DropDownViewModel()
             {
                 id = id,
-                SelectList = GetSelectList(id,dataValueField,dataTextField,predicate),
+                SelectList = GetSelectList(id, dataValueField, dataTextField, predicate),
                 CurrentValues = id == null ? null : new List<string>() { id.ToString() },
             };
             return dd;
         }
 
-        public virtual CheckBoxListViewModel GetCheckBoxList(string CheckBoxName,string name)
+        public virtual CheckBoxListViewModel GetCheckBoxList(string CheckBoxName, string name)
         {
             var ck = new CheckBoxListViewModel()
             {
@@ -120,6 +120,13 @@ namespace OnlineShop.Services.Services
         #endregion Get
 
         #region CUD
+
+        public virtual async Task<CreateStatusvm> AddRangeAsync(List<TDto> dto)
+        {
+            var entities = _mapper.Map<List<TEntity>>(dto);
+            var result = await _repository.CreateRangeAsync(entities);
+            return result;
+        }
 
         public virtual CreateStatusvm Add(TDto dto)
         {
@@ -138,27 +145,27 @@ namespace OnlineShop.Services.Services
         public virtual UpdateStatusvm Update(TDto dto)
         {
             var objectEntity = _repository.GetNoTracking(dto.Id);/*  Get(dto.Id);*/
-            if(objectEntity is null) return new UpdateStatusvm() { Valid = false,UpdateStatus = UpdateStatus.NotExists,Message = Resource.Resource.UpdateNotExists };
+            if (objectEntity is null) return new UpdateStatusvm() { Valid = false, UpdateStatus = UpdateStatus.NotExists, Message = Resource.Resource.UpdateNotExists };
 
             _unitOfWork.Entry(objectEntity).State = EntityState.Modified;
-            objectEntity = _mapper.Map<TDto,TEntity>(dto,objectEntity);
+            objectEntity = _mapper.Map<TDto, TEntity>(dto, objectEntity);
             _unitOfWork.SaveChanges();
-            return new UpdateStatusvm() { RetrunId = dto.Id,Valid = true,UpdateStatus = UpdateStatus.Successfully,Message = Resource.Resource.UpdateSuccess };
+            return new UpdateStatusvm() { RetrunId = dto.Id, Valid = true, UpdateStatus = UpdateStatus.Successfully, Message = Resource.Resource.UpdateSuccess };
         }
 
         public virtual async Task<UpdateStatusvm> UpdateAsync(TDto dto)
         {
             var objectEntity = await GetAsync(dto.Id);
-            if(objectEntity is null) return new UpdateStatusvm() { Valid = false,UpdateStatus = UpdateStatus.NotExists,Message = Resource.Resource.UpdateNotExists };
-            _mapper.Map(dto,objectEntity);
+            if (objectEntity is null) return new UpdateStatusvm() { Valid = false, UpdateStatus = UpdateStatus.NotExists, Message = Resource.Resource.UpdateNotExists };
+            _mapper.Map(dto, objectEntity);
             await _unitOfWork.SaveChangesAsync();
-            return new UpdateStatusvm() { RetrunId = dto.Id,Valid = true,UpdateStatus = UpdateStatus.Successfully,Message = Resource.Resource.UpdateSuccess };
+            return new UpdateStatusvm() { RetrunId = dto.Id, Valid = true, UpdateStatus = UpdateStatus.Successfully, Message = Resource.Resource.UpdateSuccess };
         }
 
         public virtual DeleteStatusvm Remove(Guid id)
         {
             var entity = _repository.Get(id);
-            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Message = Resource.Resource.DeleteNotExists,Valid = false,RetrunId = entity.Id };
+            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Message = Resource.Resource.DeleteNotExists, Valid = false, RetrunId = entity.Id };
             var result = _repository.Remove(entity);
             return result;
         }
@@ -166,7 +173,7 @@ namespace OnlineShop.Services.Services
         public virtual async Task<DeleteStatusvm> RemoveAsync(Guid id)
         {
             var entity = _repository.Get(id);
-            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Message = Resource.Resource.DeleteNotExists,Valid = false,RetrunId = entity.Id };
+            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Message = Resource.Resource.DeleteNotExists, Valid = false, RetrunId = entity.Id };
             var result = await _repository.RemoveAsync(entity);
             return result;
         }
@@ -174,22 +181,22 @@ namespace OnlineShop.Services.Services
         public virtual DeleteStatusvm Delete(Guid id)
         {
             var entity = _repository.Get(id);
-            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Message = Resource.Resource.DeleteNotExists,Valid = false,RetrunId = entity.Id };
+            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Message = Resource.Resource.DeleteNotExists, Valid = false, RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             _unitOfWork.SaveChanges();
-            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Message = Resource.Resource.DeleteSuccessfully,Valid = true,RetrunId = entity.Id };
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Message = Resource.Resource.DeleteSuccessfully, Valid = true, RetrunId = entity.Id };
         }
 
         public virtual async Task<DeleteStatusvm> DeleteAsync(Guid id)
         {
             var entity = await _repository.GetAsync(id);
 
-            if(entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists,Message = Resource.Resource.DeleteNotExists,Valid = false,RetrunId = entity.Id };
+            if (entity == null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Message = Resource.Resource.DeleteNotExists, Valid = false, RetrunId = entity.Id };
             _unitOfWork.Entry(entity).State = EntityState.Modified;
             entity.IsDeleted = true;
             await _unitOfWork.SaveChangesAsync();
-            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Message = Resource.Resource.DeleteSuccessfully,Valid = true,RetrunId = entity.Id };
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Message = Resource.Resource.DeleteSuccessfully, Valid = true, RetrunId = entity.Id };
         }
 
         #endregion CUD

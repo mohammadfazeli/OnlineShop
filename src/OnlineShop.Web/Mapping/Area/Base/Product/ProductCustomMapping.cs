@@ -33,6 +33,7 @@ namespace OnlineShop.Web.Mapping.Area.Base
               .ForMember(d => d.UserCode,opt => opt.MapFrom(s => s.UserCode == null ? "" : s.UserCode))
               .ForMember(d => d.ModelName,opt => opt.MapFrom(s => s.Model == null ? "" : s.Model.Name ?? ""))
               .ForMember(d => d.Provider,opt => opt.MapFrom(s => s.Provider == null ? "" : s.Provider.Name ?? ""))
+              .ForMember(d => d.CategoryName,opt => opt.MapFrom(s => s.Category == null ? "" : s.Category.Name ?? ""))
               .ForMember(d => d.OldPrice,opt => opt.MapFrom(s => s.ProductSalePrices.Count == 0 ? 0 : s.ProductSalePrices.OrderByDescending(pc => pc.CreateOn).FirstOrDefault(price => !price.IsDeleted && !price.InActive).OldPrice))
               .ForMember(d => d.Price,opt => opt.MapFrom(s => s.ProductSalePrices.Count == 0 ? 0 : s.ProductSalePrices.OrderByDescending(pc => pc.CreateOn).FirstOrDefault(price => !price.IsDeleted && !price.InActive).NewPrice))
               .ForMember(d => d.ProductColors,opt => opt.MapFrom(s => s.ProductColors.Count == 0 /*|| !s.ProductColors.Any(p => !p.IsDeleted && !p.InActive)*/ ? new List<ColorstDto>() :

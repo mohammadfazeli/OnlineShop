@@ -77,6 +77,10 @@ namespace OnlineShop.Services.Services.Area.Base
                                                  join ps in _productSizes.AsNoTracking() on p.Id equals ps.ProductId into result_ps
                                                  from ps in result_ps.DefaultIfEmpty()
                                                  where
+                                                 (search.CategoryGroupId == null || p.Category.CategoryGroupId == search.CategoryGroupId) &&
+                                                 (search.CategoryId == null || p.CategoryId == search.CategoryId) &&
+                                                 (string.IsNullOrEmpty(search.CategoryName) || p.Category.Name == search.CategoryName) &&
+                                                 (string.IsNullOrEmpty(search.CategoryGroupName) || p.Category.CategoryGroup.Name == search.CategoryName) &&
                                                  (search.ProductGroupCheckBoxList == null || search.ProductGroupCheckBoxList.SelectedIds == null || search.ProductGroupCheckBoxList.SelectedIds.Contains(pc.ProductId.Value)) &&
                                                   (search.ColorCheckBoxList == null || search.ColorCheckBoxList.SelectedIds == null || search.ColorCheckBoxList.SelectedIds.Contains(pc.ColorId.Value)) &&
                                                   (search.ModelCheckBoxList == null || search.ModelCheckBoxList.SelectedIds == null || search.ModelCheckBoxList.SelectedIds.Contains(p.ModelId.Value)) &&
@@ -111,6 +115,7 @@ namespace OnlineShop.Services.Services.Area.Base
                 ForeignName = product.ForeignName ?? "",
                 Description = product.Description ?? "",
                 Provider = product.Provider == null ? "" : product.Provider.Name,
+                CategoryName = product.Category == null ? "" : product.Category.Name,
                 OldPrice = !product.ProductSalePrices.Any(p => !p.IsDeleted && !p.InActive) ? (decimal)0 : ((decimal)(product.ProductSalePrices.Where(p => !p.IsDeleted && !p.InActive).OrderByDescending(x => x.CreateOn).FirstOrDefault().OldPrice)),
                 Price = !product.ProductSalePrices.Any(p => !p.IsDeleted && !p.InActive) ? (decimal)0 : (decimal)(product.ProductSalePrices.Where(p => !p.IsDeleted && !p.InActive).OrderByDescending(x => x.CreateOn).FirstOrDefault().NewPrice),
                 ModelName = product.Model.Name ?? "",

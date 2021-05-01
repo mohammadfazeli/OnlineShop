@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using OnlineShop.Services.Contracts.Admin;
 using OnlineShop.ViewModels.Base;
 using OnlineShop.Web.Areas.Admin.Controllers;
@@ -6,39 +7,39 @@ using OnlineShop.Web.Classes;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Areas.Admin.ViewComponents
 {
-    public class MenuViewComponent:ViewComponent
+    public class MenuViewComponent : ViewComponent
     {
-        private readonly ISecurityTrimmingService _securityTrimmingService;
+        private readonly IMemoryCache _cacheHelper;
 
-        public MenuViewComponent(ISecurityTrimmingService securityTrimmingService)
+        public MenuViewComponent(IMemoryCache cacheHelper)
         {
-            _securityTrimmingService = securityTrimmingService;
+            _cacheHelper = cacheHelper;
         }
 
         public IViewComponentResult Invoke(string area)
         {
+            //IEnumerable<Menu> menus = _cacheHelper.GetOrCreateAsync(
+            //$"_Menus{area}",
+            //    entry =>
+            //    {
+            //        entry.SetSize(1000);
+            //        return Task.FromResult(GetMenus(area));
+            //    });
+            var menus = GetMenus(area);
+            return View(menus);
+        }
+
+        private IEnumerable<Menu> GetMenus(string area)
+        {
             Assembly asm = Assembly.GetAssembly(typeof(BaseController));
-
-            var asd = asm.GetTypes()
-                .Where(type => typeof(BaseController).IsAssignableFrom(type))
-                .SelectMany(type => type.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public))
-                .Where(m => m.GetCustomAttributes(typeof(MenuAttribute),true).Any())
-                .Select(x => new
-                {
-                    Area = area,
-                    Controller = x.DeclaringType.Name.Replace("Controller",""),
-                    Action = x.Name,
-                    Contrller = x.DeclaringType
-                })
-                .OrderBy(x => x.Controller).ThenBy(x => x.Action).ToList();
-
             var menu = asm.GetTypes()
                 .Where(type => typeof(BaseController).IsAssignableFrom(type))
                 .SelectMany(type => type.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public))
-                .Where(m => m.GetCustomAttributes(typeof(MenuAttribute),true).Any())
+                .Where(m => m.GetCustomAttributes(typeof(MenuAttribute), true).Any())
                 .Select(x => new Menu()
                 {
                     ControllerName = Resource.Resource.ResourceManager.GetString(x.DeclaringType.GetCustomAttributes<MenuAttribute>().Select(s => s.Name).FirstOrDefault())
@@ -50,7 +51,7 @@ namespace OnlineShop.Areas.Admin.ViewComponents
                     ControllerOrder = x.DeclaringType.GetCustomAttributes<MenuAttribute>().Select(s => s.order)
                         .FirstOrDefault(),
                     Area = area,
-                    Controller = x.DeclaringType.Name.Replace("Controller",""),
+                    Controller = x.DeclaringType.Name.Replace("Controller", ""),
 
                     menuItems = new List<MenuItem>()
                     {
@@ -88,9 +89,7 @@ namespace OnlineShop.Areas.Admin.ViewComponents
                 Controller = s.Key.Controller,
                 menuItems = s.SelectMany(f => f.menuItems).ToList()
             });
-            //.Where(x => _securityTrimmingService.CanCurrentUserAccess(x.Area, x.Controller, x.menuItems.Select(s => s.Action).FirstOrDefault()));
-
-            return View(finalMenus);
+            return finalMenus;
         }
     }
 }

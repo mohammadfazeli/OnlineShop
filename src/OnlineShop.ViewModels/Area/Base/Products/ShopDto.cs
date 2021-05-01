@@ -1,5 +1,6 @@
 ﻿using OnlineShop.Common.Enums;
 using OnlineShop.ViewModels.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.ViewModels.Area.Base.Products
@@ -23,6 +24,11 @@ namespace OnlineShop.ViewModels.Area.Base.Products
         public bool IsFilterPrice { get; set; }
         public string MinPrice { get; set; }
         public string MaxPrice { get; set; }
+
+        public Guid? CategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public Guid? CategoryGroupId { get; set; }
+        public string CategoryGroupName { get; set; }
 
         public OrderTypeEnum OrderType { get; set; }
     }

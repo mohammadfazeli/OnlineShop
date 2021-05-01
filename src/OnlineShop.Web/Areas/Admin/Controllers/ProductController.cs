@@ -36,12 +36,14 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
         private readonly IProviderService _providerService;
         private readonly IHubContext<Notification> _context;
         private readonly IToastNotification _toastNotification;
+        private readonly ICategoryService _categoryService;
 
         public ProductController(IProductService ProductService,IAttachmentService attachmentService,
             IProductGroupService productGroupService
             ,IMapper mapper,IModelService modelService,IProviderService providerService,
             IHubContext<Notification> context,
-             IToastNotification toastNotification
+             IToastNotification toastNotification,
+             ICategoryService categoryService
             )
         {
             _productService = ProductService;
@@ -52,6 +54,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             _providerService = providerService;
             _context = context;
             _toastNotification = toastNotification;
+            _categoryService = categoryService;
         }
 
         [BreadCrumb(Title = "لیست محصولات",Order = 1)]
@@ -77,6 +80,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
                 ProductGroupDropDown = _productGroupService.GetDropDown(id),
                 ModelDropDown = _modelService.GetDropDown(id),
                 ProviderDropDown = _providerService.GetDropDown(id),
+                CategoryDropDown = _categoryService.GetDropDown()
             };
             return View(prodcutDto);
         }
@@ -120,6 +124,7 @@ namespace OnlineShop.Web.Areas.Admin.Controllers
             ProductDTo.ProductGroupDropDown = _productGroupService.GetDropDown(ProductDTo.ProductGroupId);
             ProductDTo.ModelDropDown = _modelService.GetDropDown(ProductDTo.ModelId);
             ProductDTo.ProviderDropDown = _providerService.GetDropDown(ProductDTo.ProviderId);
+            ProductDTo.CategoryDropDown = _categoryService.GetDropDown(ProductDTo.CategoryrId);
 
             return View(ProductDTo);
         }

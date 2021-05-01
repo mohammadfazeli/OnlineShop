@@ -49,7 +49,7 @@
                 },
 
                 "ajax": {
-                        url: '/Admin/@ViewContext.RouteData.Values["controller"]/ReadData',
+                      url: '@Url.Action("ReadData",ViewContext.RouteData.Values["controller"])',
                         type: "GEt",
                         data: { productId:'@Model.ProductId' },
                         dataType: "json",

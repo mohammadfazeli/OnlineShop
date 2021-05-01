@@ -7,9 +7,11 @@ using OnlineShop.DataLayer.Repository;
 using OnlineShop.Entities.Identity;
 using OnlineShop.Services.Admin;
 using OnlineShop.Services.Admin.Logger;
+using OnlineShop.Services.Contracts;
 using OnlineShop.Services.Contracts.Admin;
 using OnlineShop.Services.Contracts.Area.Base;
 using OnlineShop.Services.Identity;
+using OnlineShop.Services.Services;
 using OnlineShop.Services.Services.Area.Base;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -53,6 +55,7 @@ namespace OnlineShop.IocConfig
             services.AddScoped<ICouponService,CouponService>();
             services.AddScoped<ICategoryService,CategoryService>();
             services.AddScoped<ICategoryGroupService,CategoryGroupService>();
+            services.AddScoped<ICacheHelper,CacheHelper>();
 
             #endregion Base
 

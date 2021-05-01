@@ -39,6 +39,11 @@ namespace OnlineShop.Entities.Entities.Area.Base
         [ForeignKey(nameof(ModelId))]
         public virtual Model Model { get; set; }
 
+        public Guid? CategoryId { get; set; }
+
+        [ForeignKey(nameof(CategoryId))]
+        public virtual Category Category { get; set; }
+
         [InverseProperty(nameof(ProductRelated.Product))]
         public virtual ICollection<ProductRelated> RelatedProducts { get; set; }
 

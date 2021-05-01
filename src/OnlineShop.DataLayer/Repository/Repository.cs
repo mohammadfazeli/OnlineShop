@@ -4,12 +4,13 @@ using OnlineShop.Common.ViewModel;
 using OnlineShop.DataLayer.Context;
 using OnlineShop.Entities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace OnlineShop.DataLayer.Repository
 {
-    public class Repository<TEntity>:IRepository<TEntity> where TEntity : BaseEntity
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly IUnitOfWork _uow;
         protected readonly DbSet<TEntity> _entity;
@@ -58,54 +59,62 @@ namespace OnlineShop.DataLayer.Repository
 
         #region CUD
 
-        public virtual CreateStatusvm Create(TEntity entity,bool saveNow = true)
+        public virtual async Task<CreateStatusvm> CreateRangeAsync(List<TEntity> entity, bool saveNow = true)
+        {
+            await _entity.AddRangeAsync(entity);
+            if (saveNow)
+                await _uow.SaveChangesAsync(true);
+            return new CreateStatusvm() { CreateStatus = CreateStatus.Successfully, Message = Resource.Resource.AddSuccessfully, Valid = true };
+        }
+
+        public virtual CreateStatusvm Create(TEntity entity, bool saveNow = true)
         {
             _entity.Add(entity);
-            if(saveNow)
+            if (saveNow)
                 _uow.SaveChanges(true);
-            return new CreateStatusvm() { CreateStatus = CreateStatus.Successfully,Message = Resource.Resource.AddSuccessfully,Valid = true,RetrunId = entity.Id };
+            return new CreateStatusvm() { CreateStatus = CreateStatus.Successfully, Message = Resource.Resource.AddSuccessfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual async Task<CreateStatusvm> CreateAsync(TEntity entity,bool saveNow = true)
+        public virtual async Task<CreateStatusvm> CreateAsync(TEntity entity, bool saveNow = true)
         {
             await _entity.AddAsync(entity);
-            if(saveNow)
+            if (saveNow)
                 await _uow.SaveChangesAsync(true);
-            return new CreateStatusvm() { CreateStatus = CreateStatus.Successfully,Message = Resource.Resource.AddSuccessfully,Valid = true,RetrunId = entity.Id };
+            return new CreateStatusvm() { CreateStatus = CreateStatus.Successfully, Message = Resource.Resource.AddSuccessfully, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual UpdateStatusvm Update(TEntity entity,bool saveNow = true)
+        public virtual UpdateStatusvm Update(TEntity entity, bool saveNow = true)
         {
             _entity.Update(entity);
-            if(saveNow)
+            if (saveNow)
                 _uow.SaveChanges(true);
-            return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully,Message = Resource.Resource.UpdateSuccess,Valid = true,RetrunId = entity.Id };
+            return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully, Message = Resource.Resource.UpdateSuccess, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual async Task<UpdateStatusvm> UpdateAsync(TEntity entity,bool saveNow = true)
+        public virtual async Task<UpdateStatusvm> UpdateAsync(TEntity entity, bool saveNow = true)
         {
             _entity.Update(entity);
-            if(saveNow)
+            if (saveNow)
                 await _uow.SaveChangesAsync(true);
-            return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully,Message = Resource.Resource.UpdateSuccess,Valid = true,RetrunId = entity.Id };
+            return new UpdateStatusvm() { UpdateStatus = UpdateStatus.Successfully, Message = Resource.Resource.UpdateSuccess, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual async Task<DeleteStatusvm> RemoveAsync(TEntity entity,bool saveNow = true)
+        public virtual async Task<DeleteStatusvm> RemoveAsync(TEntity entity, bool saveNow = true)
         {
             _entity.Remove(entity: entity);
-            if(saveNow)
+            if (saveNow)
                 await _uow.SaveChangesAsync(true);
-            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Message = Resource.Resource.RemoveSuccess,Valid = true,RetrunId = entity.Id };
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Message = Resource.Resource.RemoveSuccess, Valid = true, RetrunId = entity.Id };
         }
 
-        public virtual DeleteStatusvm Remove(TEntity entity,bool saveNow = true)
+        public virtual DeleteStatusvm Remove(TEntity entity, bool saveNow = true)
         {
             //var objectEntity = Get(entity.Id);
             //if (objectEntity is null) return new DeleteStatusvm() { DeleteStatus = DeleteStatus.NotExists, Valid = false, RetrunId = entity.Id };
             _entity.Remove(entity: entity);
-            if(saveNow)
+            if (saveNow)
                 _uow.SaveChanges(true);
-            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully,Message = Resource.Resource.RemoveSuccess,Valid = true,RetrunId = entity.Id };
+            return new DeleteStatusvm() { DeleteStatus = DeleteStatus.Successfully, Message = Resource.Resource.RemoveSuccess, Valid = true, RetrunId = entity.Id };
         }
 
         #endregion CUD

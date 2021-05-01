@@ -1,5 +1,6 @@
 ﻿using OnlineShop.Common.ViewModel;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +24,8 @@ namespace OnlineShop.DataLayer.Repository
         Task<TEntity> GetNoTrackingAsync(Guid id);
 
         //Task<TEntity> GetNoTrackingAsync(int code);
+
+        Task<CreateStatusvm> CreateRangeAsync(List<TEntity> entity, bool saveNow = true);
 
         CreateStatusvm Create(TEntity entity, bool saveNow = true);
 

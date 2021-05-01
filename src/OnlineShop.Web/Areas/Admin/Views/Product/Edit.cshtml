@@ -36,6 +36,17 @@
                 </div>
 
                 <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
+                    <CustomSelect asp-for="CategoryrId"
+                                  asp-expression="CategoryrId"
+                                  asp-optionLabel="@Resource.SelectedOneItem"
+                                  asp-currentValues="@Model.CategoryDropDown.CurrentValues"
+                                  asp-selectList="@Model.CategoryDropDown.SelectList"
+                                  asp-FormClass="@( Model.CategoryrId)"
+                                  asp-Class=" select2bs4 ">
+                    </CustomSelect>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-12  col-xl-4">
                     <CustomSelect asp-for="ProviderId"
                                   asp-expression="ProviderId"
                                   asp-optionLabel="@Resource.SelectedOneItem"
